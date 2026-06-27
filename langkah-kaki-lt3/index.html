@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Langkah Kaki di Lantai 3</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a1a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      padding: 30px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+    .header h1 {
+      font-size: 1.3em;
+      color: #8888cc;
+      letter-spacing: 1px;
+    }
+    .header .scene-counter {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 4px;
+    }
+    .scene-card {
+      background: linear-gradient(145deg, #12122a, #0e0e22);
+      border: 1px solid #2a2a4a;
+      border-radius: 16px;
+      padding: 35px 28px;
+      flex: 1;
+      animation: fadeSlideIn 0.6s ease-out;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .scene-title {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #ffcc66;
+      margin-bottom: 6px;
+    }
+    .scene-setting {
+      font-size: 0.88em;
+      color: #8888aa;
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #2a2a4a;
+      line-height: 1.5;
+    }
+    .scene-text {
+      font-size: 1.06em;
+      line-height: 1.75;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+    .scene-text p {
+      margin-bottom: 14px;
+    }
+    .divider {
+      text-align: center;
+      margin: 25px 0;
+      color: #555;
+      font-size: 1.3em;
+      letter-spacing: 8px;
+    }
+    .choices-label {
+      font-size: 0.9em;
+      color: #8888cc;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .choice-btn {
+      background: linear-gradient(135deg, #1a1a4a, #1a1a3a);
+      color: #fff;
+      border: 1px solid #3a3a6a;
+      padding: 16px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1em;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .choice-btn:hover {
+      background: linear-gradient(135deg, #2a2a6a, #2a2a5a);
+      border-color: #6a6aaa;
+      transform: translateX(6px);
+    }
+    .choice-btn:active {
+      transform: scale(0.98);
+    }
+    .choice-letter {
+      background: #3a3a6a;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85em;
+      flex-shrink: 0;
+    }
+    .restart-btn {
+      background: transparent;
+      color: #666;
+      border: 1px solid #333;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85em;
+      margin-top: 25px;
+      transition: all 0.3s;
+      text-align: center;
+      display: inline-block;
+      width: fit-content;
+    }
+    .restart-btn:hover {
+      color: #ffcc66;
+      border-color: #ffcc66;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8em;
+      color: #444;
+    }
+    .footer span {
+      color: #666;
+    }
+
+    /* BG particles effect */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .bg-orb-1 { width: 500px; height: 500px; background: #4444ff; top: -200px; left: -200px; }
+    .bg-orb-2 { width: 400px; height: 400px; background: #aa44ff; bottom: -150px; right: -150px; }
+    .bg-orb-3 { width: 300px; height: 300px; background: #ff6644; top: 50%; left: 50%; }
+
+    /* Twist flash */
+    .twist-flash {
+      animation: twistPulse 1.2s ease-in-out;
+    }
+    @keyframes twistPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 100, 50, 0.4); }
+      50% { box-shadow: 0 0 40px 15px rgba(255, 100, 50, 0.2); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 100, 50, 0); }
+    }
+    .twist-text {
+      color: #ff8844;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    @media (max-width: 500px) {
+      .container { padding: 15px 12px; }
+      .scene-card { padding: 22px 18px; }
+      .scene-title { font-size: 1.2em; }
+      .choice-btn { padding: 14px 18px; font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+
+  <div class="container" id="app">
+    <div class="header">
+      <h1>👣 Langkah Kaki di Lantai 3</h1>
+      <div class="scene-counter" id="sceneCounter">Scene 1 of 7</div>
+    </div>
+    <div class="scene-card" id="sceneCard">
+      <div id="sceneContent"></div>
+    </div>
+    <div style="display:flex; justify-content:center;">
+      <button class="restart-btn" onclick="goTo('scene1')">↺ Mulai dari Awal</button>
+    </div>
+    <div class="footer">
+      <span>🕵️ Cerita Interaktif — Karya Sari</span>
+    </div>
+  </div>
+
+  <script>
+    const story = {
+      scene1: {
+        number: 1,
+        title: "Beberes Ekskul",
+        setting: "SMP di Batam — aula lantai 1, jam 7 malam. Sepi. Gelap.",
+        text: `<p>Suasana setelah acara ekskul selesai. Meja dan kursi masih berantakan. Pika dan Chu jadi panitia, jadi mereka berdua yang beberes paling akhir.</p>
+        <p>"Lu beresin kursi, gue sapu," kata Pika sambil udah nyapu seenaknya.</p>
+        <p>Chu menggeleng. "Kalo nyapu lu kaya gitu, debunya malah ke mana-mana."</p>
+        <p>Tiba-tiba mereka berhenti.</p>
+        <p>Dari arah lantai 3 — yang udah dikunci sejak jam 5 — terdengar suara samar.</p>
+        <p><em>Kruk... kruk... kruk...</em></p>
+        <p>Suara langkah kaki.</p>
+        <p>"Chu... lo denger gak?" bisik Pika, matanya membelalak.</p>
+        <p>Chu diam. Mendengarkan. Jantungnya berdegup kencang.</p>
+        <p>"Gak mungkin... lantai 3 udah dikunci dari jam 5. Kita berdua di sini dari jam 4. Gak ada yang naik ke atas."</p>
+        <p>Mereka saling pandang. Udara terasa dingin mendadak.</p>`,
+        choices: [
+          { text: "Naik tangga utama — berani hadapi langsung", next: "scene2a", letter: "A" },
+          { text: "Naik tangga darurat — lewat jalur belakang yang lebih sepi", next: "scene2b", letter: "B" }
+        ]
+      },
+
+      scene2a: {
+        number: 2,
+        title: "Tangga Utama yang Gelap",
+        setting: "Tangga utama SMP — lorong depan yang gelap gulita. Lampu mati, cuma ada cahaya darurat hijau.",
+        text: `<p>"Lu serius naik tangga utama?" bisik Chu, tangannya udah megang handphone buat senter.</p>
+        <p>"Ya iyalah, masa kita lari kaya pengecut," jawab Pika, udah melangkah duluan. "Ini sekolah kita — berani dong!"</p>
+        <p>Langkah pertama Pika di anak tangga bikin suara <em>creek</em> panjang. Suara itu menggema di lorong kosong. Lampu darurat hijau bikin bayangan mereka keliatan seram di dinding.</p>
+        <p>Di pertengahan tangga, lampu tiba-tiba <strong>berkedip</strong>.</p>
+        <p><em>Kedip... mati... nyala... mati...</em></p>
+        <p>"PIKA, ITU LAMPU BERKEDIP!" bisik Chu panik, narik baju Pika.</p>
+        <p>"Ya gue liat, Chuuu! Santai!" Pika berhenti, dadanya naik turun. "Mungkin... kabelnya aja yang longgar."</p>
+        <p>Tapi mereka berdua tahu. Jam 7 malem, sekolah kosong, dan lampu yang mulai bermasalah... bukan pertanda bagus.</p>
+        <p>Di atas, suara langkah masih terdengar. Pelan. Beraturan.</p>`,
+        choices: [
+          { text: "Lanjut naik — gas aja, siap atau enggak", next: "scene3", letter: "A" },
+          { text: "Balik ambil senter dulu ke ruang ekskul", next: "scene3", letter: "B" }
+        ]
+      },
+
+      scene2b: {
+        number: 2,
+        title: "Tangga Darurat",
+        setting: "Tangga darurat di belakang sekolah — sempit, pengap, bau debu. Bekas cakaran di dinding.",
+        text: `<p>"Tangga darurat aja, biar kita bisa ngintip dulu dari samping," usul Chu.</p>
+        <p>Pika mengangguk. "Oke, lo yang lead."</p>
+        <p>Mereka melangkah ke lorong belakang. Udara di sini lebih dingin. Bau cat lama dan debu bercampur jadi satu. Tangga daruratnya sempit — cuma cukup buat satu orang.</p>
+        <p>"Chu... liat deh."</p>
+        <p>Pika menunjuk ke dinding. Ada <strong>bekas cakaran</strong> — garis-garis vertikal panjang, kayak kuku yang mencakar keras. Dalam banget sampai kelihatan lapisan semennya.</p>
+        <p>"Itu... cakaran kucing?" bisik Pika.</p>
+        <p>Chu mendekat. Matanya menyipit. "Ini bukan kucing, Pik. Cakaran kucing gak sedalem ini. Ini kayak..."</p>
+        <p>Chu gak bisa selesaiin kalimatnya. Suara langkah kaki di atas makin terdengar jelas. Sekarang mereka bisa dengar — itu suara sepatu. Bukan kaki kucing.</p>`,
+        choices: [
+          { text: "Ikuti bekas cakaran — cari tahu dari mana asalnya", next: "scene3", letter: "A" },
+          { text: "Abaikan, buru-buru naik — yang penting cari sumber suara", next: "scene3", letter: "B" }
+        ]
+      },
+
+      scene3: {
+        number: 3,
+        title: "Sampai di Lantai 3",
+        setting: "Lorong lantai 3 — gelap, sunyi, dingin. Hanya satu pintu setengah terbuka di ujung lorong.",
+        text: `<p>Akhirnya mereka sampai di lantai 3. Udara di sini beda — lebih dingin, lebih berat. Lorongnya panjang, dengan deretan kelas di kiri-kanan. Semua pintu terkunci. Cuma lampu darurat yang nyala, bikin bayangan mereka keliatan aneh di tembok.</p>
+        <p>Suara langkah kaki sekarang... jelas banget.</p>
+        <p><em>Kruk... kruk... kruk...</em></p>
+        <p>Dari ujung lorong. Tepatnya — dari <strong>gudang</strong> yang pintunya setengah terbuka.</p>
+        <p>"Ini... dari gudang," bisik Pika.</p>
+        <p>"Aku tahu," Chu pelan. "Tapi gudang itu cuma dipake nyimpen alat olahraga dan bangku bekas. Gak ada alasan buat orang ada di sana jam segini."</p>
+        <p>Pika merasakan bulu kuduknya berdiri.</p>
+        <p>"Chu... gue buka pintunya ya?"</p>
+        <p>"TUNGGU — "</p>
+        <p>Tapi Pika udah melangkah.</p>`,
+        choices: [
+          { text: "Langsung cek gudang — gas pol tanpa mikir", next: "scene4", letter: "A" },
+          { text: "Intip dari jendela dulu — lihat situasi dari luar", next: "scene4", letter: "B" }
+        ]
+      },
+
+      scene4: {
+        number: 4,
+        title: "Menuju Gudang",
+        setting: "Depan pintu gudang lantai 3 — pintu besi dengan tulisan 'GUDANG — SISWA DILARANG MASUK'.",
+        text: `<p>Mereka berdiri di depan pintu gudang. Jantung berdegup kencang.</p>
+        <p>Pintunya besi, agak berkarat di bagian engselnya. Dari celah pintu, mereka bisa dengar suara kayak... gerakan. Atau napas.</p>
+        <p>"Hei... ada yang denger suara napas?" bisik Pika.</p>
+        <p>Chu udah siapin handphone-nya. Pencetan tombol 1-1-2 di layar, siap dipencet kalo ada apa-apa.</p>
+        <p>"Ngomong-ngomong... lo sadar gak?" kata Chu pelan. "Suara langkahnya berhenti begitu kita sampe di depan pintu ini."</p>
+        <p>Pika berhenti. Dengerin. Chu bener. Suara langkah itu berhenti. Seperti... orang di dalemnya tahu mereka udah sampai di depan pintu.</p>
+        <p>"Mungkin kucing yang kejebak," bisik Pika, nyoba tenang.</p>
+        <p>"Kucing gak jalan pake sepatu, Pik."</p>
+        <p>Mereka saling pandang. Keringat dingin mulai nempel di leher.</p>`,
+        choices: [
+          { text: "Buka pintu gudang pelan-pelan — siap-siap kaget", next: "scene5", letter: "A" },
+          { text: "Panggil 'halo... ada orang?' dari luar", next: "scene5", letter: "B" }
+        ]
+      },
+
+      scene5: {
+        number: 5,
+        title: "Kucing Kepala Sekolah!",
+        setting: "Di dalam gudang lantai 3 — gelap, berantakan, bau debu dan kardus basi.",
+        text: `<p>Pintu gudang dibuka. Cahaya dari handphone Chu menerangi isi gudang.</p>
+        <p>Kardus. Meja bekas. Bangku olahraga. Tapi di sudut gudang... ada sepasang mata kecil yang bersinar.</p>
+        <p><strong>"MEONG!"</strong></p>
+        <p>Seekor kucing hitam melompat dari tumpukan kardus! Pika kaget setengah mati, hampir jatoh. Chu refleks melangkah mundur.</p>
+        <p>"YEEEEK, KUCING!" teriak Pika.</p>
+        <p>Itu kucing kepala sekolah — si Hitam. Pasti kejebak pas beberes tadi.</p>
+        <p>"Wah... jadi suara langkah kaki itu dia?" Pika tertawa lega.</p>
+        <p>Mereka buka pintu lebar-lebar biar si Hitam bisa kabur. Kucing itu lari keluar.</p>
+        <p>Pika napas lega. Chu udah mulai senyum.</p>
+        <p>Tapi pas mereka mau ninggalin gudang...</p>
+        <p><em>Kruk.</em></p>
+        <p>Mereka berhenti.</p>
+        <p><em>Kruk... kruk... kruk...</em></p>
+        <p><span class="twist-text">Suara langkah kaki. Lagi. DARI DALAM GUDANG — lebih dalem, lebih jelas.</span></p>
+        <p>Sebelah pojok sana — dari balik tumpukan kardus yang lebih besar.</p>
+        <p><strong>Masih ada sesuatu di dalam sana.</strong></p>`,
+        choices: [
+          { text: "Berani masuk lebih dalem — cari sumber suara yang asli", next: "scene6a", letter: "A" },
+          { text: "Lari cari satpam — minta bantuan, ini udah terlalu seram", next: "scene6b", letter: "B" }
+        ],
+        isTwist: true
+      },
+
+      scene6a: {
+        number: 6,
+        title: "Masuk Lebih Dalam",
+        setting: "Bagian belakang gudang — lebih gelap, bau besi dan tanah basah. Pintu lain tersembunyi.",
+        text: `<p>Pika dan Chu saling pandang. Suara langkah itu masih terdengar. Sekarang mereka tahu — itu bukan kucing.</p>
+        <p>Perlahan, mereka melangkah ke dalam. Nyisihin kardus-kardus bekas. Bau debu makin menyengat.</p>
+        <p>"Pik... lihat," bisik Chu, matanya membelalak.</p>
+        <p>Di balik tumpukan kardus, ada <strong>pintu kayu kecil</strong> — setengah tertutup lemari bekas. Dari celah pintu itu... suara langkah kaki terus terdengar.</p>
+        <p>"Ini pintu rahasia?" bisik Pika.</p>
+        <p>Chu mendekat. Dia nyalain senter dan baca tulisan di atasnya:</p>
+        <p><em>"LAB. RISET — AKSES TERBATAS"</em></p>
+        <p>Chu nahan napas. "Pik... sekolah kita punya lab riset?"</p>
+        <p>Pika geleng. "Gak, gue gak pernah denger."</p>
+        <p>Suara langkah dari dalam makin keras — seperti seseorang yang berjalan ke arah pintu.</p>
+        <p><strong>CREAK...</strong></p>
+        <p>Pintu kayu itu mulai terbuka. Perlahan.</p>`,
+        choices: [
+          { text: "Hadapin — buka pintu dan lihat apa yang di dalam", next: "scene7a", letter: "A" },
+          { text: "Totok Chu — ajak lari lewat jalur yang lebih aman", next: "scene7a", letter: "B" }
+        ]
+      },
+
+      scene6b: {
+        number: 6,
+        title: "Balik Panggil Satpam",
+        setting: "Pos satpam lantai 1 — penerangan temaram, segelas kopi, radio tua.",
+        text: `<p>"Gak banget, gue gak mau! LARI!" teriak Pika, udah narik tangan Chu.</p>
+        <p>Mereka berlari kencang lewat tangga darurat sampai nyaris jatoh.</p>
+        <p>Sesampainya di lantai 1, mereka langsung menuju pos satpam. Pak Hendra, satpam malam, lagi dengerin radio sambil ngopi.</p>
+        <p>"Woi, Pak! Ada APAAN di lantai 3!" Pika ngompol napas.</p>
+        <p>Pak Hendra menatap mereka dengan tenang. Perlahan dia matiin radio.</p>
+        <p>"Suara langkah kaki dari gudang!" timpal Chu. "Kami buka gudang, ada kucing — udah kami lepas. Tapi suaranya masih ada, Pak!"</p>
+        <p>Pak Hendra menghela napas panjang. Ada sesuatu di matanya.</p>
+        <p>"Gudang lantai 3... yang ada pintu belakangnya?"</p>
+        <p>Chu dan Pika saling pandang.</p>
+        <p>Pak Hendra berdiri, ngambil senter besar dari dinding.</p>
+        <p>"Duduk dulu, gue jelasin sesuatu. Ini... udah lama terjadi."</p>`,
+        choices: [
+          { text: "Duduk dan dengerin cerita Pak Hendra", next: "scene7b", letter: "A" },
+          { text: "\"Gak mau duduk! Antar kami ke kantor polisi!\"", next: "scene7b", letter: "B" }
+        ]
+      },
+
+      scene7a: {
+        number: 7,
+        title: "Rahasia di Balik Pintu",
+        setting: "Lab riset rahasia — ruangan bawah tanah kecil, monitor tua, radio antik yang menyala sendiri.",
+        text: `<p>Pika mendorong pintu.</p>
+        <p>Di dalamnya bukan ruangan besar — tapi <strong>turun lagi</strong> lewat tangga spiral kecil. Udara di sini dingin banget. Bau tanah dan besi.</p>
+        <p>Dan di dasar tangga... sebuah ruangan kecil. Monitor-monitor tua yang masih menyala. Kertas-kertas berserakan. Peta-peta kota Batam dari 20 tahun lalu.</p>
+        <p>Dan di sudut ruangan, di atas meja — <strong>sebuah radio antik</strong> yang menyala sendiri.</p>
+        <p>"<em>...dan dari dalam labirin lantai 3, suara-suara tak dikenal masih terdengar. Mereka yang kejebak di bawah tanah tidak akan pernah ditemukan...</em>"</p>
+        <p>Radio itu memutar suara — kayak rekaman lama.</p>
+        <p>"Chu... ini apaan?" bisik Pika.</p>
+        <p>Chu memunguti kertas-kertas di lantai. Matanya membelalak.</p>
+        <p>"Pik... ini <strong>jurnal kepala sekolah</strong> — yang lama. 20 tahun lalu, sekolah ini dibangun di atas... <strong>bekas bunker jaman kolonial</strong>. Ada ruang bawah tanah yang masih aktif."</p>
+        <p><em>Kruk... kruk... kruk...</em></p>
+        <p>Suara langkah kaki. Sekarang dari bawah lantai.</p>
+        <p>"Ada sesuatu di bawah sini..." bisik Chu. "Dan itu... masih bergerak."</p>
+        <p>Radio berhenti. Digantikan suara statis. Lalu — bisikan halus.</p>
+        <p>"<em>...tolong... aku masih di sini...</em>"</p>
+        <p>Pika dan Chu saling pandang. Tangan mereka gemetaran.</p>
+        <p style="text-align:center; margin-top:30px; color:#ff8844; font-size:1.2em; font-weight:700;">— AKHIR —</p>
+        <p style="text-align:center; color:#888;">Ada yang masih hidup di bawah sekolah. Dan mereka baru aja nemuin jalannya. 🎮 Petualangan baru dimulai...</p>`,
+        choices: [],
+        isEnding: true
+      },
+
+      scene7b: {
+        number: 7,
+        title: "Cerita Pak Hendra",
+        setting: "Pos satpam — malam yang dingin. Kopi. Radio mendesis.",
+        text: `<p>"Gue jaga sini udah 15 tahun," mulai Pak Hendra, nyeruput kopinya. "Dan selama 15 tahun itu... suara dari lantai 3 gak pernah berhenti."</p>
+        <p>Chu menelan ludah.</p>
+        <p>"Waktu sekolah ini baru dibangun, ada proyek renovasi. Mereka nemuin semacem <strong>ruang bawah tanah</strong> di bawah lantai 3 — gak ada di catatan pembangunan. Pintu masuknya tersembunyi di gudang."</p>
+        <p>"Terus?" desak Pika.</p>
+        <p>"Kepala sekolah lama — Pak Hartono — ngelarang siapa pun masuk ke ruangan itu. Katanya... berbahaya."</p>
+        <p>Pak Hendra menatap mereka dengan serius.</p>
+        <p>"Malam ini... kalian denger suaranya langsung. Artinya sesuatu di dalam ruangan itu masih aktif. Masih bergerak. Masih..."</p>
+        <p>Ia berhenti. Tatapannya kosong ke arah jendela gelap.</p>
+        <p>"...mencari jalan keluar."</p>
+        <p>Wajah Chu pucat. Pika menggenggam lengannya.</p>
+        <p>Pak Hendra meletakkan senternya di meja.</p>
+        <p>"Kita punya dua pilihan. Lapor polisi — mereka bakal nutup sekolah dan nyelidiki. Atau... kita buka ruangan itu sendiri — malam ini juga."</p>
+        <p style="text-align:center; margin-top:30px; color:#ff8844; font-size:1.2em; font-weight:700;">— AKHIR —</p>
+        <p style="text-align:center; color:#888;">Cerita berakhir di sini — lanjutan petualangan ada di imajinasi kamu! 🔥</p>`,
+        choices: [],
+        isEnding: true
+      }
+    };
+
+    function goTo(sceneId) {
+      const scene = story[sceneId];
+      if (!scene) return;
+
+      const container = document.getElementById('sceneContent');
+      const card = document.getElementById('sceneCard');
+
+      // Update counter
+      document.getElementById('sceneCounter').textContent = `Scene ${scene.number} of 7`;
+
+      // Flash effect for twist scenes
+      if (scene.isTwist) {
+        card.classList.add('twist-flash');
+        setTimeout(() => card.classList.remove('twist-flash'), 1200);
+      }
+
+      // Build HTML
+      let html = `<div class="scene-title">${scene.title}</div>`;
+      html += `<div class="scene-setting">📍 ${scene.setting}</div>`;
+      html += `<div class="scene-text">${scene.text}</div>`;
+
+      if (scene.choices && scene.choices.length > 0) {
+        html += `<div class="divider">— ◆ —</div>`;
+        html += `<div class="choices-label">📌 PILIHAN</div>`;
+        html += `<div class="choices">`;
+        scene.choices.forEach((choice, i) => {
+          const letters = ['A', 'B', 'C', 'D'];
+          const letter = choice.letter || letters[i];
+          html += `<button class="choice-btn" onclick="goTo('${choice.next}')">
+            <span class="choice-letter">${letter}</span>
+            <span>${choice.text}</span>
+          </button>`;
+        });
+        html += `</div>`;
+      } else if (scene.isEnding) {
+        html += `<div style="text-align:center; margin-top:20px;">
+          <button class="restart-btn" onclick="goTo('scene1')" style="color:#ffcc66; border-color:#ffcc66; padding:12px 30px; font-size:1em;">
+            🔄 Main Lagi
+          </button>
+        </div>`;
+      }
+
+      container.innerHTML = html;
+
+      // Re-trigger animation
+      card.style.animation = 'none';
+      void card.offsetHeight;
+      card.style.animation = 'fadeSlideIn 0.6s ease-out';
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Start the story!
+    goTo('scene1');
+  </script>
+</body>
+</html>
