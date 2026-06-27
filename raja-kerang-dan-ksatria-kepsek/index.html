@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raja Kerang dan Ksatria Kepsek</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #f0e6ff;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,200,100,0.2);
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-size: 1.5em;
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .progress {
+      font-size: 0.85em;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    /* Scene */
+    .scene {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .scene-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,200,100,0.15);
+      border-radius: 20px;
+      padding: 30px 25px;
+      flex: 1;
+    }
+    .scene-title {
+      font-size: 1.4em;
+      color: #ffd700;
+      margin-bottom: 5px;
+    }
+    .scene-meta {
+      font-size: 0.85em;
+      color: #b8a9d4;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .scene-meta span {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .scene-meta .label {
+      color: #8879b0;
+    }
+    .scene-text {
+      font-size: 1.05em;
+      line-height: 1.8;
+      color: #e8ddf5;
+      white-space: pre-wrap;
+      margin-bottom: 25px;
+    }
+    .scene-text em {
+      color: #ffd700;
+      font-style: normal;
+      font-weight: 600;
+    }
+    .badge-badend {
+      display: inline-block;
+      background: #ff3333;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    /* Choices */
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .choice-btn {
+      background: linear-gradient(135deg, rgba(255,200,100,0.12), rgba(255,200,100,0.05));
+      border: 1px solid rgba(255,200,100,0.25);
+      color: #fff;
+      padding: 16px 22px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 1em;
+      text-align: left;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: inherit;
+    }
+    .choice-btn:hover {
+      background: linear-gradient(135deg, rgba(255,200,100,0.25), rgba(255,200,100,0.1));
+      transform: translateX(6px);
+      border-color: #ffd700;
+      box-shadow: 0 0 25px rgba(255,200,100,0.15);
+    }
+    .choice-btn .label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffd700;
+      color: #1a1a2e;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.85em;
+      flex-shrink: 0;
+    }
+    .choice-btn .desc {
+      flex: 1;
+      line-height: 1.4;
+    }
+    .choice-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Bottom actions */
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .action-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ccc;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85em;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+    .action-btn:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 0 10px;
+      font-size: 0.75em;
+      color: #665;
+    }
+    .footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    /* Fade animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .container { padding: 12px; }
+      .scene-card { padding: 20px 16px; border-radius: 14px; }
+      .scene-title { font-size: 1.15em; }
+      .scene-text { font-size: 0.95em; }
+      .choice-btn { padding: 13px 16px; font-size: 0.9em; }
+      .choice-btn .label { width: 26px; height: 26px; font-size: 0.75em; }
+      .header h1 { font-size: 1.2em; }
+    }
+
+    /* Shell sparkle */
+    .sparkle { color: #ffd700; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>👑 Raja Kerang &amp; Ksatria Kepsek 🐚</h1>
+    <div class="progress" id="progress">Scene 1 dari 5</div>
+  </div>
+
+  <div class="scene fade-in" id="sceneContainer">
+    <!-- Dynamically rendered -->
+  </div>
+
+  <div class="actions">
+    <button class="action-btn" onclick="restart()">🔄 Mulai Awal</button>
+  </div>
+
+  <div class="footer">
+    Cerivitas CYOA Writer 🌟 | <a href="https://sarinursita.github.io/cerivitas-cyoastories/raja-kerang-dan-ksatria-kepsek/" target="_blank">Share</a>
+  </div>
+</div>
+
+<script>
+  const story = {
+    "scene-01": {
+      title: "Diusir dari Kelas",
+      setting: "🏫 Lorong sekolah, jam pelajaran",
+      characters: "👤 Doni",
+      text: `Doni ngeluh berat sambil keluar dari kelas. "Gila, cuma gara-gara gak bawa PR disuruh keluar. Dasar kejam." Tangan kirinya nyakar-nyakar bawa buku, tangan kanannya udah siap buka HP. Eh pas asik nge-scroll TikTok...
+
+Dari balik pintu ruang guru yang sedikit terbuka, Doni dengar suara familiar:
+
+<em>"YAH MAKASIH MAKASIH KIPPO..."</em>
+
+WAIT. Itu <b>Pak Burjo</b>! Kepala sekolah paling killer seantero sekolah. Tapi dia lagi... nonton drakor!? 😱`,
+      choices: [
+        { text: "Ikut nonton — penasaran, Pak Burjo nonton drakor apa", next: "scene-1-1" },
+        { text: "Mending ke kantin — gausah ikut campur, takut kena marah", next: "badend-01" }
+      ]
+    },
+
+    "scene-1-1": {
+      title: "Nonton Drakor Bareng",
+      setting: "🏫 Ruang guru — sepi, cuma ada Pak Burjo",
+      characters: "👤 Doni, 👔 Pak Burjo",
+      text: `Doni nyelip lewat pintu, duduk lesehan di samping Pak Burjo. Bukannya marah, Pak Burjo malah nyengir.
+
+"Lo tau drakor ini? Bagus banget, ini episode 12. Si perempuan baru tahu kalau cowoknya sebenarnya adalah alien yang jatuh cinta sama..."
+
+Mereka nonton berduaan, asik banget. Sampai tiba-tiba TV di pojok ruangan <b>kresek-kresek</b> — layarnya berkedip, muncul gambar aneh kayak pusaran. Suara berdengung rendah.
+
+"Wah, TV-nya rusak tuh. Doni, lo benerin!" perintah Pak Burjo tanpa ngalihin pandangan dari HP.`,
+      choices: [
+        { text: "Benerin TV — masa bodoh, kali aja bisa. Tinggal colok-colok kabel doang", next: "scene-02" },
+        { text: "Bilang gak bisa — ogah! Takut kesetrum, mending kabur", next: "badend-02" }
+      ]
+    },
+
+    "scene-02": {
+      title: "Selamat Datang di Kerajaan Kerang Ajaib!",
+      setting: "🐚 Kerajaan Kerang Ajaib — istana cangkang raksasa, langit ungu",
+      characters: "👤 Doni, 👔 Pak Burjo, 🦀 Rakyat Kerang",
+      text: `KABOOOOM! ⚡
+
+Doni dan Pak Burjo terlempar ke... tempat yang aneh banget. Di sekeliling mereka ada istana warna pink-keunguan dari kerang raksasa, lantainya mutiara, dan di langit ada dua matahari ungu!
+
+Seekor kepiting kecil pake dasi kuning jalan mendekat dan nunduk:
+
+<em>"Yang Mulia... Raja Kerang telah kembali! SAMBUT!"</em>
+
+Dalam sekejap, Doni udah pake jubah, mahkota kerang di kepala. Dan Pak Burjo? Dia pake baju besi dari sisik ikan emas, pedang kerang di pinggang!
+
+Pak Burjo ngaca. Dia mesem. "Gue... keren juga ya."
+
+"PAK BURJO INI BUKAN MAINAN!" teriak Doni panik.`,
+      choices: [
+        { text: "Kabur! — Cari jalan pulang, ini pasti mimpi buruk", next: "scene-03a" },
+        { text: "Liat-liat dulu — Istana kerang gede banget... penasaran", next: "scene-03b" }
+      ]
+    },
+
+    "scene-03a": {
+      title: "📝 Bersambung...",
+      setting: "❓ Masih dalam pengembangan",
+      characters: "👤 Doni, 👔 Pak Burjo",
+      text: `<em>Scene ini masih dalam pengembangan!</em>
+
+Doni dan Pak Burjo memutuskan kabur. Tapi ke mana? Di sekitar mereka hutan kerang raksasa yang berkilauan...
+
+<em>✏️ Kamu bisa tulis sendiri lanjutan ceritanya di file scene-03a.md!</em>
+🚀 Nanti tinggal bilang "deploy" lagi ke aku, dan ceritanya langsung LIVE!`,
+      choices: [
+        { text: "🔙 Kembali ke Scene sebelumnya", next: "scene-02" }
+      ]
+    },
+
+    "scene-03b": {
+      title: "📝 Bersambung...",
+      setting: "❓ Masih dalam pengembangan",
+      characters: "👤 Doni, 👔 Pak Burjo",
+      text: `<em>Scene ini masih dalam pengembangan!</em>
+
+Doni memutuskan liat-liat dulu. Istana kerang ini luar biasa — ada air mancur mutiara, karpet dari rumput laut, dan patung kerang raksasa...
+
+<em>✏️ Kamu bisa tulis sendiri lanjutan ceritanya di file scene-03b.md!</em>
+🚀 Nanti tinggal bilang "deploy" lagi ke aku, dan ceritanya langsung LIVE!`,
+      choices: [
+        { text: "🔙 Kembali ke Scene sebelumnya", next: "scene-02" }
+      ]
+    },
+
+    "badend-01": {
+      title: "Skors!",
+      badEnd: true,
+      setting: "🏫 Kantin sekolah",
+      characters: "👤 Doni, 👮 Pak Sule",
+      text: `<span class="badge-badend">❌ BAD END</span>
+
+Doni memutuskan gausah ikut campur. "Biarin aja Pak Burjo sama drakor-nya," gumamnya sambil jalan ke kantin.
+
+Tapi baru sampe kantin, siapa yang muncul? <b>Pak Sule, pengawas sekolah</b> yang super galak!
+
+"DONI! Jam pelajaran kok di kantin? Ikut saya ke ruang BP!"
+
+Besoknya... surat skorsing 3 hari nyampe di rumah. Nyokap marah besar. Bokap nyabutin kuota internet.
+
+Dan Doni gak pernah tahu kalau Pak Burjo sebenernya asik nonton drakor. KELAKAR! 😭`,
+      choices: [
+        { text: "🔄 Mulai dari awal", next: "__restart__" },
+        { text: "⬅️ Coba pilihan lain", next: "scene-01" }
+      ]
+    },
+
+    "badend-02": {
+      title: "Kesetrum!",
+      badEnd: true,
+      setting: "🏫 Ruang guru — TV rusak",
+      characters: "👤 Doni, 👔 Pak Burjo",
+      text: `<span class="badge-badend">❌ BAD END</span>
+
+"Gak mau! Saya gak bisa Pak, takut kesetrum!" teriak Doni sambil mundur.
+
+Pak Burjo menghela napas panjang. "Yasudah, lo keluar aja. Udah gausah ikut campur."
+
+Doni kabur ke kantin lagi. Dan lagi-lagi... <b>Pak Sule!</b> 😱
+
+"LAGI-LAGI KAMU, DONI!"
+
+Skors 5 hari + nyokap dipanggil. Sementara itu TV terus kresek-kresek sendirian... siapapun atau apapun yang ada di sisi lain, menunggu korban berikutnya. 👀`,
+      choices: [
+        { text: "🔄 Mulai dari awal", next: "__restart__" },
+        { text: "⬅️ Coba pilihan lain", next: "scene-01" }
+      ]
+    }
+  };
+
+  const sceneOrder = ["scene-01","scene-1-1","scene-02","scene-03a","scene-03b","badend-01","badend-02"];
+  const normalScenes = sceneOrder.filter(s => !s.startsWith("badend"));
+
+  function getSceneIndex(sceneId) {
+    const idx = sceneOrder.indexOf(sceneId);
+    return idx >= 0 ? idx + 1 : "?";
+  }
+
+  function getProgress(sceneId) {
+    const total = normalScenes.length;
+    const idx = normalScenes.indexOf(sceneId);
+    if (idx >= 0) return `Scene ${idx + 1} dari ${total}`;
+    return "Game Over";
+  }
+
+  function renderScene(sceneId) {
+    const data = story[sceneId];
+    if (!data) return;
+
+    const container = document.getElementById("sceneContainer");
+    container.classList.remove("fade-in");
+    void container.offsetWidth;
+
+    let choicesHtml = '';
+    if (data.choices && data.choices.length > 0) {
+      choicesHtml = '<div class="choices">';
+      const labels = ['A', 'B', 'C', 'D'];
+      data.choices.forEach((choice, i) => {
+        choicesHtml += `
+          <button class="choice-btn" onclick="goTo('${choice.next}')">
+            <span class="label">${labels[i] || (i+1)}</span>
+            <span class="desc">${choice.text}</span>
+          </button>
+        `;
+      });
+      choicesHtml += '</div>';
+    }
+
+    container.innerHTML = `
+      <div class="scene-card fade-in">
+        <div class="scene-title">${data.badEnd ? '💀 ' : ''}${data.title}</div>
+        <div class="scene-meta">
+          <span><span class="label">📍</span> ${data.setting}</span>
+          <span><span class="label">🎭</span> ${data.characters}</span>
+        </div>
+        <div class="scene-text">${data.text}</div>
+        ${choicesHtml}
+      </div>
+    `;
+
+    document.getElementById("progress").textContent = getProgress(sceneId);
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goTo(next) {
+    if (next === "__restart__") {
+      localStorage.removeItem("cyoa_current_scene");
+      renderScene("scene-01");
+      return;
+    }
+    localStorage.setItem("cyoa_current_scene", next);
+    renderScene(next);
+  }
+
+  function restart() {
+    if (confirm("Mulai cerita dari awal?")) {
+      goTo("__restart__");
+    }
+  }
+
+  // Restore saved scene or start fresh
+  (function init() {
+    const saved = localStorage.getItem("cyoa_current_scene");
+    if (saved && story[saved]) {
+      renderScene(saved);
+    } else {
+      renderScene("scene-01");
+    }
+  })();
+</script>
+</body>
+</html>
