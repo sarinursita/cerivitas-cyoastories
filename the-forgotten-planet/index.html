@@ -98,12 +98,15 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 const folderName = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'the-forgotten-planet';
 const RAW_BASE = 'https://raw.githubusercontent.com/sarinursita/cerivitas-cyoastories/main/';
 
-// Scene name → actual filename mapping
-const SCENE_MAP = {
-  'scene 1': 'scene-01', 'scene 2a': 'scene-02a', 'scene 2b': 'scene-02b',
-  'scene 3a': 'scene-03a', 'scene 3b': 'scene-03b', 'scene 4': 'scene-04',
-  'scene 5a': 'scene-05a', 'scene 5b': 'scene-05b', 'scene 5c': 'scene-05c'
-};
+// Convert choice label ("Scene 2A") → filename ("scene-02a")
+function sceneLabelToFilename(label) {
+  let name = label.toLowerCase().trim();
+  name = name.replace(/^scene\s+/, '');          // hapus "scene "
+  name = name.replace(/\s+/g, '-');              // spasi → -
+  name = name.replace(/^(\d)([a-z])$/i, '0$1$2'); // "2a" → "02a"
+  name = name.replace(/^(\d)$/, '0$1');           // "2" → "02"
+  return 'scene-' + name;
+}
 
 async function fetchMD(name) {
   const url = RAW_BASE + folderName + '/' + name;
@@ -176,7 +179,7 @@ async function loadScene(sceneFile) {
   while ((m = re.exec(choicesSection)) !== null) {
     const rawName = m[1].trim().toLowerCase();
     const text = stripBold(m[2]);
-    const mappedFile = SCENE_MAP[rawName] || rawName.replace(/[^a-z0-9]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
+    const mappedFile = sceneLabelToFilename(m[1].trim());
     choices.push({ file: mappedFile, text, label: m[1].trim() });
   }
 
