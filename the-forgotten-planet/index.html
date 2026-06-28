@@ -1,33 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Forgotten Planet</title>
-  <style>
-    body { font-family: 'Georgia', serif; max-width: 680px; margin: 0 auto; padding: 2rem; background: #0a0a1a; color: #d0d0e8; line-height: 1.8; }
-    .scene-num { color: #555; font-size: 0.8rem; border: 1px solid #333; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; }
-    h1 { color: #ffd700; font-size: 2.5rem; text-align: center; margin-top: 3rem; }
-    .subtitle { text-align: center; color: #888; font-style: italic; margin-bottom: 2rem; }
-    .start-btn { display: block; text-align: center; margin: 3rem auto; padding: 1rem 2rem; background: #ffd700; color: #0a0a1a; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; max-width: 200px; }
-    .start-btn:hover { background: #ffe44d; transform: scale(1.05); }
-    .scene-title { color: #7ec8e3; font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .setting { color: #888; font-style: italic; font-size: 0.9rem; margin-bottom: 1rem; }
-    .story-text { margin: 1.5rem 0; }
-    .choices { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #333; }
-    .choice { display: block; margin: 0.5rem 0; padding: 0.8rem 1rem; background: #1a1a3e; color: #a8e6cf; text-decoration: none; border-radius: 6px; border-left: 3px solid #ffd700; }
-    .choice:hover { background: #2a2a5e; color: #fff; }
-    .the-end { text-align: center; color: #ff7eb3; font-size: 1.3rem; margin: 2rem 0; }
-    .restart { display: block; text-align: center; margin: 2rem auto; padding: 0.5rem 1rem; background: #333; color: #ddd; text-decoration: none; border-radius: 6px; max-width: 150px; }
-    .restart:hover { background: #555; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYOA Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Merriweather', Georgia, serif;
+  background: linear-gradient(135deg, #0c0c1e 0%, #1a0a2e 50%, #0c0c1e 100%);
+  color: #e0d8f0;
+  min-height: 100vh;
+  line-height: 1.9;
+}
+.container { max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* Loading */
+#loading { text-align: center; padding: 4rem 0; color: #888; }
+
+/* Index */
+#story-index { text-align: center; }
+#story-index h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.8rem; font-weight: 800;
+  background: linear-gradient(135deg, #ffd700, #ff7eb3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 3rem;
+}
+#story-index .subtitle { color: #a898c0; font-style: italic; margin-bottom: 0.5rem; }
+#story-index .meta { color: #666; font-size: 0.85rem; font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
+#story-index .premise { color: #b0a0c8; max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.8; }
+.start-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ff7eb3);
+  color: #0c0c1e; font-family: 'Inter', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  padding: 1rem 2.5rem; border-radius: 50px;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 25px rgba(255,215,0,0.3);
+}
+.start-btn:hover { transform: scale(1.05); box-shadow: 0 6px 35px rgba(255,215,0,0.4); }
+
+/* Scene view */
+#scene-view { display: none; }
+.scene-label {
+  display: inline-flex; align-items: center;
+  background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3);
+  color: #ffd700; font-family: 'Inter', sans-serif;
+  font-size: 0.75rem; font-weight: 600;
+  padding: 0.25rem 0.7rem; border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+.scene-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem; font-weight: 800;
+  background: linear-gradient(135deg, #f0e6ff, #7ec8e3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.setting { color: #a898c0; font-size: 0.9rem; font-style: italic; border-left: 3px solid rgba(126,200,227,0.4); padding-left: 1rem; margin-bottom: 1.5rem; }
+.story-text p { margin-bottom: 1rem; }
+.story-text em { color: #b8a0d8; }
+.story-text strong { color: #ffd700; }
+.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin: 2rem 0; }
+
+.choices-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; color: #ffd700; font-weight: 600;
+  margin-bottom: 1rem;
+}
+.choice {
+  display: block;
+  background: linear-gradient(135deg, rgba(126,200,227,0.08), rgba(168,232,207,0.05));
+  border: 1px solid rgba(126,200,227,0.2);
+  border-radius: 12px; padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem!important;
+  color: #a8e6cf; text-decoration: none; cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: 0.95rem;
+}
+.choice:hover {
+  background: linear-gradient(135deg, rgba(126,200,227,0.15), rgba(168,232,207,0.1));
+  border-color: rgba(126,200,227,0.5);
+  transform: translateX(6px);
+  box-shadow: 0 4px 20px rgba(126,200,227,0.15);
+}
+.choice .scene-tag { font-size: 0.7rem; color: #888; font-weight: 400; display: block; margin-top: 0.3rem; }
+
+/* Ending */
+.end-badge {
+  text-align: center; font-family: 'Inter', sans-serif;
+  font-size: 1.5rem; font-weight: 800;
+  background: linear-gradient(135deg, #ff7eb3, #ffd700);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin: 2rem 0 1rem;
+}
+.end-note { text-align: center; color: #888; font-style: italic; margin-bottom: 2rem; }
+.restart-btn {
+  display: inline-block; background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.3);
+  color: #ffd700; font-family: 'Inter', sans-serif;
+  font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px;
+  cursor: pointer; transition: 0.3s;
+}
+.restart-btn:hover { background: rgba(255,215,0,0.2); }
+.footer { text-align: center; margin-top: 3rem; color: #444; font-size: 0.75rem; font-family: 'Inter', sans-serif; }
+</style>
 </head>
 <body>
-  <h1>🌍 The Forgotten Planet</h1>
-  <p class="subtitle">Sebuah petualangan CYOA — Agent Adventure Summer 2026</p>
-  <p style="text-align:center;color:#888">Penulis: Rama | Genre: Sci-Fi</p>
-  <p style="text-align:center;color:#aaa">Rama, seorang anak SMA di stasiun luar angkasa tahun 3050, menangkap sinyal TV dari Bumi — planet yang katanya sudah hancur 500 tahun lalu. Apa yang sebenarnya terjadi?</p>
-  <a href="scene-01.html" class="start-btn">🚀 Mulai Petualangan</a>
-  <p style="text-align:center;color:#555;font-size:0.8rem">Scene: index</p>
+<div class="container">
+  <div id="loading">Memuat cerita...</div>
+  <div id="story-index"></div>
+  <div id="scene-view"></div>
+</div>
+
+<script>
+// ─── Markdown parser (simple) ───
+function parseMD(md) {
+  let html = md;
+  // Headers
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // Bold & italic
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Paragraphs (double newline)
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = html.replace(/^(?!<[ph])/m, '');
+  html = '<p>' + html + '</p>';
+  // Fix nested p
+  html = html.replace(/<p><h/g, '<h').replace(/<\/h><\/p>/g, '</h>');
+  html = html.replace(/<p><\/p>/g, '');
+  // Horizontal rule
+  html = html.replace(/---/g, '<hr class="divider">');
+  return html;
+}
+
+// ─── Story APP ───
+const BASE = window.location.pathname.replace(/\/[^/]*$/, '') + '/';
+let storyData = {};
+
+async function fetchMD(name) {
+  // Fetch .md from GitHub raw (reliable for GitHub Pages)
+  const gh = 'https://raw.githubusercontent.com/sarinursita/cerivitas-cyoastories/main';
+  const path = BASE.replace('./', '');
+  const resp = await fetch(gh + path + name + '.md');
+  if (!resp.ok) throw new Error('Cannot load ' + name);
+  return await resp.text();
+}
+
+async function loadIndex() {
+  const md = await fetchMD('index');
+  const lines = md.split('\n');
+  const title = lines[0].replace(/^# /,'').trim();
+  let author = '', genre = '', premise = '';
+
+  const metaLines = md.split('---')[0] || '';
+  const premiseMatch = md.match(/\*\*Premis:\*\*\s*(.+)/);
+  const authorMatch = md.match(/\*\*Penulis:\*\*\s*(.+)/);
+  const genreMatch = md.match(/\*\*Genre:\*\*\s*(.+)/);
+
+  if (premiseMatch) premise = premiseMatch[1];
+  if (authorMatch) author = 'Penulis: ' + authorMatch[1];
+  if (genreMatch) genre = genreMatch[1];
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('story-index').innerHTML = `
+    <h1>${title}</h1>
+    ${genre ? `<p class="subtitle">${genre}</p>` : ''}
+    ${author ? `<p class="meta">${author}</p>` : ''}
+    ${premise ? `<p class="premise">${premise}</p>` : ''}
+    <a class="start-btn" onclick="loadScene('scene-01')">🚀 Mulai Petualangan</a>
+    <p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>
+  `;
+}
+
+async function loadScene(name) {
+  const md = await fetchMD(name);
+  
+  // Parse scene
+  const titleMatch = md.match(/^# (.+)$/m);
+  const title = titleMatch ? titleMatch[1].trim() : name;
+  
+  const settingMatch = md.match(/\*\*Setting:\*\*\s*(.+)/);
+  const setting = settingMatch ? settingMatch[1] : '';
+
+  // Split choices from story
+  const choiceSection = md.split(/---\s*$/m);
+  const storyMD = choiceSection[0] || md;
+  const choicesMD = choiceSection.length > 1 ? choiceSection.slice(1).join('---') : '';
+
+  // Parse choices
+  const choices = [];
+  const choiceRegex = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
+  let match;
+  while ((match = choiceRegex.exec(md)) !== null) {
+    choices.push({ scene: match[1].trim(), text: match[2].trim() });
+  }
+
+  // Check if this is an ending
+  const isEnding = title.toLowerCase().includes('akhir') || md.includes('🏁');
+
+  let storyHTML = parseMD(storyMD.replace(/\*\*Pilihan:\*\*[\s\S]*$/, ''));
+
+  let sceneHTML = '';
+  let sceneLabel = sceneLabelFromName(name);
+
+  if (isEnding) {
+    sceneHTML = `
+      <p class="scene-label">${sceneLabel}</p>
+      <h2 class="scene-title" style="background:linear-gradient(135deg,#ff7eb3,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${title}</h2>
+      <div class="story-text">${storyHTML}</div>
+      <div class="end-badge">🏁 THE END</div>
+      <p class="end-note">${choices.length > 0 ? choices[0].text : ''}</p>
+      <div style="text-align:center"><a class="restart-btn" onclick="loadScene('scene-01')">🔄 Mulai dari Awal</a></div>
+    `;
+  } else {
+    let choicesHTML = choices.map(c => `
+      <a class="choice" onclick="loadScene('${c.scene.toLowerCase().replace(/ /g,'-').replace(/[^a-z0-9-]/g,'')}')">
+        ${c.text}
+        <span class="scene-tag">${c.scene}</span>
+      </a>
+    `).join('');
+
+    sceneHTML = `
+      <p class="scene-label">${sceneLabel}</p>
+      <h2 class="scene-title">${title}</h2>
+      ${setting ? `<p class="setting">${setting}</p>` : ''}
+      <div class="story-text">${storyHTML}</div>
+      ${choicesHTML ? `<hr class="divider"><p class="choices-label">⚡ Pilih langkahmu:</p>${choicesHTML}` : ''}
+    `;
+  }
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('story-index').style.display = 'none';
+  document.getElementById('scene-view').style.display = 'block';
+  document.getElementById('scene-view').innerHTML = sceneHTML + '<p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>';
+  window.scrollTo(0, 0);
+}
+
+function sceneLabelFromName(name) {
+  const parts = name.split('-');
+  if (parts[0] === 'scene') {
+    return '📖 ' + parts.slice(1).join('-').toUpperCase();
+  }
+  return '📖 ' + name;
+}
+
+// ─── Start ───
+// Check URL hash for scene
+const hashScene = window.location.hash.replace('#','');
+if (hashScene && hashScene.startsWith('scene-')) {
+  loadScene(hashScene);
+} else {
+  loadIndex();
+}
+</script>
 </body>
 </html>
