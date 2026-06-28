@@ -11,104 +11,64 @@
 body {
   font-family: 'Merriweather', Georgia, serif;
   background: linear-gradient(135deg, #0c0c1e 0%, #1a0a2e 50%, #0c0c1e 100%);
-  color: #e0d8f0;
-  min-height: 100vh;
-  line-height: 1.9;
+  color: #e0d8f0; min-height: 100vh; line-height: 1.9;
 }
 .container { max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-
-/* Loading */
 #loading { text-align: center; padding: 4rem 0; color: #888; }
-
-/* Index */
 #story-index { text-align: center; }
 #story-index h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 2.8rem; font-weight: 800;
+  font-family: 'Inter', sans-serif; font-size: 2.8rem; font-weight: 800;
   background: linear-gradient(135deg, #ffd700, #ff7eb3);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-top: 3rem;
+  background-clip: text; margin-top: 3rem;
 }
-#story-index .subtitle { color: #a898c0; font-style: italic; margin-bottom: 0.5rem; }
-#story-index .meta { color: #666; font-size: 0.85rem; font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
-#story-index .premise { color: #b0a0c8; max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.8; }
+.subtitle { color: #a898c0; font-style: italic; margin-bottom: 0.5rem; }
+.meta { color: #666; font-size: 0.85rem; font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
+.premise { color: #b0a0c8; max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.8; }
 .start-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #ffd700, #ff7eb3);
+  display: inline-block; background: linear-gradient(135deg, #ffd700, #ff7eb3);
   color: #0c0c1e; font-family: 'Inter', sans-serif;
-  font-weight: 700; font-size: 1.1rem;
-  padding: 1rem 2.5rem; border-radius: 50px;
-  text-decoration: none; cursor: pointer;
-  transition: all 0.3s;
+  font-weight: 700; font-size: 1.1rem; padding: 1rem 2.5rem; border-radius: 50px;
+  text-decoration: none; cursor: pointer; transition: 0.3s;
   box-shadow: 0 4px 25px rgba(255,215,0,0.3);
 }
 .start-btn:hover { transform: scale(1.05); box-shadow: 0 6px 35px rgba(255,215,0,0.4); }
-
-/* Scene view */
-#scene-view { display: none; }
 .scene-label {
-  display: inline-flex; align-items: center;
+  display: inline-flex;
   background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3);
   color: #ffd700; font-family: 'Inter', sans-serif;
   font-size: 0.75rem; font-weight: 600;
-  padding: 0.25rem 0.7rem; border-radius: 20px;
-  margin-bottom: 1.5rem;
+  padding: 0.25rem 0.7rem; border-radius: 20px; margin-bottom: 1.5rem;
 }
 .scene-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.8rem; font-weight: 800;
+  font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 800;
   background: linear-gradient(135deg, #f0e6ff, #7ec8e3);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
+  background-clip: text; margin-bottom: 0.5rem;
 }
 .setting { color: #a898c0; font-size: 0.9rem; font-style: italic; border-left: 3px solid rgba(126,200,227,0.4); padding-left: 1rem; margin-bottom: 1.5rem; }
 .story-text p { margin-bottom: 1rem; }
 .story-text em { color: #b8a0d8; }
 .story-text strong { color: #ffd700; }
-.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin: 2rem 0; }
-
-.choices-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; color: #ffd700; font-weight: 600;
-  margin-bottom: 1rem;
-}
+hr.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin: 2rem 0; }
+.choices-label { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #ffd700; font-weight: 600; margin-bottom: 1rem; }
 .choice {
   display: block;
   background: linear-gradient(135deg, rgba(126,200,227,0.08), rgba(168,232,207,0.05));
-  border: 1px solid rgba(126,200,227,0.2);
-  border-radius: 12px; padding: 1rem 1.2rem;
-  margin-bottom: 0.8rem!important;
-  color: #a8e6cf; text-decoration: none; cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif; font-weight: 600;
-  font-size: 0.95rem;
+  border: 1px solid rgba(126,200,227,0.2); border-radius: 12px;
+  padding: 1rem 1.2rem; margin-bottom: 0.8rem; color: #a8e6cf;
+  text-decoration: none; cursor: pointer; transition: 0.3s;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
 }
 .choice:hover {
   background: linear-gradient(135deg, rgba(126,200,227,0.15), rgba(168,232,207,0.1));
-  border-color: rgba(126,200,227,0.5);
-  transform: translateX(6px);
+  border-color: rgba(126,200,227,0.5); transform: translateX(6px);
   box-shadow: 0 4px 20px rgba(126,200,227,0.15);
 }
 .choice .scene-tag { font-size: 0.7rem; color: #888; font-weight: 400; display: block; margin-top: 0.3rem; }
-
-/* Ending */
-.end-badge {
-  text-align: center; font-family: 'Inter', sans-serif;
-  font-size: 1.5rem; font-weight: 800;
-  background: linear-gradient(135deg, #ff7eb3, #ffd700);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; margin: 2rem 0 1rem;
-}
+.end-badge { text-align: center; font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ff7eb3, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 2rem 0 1rem; }
 .end-note { text-align: center; color: #888; font-style: italic; margin-bottom: 2rem; }
-.restart-btn {
-  display: inline-block; background: rgba(255,215,0,0.1);
-  border: 1px solid rgba(255,215,0,0.3);
-  color: #ffd700; font-family: 'Inter', sans-serif;
-  font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px;
-  cursor: pointer; transition: 0.3s;
-}
+.restart-btn { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: #ffd700; font-family: 'Inter', sans-serif; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
 .restart-btn:hover { background: rgba(255,215,0,0.2); }
 .footer { text-align: center; margin-top: 3rem; color: #444; font-size: 0.75rem; font-family: 'Inter', sans-serif; }
 </style>
@@ -121,146 +81,158 @@ body {
 </div>
 
 <script>
-// ─── Markdown parser (simple) ───
-function parseMD(md) {
-  let html = md;
-  // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-  // Bold & italic
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Paragraphs (double newline)
-  html = html.replace(/\n\n/g, '</p><p>');
-  html = html.replace(/^(?!<[ph])/m, '');
-  html = '<p>' + html + '</p>';
-  // Fix nested p
-  html = html.replace(/<p><h/g, '<h').replace(/<\/h><\/p>/g, '</h>');
-  html = html.replace(/<p><\/p>/g, '');
-  // Horizontal rule
-  html = html.replace(/---/g, '<hr class="divider">');
-  return html;
-}
-
-// ─── Story APP ───
-// ─── Get story folder name from URL ───
+// ─── Config ───
 const folderName = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'the-forgotten-planet';
-const GIT_REPO = 'sarinursita/cerivitas-cyoastories';
-const RAW_BASE = 'https://raw.githubusercontent.com/' + GIT_REPO + '/main/';
+const RAW_BASE = 'https://raw.githubusercontent.com/sarinursita/cerivitas-cyoastories/main/';
 
-let storyData = {};
+// ─── Scene name mapping ───
+// Markdown scene names → actual .md filenames
+const SCENE_MAP = {
+  'scene 1': 'scene-01', 'scene 2a': 'scene-02a', 'scene 2b': 'scene-02b',
+  'scene 3a': 'scene-03a', 'scene 3b': 'scene-03b', 'scene 4': 'scene-04',
+  'scene 5a': 'scene-05a', 'scene 5b': 'scene-05b', 'scene 5c': 'scene-05c'
+};
 
+// ─── Fetch ───
 async function fetchMD(name) {
-  const url = RAW_BASE + folderName + '/' + name + '.md';
+  const url = RAW_BASE + folderName + '/' + name;
   const resp = await fetch(url);
-  if (!resp.ok) throw new Error('Cannot load ' + name);
+  if (!resp.ok) throw new Error('Cannot load ' + url);
   return await resp.text();
 }
 
+// ─── Parse markdown to HTML (simple) ───
+function mdToHTML(text) {
+  let html = text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Wrap in paragraphs
+  const parts = html.split(/\n\n+/);
+  return parts.map(p => {
+    p = p.trim();
+    if (!p || p.startsWith('<h') || p.startsWith('<hr')) return p;
+    return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+  }).join('\n');
+}
+
+// ─── Load Index ───
 async function loadIndex() {
-  const md = await fetchMD('index');
+  const md = await fetchMD('index.md');
   const lines = md.split('\n');
-  const title = lines[0].replace(/^# /,'').trim();
-  let author = '', genre = '', premise = '';
-
-  const metaLines = md.split('---')[0] || '';
-  const premiseMatch = md.match(/\*\*Premis:\*\*\s*(.+)/);
-  const authorMatch = md.match(/\*\*Penulis:\*\*\s*(.+)/);
-  const genreMatch = md.match(/\*\*Genre:\*\*\s*(.+)/);
-
-  if (premiseMatch) premise = premiseMatch[1];
-  if (authorMatch) author = 'Penulis: ' + authorMatch[1];
-  if (genreMatch) genre = genreMatch[1];
+  const title = (lines[0]||'').replace(/^#\s*/,'');
+  const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
+  const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
+  const premise = (md.match(/\*\*Premis:\*\*\s*(.+)/)||[])[1] || '';
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('story-index').innerHTML = `
     <h1>${title}</h1>
     ${genre ? `<p class="subtitle">${genre}</p>` : ''}
-    ${author ? `<p class="meta">${author}</p>` : ''}
+    ${author ? `<p class="meta">Penulis: ${author}</p>` : ''}
     ${premise ? `<p class="premise">${premise}</p>` : ''}
     <a class="start-btn" onclick="loadScene('scene-01')">🚀 Mulai Petualangan</a>
-    <p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>
-  `;
+    <p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>`;
 }
 
-async function loadScene(name) {
-  const md = await fetchMD(name);
-  
-  // Parse scene
-  const titleMatch = md.match(/^# (.+)$/m);
-  const title = titleMatch ? titleMatch[1].trim() : name;
-  
-  const settingMatch = md.match(/\*\*Setting:\*\*\s*(.+)/);
-  const setting = settingMatch ? settingMatch[1] : '';
+// ─── Load Scene ───
+async function loadScene(sceneFile) {
+  const md = await fetchMD(sceneFile + '.md');
 
-  // Split choices from story
-  const choiceSection = md.split(/---\s*$/m);
-  const storyMD = choiceSection[0] || md;
-  const choicesMD = choiceSection.length > 1 ? choiceSection.slice(1).join('---') : '';
+  // Extract scene number and title from # heading
+  const titleLine = md.match(/^# (.+)$/m);
+  const title = titleLine ? titleLine[1].trim() : sceneFile;
 
-  // Parse choices
-  const choices = [];
-  const choiceRegex = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
-  let match;
-  while ((match = choiceRegex.exec(md)) !== null) {
-    choices.push({ scene: match[1].trim(), text: match[2].trim() });
+  // Extract setting
+  const settingLines = [];
+  const settingMatch = md.match(/\*\*Setting:\*\*\s*(.+?)(?:\n|$)/);
+  if (settingMatch) settingLines.push(settingMatch[1]);
+  const charMatch = md.match(/\*\*Karakter:\*\*\s*(.+?)(?:\n|$)/);
+  if (charMatch) settingLines.push(charMatch[1]);
+
+  // Split by --- to get: [metadata section, story section, choices section]
+  const sections = md.split(/^---\s*$/m);
+  // section[0] = metadata (title + setting)
+  // section[1] = story text
+  // section[2] = choices
+
+  let storyMD = '';
+  let choicesSection = '';
+
+  if (sections.length >= 2) {
+    storyMD = sections[1] || '';
+  }
+  if (sections.length >= 3) {
+    choicesSection = sections[2] || '';
   }
 
-  // Check if this is an ending
+  // If no --- split properly, use last part as story
+  if (!storyMD) {
+    const parts = md.split('\n\n');
+    storyMD = parts.slice(1).join('\n\n');
+  }
+
+  // Remove "**Pilihan:**" from choices section
+  choicesSection = choicesSection.replace(/\*\*Pilihan:\*\*/g, '').trim();
+
+  // Parse choices: - [Scene X]: choice text
+  const choices = [];
+  const choiceRe = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
+  let m;
+  while ((m = choiceRe.exec(choicesSection)) !== null) {
+    const sceneName = m[1].trim().toLowerCase();
+    // Map "Scene 2A" → "scene-02a"
+    const mappedFile = SCENE_MAP[sceneName] || sceneName.replace(/[^a-z0-9]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
+    choices.push({ file: mappedFile, text: m[2].trim(), label: m[1].trim() });
+  }
+
+  // Check if ending
   const isEnding = title.toLowerCase().includes('akhir') || md.includes('🏁');
 
-  let storyHTML = parseMD(storyMD.replace(/\*\*Pilihan:\*\*[\s\S]*$/, ''));
-
-  let sceneHTML = '';
-  let sceneLabel = sceneLabelFromName(name);
-
-  if (isEnding) {
-    sceneHTML = `
-      <p class="scene-label">${sceneLabel}</p>
-      <h2 class="scene-title" style="background:linear-gradient(135deg,#ff7eb3,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${title}</h2>
-      <div class="story-text">${storyHTML}</div>
-      <div class="end-badge">🏁 THE END</div>
-      <p class="end-note">${choices.length > 0 ? choices[0].text : ''}</p>
-      <div style="text-align:center"><a class="restart-btn" onclick="loadScene('scene-01')">🔄 Mulai dari Awal</a></div>
-    `;
-  } else {
-    let choicesHTML = choices.map(c => `
-      <a class="choice" onclick="loadScene('${c.scene.toLowerCase().replace(/ /g,'-').replace(/[^a-z0-9-]/g,'')}')">
-        ${c.text}
-        <span class="scene-tag">${c.scene}</span>
-      </a>
-    `).join('');
-
-    sceneHTML = `
-      <p class="scene-label">${sceneLabel}</p>
-      <h2 class="scene-title">${title}</h2>
-      ${setting ? `<p class="setting">${setting}</p>` : ''}
-      <div class="story-text">${storyHTML}</div>
-      ${choicesHTML ? `<hr class="divider"><p class="choices-label">⚡ Pilih langkahmu:</p>${choicesHTML}` : ''}
-    `;
-  }
-
+  // Show
+  const sceneNum = sceneFile.replace('scene-', '').toUpperCase();
   document.getElementById('loading').style.display = 'none';
   document.getElementById('story-index').style.display = 'none';
   document.getElementById('scene-view').style.display = 'block';
-  document.getElementById('scene-view').innerHTML = sceneHTML + '<p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>';
+
+  let html = `<p class="scene-label">📖 ${sceneNum}</p>`;
+
+  if (isEnding) {
+    html += `
+      <h2 class="scene-title" style="background:linear-gradient(135deg,#ff7eb3,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${title}</h2>
+      <div class="story-text">${mdToHTML(storyMD)}</div>
+      <div class="end-badge">🏁 THE END</div>
+      ${choices.length ? `<p class="end-note">${choices[0].text}</p>` : ''}
+      <div style="text-align:center;margin-top:2rem"><a class="restart-btn" onclick="loadScene('scene-01')">🔄 Mulai dari Awal</a></div>`;
+  } else {
+    html += `
+      <h2 class="scene-title">${title}</h2>
+      ${settingLines.length ? `<p class="setting">${settingLines.join('<br>')}</p>` : ''}
+      <div class="story-text">${mdToHTML(storyMD)}</div>`;
+
+    if (choices.length) {
+      html += `<hr class="divider"><p class="choices-label">⚡ Pilih langkahmu:</p>`;
+      choices.forEach(c => {
+        html += `<a class="choice" onclick="loadScene('${c.file}')">
+          ${c.text}
+          <span class="scene-tag">${c.label}</span>
+        </a>`;
+      });
+    }
+  }
+
+  html += '<p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>';
+  document.getElementById('scene-view').innerHTML = html;
   window.scrollTo(0, 0);
 }
 
-function sceneLabelFromName(name) {
-  const parts = name.split('-');
-  if (parts[0] === 'scene') {
-    return '📖 ' + parts.slice(1).join('-').toUpperCase();
-  }
-  return '📖 ' + name;
-}
-
 // ─── Start ───
-// Check URL hash for scene
-const hashScene = window.location.hash.replace('#','');
-if (hashScene && hashScene.startsWith('scene-')) {
-  loadScene(hashScene);
+const hash = window.location.hash.replace('#','');
+if (hash && hash.startsWith('scene-')) {
+  loadScene(hash);
 } else {
   loadIndex();
 }
