@@ -277,7 +277,7 @@
       document.getElementById("progress").textContent = "✦ ENDING ✦";
 
       if (ending === "hali") {
-        el.innerHTML = \`
+        el.innerHTML = `
           <div class="fade-in">
             <div class="ending-badge ending-hali">❤️ Ending: Hali</div>
             <div class="scene-title">Hanya Satu</div>
@@ -296,9 +296,9 @@
             </div>
             <button class="restart-btn" onclick="restart()">🔄 Main Lagi</button>
           </div>
-        \`;
+        `;
       } else {
-        el.innerHTML = \`
+        el.innerHTML = `
           <div class="fade-in">
             <div class="ending-badge ending-kaizo">🧡 Ending: Kaizo</div>
             <div class="scene-title">Hanya Satu</div>
@@ -321,7 +321,7 @@
             </div>
             <button class="restart-btn" onclick="restart()">🔄 Main Lagi</button>
           </div>
-        \`;
+        `;
       }
       return;
     }
@@ -334,21 +334,21 @@
     if (scene.choices) {
       choicesHtml = '<div class="choices">';
       for (let c of scene.choices) {
-        choicesHtml += \`<button class="choice-btn" onclick="choose('\${c.next}', '\${c.path}')">\${c.text}</button>\`;
+        choicesHtml += `<button class="choice-btn" onclick="choose('${c.next}', '${c.path}')">${c.text}</button>`;
       }
       choicesHtml += "</div>";
     }
 
-    const textHtml = scene.text.split("\\n\\n").map(p => \`<p>\${p.replace(/\\n/g, "<br>")}</p>\`).join("");
+    const textHtml = scene.text.split("\n\n").map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
 
-    el.innerHTML = \`
+    el.innerHTML = `
       <div class="fade-in">
-        <div class="scene-title">\${scene.title}</div>
-        <div class="scene-meta">\${scene.meta}</div>
-        <div class="scene-text">\${textHtml}</div>
-        \${choicesHtml}
+        <div class="scene-title">${scene.title}</div>
+        <div class="scene-meta">${scene.meta}</div>
+        <div class="scene-text">${textHtml}</div>
+        ${choicesHtml}
       </div>
-    \`;
+    `;
   }
 
   function choose(nextScene, path) {
