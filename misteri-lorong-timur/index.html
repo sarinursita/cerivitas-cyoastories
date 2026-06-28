@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
 <title>Misteri Lorong Timur</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -617,8 +618,11 @@ function goTo(sceneId) {
     }
     
     // Add restart button
-    endingHtml += '<button class="restart-btn" onclick="goTo('01')">🔄 Main Lagi dari Awal</button>';
-    endingSection.innerHTML = endingHtml;
+    const rstBtn = document.createElement('button');
+    rstBtn.className = 'restart-btn';
+    rstBtn.textContent = '🔄 Main Lagi dari Awal';
+    rstBtn.onclick = function() { goTo('01'); };
+    endingSection.appendChild(rstBtn);
   } else {
     choicesLabel.style.display = 'block';
   }
