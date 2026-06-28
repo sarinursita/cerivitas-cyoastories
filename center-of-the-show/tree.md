@@ -15,13 +15,13 @@ Scene 3 — 🔍 Sena mulai investigasi
 
 Scene 4 — 🎪 Temuin petunjuk soal sirkus & hantu
   ├─ A: Ikutin petunjuk ke lokasi → Scene 5
-  └─ B: Takut, balik ke kamar → Scene 5 (ending beda)
+  └─ B: Takut, balik ke kamar → Scene 5 (sampai juga)
 
 Scene 5 — TWIST! 🎭 Sena ketemu hantu sirkus!
-  ├─ A: Lawan / bertahan → Scene 6 (Ending A)
-  └─ B: Kabur → Scene 6 (Ending B)
+  ├─ A: Lawan → Scene 6 — Ending A (Lolos biasa)
+  └─ B: Kabur → Scene 6 — Ending B (Kejebak dulu, lalu lolos)
 
-Scene 6 — ENDING
-  🎪 Ending A: Sena berhasil lolos
-  🎭 Ending B: Sena jadi bagian dari pertunjukan sirkus
+Scene 6 — ENDING (Dua-duanya lolos!)
+  🎪 Ending A: Sena melawan, berhasil kabur. Tapi mereka masih mengamati.
+  🎭 Ending B: Sena kejebak jadi pertunjukan, tapi lolos saat badai.
 ```

@@ -1,33 +1,53 @@
 # Scene 6: AKHIR
 
-## Ending A — Lolos
+## Ending A — Lawan & Lolos
 
-**Setting:** Circus Nocturne — chaos
+**Setting:** Circus Nocturne — tenda gelap
 
-"TIDAK!" teriakku, berlari ke arah tirai belakang. Hantu-hantu itu meluncur ke arahku, senyum mereka melebar — tapi aku lebih cepat. Atau mungkin... mereka membiarkanku lari?
+"TIDAK!" teriakku. Aku tidak akan menjadi pertunjukan mereka.
 
-Aku menerobos keluar. Udara segar menyambutku. Aku berlari tanpa menoleh sampai kakiku lemas. Di kejauhan, tenda hitam itu mulai menghilang — ditelan kabut.
+Dengan sisa keberanian yang kupunya, aku meraih kursi kayu terdekat dan menghantamkannya ke arah bayangan terdekat. Tubuh mereka seperti asap — tapi mereka MEMANTUL, terdorong ke belakang.
 
-Keesokan harinya, aku bangun di kamarku. Semua terasa seperti mimpi buruk. Tapi di meja belajarku... ada brosur Circus Nocturne dengan catatan baru: *"Sampai jumpa di pertunjukan berikutnya, Sena. Kami akan mengamati."*
+"Berani sekali," desis mereka. Tapi nada suaranya bukan marah... mereka TERKESAN.
 
-**🎪 SELESAI — Atau begitu kira? Hantu sirkus masih mengamati...**
+Aku berlari. Tenda belakang robek oleh sebuah lampu panggung yang kujatuhkan. Cahaya terang menyinari lorong belakang — dan hantu-hantu itu menjerit, menjauh dari sorot lampu!
+
+Mereka benci cahaya.
+
+Aku menerobos keluar ke udara segar. Samar-samar kudengar suara mereka dari dalam: *"Sampai jumpa... penonton yang menarik..."*
+
+Aku berlari sampai subuh. Pulang. Selamat.
+
+Tapi di tasku... ada brosur Circus Nocturne yang tidak pernah kumasukkan.
+
+**🎪 ENDING A — Lolos. Tapi mereka masih mengamati...** 👁️
 
 [RESTART]
 
 ---
 
-## Ending B — Terjebak
+## Ending B — Kejebak... Lalu Lolos
 
 **Setting:** Circus Nocturne — panggung
 
-Kakiku tidak bisa bergerak. Atau mungkin otakku sudah mati rasa karena ketakutan. Hantu-hantu itu melingkarku, senyum mereka bersinar di kegelapan.
+Aku mencoba lari. Tapi bayangan-bayangan itu terlalu cepat. Tubuhku terangkat — bukan oleh tangan, tapi oleh sesuatu yang tidak terlihat. Aku terlempar ke atas panggung.
 
-"Hari ini," bisik mereka, "kau adalah BINTANGNYA."
+Sorot lampu menyinari wajahku.
 
-Lampu sorot menyala tepat di wajahku. Tenda tiba-tiba penuh oleh penonton — bayangan-bayangan di bangku, bertepuk tangan tanpa suara. Aku berdiri di panggung. Tubuhku bergerak sendiri, dipaksa menari pertunjukan untuk mereka.
+"PERTUNJUKAN DIMULAI!" teriak mereka.
 
-Kali ini... pertunjukannya tidak akan pernah berakhir.
+Aku dipaksa bergerak. Menari. Melompat. Seperti boneka tali. Penonton bayangan bersorak tanpa suara. Aku menangis. Aku teriak. Tapi tidak ada yang berhenti.
 
-**🎭 SELESAI — Sena menjadi bagian dari Circus Nocturne selamanya.**
+Hari berganti... aku tidak tahu berapa lama.
+
+Tapi suatu malam, ketika lampu panggung mati karena badai — aku melihat celah. Kabel longgar di belakang tirai. Dalam hitungan detik, aku menyambar kabel itu dan menyambar tiang lampu hingga roboh. LED terang meledak — cahaya putih memenuhi tenda!
+
+Hantu-hantu itu menjerit, melebur ke bayangan.
+
+Aku lari. Kaki masih lemas, tapi aku tidak berhenti sampai matahari terbit.
+
+Di rumah, aku melihat diriku di cermin. Di leherku, ada jejak tangan hitam — bekas pertunjukan. Aku hidup. Tapi aku tidak akan pernah benar-benar melupakan Circus Nocturne.
+
+**🎭 ENDING B — Terjebak sebentar, tapi lolos dengan luka yang tidak terlihat.**
 
 [RESTART]

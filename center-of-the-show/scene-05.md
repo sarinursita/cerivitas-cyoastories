@@ -21,3 +21,5 @@ Satu dari mereka melangkah maju, tubuh bayangannya menjulang di atasku. "Di sini
 **Pilihan:**
 - [Scene 6] ⚔️ **Lawan!** — aku tidak akan menjadi pertunjukan mereka, cari jalan keluar!
 - [Scene 6] 🏃 **Lari!** — semua ini terlalu nyata, aku harus keluar dari sini!
+
+*Kedua pilihan berakhir di Scene 6 — tapi ending-nya beda tergantung pilihanmu!*
