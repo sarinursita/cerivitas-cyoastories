@@ -144,14 +144,16 @@ function parseMD(md) {
 }
 
 // ─── Story APP ───
-const BASE = window.location.pathname.replace(/\/[^/]*$/, '') + '/';
+// ─── Get story folder name from URL ───
+const folderName = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'the-forgotten-planet';
+const GIT_REPO = 'sarinursita/cerivitas-cyoastories';
+const RAW_BASE = 'https://raw.githubusercontent.com/' + GIT_REPO + '/main/';
+
 let storyData = {};
 
 async function fetchMD(name) {
-  // Fetch .md from GitHub raw (reliable for GitHub Pages)
-  const gh = 'https://raw.githubusercontent.com/sarinursita/cerivitas-cyoastories/main';
-  const path = BASE.replace('./', '');
-  const resp = await fetch(gh + path + name + '.md');
+  const url = RAW_BASE + folderName + '/' + name + '.md';
+  const resp = await fetch(url);
   if (!resp.ok) throw new Error('Cannot load ' + name);
   return await resp.text();
 }
