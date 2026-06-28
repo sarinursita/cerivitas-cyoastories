@@ -1,34 +1,111 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Adventure — Writing Workshop ✍️</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; max-width: 720px; margin: 0 auto; padding: 2rem; background: #1a0a2e; color: #e8d5ff; }
-    h1 { color: #ff7eb3; border-bottom: 2px solid #ff7eb3; padding-bottom: 0.5rem; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 0.5rem 0; }
-    a { color: #a8e6cf; text-decoration: none; display: block; padding: 0.8rem; background: #2a1555; border-radius: 8px; transition: 0.2s; }
-    a:hover { background: #3a2070; color: #fff; transform: translateX(4px); }
-    .count { color: #888; font-size: 0.9rem; margin-top: -0.5rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYOA Stories — Agent Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c1e; --card-bg: #1a1a3e; --text: #e0d8f0;
+  --accent1: #ffd700; --accent2: #ff7eb3; --accent3: #7ec8e3;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--bg) 0%, #1a0a2e 50%, var(--bg) 100%);
+  color: var(--text); min-height: 100vh;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+h1 {
+  font-size: 2.5rem; font-weight: 800; text-align: center;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 0.5rem;
+}
+.subtitle { text-align: center; color: #888; margin-bottom: 2rem; font-size: 0.9rem; }
+.story-grid { display: flex; flex-direction: column; gap: 0.8rem; }
+.story-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px; padding: 1rem 1.2rem;
+  text-decoration: none; color: var(--text); transition: 0.3s;
+  cursor: pointer;
+}
+.story-card:hover {
+  border-color: var(--accent3); transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(126,200,227,0.1);
+}
+.story-icon { font-size: 1.5rem; }
+.story-info { flex: 1; }
+.story-title { font-weight: 700; font-size: 1rem; }
+.story-author { color: #888; font-size: 0.8rem; }
+.story-genre {
+  display: inline-block; font-size: 0.7rem;
+  background: rgba(126,200,227,0.1); color: var(--accent3);
+  padding: 0.15rem 0.5rem; border-radius: 10px;
+  margin-top: 0.2rem;
+}
+#loading { text-align: center; padding: 4rem 0; color: #888; }
+.footer { text-align: center; margin-top: 3rem; color: #444; font-size: 0.75rem; }
+</style>
 </head>
 <body>
-  <h1>✍️ Agent Adventure — Writing Workshop</h1>
-  <p class="count">10 cerita CYOA buatan peserta ✨</p>
-  <ul>
-    <li><a href="buku-mantra-hilang/">📖 Buku Mantra Hilang</a></li>
-    <li><a href="center-of-the-show/">🎪 Center of the Show</a></li>
-    <li><a href="langkah-kaki-lt3/">👣 Langkah Kaki lt.3</a></li>
-    <li><a href="loker-nomor-7/">🔐 Loker Nomor 7</a></li>
-    <li><a href="misteri-kue-hilang/">🍪 Misteri Kue Hilang</a></li>
-    <li><a href="misteri-lorong-timur/">🚪 Misteri Lorong Timur</a></li>
-    <li><a href="raja-kerang-dan-ksatria-kepsek/">🐚 Raja Kerang & Ksatria Kepsek</a></li>
-    <li><a href="rina-cookies/">🧁 Rina Cookies</a></li>
-    <li><a href="shinoa-only-one/">⭐ Shinoa Only One</a></li>
-    <li><a href="the-forgotten-planet/">🌍 The Forgotten Planet</a></li>
-  </ul>
-  <p style="color:#888;font-size:0.8rem;margin-top:2rem">Agent Adventure Summer 2026 — Cerivitas</p>
+<div class="container">
+  <h1>📖 CYOA Stories</h1>
+  <p class="subtitle">Agent Adventure Summer 2026 — Cerivitas</p>
+  <div id="loading">Memuat daftar cerita...</div>
+  <div id="story-list" class="story-grid"></div>
+  <p class="footer">Pilih cerita, lalu baca & mainkan! ✨</p>
+</div>
+<script>
+const GIT_REPO = 'sarinursita/cerivitas-cyoastories';
+const RAW = 'https://raw.githubusercontent.com/' + GIT_REPO + '/main/';
+const API = 'https://api.github.com/repos/' + GIT_REPO + '/contents/';
+
+async function loadPlaylist() {
+  const resp = await fetch(API);
+  const items = await resp.json();
+  const folders = items.filter(i => i.type === 'dir' && i.name !== '.github');
+
+  const list = document.getElementById('story-list');
+  list.innerHTML = '';
+
+  for (const folder of folders) {
+    try {
+      const mdResp = await fetch(RAW + folder.name + '/index.md');
+      const md = await mdResp.text();
+      const title = (md.match(/^# (.+)$/m)||[])[1] || folder.name;
+      const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
+      const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
+
+      const icons = {'sci-fi':'🚀','mystery':'🔍','fantasy':'🧙','horror':'👻','adventure':'🏔️','romance':'💕','comedy':'😄'};
+      const icon = icons[(genre||'').toLowerCase()] || '📖';
+
+      const card = document.createElement('a');
+      card.className = 'story-card';
+      card.href = 'player.html?story=' + folder.name;
+      card.innerHTML = `
+        <div class="story-icon">${icon}</div>
+        <div class="story-info">
+          <div class="story-title">${title}</div>
+          ${author ? `<div class="story-author">oleh ${author}</div>` : ''}
+          ${genre ? `<div class="story-genre">${genre}</div>` : ''}
+        </div>
+        <div style="color:#555">→</div>
+      `;
+      list.appendChild(card);
+    } catch(e) {
+      // skip folders without index.md
+    }
+  }
+  document.getElementById('loading').style.display = 'none';
+  if (list.children.length === 0) {
+    list.innerHTML = '<p style="text-align:center;color:#888">Belum ada cerita 🥲</p>';
+  }
+}
+loadPlaylist();
+</script>
 </body>
 </html>
