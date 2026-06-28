@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Forgotten Planet</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a1a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      background: linear-gradient(145deg, #0d0d24, #111130);
+      border: 1px solid #2a2a5a;
+      border-radius: 20px;
+      padding: 40px 30px;
+      min-height: 400px;
+      position: relative;
+      box-shadow: 0 0 60px rgba(80, 60, 200, 0.15);
+    }
+    .scene-counter {
+      font-size: 0.8rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .scene-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .scene-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .scene-text p { margin-bottom: 16px; }
+    .scene-text strong { color: #fbbf24; }
+    .scene-text em { color: #94a3b8; font-style: italic; }
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .choice-btn {
+      background: linear-gradient(135deg, #1a1a4a, #222266);
+      color: #e0e0ff;
+      border: 1px solid #3a3a7a;
+      padding: 18px 24px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      text-align: left;
+      font-family: inherit;
+      line-height: 1.4;
+    }
+    .choice-btn:hover {
+      background: linear-gradient(135deg, #2a2a6a, #3a3a8a);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(100, 80, 255, 0.25);
+      border-color: #5a5aaa;
+    }
+    .choice-btn:active { transform: translateY(0); }
+    .ending-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .restart-btn {
+      background: transparent;
+      color: #60a5fa;
+      border: 1px solid #3a3a7a;
+      padding: 12px 28px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 25px;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+    .restart-btn:hover {
+      background: rgba(96, 165, 250, 0.1);
+      border-color: #60a5fa;
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .title-screen {
+      text-align: center;
+      padding: 40px 0;
+    }
+    .title-screen h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .title-screen .subtitle {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    .title-screen .premis {
+      color: #bbb;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      padding: 0 20px;
+    }
+    .title-screen .start-btn {
+      background: linear-gradient(135deg, #7c3aed, #3b82f6);
+      color: #fff;
+      border: none;
+      padding: 18px 50px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 600;
+      font-family: inherit;
+    }
+    .title-screen .start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 40px rgba(124, 58, 237, 0.4);
+    }
+    .credit {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+      font-size: 0.85rem;
+    }
+    .credit a { color: #666; text-decoration: none; }
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #1a1a3a;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7c3aed, #3b82f6, #34d399);
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+    @media (max-width: 500px) {
+      .container { padding: 25px 18px; }
+      .scene-title { font-size: 1.4rem; }
+      .scene-text { font-size: 1rem; }
+      .title-screen h1 { font-size: 1.8rem; }
+      .choice-btn { padding: 14px 18px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="app">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div id="content" class="fade-in"></div>
+</div>
+
+<div class="credit">
+  Cerita oleh <strong>Rama</strong> — Agent Adventure Summer 2026 🚀
+</div>
+
+<script>
+// ===== STORY DATA =====
+const story = {};
+
+const narratives = {};
+
+story["scene-01"] = {
+  title: "Sinyal Misterius",
+  text: `<p>Malam itu, Rama lagi jaga di ruang kendali stasiun. Di depannya, puluhan layar memantau data luar angkasa. Bosan. Sepi. Tiba-tiba...</p><p><em>Krrrssshhh...</em></p><p>Salah satu layar berkedip. Sebuah sinyal muncul. Bukan sinyal biasa — ini sinyal TELEVISI. Rama hampir jatuh dari kursi.</p><p>"Gila..." bisiknya.</p><p>Di layar itu, terlihat acara sinetron Indonesia. Tapi itu mustahil. Sepanjang hidupnya, Rama diajarin: <strong>Bumi udah hancur. Kita satu-satunya manusia yang tersisa.</strong></p><p>Tapi sinetron itu tetep jalan. Tayangan berwarna. Dengan suara. Jelas banget.</p>`,
+  choices: [
+    { text: "Langsung lapor ke Komandan. Ini terlalu gede buat ditangani sendiri.", next: "scene-02a" },
+    { text: "Selidiki sendiri dulu. Siapa tau Komandan malah marah.", next: "scene-02b" }
+  ]
+};
+
+story["scene-02a"] = {
+  title: "Lapor Komandan",
+  text: `<p>"Komandan! Aku... aku nemu sinyal aneh," kata Rama napasnya tersengal.</p><p>Komandan Voss menatapnya tajam. "Sinyal apa?"</p><p>Rama menunjukkan rekaman sinetron itu. Komandan diam. Wajahnya berubah. Bukan terkejut — tapi seperti TAHU sesuatu.</p><p>"Bumi sudah hancur 500 tahun lalu, Rama," katanya pelan. "Itu pasti sinyal sisa. Atau gangguan."</p><p>Tapi nadanya... gak meyakinkan.</p><p>"Pokoknya, besok kamu ikut misi inspeksi ke planet Xylos. Ada anomali di sana. Mungkin itu sumber sinyalnya. Siap-siap."</p><p>Rama pergi dengan seribu pertanyaan di kepala. Kenapa Komandan kelihatan takut? Dan kenapa tiba-tiba dikirim ke Xylos?</p>`,
+  choices: [
+    { text: "Siap-siap dan berangkat ke Xylos. Misi inspeksi.", next: "scene-03a" }
+  ]
+};
+
+story["scene-02b"] = {
+  title: "Arsip Rahasia",
+  text: `<p>Rama nyusup ke ruang server. Sepatu ketsnya menimbulkan gema di lorong sepi. Ia tahu tempat ini — bekas pusat data stasiun, gak pernah dipake lagi.</p><p>Atau... itu yang semua orang kira.</p><p>Di ujung lorong, satu komputer MENYALA. Layarnya biru. Satu folder terbuka:</p><p><strong>"PROJECT MIRROR EARTH — KLASIFIKASI TINGKAT TERTINGGI"</strong></p><p>Rama nahan napas. Ia klik foldernya. Isinya bikin dia melongo...</p><p><em>Planet Xylos bukan planet biasa. Ini planet KEMBARAN Bumi. Sama persis. Atmosfer, gravitasi, bahkan kehidupan. Dan yang lebih gila — keduanya sinkron. Apa yang terjadi di Bumi, terjadi juga di Xylos.</em></p><p>Tapi catatan berhenti di tahun 2500. Tertulis: <strong>"Bumi telah runtuh. Xylos diperkirakan menyusul dalam 500 tahun."</strong></p><p>Rama menghitung. Tahun 3050. 500 tahun.</p><p>Xylos bakal hancur. KAPAN SAJA.</p>`,
+  choices: [
+    { text: "Cari orang yang tau lebih banyak tentang proyek ini.", next: "scene-03b" }
+  ]
+};
+
+story["scene-03a"] = {
+  title: "Mendarat di Xylos",
+  text: `<p>Pesawat mendarat dengan mulus. Rama turun, deg-degan. Ini pertama kalinya ia ke planet lain. Ekspektasinya: tanah merah, langit ungu, makhluk aneh.</p><p>Yang ia lihat: <strong>POHON. RUMPUT. UDARA SEGAR.</strong></p><p>"Ini... Bumi?" gumamnya.</p><p>Ia jalan. Nemuin bangunan. Mirip bangunan tua di Bumi — rumah-rumah, toko, bahkan halte bus. Tapi kosong. Sepi. Udara terasa... sakit. Tanaman mulai layu. Ada retakan di tanah.</p><p>Rama merasakan ada yang gak beres. Planet ini persis Bumi. Tapi sekarat.</p><p>Lalu ia lihat sesuatu di kejauhan. Sebuah papan nama stasiun kereta. Bertuliskan: <strong>"JAKARTA — 5 KM"</strong></p><p>Rama jatuh terduduk. Ini bukan planet alien. Ini Bumi KEDUA.</p>`,
+  choices: [
+    { text: "Cari pusat data Xylos — cari tahu kebenaran soal Mirror Earth.", next: "scene-04" }
+  ]
+};
+
+story["scene-03b"] = {
+  title: "Agen Misterius",
+  text: `<p>"Kamu baca file-nya, ya?" suara itu muncul dari kegelapan.</p><p>Rama kaget. Seorang wanita dengan rambut perak panjang berdiri di sana, tersenyum tipis. Wajahnya udah tua, tapi matanya tajam. Ia memegang datapad usang.</p><p>"Siapa kamu?" tanya Rama waspada.</p><p>"Aku ilmuwan Project Mirror Earth. Yang asli. Bukan sejarah versi resmi."</p><p>Wanita itu mendekat. "Dengar, Nak. Bumi dan Xylos terikat. Sinkron sempurna. Bumi hancur — Xylos ikut sekarat. Dan karena kamu dan koloni di sini... kalian yang kena dampaknya."</p><p>Rama terdiam. "Jadi... gak ada yang bisa diselamatin?"</p><p>Wanita itu tersenyum sedih. "Ada. Tapi butuh keberanian besar. Kamu harus ke Xylos. Dan kamu harus ngeliat sendiri."</p>`,
+  choices: [
+    { text: "Pergi ke Xylos — lihat sendiri sisa-sisa Mirror Earth.", next: "scene-04" }
+  ]
+};
+
+story["scene-04"] = {
+  title: "TWIST — Mirror Earth Terungkap!",
+  text: `<p>Rama berdiri di tengah ruangan. Layar raksasa di depannya menampilkan dua planet — Bumi dan Xylos — saling terhubung oleh garis energi. Data terus bergerak:</p><p><strong>BUMI:</strong> Hancur. Tidak ada kehidupan.<br><strong>XYLOS:</strong> Sekarat. Diperkirakan kolaps dalam 10 tahun.</p><p>Tapi di pojok layar, ada data aneh. Sebuah sinyal dari sumber yang sama. Sinyal yang terus dikirim ke... koloni stasiun. <strong>DENGAN SENGAJA.</strong></p><p>"Jadi sinyal TV itu... sengaja dikirim?" bisik Rama.</p><p>Dia scroll lebih dalam. Dan ia nemu kebenaran yang bikin darahnya berhenti mengalir:</p><p><em>Project Mirror Earth dibuat oleh ilmuwan Bumi tahun 2400. Mereka tau Bumi mau runtuh. Jadi mereka bikin planet bayangan — Xylos. Koloni stasiun dikirim ke orbit Xylos dengan alasan "evakuasi". Tapi misi rahasianya: Biarkan Bumi hancur, pelajari efeknya dari Xylos, lalu PAKSA Xylos jadi Bumi baru.</em></p><p>Tapi perhitungan mereka meleset. Xylos bukan planet baru. Xylos adalah CERMIN. Apa yang terjadi di Bumi, terjadi di Xylos. Dan sekarang, dengan Bumi yang udah rata... Xylos perlahan ikut mati.</p><p><strong>Rama nahan napas. Mereka semua — seluruh koloni — hidup di planet PINJAMAN yang sebentar lagi lenyap karena kesalahan manusia zaman dulu.</strong></p>`,
+  choices: [
+    { text: "Tetap di koloni. Cari cara bertahan hidup.", next: "scene-05a" },
+    { text: "Cari jalan ke Bumi. Mungkin Bumi udah mulai pulih?", next: "scene-05b" },
+    { text: "Peringatin semua orang. Bocorin semuanya.", next: "scene-05c" }
+  ]
+};
+
+story["scene-05a"] = {
+  title: "Akhir — Bertahan di Koloni",
+  text: `<p>Rama memutuskan pulang. Ia duduk di ruang kendali, menatap layar yang dulu nunjukin sinyal sinetron. Kini hanya statis.</p><p>Ia tau Xylos bakal hancur. Tapi mungkin — MUNGKIN — koloni stasiun bisa selamat kalo mereka bersiap dari sekarang. Xylos mati, ya udah. Mereka tinggal di stasiun. Mereka terbiasa.</p><p>Rama buka logbook dan mulai nulis. Semua yang ia temuin. Semua rahasia Mirror Earth. Biar besok generasi berikutnya gak ngulangin kesalahan yang sama.</p><p>Di luar jendela, Xylos berkilau biru. Cantik. Tapi sekarat.</p><p>Rama tersenyum pahit. "Forgotten Planet... sekarang lo gak akan dilupain lagi."</p>`,
+  isEnd: true,
+  endingName: "THE END"
+};
+
+story["scene-05b"] = {
+  title: "Akhir — Mencari Bumi",
+  text: `<p>Rama naik pesawat dan setting koordinat. Tujuan: <strong>Bumi.</strong> Tempat yang gak pernah ia injak. Tempat yang cuma ada di buku sejarah.</p><p>Perjalanan memakan waktu 3 hari.</p><p>Begitu sistem Bumi muncul di layar, Rama hampir gak percaya. Planet biru itu MASIH ADA. Gak hancur sepenuhnya. Tapi berubah — gersang, berdebu, atmosfer tipis.</p><p>Tapi... ada titik hijau. Di Amerika Selatan. Hutan mulai tumbuh lagi.</p><p>Rama mendaratkan pesawat di dekat titik hijau itu. Begitu pintu terbuka, ia hirup udara Bumi. Berat. Tapi BISA DIHIRUP.</p><p>"Gila..." bisiknya. "Planet yang dilupain... ternyata masih mau ngasih kita kesempatan kedua."</p><p>Rama ngambil tanah Bumi di tangannya. Ia pulang. Bukan ke koloni stasiun — tapi ke rumah yang sebenernya.</p>`,
+  isEnd: true,
+  endingName: "THE END — Pulang pada akhirnya"
+};
+
+story["scene-05c"] = {
+  title: "Akhir — Truth Bombs",
+  text: `<p>Rama berdiri di panggung. Ia minta Komandan Voss kumpulin semua orang. Gak ada yg tau kenapa.</p><p>"Selama ini kita dikasih tau Bumi udah hancur," Rama mulai. Suaranya lantang. "Dan kita satu-satunya yg tersisa."</p><p>Semua angguk.</p><p>"ITU BOHONG."</p><p>Ruangan langsung riuh. Komandan Voss melotot. Tapi Rama gak berhenti.</p><p>"Planet Xylos itu Mirror Earth. Kembaran Bumi. Yang hancur itu BUMI — tapi kita kena dampaknya juga. Dan sinyal TV yg kutangkap itu... sengaja dikirim. Sama Project Mirror Earth."</p><p>Orang-orang mulai gempar. Ada yang marah. Ada yang takut. Ada yang nangis.</p><p>Tapi satu hal yang berubah: <strong>GAK ADA LAGI RAHASIA.</strong></p><p>Komandan Voss menunduk. "Kau benar," bisiknya. "Maaf. Kita semua cuma takut."</p><p>Rama menghela napas. "Gak apa. Sekarang kita tau. Dan mulai sekarang, kita cari jalan keluar. BERSAMA."</p>`,
+  isEnd: true,
+  endingName: "THE END — Kebenaran membebaskan"
+};
+
+// ===== GAME ENGINE =====
+const totalScenes = Object.keys(story).length;
+const sceneOrder = ["scene-01","scene-02a","scene-02b","scene-03a","scene-03b","scene-04","scene-05a","scene-05b","scene-05c"];
+
+function getProgress(sceneId) {
+  const idx = sceneOrder.indexOf(sceneId);
+  return Math.round(((idx + 1) / totalScenes) * 100);
+}
+
+function showTitle() {
+  document.getElementById("content").innerHTML = `
+    <div class="title-screen fade-in">
+      <h1>🌌 The Forgotten Planet</h1>
+      <div class="subtitle">🖊️ oleh Rama — Agent Adventure Summer 2026</div>
+      <div class="premis">
+        Tahun 3050. Rama tinggal di koloni luar angkasa vintage dan menangkap sinyal TV dari Bumi — 
+        padahal Bumi dikatakan sudah hancur 500 tahun lalu. Penyelidikannya membawanya ke planet Xylos, 
+        tempat ia menemukan rahasia yang mengubah segalanya...
+      </div>
+      <button class="start-btn" onclick="goTo('scene-01')">🚀 Mulai Petualangan</button>
+    </div>
+  `;
+  document.getElementById("progressFill").style.width = "0%";
+}
+
+function goTo(sceneId) {
+  const s = story[sceneId];
+  if (!s) return;
+
+  const progress = getProgress(sceneId);
+  document.getElementById("progressFill").style.width = progress + "%";
+
+  let choicesHtml = "";
+  if (s.choices && s.choices.length > 0) {
+    choicesHtml = '<div class="choices">';
+    s.choices.forEach((c, i) => {
+      choicesHtml += `<button class="choice-btn" onclick="goTo('${c.next}')">${c.text}</button>`;
+    });
+    choicesHtml += '</div>';
+  }
+
+  let endingHtml = "";
+  if (s.isEnd) {
+    endingHtml = `<div class="ending-badge">${s.endingName || "🏁 THE END"}</div>`;
+  }
+
+  const content = document.getElementById("content");
+  content.className = "";
+  content.innerHTML = `
+    <div class="fade-in">
+      ${endingHtml}
+      <div class="scene-counter">Scene ${sceneId.replace('scene-', '').toUpperCase()}</div>
+      <div class="scene-title">${s.title}</div>
+      <div class="scene-text">${s.text}</div>
+      ${choicesHtml}
+      ${s.isEnd ? `<br><button class="restart-btn" onclick="showTitle()">🔄 Main Lagi</button>` : ''}
+    </div>
+  `;
+}
+
+// Start
+showTitle();
+</script>
+
+</body>
+</html>
