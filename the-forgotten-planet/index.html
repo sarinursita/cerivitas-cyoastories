@@ -7,68 +7,81 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
+:root {
+  --bg1: #0c0c1e;
+  --bg2: #1a0a2e;
+  --text: #e0d8f0;
+  --accent1: #ffd700;
+  --accent2: #ff7eb3;
+  --accent3: #7ec8e3;
+  --choice-bg: rgba(126,200,227,0.08);
+  --choice-border: rgba(126,200,227,0.2);
+  --choice-hover: rgba(126,200,227,0.15);
+  --choice-text: #a8e6cf;
+  --setting: #a898c0;
+  --meta: #666;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Merriweather', Georgia, serif;
-  background: linear-gradient(135deg, #0c0c1e 0%, #1a0a2e 50%, #0c0c1e 100%);
-  color: #e0d8f0; min-height: 100vh; line-height: 1.9;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg1) 100%);
+  color: var(--text); min-height: 100vh; line-height: 1.9;
 }
 .container { max-width: 700px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 #loading { text-align: center; padding: 4rem 0; color: #888; }
 #story-index { text-align: center; }
 #story-index h1 {
   font-family: 'Inter', sans-serif; font-size: 2.8rem; font-weight: 800;
-  background: linear-gradient(135deg, #ffd700, #ff7eb3);
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; margin-top: 3rem;
 }
-.subtitle { color: #a898c0; font-style: italic; margin-bottom: 0.5rem; }
-.meta { color: #666; font-size: 0.85rem; font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
-.premise { color: #b0a0c8; max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.8; }
+.subtitle { color: var(--setting); font-style: italic; margin-bottom: 0.5rem; }
+.meta { color: var(--meta); font-size: 0.85rem; font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
+.premise { color: var(--setting); max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.8; }
 .start-btn {
-  display: inline-block; background: linear-gradient(135deg, #ffd700, #ff7eb3);
-  color: #0c0c1e; font-family: 'Inter', sans-serif;
+  display: inline-block; background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: var(--bg1); font-family: 'Inter', sans-serif;
   font-weight: 700; font-size: 1.1rem; padding: 1rem 2.5rem; border-radius: 50px;
   text-decoration: none; cursor: pointer; transition: 0.3s;
   box-shadow: 0 4px 25px rgba(255,215,0,0.3);
 }
-.start-btn:hover { transform: scale(1.05); box-shadow: 0 6px 35px rgba(255,215,0,0.4); }
+.start-btn:hover { transform: scale(1.05); }
 .scene-label {
   display: inline-flex;
   background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3);
-  color: #ffd700; font-family: 'Inter', sans-serif;
+  color: var(--accent1); font-family: 'Inter', sans-serif;
   font-size: 0.75rem; font-weight: 600;
   padding: 0.25rem 0.7rem; border-radius: 20px; margin-bottom: 1.5rem;
 }
 .scene-title {
   font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 800;
-  background: linear-gradient(135deg, #f0e6ff, #7ec8e3);
+  background: linear-gradient(135deg, #f0e6ff, var(--accent3));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; margin-bottom: 0.5rem;
 }
-.setting { color: #a898c0; font-size: 0.9rem; font-style: italic; border-left: 3px solid rgba(126,200,227,0.4); padding-left: 1rem; margin-bottom: 1.5rem; }
+.setting { color: var(--setting); font-size: 0.9rem; font-style: italic; border-left: 3px solid rgba(126,200,227,0.4); padding-left: 1rem; margin-bottom: 1.5rem; }
 .story-text p { margin-bottom: 1rem; }
 .story-text em { color: #b8a0d8; }
-.story-text strong { color: #ffd700; }
+.story-text strong { color: var(--accent1); }
 hr.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin: 2rem 0; }
-.choices-label { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #ffd700; font-weight: 600; margin-bottom: 1rem; }
+.choices-label { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--accent1); font-weight: 600; margin-bottom: 1rem; }
 .choice {
   display: block;
-  background: linear-gradient(135deg, rgba(126,200,227,0.08), rgba(168,232,207,0.05));
-  border: 1px solid rgba(126,200,227,0.2); border-radius: 12px;
-  padding: 1rem 1.2rem; margin-bottom: 0.8rem; color: #a8e6cf;
+  background: var(--choice-bg);
+  border: 1px solid var(--choice-border); border-radius: 12px;
+  padding: 1rem 1.2rem; margin-bottom: 0.8rem; color: var(--choice-text);
   text-decoration: none; cursor: pointer; transition: 0.3s;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
 }
 .choice:hover {
-  background: linear-gradient(135deg, rgba(126,200,227,0.15), rgba(168,232,207,0.1));
-  border-color: rgba(126,200,227,0.5); transform: translateX(6px);
-  box-shadow: 0 4px 20px rgba(126,200,227,0.15);
+  background: var(--choice-hover); border-color: var(--accent3);
+  transform: translateX(6px); box-shadow: 0 4px 20px rgba(126,200,227,0.15);
 }
 .choice .scene-tag { font-size: 0.7rem; color: #888; font-weight: 400; display: block; margin-top: 0.3rem; }
-.end-badge { text-align: center; font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ff7eb3, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 2rem 0 1rem; }
+.end-badge { text-align: center; font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent2), var(--accent1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 2rem 0 1rem; }
 .end-note { text-align: center; color: #888; font-style: italic; margin-bottom: 2rem; }
-.restart-btn { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: #ffd700; font-family: 'Inter', sans-serif; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+.restart-btn { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--accent1); font-family: 'Inter', sans-serif; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
 .restart-btn:hover { background: rgba(255,215,0,0.2); }
 .footer { text-align: center; margin-top: 3rem; color: #444; font-size: 0.75rem; font-family: 'Inter', sans-serif; }
 </style>
@@ -85,23 +98,24 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 const folderName = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'the-forgotten-planet';
 const RAW_BASE = 'https://raw.githubusercontent.com/sarinursita/cerivitas-cyoastories/main/';
 
-// ─── Scene name mapping ───
-// Markdown scene names → actual .md filenames
+// Scene name → actual filename mapping
 const SCENE_MAP = {
   'scene 1': 'scene-01', 'scene 2a': 'scene-02a', 'scene 2b': 'scene-02b',
   'scene 3a': 'scene-03a', 'scene 3b': 'scene-03b', 'scene 4': 'scene-04',
   'scene 5a': 'scene-05a', 'scene 5b': 'scene-05b', 'scene 5c': 'scene-05c'
 };
 
-// ─── Fetch ───
 async function fetchMD(name) {
   const url = RAW_BASE + folderName + '/' + name;
   const resp = await fetch(url);
-  if (!resp.ok) throw new Error('Cannot load ' + url);
+  if (!resp.ok) throw new Error('Cannot load ' + name);
   return await resp.text();
 }
 
-// ─── Parse markdown to HTML (simple) ───
+function stripBold(t) {
+  return t.replace(/\*\*/g, '').trim();
+}
+
 function mdToHTML(text) {
   let html = text
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -110,7 +124,6 @@ function mdToHTML(text) {
     .replace(/^# (.+)$/gm, '<h1>$1</h1>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Wrap in paragraphs
   const parts = html.split(/\n\n+/);
   return parts.map(p => {
     p = p.trim();
@@ -119,14 +132,16 @@ function mdToHTML(text) {
   }).join('\n');
 }
 
-// ─── Load Index ───
 async function loadIndex() {
   const md = await fetchMD('index.md');
-  const lines = md.split('\n');
-  const title = (lines[0]||'').replace(/^#\s*/,'');
+  const title = (md.match(/^# (.+)$/m)||[])[1] || 'Cerita';
   const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
   const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
   const premise = (md.match(/\*\*Premis:\*\*\s*(.+)/)||[])[1] || '';
+
+  // Apply theme if specified in md
+  const theme = (md.match(/\*\*Theme:\*\*\s*(.+)/)||[])[1] || '';
+  if (theme) applyTheme(theme);
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('story-index').innerHTML = `
@@ -138,62 +153,36 @@ async function loadIndex() {
     <p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>`;
 }
 
-// ─── Load Scene ───
 async function loadScene(sceneFile) {
   const md = await fetchMD(sceneFile + '.md');
-
-  // Extract scene number and title from # heading
-  const titleLine = md.match(/^# (.+)$/m);
-  const title = titleLine ? titleLine[1].trim() : sceneFile;
+  const title = (md.match(/^# (.+)$/m)||[])[1] || sceneFile;
 
   // Extract setting
-  const settingLines = [];
-  const settingMatch = md.match(/\*\*Setting:\*\*\s*(.+?)(?:\n|$)/);
-  if (settingMatch) settingLines.push(settingMatch[1]);
-  const charMatch = md.match(/\*\*Karakter:\*\*\s*(.+?)(?:\n|$)/);
-  if (charMatch) settingLines.push(charMatch[1]);
+  const setting = (md.match(/\*\*Setting:\*\*\s*(.+?)(?:\n|$)/)||[])[1] || '';
+  const karakter = (md.match(/\*\*Karakter:\*\*\s*(.+?)(?:\n|$)/)||[])[1] || '';
 
-  // Split by --- to get: [metadata section, story section, choices section]
+  // Split by --- into sections: [header, story, choices]
   const sections = md.split(/^---\s*$/m);
-  // section[0] = metadata (title + setting)
-  // section[1] = story text
-  // section[2] = choices
+  const storyMD = sections[1] || '';
+  let choicesSection = sections[2] || '';
 
-  let storyMD = '';
-  let choicesSection = '';
-
-  if (sections.length >= 2) {
-    storyMD = sections[1] || '';
-  }
-  if (sections.length >= 3) {
-    choicesSection = sections[2] || '';
-  }
-
-  // If no --- split properly, use last part as story
-  if (!storyMD) {
-    const parts = md.split('\n\n');
-    storyMD = parts.slice(1).join('\n\n');
-  }
-
-  // Remove "**Pilihan:**" from choices section
+  // Strip **Pilihan:** label
   choicesSection = choicesSection.replace(/\*\*Pilihan:\*\*/g, '').trim();
 
-  // Parse choices: - [Scene X]: choice text
+  // Parse choices
   const choices = [];
-  const choiceRe = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
+  const re = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
   let m;
-  while ((m = choiceRe.exec(choicesSection)) !== null) {
-    const sceneName = m[1].trim().toLowerCase();
-    // Map "Scene 2A" → "scene-02a"
-    const mappedFile = SCENE_MAP[sceneName] || sceneName.replace(/[^a-z0-9]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
-    choices.push({ file: mappedFile, text: m[2].trim(), label: m[1].trim() });
+  while ((m = re.exec(choicesSection)) !== null) {
+    const rawName = m[1].trim().toLowerCase();
+    const text = stripBold(m[2]);
+    const mappedFile = SCENE_MAP[rawName] || rawName.replace(/[^a-z0-9]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
+    choices.push({ file: mappedFile, text, label: m[1].trim() });
   }
 
-  // Check if ending
   const isEnding = title.toLowerCase().includes('akhir') || md.includes('🏁');
-
-  // Show
   const sceneNum = sceneFile.replace('scene-', '').toUpperCase();
+
   document.getElementById('loading').style.display = 'none';
   document.getElementById('story-index').style.display = 'none';
   document.getElementById('scene-view').style.display = 'block';
@@ -201,32 +190,72 @@ async function loadScene(sceneFile) {
   let html = `<p class="scene-label">📖 ${sceneNum}</p>`;
 
   if (isEnding) {
-    html += `
-      <h2 class="scene-title" style="background:linear-gradient(135deg,#ff7eb3,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${title}</h2>
+    html += `<h2 class="scene-title" style="background:linear-gradient(135deg,var(--accent2),var(--accent1));-webkit-background-clip:text;-webkit-text-fill-color:transparent">${title}</h2>
       <div class="story-text">${mdToHTML(storyMD)}</div>
       <div class="end-badge">🏁 THE END</div>
       ${choices.length ? `<p class="end-note">${choices[0].text}</p>` : ''}
       <div style="text-align:center;margin-top:2rem"><a class="restart-btn" onclick="loadScene('scene-01')">🔄 Mulai dari Awal</a></div>`;
   } else {
-    html += `
-      <h2 class="scene-title">${title}</h2>
-      ${settingLines.length ? `<p class="setting">${settingLines.join('<br>')}</p>` : ''}
+    const settingParts = [setting, karakter].filter(Boolean);
+    html += `<h2 class="scene-title">${title}</h2>
+      ${settingParts.length ? `<p class="setting">${settingParts.join('<br>')}</p>` : ''}
       <div class="story-text">${mdToHTML(storyMD)}</div>`;
-
     if (choices.length) {
       html += `<hr class="divider"><p class="choices-label">⚡ Pilih langkahmu:</p>`;
       choices.forEach(c => {
-        html += `<a class="choice" onclick="loadScene('${c.file}')">
-          ${c.text}
-          <span class="scene-tag">${c.label}</span>
-        </a>`;
+        html += `<a class="choice" onclick="loadScene('${c.file}')">${c.text}<span class="scene-tag">${c.label}</span></a>`;
       });
     }
   }
-
   html += '<p class="footer">Agent Adventure Summer 2026 — Cerivitas</p>';
   document.getElementById('scene-view').innerHTML = html;
   window.scrollTo(0, 0);
+}
+
+// Theme presets
+const THEMES = {
+  dark: {}, // default
+  light: {
+    '--bg1': '#f5f0ff', '--bg2': '#e8e0f0',
+    '--text': '#1a1030', '--accent1': '#c89600',
+    '--accent2': '#d44a7a', '--accent3': '#3a8ba8',
+    '--choice-bg': 'rgba(58,139,168,0.06)', '--choice-border': 'rgba(58,139,168,0.2)',
+    '--choice-hover': 'rgba(58,139,168,0.1)', '--choice-text': '#2a6a8a',
+    '--setting': '#5a5080', '--meta': '#888'
+  },
+  forest: {
+    '--bg1': '#0a1a10', '--bg2': '#0e2a18',
+    '--text': '#d0e8d0', '--accent1': '#7bc96f',
+    '--accent2': '#f0a030', '--accent3': '#5ab88a',
+    '--choice-bg': 'rgba(90,184,138,0.08)', '--choice-border': 'rgba(90,184,138,0.2)',
+    '--choice-hover': 'rgba(90,184,138,0.15)', '--choice-text': '#8cd4a0',
+    '--setting': '#889a80', '--meta': '#556'
+  },
+  ocean: {
+    '--bg1': '#0a1025', '--bg2': '#0a1a3a',
+    '--text': '#d0d8f0', '--accent1': '#4fc3f7',
+    '--accent2': '#e040fb', '--accent3': '#80deea',
+    '--choice-bg': 'rgba(128,222,234,0.08)', '--choice-border': 'rgba(128,222,234,0.2)',
+    '--choice-hover': 'rgba(128,222,234,0.15)', '--choice-text': '#80c8d0',
+    '--setting': '#8890a8', '--meta': '#556'
+  },
+  fire: {
+    '--bg1': '#1a0808', '--bg2': '#2a0e0e',
+    '--text': '#f0d0c0', '--accent1': '#ff6b35',
+    '--accent2': '#ffd700', '--accent3': '#ff8c42',
+    '--choice-bg': 'rgba(255,107,53,0.08)', '--choice-border': 'rgba(255,107,53,0.2)',
+    '--choice-hover': 'rgba(255,107,53,0.15)', '--choice-text': '#ffaa70',
+    '--setting': '#a08070', '--meta': '#665'
+  }
+};
+
+function applyTheme(name) {
+  const theme = THEMES[name];
+  if (!theme) return;
+  const root = document.documentElement;
+  for (const [key, val] of Object.entries(theme)) {
+    root.style.setProperty(key, val);
+  }
 }
 
 // ─── Start ───
