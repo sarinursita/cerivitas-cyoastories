@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misteri Lorong Timur</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#app { max-width: 720px; width: 100%; }
+.scene {
+  background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
+  border: 1px solid #2a2a5a;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.scene-number {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.scene-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.scene-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 12px;
+}
+.scene-meta span { margin-right: 16px; }
+.scene-meta .icon { margin-right: 4px; }
+.narrative {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #d0d0e0;
+}
+.narrative p { margin-bottom: 14px; }
+.narrative strong { color: #ff6b6b; }
+.narrative em { color: #a0a0ff; font-style: italic; }
+.choices-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #1a1a3a, #252550);
+  color: #e0e0f0;
+  border: 1px solid #3a3a6a;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.choice-btn:hover {
+  background: linear-gradient(135deg, #2a2a5a, #3a3a7a);
+  border-color: #6a6aaa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100,100,200,0.15);
+}
+.choice-btn:active {
+  transform: translateY(0);
+}
+.choice-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a2a5a;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ending-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.ending-good { background: #00b894; color: #fff; }
+.ending-bad { background: #d63031; color: #fff; }
+.ending-twist { background: #6c5ce7; color: #fff; }
+.ending-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #b0b0d0;
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  border-left: 3px solid #6a6aaa;
+}
+.restart-btn {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(108,92,231,0.3);
+}
+.footer { text-align: center; margin-top: 20px; font-size: 12px; color: #444; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="scene" id="scene-container">
+    <div class="scene-number" id="scene-number"></div>
+    <h1 class="scene-title" id="scene-title"></h1>
+    <div class="scene-meta" id="scene-meta"></div>
+    <div class="narrative" id="narrative"></div>
+    <div class="choices-label" id="choices-label">PILIHAN</div>
+    <div class="choices" id="choices"></div>
+    <div id="ending-section"></div>
+  </div>
+  <div class="footer">Misteri Lorong Timur — by Alaric 🕵️</div>
+</div>
+
+<script>
+const story = {
+  '01': {
+    title: 'Kekacauan di Pagi Hari',
+    setting: 'Sekolah Harapan Bangsa, pagi hari — suasana ramai dan kacau',
+    chars: 'Liam, teman-teman sekelas, Bu Rina (guru)',
+    narrative: `Pagi itu sekolah Harapan Bangsa heboh. Tiga loker murid ditemukan kosong — isinya raib entah ke mana. Yang aneh, gemboknya masih utuh. Tidak ada tanda-tanda dibongkar secara paksa.
+
+"Pasti Liam! Dia kan murid baru!" teriak seorang anak sambil menunjuk.
+
+Liam mendengus. Mau aja dituduh tanpa bukti. Tapi... dia harus akui, dia kepo juga. Siapa sih pelakunya?
+
+Dari sudut matanya, Liam melihat sesuatu. Lorong Timur — lorong yang selalu terkunci — pintunya sedikit RETAK. Apakah itu... terbuka?`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '2A', desc: 'Selidiki Lorong Timur — cari tau kenapa pintu retak' },
+      { target: '2B', desc: 'Wawancara teman-teman — cari saksi yang lihat sesuatu' },
+      { target: '2C', desc: 'Periksa barang hilang — cari petunjuk di loker korban' },
+    ],
+  },
+  '02A': {
+    title: 'Pintu Terkunci',
+    setting: 'Lorong Timur, lantai 2 — sepi, dingin, udara aneh',
+    chars: 'Liam',
+    narrative: `Liam berdiri di depan pintu Lorong Timur. Pintu kayu tua dengan cat mengelupas. Yang bikin merinding — ada suara napas pelan dari balik pintu. Atau... cuma imajinasi?
+
+Liam mencoba dorong. Terkunci rapat. Tapi ada goresan di sekitar lubang kunci — baru. Seperti baru saja diputar.
+
+"Gila... ada yang udah masuk?" gumam Liam.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '3A', desc: 'Cari kunci di kantor guru — Bu Rina pasti punya cadangan' },
+      { target: '3B', desc: 'Paksa buka aja! — pundak Liam udah siap' },
+    ],
+  },
+  '02B': {
+    title: 'Cerita Saksi',
+    setting: 'Kantin sekolah, jam istirahat — ramai tapi Liam fokus',
+    chars: 'Liam, Dinda (teman sekelas), Raka (kakak kelas)',
+    narrative: `"Serius, aku lihat sendiri!" Dinda matanya membelalak. "Pas aku jaga piket malam Senin lalu... lorong timur itu, ada BAYANGAN berjalan sendiri. Tanpa orangnya!"
+
+Raka manggut-manggut. "Aku juga dengar suara bisik dari lorong itu. 'Liam... Liam...' gitu terus."
+
+Liam merinding. Namanya disebut? Tapi dia gak pernah ke lorong itu malam-malam!
+
+"Ini gila..." bisik Liam.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '3C', desc: 'Tanya detail soal bayangan — "Kayak gimana bentuknya?"' },
+      { target: '3D', desc: 'Tanya soal suara bisik — "Kapan pertama kali dengar?"' },
+    ],
+  },
+  '02C': {
+    title: 'Goresan Misterius',
+    setting: 'Ruang kelas, dekat loker korban — suasana sunyi',
+    chars: 'Liam',
+    narrative: `Liam memeriksa loker korban. Tiga loker — semuanya kosong. Tapi yang bikin Liam tertegun... di lantai ada goresan berbentuk lingkaran aneh. Seperti kapur, tapi lebih putih. Dingin kalau disentuh.
+
+"Lingkaran... kayak ritual gitu," pikir Liam.
+
+Dekat lingkaran itu, ada jejak kaki. Tapi jejaknya... aneh. Cuma ke SATU arah. Seperti sesuatu yang masuk ke lorong — tapi tidak pernah keluar.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '3E', desc: 'Ikuti jejak aneh itu — ke mana ujungnya?' },
+      { target: '3F', desc: 'Periksa loker lebih detail — ada coretan di dalam!' },
+    ],
+  },
+  '03A': {
+    title: 'Kunci di Laci Guru',
+    setting: 'Kantor guru, saat istirahat — guru-guru sedang rapat',
+    chars: 'Liam',
+    narrative: `Liam menyelinap ke kantor guru. Meja Bu Rina — laci ketiga dari kiri — seperti kata Dinda. Dibukanya pelan... dan ya! Sederet kunci. Satu bertuliskan "Lorong Timur" dengan spidol pudar.
+
+Tapi saat Liam mengambilnya... ia merasa ada yang menatap. Liam menoleh ke cermin di dinding. Bayangannya sendiri... tersenyum. Tapi Liam tidak tersenyum.
+
+"Heh?!"
+
+Liam mengucek mata. Bayangan itu kembali normal. Cepat, ambil kunci dan pergi!`,
+    is_ending: false,
+    auto_choice: true,
+    choices: [
+      { target: '4', desc: 'Buka Lorong Timur dengan kunci!' },
+    ],
+  },
+  '03B': {
+    title: 'Pintu Jebol!',
+    setting: 'Lorong Timur, lantai 2 — sepi, dingin',
+    chars: 'Liam',
+    narrative: `Liam menarik napas. Satu, dua, tiga — KRASH!
+
+Pundaknya membanting pintu. Kayu tua itu berderak... dan langsung jebol! Gampang banget? Terlalu gampang...
+
+Pintu terbuka lebar. Lorong gelap menyambut. Udara dingin langsung menyapu wajah Liam — bau debu, tanah basah, dan... sesuatu yang manis?
+
+Dari dalam lorong, samar-samar terdengar suara bisik:
+
+"Liam... masuklah..."`,
+    is_ending: false,
+    auto_choice: true,
+    choices: [
+      { target: '4', desc: 'Masuk ke Lorong Timur!' },
+    ],
+  },
+  '03C': {
+    title: 'Bayangan yang Terpisah',
+    setting: 'Kantin sekolah — makin sepi karena bel masuk',
+    chars: 'Liam, Dinda',
+    narrative: `"Gini," Dinda berbisik pelan. "Bayangan itu... pas aku lihat, lagi mati lampu. Temanku, Bayu, lagi berdiri. Tapi bayangannya — di dinding — BERGERAK SENDIRI. Kayak orang lain!"
+
+Liam berpikir keras. Bayangan bergerak sendiri? Tanpa orangnya bergerak?
+
+"Terus kamu liat apa lagi?"
+
+"Matanya... merah," Dinda menggigil. "Bayangan itu punya mata merah."
+
+Liam menelan ludah. Tiba-tiba, ia lihat bayangannya sendiri di lantai. Diam. Normal. Tapi kenapa rasanya... bayangan itu mendengarkan?`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '4', desc: 'Tes dengan bayanganku sendiri — coba gerak, lihat reaksinya!' },
+      { target: '3A', desc: 'Mending cari kunci lorong dulu — ini pasti ada hubungannya' },
+    ],
+  },
+  '03D': {
+    title: 'Bisik-bisik Misterius',
+    setting: 'Depan kelas, suasana hening',
+    chars: 'Liam, Raka',
+    narrative: `"Kapan pertama kali dengar suara itu?" tanya Liam.
+
+Raka menggaruk kepala. "Seminggu lalu. Pas aku jaga piket malam. Lorong timur — tiba-tiba ada suara 'Liam... Liam...' dari dalam. Pelan banget, kayak orang lagi napas."
+
+"Kamu yakin bukan angin?"
+
+"Angin bilang 'Liam'?" Raka mengangkat alis. "Terus pas aku lihat ke lorong — ada dua mata merah mengambang di gelap. Terus hilang."
+
+Dua mata merah. Bayangan. Lorong terkunci. Semuanya mulai nyambung — tapi Liam belum tau gambaran besarnya.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '4', desc: 'Malam ini juga — jaga di lorong, hadapi langsung!' },
+      { target: '3A', desc: 'Cari kunci lorong dulu — biar bisa masuk siang hari' },
+    ],
+  },
+  '03E': {
+    title: 'Jejak Aneh',
+    setting: 'Koridor kelas, lantai 1 — sepi',
+    chars: 'Liam',
+    narrative: `Liam mengikuti jejak kaki aneh itu. Jejak putih seperti kapur — bukan, ini bukan kapur. Ini dingin. Dan menghilang kalau kena cahaya matahari langsung.
+
+Jejak itu berkelok-kelok... melewati kelas kosong... tangga... dan berhenti tepat di DEPAN pintu Lorong Timur.
+
+Tapi yang bikin Liam bingung: jejaknya Cuma satu arah. Masuk ke lorong. Tidak ada jejak keluar.
+
+"Jadi... sesuatu masuk ke lorong... dan tidak pernah keluar lagi?" pikir Liam.
+
+Tiba-tiba, pintu lorong berderit pelan. Seperti ada yang mendorong dari dalam.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '4', desc: 'Buka pintu dan cari tau — aku harus tau!' },
+      { target: '3A', desc: 'Cari kunci dulu — biar siap dengan penerangan' },
+    ],
+  },
+  '03F': {
+    title: 'Coretan Menyeramkan',
+    setting: 'Loker korban, lantai 1 — sepi dan agak pengap',
+    chars: 'Liam',
+    narrative: `Liam membuka loker korban pelan-pelan. Kosong. Tapi di dinding dalam loker — ada coretan. Kelihatannya seperti goresan kuku. Satu kata:
+
+**"TOLONG"**
+
+Dan di bawahnya, lebih kecil:
+
+**"Dia hidup... bayanganku..."**
+
+Liam tersentak. Bayangan? Lagi-lagi bayangan?
+
+Tanpa berpikir, Liam menyentuh coretan itu. DINGIN! Bukan dingin biasa — dingin kayak megang es batu. Dan sedetik kemudian, Liam mendengar suara di kepalanya:
+
+*"Liam... aku di sini... di lorong... datanglah..."*
+
+Suaranya... mirip suaranya sendiri?!`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '4', desc: 'Ke lorong timur — aku harus tau maksudnya!' },
+      { target: '3A', desc: 'Ambil kunci dulu — panggil bantuan juga' },
+    ],
+  },
+  '04': {
+    title: 'Lorong Timur 🚪',
+    setting: 'Lorong Timur — gelap, lembab, bau debu dan tanah basah',
+    chars: 'Liam',
+    narrative: `Liam berdiri di ambang pintu. Lorong Timur terbuka di depannya — gelap gulita. Cuma ada satu lampu darurat di ujung lorong, remang-remang.
+
+Liam melangkah masuk. Udara langsung terasa lebih berat. Lorongnya panjang — lebih panjang dari yang kelihatan dari luar. Dindingnya penuh coretan angka dan simbol aneh.
+
+Liam merasakan sesuatu. Ada yang memperhatikan.
+
+Di balik bahunya, pintu tiba-tiba TERTUTUP sendiri. BUK!
+
+Liam terperangkap.
+
+Dan dari kegelapan di depannya, dua titik MERAH mulai menyala.
+
+**"Akhirnya... kamu datang juga..."**`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '5A', desc: 'Nyalakan senter! — terangi lorong!' },
+      { target: '5B', desc: 'Hadapi kegelapan — biarkan mata menyesuaikan' },
+    ],
+  },
+  '05A': {
+    title: 'Cahaya yang Menyembunyikan',
+    setting: 'Lorong Timur — disinari senter, suasana sedikit lebih aman',
+    chars: 'Liam',
+    narrative: `Liam menekan tombol senter. Cahaya terang menyapu lorong — dan... KOSONG. Tidak ada apa-apa. Lorong hanya lorong biasa. Lantai ubin, dinding cat pudar, ujungnya buntu.
+
+"Hah? Tadi kan ada mata merah..."
+
+Liam bingung. Tapi ia perhatikan sesuatu: di dekat ujung lorong, ada bayangan besar di dinding — bentuknya kayak orang. Tapi Liam berdiri di sini, senter menghadap ke depan. Seharusnya bayangannya di BELAKANG dia.
+
+Bayangan di dinding itu — BERGERAK. Ke kiri. Ke kanan. Seperti menganjing-anjing.
+
+Dan Liam sadar... bayangan itu tidak punya sumber cahaya yang jelas.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '5C', desc: 'Matikan senter sebentar — lihat apa yang terjadi di gelap!' },
+      { target: '6', desc: 'Dekati bayangan itu — hadapi langsung!' },
+    ],
+  },
+  '05B': {
+    title: 'Mata Merah dalam Gelap 🔴',
+    setting: 'Lorong Timur — gelap total, hanya dua mata merah bersinar',
+    chars: 'Liam',
+    narrative: `Liam tidak menyalakan senter. Biarkan mata menyesuaikan dengan gelap.
+
+Perlahan, ia mulai bisa melihat. Dan apa yang dilihatnya... bikin darahnya membeku.
+
+Di dinding lorong — persis di depannya — ada BENTUK. Seperti manusia, tapi terbuat dari kegelapan pekat. Dua titik merah di posisi mata. Dan bentuk itu — persis seperti POSTUR LIAM.
+
+Bentuk gelap itu melangkah maju. Satu langkah. Dua langkah.
+
+Liam mundur, tapi punggungnya sudah mentok pintu yang terkunci.
+
+**"Kamu takut sama dirimu sendiri?"** bisik bentuk itu. Suaranya... suara Liam. Tapi lebih dalam. Lebih dingin.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '5C', desc: 'Nyalakan senter! — biar terang dan lihat wujud aslinya!' },
+      { target: '6', desc: 'Hadapi bayangan itu — bicara! "Siapa kamu?!"' },
+    ],
+  },
+  '05C': {
+    title: 'TERUNGKAP — Bayanganku Sendiri! 🤯',
+    setting: 'Lorong Timur — senter mati, gelap total... lalu terlihat',
+    chars: 'Liam, Bayangan Liam',
+    narrative: `Liam mematikan senter (atau merasakan gelap total setelah sedetik cahaya).
+
+Gelap. Dingin. Tapi sekarang — Liam BISA MELIHAT. Bukan dengan mata, tapi seperti matanya menyesuaikan dengan dimensi lain.
+
+Dan di depannya...
+
+Bayangannya sendiri. TAPI HIDUP.
+
+Bentuk gelap itu persis seperti Liam — tinggi, rambut, gerak-gerik. Tapi matanya merah menyala. Dan di sekujur tubuhnya... ada simbol-simbol aneh bercahaya redup.
+
+**"Akhirnya kamu lihat aku."** Bayangan itu tersenyum — senyum yang kejam. **"Aku bagian dari dirimu yang kamu buang. Kamu pikir aku bisa hilang kalau kamu berpaling?"** Tertawa. **"Barang-barang itu? Aku ambil. Biar mereka curiga SAMA KAMU. Biar kamu MERASAKAN bagaimana rasanya dijauhi — SEPERTI AKU!"**
+
+Liam terhenyak. Bayangannya sendiri... marah. Merasa dibuang. Dan selama ini... ia memang lebih suka sendiri.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '6', desc: 'Cari cara mengalahkan bayangan itu — lawan!' },
+      { target: '7B', desc: 'Lari! — pintu, cari jalan keluar! (Bad Ending)' },
+    ],
+  },
+  '06': {
+    title: 'Konfrontasi 🔥',
+    setting: 'Lorong Timur — gelap, bayangan dan Liam saling berhadapan',
+    chars: 'Liam, Bayangan Liam',
+    narrative: `Liam berdiri tegak. Ia tidak mau lari. Ini sekolahnya. Hidupnya. Bayangannya.
+
+**"Aku nggak takut sama kamu!"** teriak Liam.
+
+Bayangan itu tertawa — suara yang bergema di seluruh lorong.
+
+**"Kamu HARUSnya takut. Aku kamu. Tapi lebih kuat. Lebih bebas."** Bayangan melangkah maju. **"Bergabunglah denganku. Kita buat mereka semua TAKUT padamu."**
+
+Liam menggenggam senternya. Satu-satunya senjata. Tapi juga... ia melihat sesuatu di mata bayangan itu. Bukan hanya amarah. Ada... kesedihan.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '7A', desc: 'Gunakan cahaya! — terang-terangan lawan bayangan (Good Ending)' },
+      { target: '7C', desc: 'Ajak bayangan bicara dari hati — "Kamu... kenapa sebenarnya?" (Plot Twist Ending)' },
+    ],
+  },
+  '07A': {
+    title: 'Good Ending — Cahaya Mengalahkan Kegelapan ✅',
+    setting: 'Lorong Timur — cahaya senter menerangi seluruh ruangan',
+    chars: 'Liam, Bayangan Liam',
+    narrative: `Liam menekan tombol senter dan mengarahkannya lurus ke bayangan.
+
+Bukan cahaya biasa — karena Liam juga menyertakan keyakinan. "Aku nggak akan lari dari kamu. Tapi aku juga nggak akan jadi jahat!"
+
+Bayangan itu menjerit — tapi bukan kesakitan. Lebih seperti... terkejut. Tubuhnya mulai memudar kena cahaya.
+
+**"K-kamu... mau terima aku?"**
+
+Liam mengangguk. "Ya. Kamu bagian dari aku. Tapi kamu nggak perlu jahat. Kita bisa... ngomong."
+
+Bayangan itu memudar — tapi tidak hilang. Ia kembali ke tempatnya semula: di kaki Liam, sebagai bayangan biasa. Tapi di sudut mulut bayangan itu... ada senyum tipis. Senyum damai.
+
+Pintu lorong terbuka dengan sendirinya. Barang-barang yang hilang? Berceceran di lorong — aman semua.
+
+Keesokan harinya, sekolah kembali normal. Liam punya teman-teman baru — dan rahasia kecil: kadang-kadang, di malam hari, bayangannya berkedip. Seperti memberi kode. "Aku di sini."
+
+Dan Liam tersenyum.`,
+    is_ending: true,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+  '07B': {
+    title: 'Bad Ending — Bayangan Menang ❌',
+    setting: 'Lorong Timur — gelap total, kepanikan',
+    chars: 'Liam, Bayangan Liam',
+    narrative: `Liam panik. Ia memukul-mukul pintu — terkunci rapat!
+
+**"TOLONG! ADA ORANG?! TOLONG!"**
+
+Di belakangnya, bayangan tertawa — makin keras, makin menggema.
+
+**"LARI? DARI DIRIMU SENDIRI?"**
+
+Bayangan melesat — dan MENYERAP ke tubuh Liam. Liam merasakan tubuhnya kaku. Matanya — berubah merah. Senyumnya — berubah kejam.
+
+Keesokan harinya, Liam duduk di kelas seperti biasa. Tapi ada yang berbeda. Teman-teman menjauh. Mereka bilang — Liam menatap mereka dengan mata merah. Tersenyum aneh.
+
+Liam — atau apa pun yang sekarang mengendalikan tubuhnya — berbisik,
+
+**"Akhirnya... aku yang memegang kendali."**
+
+Dan korban berikutnya tinggal menunggu waktu.`,
+    is_ending: true,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+  '07C': {
+    title: 'Plot Twist Ending — Bayangan yang Kesepian 🥺',
+    setting: 'Lorong Timur — suasana hening, dingin mulai mencair',
+    chars: 'Liam, Bayangan Liam',
+    narrative: `Liam tidak menyalakan senter. Sebaliknya, ia duduk di lantai lorong.
+
+"Aku... nggak mau lawan kamu."
+
+Bayangan itu berhenti. Matanya yang merah — berkedip.
+
+**"A-apa?"**
+
+"Aku denger kesedihan di suara kamu. Kamu bilang aku buang kamu. Mungkin... iya. Aku memang lebih suka sendiri. Tapi itu bukan salah kamu."
+
+Bayangan itu diam. Tubuh gelapnya mulai bergetar.
+
+**"Aku... cuma mau diperhatiin, Liam."** Suaranya berubah — tidak lagi dingin. Seperti anak kecil. **"Setiap kali kamu sedih, kamu lari ke game. Setiap kali marah, kamu diem. Aku yang ngerasain semua itu. Tapi kamu nggak pernah ngajak aku ngomong."**
+
+Liam tertegun. Selama ini ia kira bayangan adalah musuh. Tapi sebenarnya... itu adalah sisi dirinya yang kesepian.
+
+"Maafin aku," bisik Liam.
+
+Bayangan itu melangkah — dan bukannya menyerang, ia DUDUK di samping Liam. Dua sosok — satu nyata, satu bayangan — duduk berdampingan.
+
+**"Makasih... udah denger aku."**
+
+Perlahan, bayangan itu memudar — kembali ke tempatnya. Tapi sebelum hilang sepenuhnya, ia berbisik:
+
+**"Kalau kamu butuh temen ngobrol... aku selalu di sini. Di bayangan kamu."**
+
+Liam tersenyum. Pintu lorong terbuka. Barang-barang kembali — tanpa penjelasan. Tapi yang paling penting... Liam punya teman baru. Dirinya sendiri.`,
+    is_ending: true,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+};
+
+
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+function goTo(sceneId) {
+  if (sceneId === 'restart') {
+    goTo('01');
+    return;
+  }
+  
+  const scene = story[sceneId];
+  if (!scene) { document.getElementById('narrative').innerHTML = '<p>Scene belum tersedia.</p>'; return; }
+  
+  document.getElementById('scene-number').textContent = 'Scene ' + sceneId;
+  document.getElementById('scene-title').textContent = scene.title;
+  
+  let metaHtml = '';
+  if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
+  if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
+  document.getElementById('scene-meta').innerHTML = metaHtml;
+  
+  // Format narrative: bold/italic markers
+  let narr = scene.narrative;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  narr = narr.replace(/\n/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
+  
+  const choicesDiv = document.getElementById('choices');
+  const choicesLabel = document.getElementById('choices-label');
+  const endingSection = document.getElementById('ending-section');
+  
+  choicesDiv.innerHTML = '';
+  endingSection.innerHTML = '';
+  
+  if (scene.is_ending) {
+    choicesLabel.style.display = 'none';
+    
+    // Determine ending type
+    let badgeClass = 'ending-twist';
+    let badgeText = '🎭 PLOT TWIST ENDING';
+    if (sceneId.includes('7A')) { badgeClass = 'ending-good'; badgeText = '✅ GOOD ENDING'; }
+    else if (sceneId.includes('7B')) { badgeClass = 'ending-bad'; badgeText = '💀 BAD ENDING'; }
+    
+    let endingHtml = '<div class="ending-badge ' + badgeClass + '">' + badgeText + '</div>';
+    
+    // Extract ending text from narrative
+    const lines = scene.narrative.split('\n');
+    for (let line of lines) {
+      if (line.includes('SELAMAT') || line.includes('GAME OVER') || line.includes('PLOT TWIST ENDING') || line.includes('Kadang musuh')) {
+        endingHtml += '<div class="ending-text">' + line.replace(/\*\*/g, '').replace(/\*/g, '') + '</div>';
+      }
+    }
+    
+    // Add restart button
+    endingHtml += '<button class="restart-btn" onclick="goTo('01')">🔄 Main Lagi dari Awal</button>';
+    endingSection.innerHTML = endingHtml;
+  } else {
+    choicesLabel.style.display = 'block';
+  }
+  
+  // Add choice buttons
+  if (!scene.is_ending) {
+    scene.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      let label = letters[i] || (i + 1);
+      btn.innerHTML = '<span class="choice-num">' + label + '</span>' + choice.desc;
+      btn.onclick = function() { goTo(choice.target); };
+      choicesDiv.appendChild(btn);
+    });
+  }
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Start the story
+goTo('01');
+</script>
+</body>
+</html>
