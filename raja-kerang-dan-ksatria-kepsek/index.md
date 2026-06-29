@@ -1,6 +1,6 @@
 # 👑 Raja Kerang dan Ksatria Kepsek
 
-**Penulis:** Cleo
+**Penulis:** [nama]
 **Genre:** Comedy
 **Tags:** komedi, sekolah, absurd
 **Rating:** PG
