@@ -1,0 +1,3 @@
+Ini pilihan ketiga. Tedi gak mau selidiki jadi dia tidur haha...
+
+THE END
