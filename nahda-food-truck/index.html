@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Truck Kacau Balau</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(145deg, #1a1a0a 0%, #2a1a00 100%);
+      color: #f0e8d0;
+      font-family: 'Segoe UI', 'Comic Sans MS', cursive, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 30px 20px;
+      position: relative;
+    }
+    .scene {
+      background: linear-gradient(145deg, #1e1a10 0%, #2a2015 100%);
+      border: 1px solid #4a3a20;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(80,60,20,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .scene::before {
+      content: '🍳';
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 80px;
+      opacity: 0.06;
+      transform: rotate(15deg);
+    }
+    .scene-number {
+      font-size: 12px;
+      color: #8a7a50;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-family: 'Courier New', monospace;
+    }
+    .scene-title {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #f5d742;
+      text-shadow: 0 0 20px rgba(245,215,66,0.15);
+      line-height: 1.2;
+    }
+    .scene-setting {
+      font-size: 13px;
+      color: #7a6a40;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .scene-char {
+      font-size: 13px;
+      color: #9a8a60;
+      margin-bottom: 20px;
+    }
+    .scene-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #e8ddc0;
+      margin-bottom: 10px;
+    }
+    .scene-text em {
+      color: #f5d742;
+      font-style: italic;
+    }
+    .scene-text strong {
+      color: #ff8c42;
+    }
+    .choices {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+    .choice-btn {
+      background: linear-gradient(145deg, #2a2518, #3a3020);
+      color: #f0e8d0;
+      border: 1px solid #5a4a28;
+      padding: 16px 22px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      flex: 1;
+      min-width: 220px;
+      font-size: 15px;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .choice-btn:hover {
+      background: linear-gradient(145deg, #3a3525, #5a4a30);
+      border-color: #f5d742;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(245,215,66,0.15);
+    }
+    .choice-btn:active {
+      transform: translateY(0);
+    }
+    .restart-btn {
+      background: linear-gradient(145deg, #3a3020, #5a4a28);
+      color: #f5d742;
+      border: 2px solid #f5d742;
+      padding: 16px 30px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .restart-btn:hover {
+      background: #f5d742;
+      color: #1a1a0a;
+      box-shadow: 0 0 30px rgba(245,215,66,0.3);
+    }
+    .note-text {
+      font-size: 13px;
+      color: #7a6a40;
+      font-style: italic;
+      text-align: center;
+      margin: 10px 0;
+      border-top: 1px solid #3a2a18;
+      padding-top: 15px;
+    }
+    .ending-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    .ending-a { background: #2a4a20; color: #8ae86a; border: 1px solid #5a8a40; }
+    .ending-b { background: #4a2020; color: #e86a6a; border: 1px solid #8a4040; }
+    .progress {
+      text-align: center;
+      color: #5a4a30;
+      font-size: 12px;
+      margin-top: 15px;
+      letter-spacing: 1px;
+      font-family: 'Courier New', monospace;
+    }
+    .fade-in {
+      animation: sceneIn 0.6s ease;
+    }
+    @keyframes sceneIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .glow-text {
+      color: #f5d742;
+      text-shadow: 0 0 15px rgba(245,215,66,0.3);
+    }
+    @media (max-width: 500px) {
+      .scene { padding: 25px 18px; }
+      .scene-title { font-size: 20px; }
+      .scene-text { font-size: 14px; }
+      .choice-btn { font-size: 14px; padding: 14px 18px; min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="scene fade-in" id="scene">
+    <div class="scene-number" id="sceneNumber">SCENE 0/7</div>
+    <div class="scene-title" id="sceneTitle"></div>
+    <div class="scene-setting" id="sceneSetting"></div>
+    <div class="scene-char" id="sceneChar"></div>
+    <div class="scene-text" id="sceneText"></div>
+    <div id="choicesContainer"></div>
+  </div>
+  <div class="progress" id="progressText">🍳 Food Truck Kacau Balau — by Nahda 🐰</div>
+</div>
+
+<script>
+  const story = {
+    scene1: {
+      number: 1,
+      title: 'Pantai yang... Sepi?',
+      setting: 'Pinggir pantai, siang hari panas terik. Food truck warna-warni dengan tulisan "Paman\'s Kitchen"',
+      character: 'Alice',
+      text: 'Alice berdiri di depan food truck paman. Udah janjian dari jam 10, tapi paman belum keliatan batang hidungnya. Pintu food truck-nya kebuka setengah. Di food truck, semua alat masak berjejer rapi — wajan, panci, spatula — semuanya mengilap di bawah sinar matahari pantai yang terik.<br><br>"Paman?" panggil Alice pelan. Nggak ada jawaban.<br><br>Tapi... Alice meras sesuatu yang aneh. Seperti ada yang <strong>ngeliatin</strong> dia dari dalam food truck. Alice geleng-geleng kepala — ah, pasti karena cuaca panas aja.',
+      choices: [
+        { text: '🅰️ Masuk dapur dan siapin alat masak — Alice pede aja, toh jago masak', next: 'scene2a' },
+        { text: '🅱️ Cari paman dulu — coba telpon atau tanya orang sekitar', next: 'scene2b' }
+      ]
+    },
+    scene2a: {
+      number: 2,
+      title: 'Si Wajan Galak',
+      setting: 'Di dalam food truck, dapur',
+      character: 'Alice, Wajan',
+      text: 'Alice melangkah masuk ke dapur food truck. Panasnya makin terasa di dalam — kompor masih nyala kecil, di atasnya ada wajan besar hitam mengilap. Alice meraih spatula...<br><br>"HEH! JAMAH-JAMAH SIAHA LU?!" suara berat dan serak tiba-tiba terdengar.<br><br>Alice kaget, nyaris jatuhin spatula. Dia menoleh ke sekeliling — nggak ada siapa-siapa.<br><br>"Kiri, tolol! Aku di kiri!" suara itu lagi.<br><br>Alice menunduk. Wajan hitam itu... <strong>bergerak</strong>. Dan matanya — WAJAN PUNYA MATA! — menatap Alice tajam.',
+      choices: [
+        { text: '⚔️ Balas omel wajan — "Lu siapa sih? Berani lu sama gue?"', next: 'scene3' },
+        { text: '😶 Diem aja, cuekkin — Alice pura-pura nggak denger, lanjut siapin alat', next: 'scene3' }
+      ]
+    },
+    scene2b: {
+      number: 2,
+      title: 'Coretan Misterius',
+      setting: 'Di luar food truck, pinggir pantai',
+      character: 'Alice',
+      text: 'Alice jalan mengitari food truck. Pantai lumayan sepi — cuma ada beberapa pengunjung di kejauhan, tukang es campur, dan ombak yang bergulung-gulung.<br><br>"Paman!" panggil Alice sekali lagi. Nggak ada jawaban.<br><br>Pas mau balik ke food truck, Alice liat ada <strong>coretan</strong> di dinding samping truck, pake spidol merah:<br><br><em>"WAJAN ITU AKU — JANGAN PERCAYA SAMA DIA — MASAKAN JAJANAN LU BARU SADAR"</em><br><br>Tulisan tangannya... mirip tulisan paman! Tapi kok aneh?',
+      choices: [
+        { text: '👀 Baca coretan itu bener-bener — Alice coba pahami maksudnya', next: 'scene3' },
+        { text: '🙄 Abaikan, balik ke dapur — "Ah pasti paman becanda. Balik aja ah."', next: 'scene3' }
+      ]
+    },
+    scene3: {
+      number: 3,
+      title: 'Dapur Mulai Kacau',
+      setting: 'Di dalam food truck, siang makin terik',
+      character: 'Alice, Wajan, Spatula, Panci',
+      text: 'Alice mulai siap-siap masak. Tapi... ini bukan dapur biasa.<br><br>Spatula tiba-tiba ngelejit dari tempatnya. "Awas, awas, panas-panas! Si Wajan lagi galak!" teriaknya dengan suara cempreng.<br><br>Panci di sebelah ikut-ikutan bergoyang. "Dia lagi bad mood gara-gara semalem digosok pake sabun abal-abal!" sahut panci.<br><br>Wajan hitam mendengus. "DIAM LO SEMUA! ALICE, DENGERIN GUA! Kalo lu mau masak yang bener, lu kudu dengerin <strong>instruksi gue</strong>! Nggak percaya sama peralatan murahan ini!"<br><br>Alice bingung — wajan galak tapi kayaknya dia yang paling tau soal masak. Di sisi lain, alat-alat lain kayaknya lebih ramah...',
+      choices: [
+        { text: '🔴 Ikutin instruksi wajan — mungkin dia yang paling jago soal masak?', next: 'scene4a' },
+        { text: '🔵 Pake cara Alice sendiri — "Aku udah jago masak. Nggak perlu ajaran wajan sombong!"', next: 'scene4b' }
+      ]
+    },
+    scene4a: {
+      number: 4,
+      title: 'Ikut Instruksi Wajan',
+      setting: 'Dapur food truck',
+      character: 'Alice, Wajan',
+      text: '"Oke... gue dengerin lu," kata Alice ragu-ragu.<br><br>"BarU TaU!" Wajan tampak puas. "Oke, pertama — <strong>panasin minyak</strong>. Tapi jangan pake minyak kelapa biasa. Pake MINYAK ZAITUN yang di rak atas. Yang botol item!"<br><br>Alice ngikutin. Tapi waktu dia buka botol minyak zaitun, dia liat ada tulisan kecil di label: <em>"Alice kecil suka banget minyak ini — Paman"</em><br><br>Diam-diam, wajan tau... minyak favorit Alice waktu kecil?<br><br>"HEH! JANGAN MELAMUN! Lanjut! Iris bawa— Maksudku, bawang! Iris bawang!"<br><br>Alice mengerjapkan mata. Cara wajan ngomong... kayak ada yang familiar. Seperti suara yang pernah dia dengar sebelumnya...',
+      choices: [
+        { text: '🤔 Tanya wajan — "Lu... kenal aku ya?"', next: 'scene5' },
+        { text: '🧑‍🍳 Diem aja, lanjut masak — Alice penasaran tapi diemin dulu', next: 'scene5' }
+      ]
+    },
+    scene4b: {
+      number: 4,
+      title: 'Pake Cara Alice Sendiri',
+      setting: 'Dapur food truck',
+      character: 'Alice, Wajan, Spatula, Panci',
+      text: '"Nggak usah ngatur-ngatur, Wajan! Gue jago masak dari SMP!" Alice mulai motong sayuran dengan percaya diri.<br><br>"KAMPAK! LO BARU BAKAR KOBIS!!" teriak wajan.<br><br>Alice menengok... eh, kobisnya item gosong beneran. "Ah cuma kecelakaan! Masak aja dulu!"<br><br>Tapi makin lama, makin kacau. Spatula jatuh ke adonan telur. Panci bergoyang-goyang sampe kuahnya tumpah. Wajan makin keras ngomelnya.<br><br>"LIAT! MAKANAN LO MURAHAN SEMUA! AJARIN GUA SEKALI LO?"<br><br>Alice mulai emosi. "DIEM LO! GUE JUGA BISA TANPA LO!"<br><br>Tapi sisa-sisa masakan di dapur kayak... ngeliat Alice dengan pandangan iba. Seperti mereka tau sesuatu yang Alice belum tau.',
+      choices: [
+        { text: '😤 Tetep bandel, masak terus — "Gue buktiin kalo gue bisa!"', next: 'scene5' },
+        { text: '😟 Dengerin wajan — "Iya... iya. Lu menang. Ajarin gue."', next: 'scene5' }
+      ]
+    },
+    scene5: {
+      number: 5,
+      title: '🤯 "Alice... Ini Aku, Paman!"',
+      setting: 'Dapur food truck',
+      character: 'Alice, Wajan (Paman)',
+      text: 'Di tengah kekacauan, Alice kesal banget. Dia ambil wajan itu dengan keras dan — BRAK! — wajan jatuh ke lantai.<br><br>"ADUH! SAKIT TAU!" teriak wajan.<br><br>Alice kaget. Wajan jatuh miring... dan Alice liat <strong>ada ukiran</strong> di bagian bawah wajan itu. Ukiran namanya. <strong>ALICE</strong>. Ukiran yang sama persis yang Paman ukir waktu Alice ulang tahun ke-10.<br><br>Alice gemetar. "Wa... Wajan... lu dari mana tau nama gue?"<br><br>Wajan diem bentar. Terus suaranya berubah — dari galak jadi... lembut. Sedih.<br><br>"Alice... ini aku... <strong>Paman</strong>."<br><br>📸 <em>FLASHBACK: Tiga hari lalu. Paman lagi bersihin wajan kesayangannya di dapur. Tiba-tiba ada cahaya aneh. Wajan mulai bicara. Paman kaget setengah mati. Dan... Paman menghilang. Wajan itulah yang tersisa.</em><br><br>Alice mundur selangkah. "A—Apa? P-Paman?!"<br><br>"Maafin Paman, Al. Paman kena... sumpah dari peri dapur nakal. Salah Paman ambil wajan di pasar barang antik minggu lalu. Sekarang Paman terjebak di benda ini."<br><br>Alice bingung campur haru. Wajan yang galak sepanjang hari itu... ternyata <strong>pamannya sendiri yang tersihir!</strong> 😱',
+      choices: [
+        { text: '🤝 Percaya & bantuin paman — "Gimana caranya balikin paman? Aku bantuin!"', next: 'scene6a' },
+        { text: '😱 Kaget & lari! — Alice panik, lari keluar food truck!', next: 'scene6b' }
+      ]
+    },
+    scene6a: {
+      number: 6,
+      title: 'Misi Balikin Paman!',
+      setting: 'Dapur food truck',
+      character: 'Alice, Wajan (Paman)',
+      text: '"Paman... tenang, aku bakal bantuin!" kata Alice, suaranya bergetar tapi matanya penuh tekad.<br><br>"Lo... beneran mau bantuin Paman?" suara wajan berubah, terdengar haru. "Sejak jadi wajan, Paman mikir lo bakal jijik sama Paman."<br><br>"Jijik? Paman kan tetap Paman! Walaupun sekarang... wajan." Alice nyengir. "Terus gimana caranya balikin Paman?"<br><br>Wajan mikir sebentar. "Di food truck ini ada <strong>buku resep rahasia Paman</strong>. Halaman terakhir... ada mantra yang ditulis tukang antik yang jual wajan ini. Paman nggak sempat baca, tiba-tiba Paman udah jadi wajan!"<br><br>Alice langsung cari buku itu. Di bawah meja dapur — sebuah buku resep lusuh dengan tulisan <strong>"RESEP PAMAN — JANGAN BUKA HALAMAN TERAKHIR"</strong>.<br><br>"Yakin ini, Paman?"<br><br>"YAKIN! Dibaca aja!"<br><br>Alice buka halaman terakhir. Di sana tertulis:<br><br><em>"Barang antik menyimpan kisah<br>Bila wajan bicara tak waras<br>Masaklah lauk penuh cinta kasih<br>Maka sihir pun lebur sirna"</em><br><br>Alice baca keras-keras. Wajan di depannya mulai bersinar redup...',
+      choices: [
+        { text: '👩‍🍳 Masak dengan penuh cinta — Alice bener-bener konsentrasi masak, kasih perasaan', next: 'scene7a' },
+        { text: '😬 Masak panik — Alice buru-buru karena takut salah, wajan jadi makin kacau', next: 'scene7b' }
+      ]
+    },
+    scene6b: {
+      number: 6,
+      title: 'Lari... Tapi Balik Lagi',
+      setting: 'Pinggir pantai, lalu balik ke food truck',
+      character: 'Alice, Wajan (Paman)',
+      text: '"DOR!" Alice lari keluar food truck. Sandal jepitnya hampir copot. Napasnya ngos-ngosan.<br><br>"PAMAN JADI WAJAN! PAMAN JADI WAJAN! PAMAN JADI—" Alice berhenti. Dia duduk di pinggir pantai, ombak bergulung-gulung di depan matanya.<br><br>Diem-diem air mata Alice netes. "Paman... maafin aku..."<br><br>Di kejauhan, food truck kelihatan sepi. Alice nunduk. Pikiran kacau campur aduk.<br><br><em>"Ini gila. Tapi... Paman nggak pernah jahat sama gue. Paman yang ajarin gue masak. Paman yang selalu bikinin gue minyak zaitun favorit."</em><br><br>Alice inget botol minyak zaitun tadi — tulisan <em>"Alice kecil suka banget minyak ini — Paman"</em>. Paman selalu peduli, walaupun sekarang jadi wajan galak...<br><br>Alice berdiri. Napas dalam. <strong>Balik ke food truck!</strong><br><br>"PAMAN! MAAF! AKU BALIK!" teriak Alice sambil lari lagi.<br><br>"UDAH GUE TUNGGU! CEPETAN! Paman kram!" jawab wajan.',
+      choices: [
+        { text: '🤝 Minta maaf & bantuin paman — "Paman, ajarin aku cara balikin Paman!"', next: 'scene6a' },
+        { text: '😂 Becanda bentar — "Paman kram? Emang wajan bisa kram?" 😆', next: 'scene7b' }
+      ]
+    },
+    scene7a: {
+      number: 7,
+      title: '🎉 Happy Ending — Food Truck Sukses!',
+      isEnding: true,
+      endingType: 'a',
+      setting: 'Food truck pinggir pantai',
+      character: 'Alice, Paman',
+      text: '<span class="ending-badge ending-a">🎉 ENDING A — SELAMAT! 🎉</span><br><br>Alice masak dengan sepenuh hati. Dia ingat semua kenangan sama Paman — waktu kecil belajar motong bawang, waktu Paman ngajarin bikin telur dadar, waktu Paman selalu bilang <em>"Masak yang pake hati, Al, biar rasanya beda."</em><br><br>Satu... dua... tiga menit berlalu.<br><br>Tiba-tiba wajan itu bersinar terang! Alice nutup mata. Begitu dia buka...<br><br>"ADEUH... PAMAN KAPOK! KAPOK! Nggak bakal Paman beli wajan antik lagi!" teriak seseorang.<br><br>Di depan Alice berdiri <strong>Paman</strong> — masih pake celemek, masih bau bawang, masih dengan senyum khasnya. Wujud manusia! 🎉<br><br>"PA— PAMAN!!" Alice langsung peluk Paman erat-erat.<br><br>"Udah, udah... makasih, Al. Lo emang jago masak sejati. Paman ajarin lagi resep baru, oke?"<br><br>Food truck pun buka! Pengunjung pantai berdatangan, antre panjang. <strong>Paman\'s Kitchen</strong> jadi food truck paling laris. Dan setiap kali ada yang pesan, Alice dan Paman saling lirik sambil senyum — ada rahasia kecil yang cuma mereka berdua tau. 😉<br><br><span class="glow-text">🏁 THE END — Alice berhasil nyelamatin Paman! 🎉🎉🎉</span>'
+    },
+    scene7b: {
+      number: 7,
+      title: '😂 Ending Lucu — Wajan Lain Lagi!',
+      isEnding: true,
+      endingType: 'b',
+      setting: 'Food truck pinggir pantai',
+      character: 'Alice, Paman, Wajan Baru',
+      text: '<span class="ending-badge ending-b">😂 ENDING B — WAJAN BARU! 😂</span><br><br>Alice ikutin mantra di buku resep. Wajan bersinar — dan <strong>POOF!</strong> — Paman balik jadi manusia!<br><br>"ALICE! LO BERHASIL!" teriak Paman senang. "Paman berhutang nyawa sama lo, nih!"<br><br>Alice senyum lebar. "Iya, dong! Murid jagoan Paman, kan?"<br><br>Mereka bersalaman, lalu siap-siap buka food truck. Alice bersihin dapur, ngepel lantai, ngelap meja... dan matanya tertuju ke rak paling atas.<br><br>Di sana ada <strong>wajan lain</strong>. Yang lebih item. Lebih besar. Yang keliatannya... <strong>nyengir</strong>.<br><br>"Paman... itu wajan apa?"<br><br>Paman nengok. "Oh, itu? Baru Paman beli kemarin dari—"<br><br>"HEH! BARU LO! JAMAH-JAMAH SIAHA LU?!" teriak wajan baru itu.<br><br>Alice dan Paman saling pandang. Wajah mereka pucat.<br><br>"PA— PAMAN JANGAN BILANG—"<br><br>"Paman nggak beli barang antik lain kok, Paman sumpah—"<br><br>"BOONG! LU NGASIH MAKAN KUCING LIAR KEMAREN! GUA LIAT! SOMBONG LU!" teriak wajan kedua.<br><br>Alice dan Paman diem. Terus... mereka ketawa ngakak. 🤣🤣🤣<br><br>"Kayaknya food truck kita... bakal seru terus ya, Paman."<br><br>"Aih, minimal Paman nggak sendiri jadi wajan. Ada temen! Tapi ayam lu pada gosong lagi nih!"<br><br><span class="glow-text">🏁 THE END — Food truck masih buka, tapi Paman waspada sama wajan baru! 😂</span>'
+    }
+  };
+
+  function goTo(sceneId) {
+    const scene = story[sceneId];
+    if (!scene) return;
+
+    document.getElementById('scene').classList.remove('fade-in');
+    void document.getElementById('scene').offsetWidth;
+    document.getElementById('scene').classList.add('fade-in');
+
+    document.getElementById('sceneNumber').textContent = scene.isEnding ? '✦ ENDING ✦' : 'SCENE ' + scene.number + '/7';
+    document.getElementById('sceneTitle').textContent = scene.title;
+
+    if (scene.setting) {
+      document.getElementById('sceneSetting').textContent = '📍 ' + scene.setting;
+      document.getElementById('sceneSetting').style.display = 'block';
+    } else {
+      document.getElementById('sceneSetting').style.display = 'none';
+    }
+
+    if (scene.character) {
+      document.getElementById('sceneChar').textContent = '👤 ' + scene.character;
+      document.getElementById('sceneChar').style.display = 'block';
+    } else {
+      document.getElementById('sceneChar').style.display = 'none';
+    }
+
+    document.getElementById('sceneText').innerHTML = scene.text;
+
+    const choicesDiv = document.getElementById('choicesContainer');
+    choicesDiv.innerHTML = '';
+
+    if (scene.isEnding) {
+      const btn = document.createElement('button');
+      btn.className = 'restart-btn';
+      btn.textContent = '🔄 Main Lagi';
+      btn.onclick = () => goTo('scene1');
+      choicesDiv.appendChild(btn);
+    } else {
+      if (scene.note) {
+        const note = document.createElement('div');
+        note.className = 'note-text';
+        note.textContent = scene.note;
+        choicesDiv.appendChild(note);
+      }
+      const choicesWrap = document.createElement('div');
+      choicesWrap.className = 'choices';
+      scene.choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.innerHTML = choice.text;
+        btn.onclick = () => goTo(choice.next);
+        choicesWrap.appendChild(btn);
+      });
+      choicesDiv.appendChild(choicesWrap);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  goTo('scene1');
+</script>
+</body>
+</html>
