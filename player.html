@@ -155,12 +155,7 @@ async function loadScene(sceneFile) {
   else { storyMD = sections[0]; choicesSection = ''; }
   storyMD = storyMD.replace(/^\*\*(Setting|Karakter|Penulis|Genre|Premis|Tags|Rating|Theme|Date|Plot twist|Jumlah scene):\*\*.*$/gm,'').trim();
   choicesSection = choicesSection.replace(/\*\*Pilihan:\*\*/g,'').trim();
-  // If choicesSection has content but no [bracket] choices, it might be story text (for endings)
-  const hasChoiceBrackets = /\[.+?\]/.test(choicesSection);
-  if (choicesSection && !hasChoiceBrackets) {
-    storyMD = storyMD + '\n\n' + choicesSection;
-    choicesSection = '';
-  }
+
 
   const choices = [];
   const re = /-\s*\[(.+?)\]\s*:\s*(.+)/g; let m;
