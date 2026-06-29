@@ -1,7 +1,8 @@
 # Scene 5B: Akhir — Mencari Bumi
 
 **Setting:** Pesawat milik koloni — perjalanan antariksa.
-**Karakter:** Rama
+**Karakter:**
+**Status:** END Rama
 
 ---
 
