@@ -6,5 +6,4 @@
 **Rating:** PG
 **Date:** 2026-06-28
 
-**Premis:** [premis cerita]
 **Jumlah scene:** 14
