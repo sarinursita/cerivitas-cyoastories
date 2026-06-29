@@ -32,5 +32,5 @@ Mereka saling pandang. Udara terasa dingin mendadak.
 ---
 
 **Pilihan:**
-- [A]: Naik tangga utama — berani hadapi langsung 🚪
-- [B]: Naik tangga darurat — lewat jalur belakang yang lebih sepi 🚧
+- [Scene 2A]: Naik tangga utama — berani hadapi langsung 🚪
+- [Scene 2B]: Naik tangga darurat — lewat jalur belakang yang lebih sepi 🚧
