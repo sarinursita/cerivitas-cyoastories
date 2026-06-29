@@ -18,5 +18,5 @@ Tanda tangannya — **Bu Ani**. 😳
 ---
 
 **Pilihan:**
-- [Scene 5a]: Hadapi Bu Ani langsung — tanya di depan kelas!
-- [Scene 5b]: Mata-matain Bu Ani dulu — cari bukti lebih banyak
+- [Scene 5A]: Hadapi Bu Ani langsung — tanya di depan kelas!
+- [Scene 5B]: Mata-matain Bu Ani dulu — cari bukti lebih banyak
