@@ -1,6 +1,8 @@
 # 👑 Raja Kerang dan Ksatria Kepsek 🐚
 
-- **Genre:** Comedy
+- **Genre:**
+**Tags:** komedi, sekolah, absurd**
+**Penulis:** [nama] Comedy
 - **Author:** [nama peserta]
 - **Premis:** Doni dikeluarin dari kelas, ngintip Pak Burjo nonton drakor, dan tiba-tiba mereka teleport ke Kerajaan Kerang Ajaib! Doni jadi raja, Pak Burjo jadi ksatria. Tapi ternyata ada dalang di balik semua ini...
 - **Jumlah scene:** 7 (termasuk 2 bad end)
