@@ -6,6 +6,10 @@
 
 ---
 
+---
+🏁 THE END
+
+
 Rama naik pesawat dan setting koordinat. Tujuan: **Bumi.** Tempat yang gak pernah ia injak. Tempat yang cuma ada di buku sejarah.
 
 Perjalanan memakan waktu 3 hari.
