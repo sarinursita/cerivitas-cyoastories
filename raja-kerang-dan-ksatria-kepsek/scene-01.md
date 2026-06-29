@@ -14,5 +14,5 @@ WAIT. Itu **Pak Burjo**! Kepala sekolah paling killer seantero sekolah. Tapi dia
 ---
 
 **Pilihan:**
-- **[A]** Ikut nonton — penasaran, Pak Burjo nonton drakor apa
-- **[B]** Mending ke kantin — gausah ikut campur, takut kena marah
+- [A]: Ikut nonton — penasaran, Pak Burjo nonton drakor apa
+- [B]: Mending ke kantin — gausah ikut campur, takut kena marah
