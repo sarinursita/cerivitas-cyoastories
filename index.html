@@ -180,8 +180,7 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
       </select>
     </div>
 
-    <!-- Tag cloud -->
-    <div class="tag-cloud" id="tag-cloud"></div>
+
 
     <!-- Story list -->
     <div id="story-list"></div>
@@ -273,15 +272,7 @@ async function loadSidebar() {
   const genreSel = document.getElementById('genre-filter');
   genres.forEach(g => { const o = document.createElement('option'); o.value = g; o.text = g; genreSel.appendChild(o); });
 
-  // Populate tag cloud
-  const allTags = [...new Set(stories.flatMap(s => s.tags))];
-  const cloud = document.getElementById('tag-cloud');
-  allTags.forEach(t => {
-    const el = document.createElement('span');
-    el.className = 'filter-tag'; el.textContent = t;
-    el.onclick = () => { el.classList.toggle('active'); filterStories(); };
-    cloud.appendChild(el);
-  });
+
 
   document.getElementById('sidebar-loading').style.display = 'none';
   filterStories();
@@ -292,13 +283,10 @@ function filterStories() {
   const genre = document.getElementById('genre-filter').value;
   const rating = document.getElementById('rating-filter').value;
   const sort = document.getElementById('sort-filter').value;
-  const activeTags = [...document.querySelectorAll('.filter-tag.active')].map(el => el.textContent);
-
   let filtered = stories.filter(s => {
     if (q && !s.title.toLowerCase().includes(q) && !s.tags.some(t => t.toLowerCase().includes(q))) return false;
     if (genre && s.genre !== genre) return false;
     if (rating && s.rating !== rating) return false;
-    if (activeTags.length && !activeTags.some(t => s.tags.includes(t))) return false;
     return true;
   });
 
