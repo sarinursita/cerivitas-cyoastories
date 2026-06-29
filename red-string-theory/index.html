@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
-<title>Red String Theory\n</title>
+<title>Red String Theory</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -159,7 +159,7 @@ body {
     <div class="choices" id="choices"></div>
     <div id="ending-section"></div>
   </div>
-  <div class="footer">Red String Theory\n</div>
+  <div class="footer">Red String Theory</div>
 </div>
 
 <script>
@@ -177,8 +177,8 @@ Pas cowok itu buka dompet buat bayar, Aksa liat sekilas foto di dalam dompetnya�
 Jantung Aksa berdegup kencang.`,
     is_ending: false,
     choices: [
-      { target: '02A', desc: 'Dekati Eril dan ajak ngobrol — "Sendirian aja? Kopimu dingin, aku traktir yang baru."' },
-      { target: '02B', desc: 'Ngintip dari jauh, jangan dateng dulu — Cari tau dulu situasi sebelum bertindak.' },
+      { target: '02a', desc: 'Dekati Eril dan ajak ngobrol — "Sendirian aja? Kopimu dingin, aku traktir yang baru."' },
+      { target: '02b', desc: 'Ngintip dari jauh, jangan dateng dulu — Cari tau dulu situasi sebelum bertindak.' },
     ],
   },
   '02A': {
@@ -200,8 +200,8 @@ Pas Eril senyum, Aksa liat lesung pipit yang sama persis kayak... foto di dompet
 Dari sudut mata, Aksa liat sesosok cowok bertubuh kekar berdiri di luar kafe—persis di seberang jalan—ngeliatin mereka dengan tatapan tajam. Wajahnya setengah ketutup hoodie hitam.`,
     is_ending: false,
     choices: [
-      { target: '03A', desc: 'Tanya langsung: "Kamu kenal orang itu?" — Konfrontasi langsung soal cowok misterius di luar.' },
-      { target: '03B', desc: 'Diem aja, tapi perhatiin dari deket — Jangan buat Eril panik, tapi waspada.' },
+      { target: '03a', desc: 'Tanya langsung: "Kamu kenal orang itu?" — Konfrontasi langsung soal cowok misterius di luar.' },
+      { target: '03b', desc: 'Diem aja, tapi perhatiin dari deket — Jangan buat Eril panik, tapi waspada.' },
     ],
   },
   '02B': {
@@ -217,8 +217,8 @@ Lima belas menit kemudian, sesosok cowok bertubuh kekar masuk kafe, langsung nya
 Cowok itu pergi tanpa basa-basi, ninggalin Eril yang makin pucat.`,
     is_ending: false,
     choices: [
-      { target: '03C', desc: 'Ikutin orang yang ngasih amplop — Cari tau siapa dia dan darimana asalnya.' },
-      { target: '03D', desc: 'Tunggu, terus hampiri Eril — Langsung aja hadepin Eril dan tanya semuanya.' },
+      { target: '03c', desc: 'Ikutin orang yang ngasih amplop — Cari tau siapa dia dan darimana asalnya.' },
+      { target: '03d', desc: 'Tunggu, terus hampiri Eril — Langsung aja hadepin Eril dan tanya semuanya.' },
     ],
   },
   '03A': {
@@ -376,10 +376,10 @@ Dia diam. Menatap Aksa lama. Lalu dia liat syal itu lagi—syal merah yang masih
 Sekarang, semuanya tergantung pada pilihan Aksa.`,
     is_ending: false,
     choices: [
-      { target: '07A', desc: '"Aku harus bilang semuanya ke Eril. Jujur. Biar dia tau semua dari aku." — Ending A: Maafin Aku' },
-      { target: '07B', desc: '"Aku bakal lindungin Eril aja. Dia nggak perlu tau." — Ending B: Diam & Lindungin' },
-      { target: '07C', desc: '"Gas balik ke PMC dan selametin Arga." — Ending C: Balas Dendam' },
-      { target: '07D', desc: '"Aku tunjukin syal ini ke Eril, dan mulai dari awal..." — Ending D: Mulai dari Awal' },
+      { target: '07a', desc: '"Aku harus bilang semuanya ke Eril. Jujur. Biar dia tau semua dari aku." — Ending A: Maafin Aku' },
+      { target: '07b', desc: '"Aku bakal lindungin Eril aja. Dia nggak perlu tau." — Ending B: Diam & Lindungin' },
+      { target: '07c', desc: '"Gas balik ke PMC dan selametin Arga." — Ending C: Balas Dendam' },
+      { target: '07d', desc: '"Aku tunjukin syal ini ke Eril, dan mulai dari awal..." — Ending D: Mulai dari Awal' },
     ],
   },
   '07A': {
@@ -524,12 +524,10 @@ function goTo(sceneId) {
   if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
   if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
   document.getElementById('scene-meta').innerHTML = metaHtml;
-
-  let narr = scene.narrative;
-  narr = narr.replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>');
-  narr = narr.replace(/\\*(.+?)\\*/g, '<em>$1</em>');
-  narr = narr.replace(/\\n/g, '<br>');
-  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\\n\\n').join('</p><p>') + '</p>';
+  narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  narr = narr.replace(/\n/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
 
   const choicesDiv = document.getElementById('choices');
   const choicesLabel = document.getElementById('choices-label');
