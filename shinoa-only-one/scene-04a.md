@@ -24,5 +24,5 @@ Hali terkekeh pelan—hal yang jarang banget terjadi. Aysel ngerasa menang lotre
 ---
 
 **Pilihan:**
-- [Nunggu sampe selesai] — "Gas. Gue tunggu."
-- [Pulang duluan] — "Maaf, gue ada urusan. Lain kali ya!"
+- [Scene 1A]: Nunggu sampe selesai — "Gas. Gue tunggu."
+- [Scene 2B]: Pulang duluan — "Maaf, gue ada urusan. Lain kali ya!"
