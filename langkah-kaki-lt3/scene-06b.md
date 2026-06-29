@@ -32,5 +32,5 @@ Pak Hendra berdiri, ngambil senter besar dari dinding.
 ---
 
 **Pilihan:**
-- [A]: Duduk dan dengerin cerita Pak Hendra — mau tahu apa yang sebenarnya terjadi 🪑👂
-- [B]: "Gak mau duduk! Antar kami ke kantor polisi!" — udah ketakutan banget 🚓😰
+- [Scene 3]: Duduk dan dengerin cerita Pak Hendra — mau tahu apa yang sebenarnya terjadi 🪑👂
+- [Scene 3]: "Gak mau duduk! Antar kami ke kantor polisi!" — udah ketakutan banget 🚓😰
