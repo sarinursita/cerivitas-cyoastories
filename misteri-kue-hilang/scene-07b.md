@@ -2,6 +2,7 @@
 
 **Setting:** Kantin sekolah — semua bergotong royong
 **Karakter:** Bima, Bu Ani, Bu Rita, Rina, Dodi, semua siswa
+**Status:** END
 
 Bima angkat tangan. "Gue usul! Daripada Bu Ani dihukum, mending kita bikin kue BARU bareng-bareng! Kan juri masih di sini!"
 
@@ -20,3 +21,7 @@ Bima nyengir. "Misteri Kue Hilang selesai. Dan kita dapet kue BARU yang lebih en
 **THE END — Semua happy, kuenya jadi, temen-temen kompak!** 🍰🎉
 
 *Mau main lagi? 🙌*
+
+---
+
+🏁 THE END
