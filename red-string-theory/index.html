@@ -524,10 +524,14 @@ function goTo(sceneId) {
   if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
   if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
   document.getElementById('scene-meta').innerHTML = metaHtml;
+  let narr = scene.narrative;
   narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  narr = narr.replace(/\n/g, '<br>');
-  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
+  narr = narr.replace(/
+/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('
+
+').join('</p><p>') + '</p>';
 
   const choicesDiv = document.getElementById('choices');
   const choicesLabel = document.getElementById('choices-label');
