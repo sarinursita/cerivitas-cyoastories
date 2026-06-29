@@ -20,5 +20,5 @@ Pak Burjo ngaca. Dia mesem. "Gue... keren juga ya."
 ---
 
 **Pilihan:**
-- **[A]** Kabur! — Cari jalan pulang, ini pasti mimpi buruk
-- **[B]** Liat-liat dulu — Istana kerang gede banget... penasaran
+- [A]: Kabur! — Cari jalan pulang, ini pasti mimpi buruk
+- [B]: Liat-liat dulu — Istana kerang gede banget... penasaran
