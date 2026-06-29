@@ -95,7 +95,8 @@ function applyTheme(name) {
   const t = THEMES[name]; if (t) for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
 }
 
-async function fetchText(url) { const r=await fetch(url); if(!r.ok)throw Error(); return await r.text(); }
+const CB = '?t=' + Date.now();
+async function fetchText(url) { const r=await fetch(url+CB); if(!r.ok)throw Error(); return await r.text(); }
 
 async function loadStory(folder) {
   document.getElementById('loading').style.display = 'none';
@@ -125,12 +126,13 @@ async function loadStory(folder) {
 }
 
 async function fetchMD(name) {
-  let url = RAW + window.activeStory + '/' + name + '.md';
+  const cb = '?t=' + Date.now();
+  let url = RAW + window.activeStory + '/' + name + '.md' + cb;
   let r = await fetch(url);
   if (r.ok) return await r.text();
   const upper = name.replace(/[a-z]+$/, s=>s.toUpperCase());
   if (upper !== name) {
-    url = RAW + window.activeStory + '/' + upper + '.md';
+    url = RAW + window.activeStory + '/' + upper + '.md' + cb;
     r = await fetch(url);
     if (r.ok) return await r.text();
   }
