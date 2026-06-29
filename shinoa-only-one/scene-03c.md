@@ -28,5 +28,5 @@ Dua kata. Tapi cukup bikin Aysel meleleh dalem.
 ---
 
 **Pilihan:**
-- [Nanya langsung] — "Kai... lo sengaja nyenggol kaki gue tadi?"
-- [Balas santai] — "Makasih. Tapi lo bantuin gue presentasi ya nanti?"
+- [Scene 1A]: Nanya langsung — "Kai... lo sengaja nyenggol kaki gue tadi?"
+- [Scene 2B]: Balas santai — "Makasih. Tapi lo bantuin gue presentasi ya nanti?"
