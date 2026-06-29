@@ -44,4 +44,4 @@ Sebelah pojok sana — dari balik tumpukan kardus yang lebih besar.
 
 **Pilihan:**
 - [Scene 6A]: Berani masuk lebih dalem — cari sumber suara yang asli 🔦😰
-- [Scene 6A]: Lari cari satpam — minta bantuan, ini udah terlalu seram 🏃💨
+- [Scene 6B]: Lari cari satpam — minta bantuan, ini udah terlalu seram 🏃💨
