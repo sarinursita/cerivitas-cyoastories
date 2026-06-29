@@ -1,6 +1,6 @@
 # Rina Cookies
 
-**Penulis:** Rina
+**Penulis:** [nama]
 **Genre:** Lainnya
 **Tags:** makanan, resep
 **Rating:** PG
