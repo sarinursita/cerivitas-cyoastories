@@ -428,7 +428,7 @@ async function loadScene(sceneFile, story) {
     }
   }
 
-  const isEnding = title.toLowerCase().includes('akhir') || md.includes('🏁');
+  const isEnding = md.includes('**Status:** END') || title.toLowerCase().includes('akhir') || md.includes('🏁');
   const sceneNum = sceneFile.replace('scene-','').toUpperCase();
   activeScene = sceneFile;
 
