@@ -19,4 +19,4 @@ Rendra baca pesan itu berulang kali. Air mata jatuh lagi. Tapi kali ini... ada s
 
 **Pilihan:**
 - [Scene 6B]: Balas — "Aku Rendra. Lo... beneran mau bantu?"
-- [Scene 7B]: Hapus — udah males, pengen lupa semuanya
+- [Belum ditulis]: Hapus — udah males, pengen lupa semuanya
