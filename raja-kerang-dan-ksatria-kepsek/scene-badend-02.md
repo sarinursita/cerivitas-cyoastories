@@ -1,3 +1,5 @@
+# Scene 6: Bad Ending
+
 # ❌ Bad End: Kesetrum!
 
 **Setting:** Ruang guru — TV rusak
