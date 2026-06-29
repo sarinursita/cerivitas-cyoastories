@@ -1,6 +1,6 @@
 # Misteri Kue Hilang
 
-**Penulis:** [nama]
+**Penulis:** Kak Sari
 **Genre:** Misteri
 **Tags:** misteri, makanan, sekolah
 **Rating:** PG
