@@ -12,26 +12,26 @@ Alice senyum lebar. "Iya, dong! Murid jagoan Paman, kan?"
 
 Mereka bersalaman, lalu siap-siap buka food truck. Alice bersihin dapur, ngepel lantai, ngelap meja... dan matanya tertuju ke rak paling atas.
 
-Di sana ada **wajan lain**. Yang lebih item. Lebih besar. Yang keliatannya... **nyengir**.
+Di sana ada **wajan lain**. Yang lebih item. Lebih besar. Tapi keliatannya... **ramah**.
 
 "Paman... itu wajan apa?"
 
-Paman nengok. "Oh, itu? Baru Paman beli kemarin dari—"
+Paman nengok. "Oh, itu? Baru Paman beli kemarin dari pasar—"
 
-"HEH! BARU LO! JAMAH-JAMAH SIAHA LU?!" teriak wajan baru itu.
+"Halo! Senang bertemu dengan kalian!" sapa wajan baru itu dengan suara lembut. "Aku dengar dari panci dan spatula, kalian punya food truck yang seru! Mau aku bantu masak?"
 
-Alice dan Paman saling pandang. Wajah mereka pucat.
+Alice dan Paman saling pandang. Matanya membulat.
 
-"PA— PAMAN JANGAN BILANG—"
+"Wajan ini... baik?" bisik Alice.
 
-"Paman nggak beli barang antik lain kok, Paman sumpah—"
+"Kayaknya iya, Al," jawab Paman takjub.
 
-"BOONG! LU NGASIH MAKAN KUCING LIAR KEMAREN! GUA LIAT! SOMBONG LU!" teriak wajan kedua.
+Wajan baru itu langsung membantu — motong bawang lebih rapi, ngaduk sup lebih rata, bahkan ngatur waktu masak biar nggak gosong. Dapur jadi lebih teratur!
 
-Alice dan Paman diem. Terus... mereka ketawa ngakak. 🤣🤣🤣
+Alice senyum. "Kayaknya food truck kita tambah seru sekarang, Paman."
 
-"Kayaknya food truck kita... bakal seru terus ya, Paman."
+"Iya. Akhirnya Paman punya temen wajan yang **baik**." Paman nyengir. "Tapi tolong jagain Paman ya, Al, kalo tiba-tiba dia jadi galak!"
 
-"Aih, minimal Paman nggak sendiri jadi wajan. Ada temen! Tapi ayam lu pada gosong lagi nih!"
+Alice ngakak. "Siap, Paman! 😆"
 
-🏁 **THE END — Food truck masih buka, tapi Paman waspada sama wajan baru!** 😂
+🏁 **THE END — Food truck makin rame dengan wajan baru yang baik hati!** 🥰🔥
