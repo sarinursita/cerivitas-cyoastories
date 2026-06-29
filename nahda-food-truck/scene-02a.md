@@ -9,7 +9,7 @@ Alice melangkah masuk ke dapur food truck. Panasnya makin terasa di dalam — ko
 
 Alice kaget, nyaris jatuhin spatula. Dia menoleh ke sekeliling — nggak ada siapa-siapa.
 
-"Kiri, tolol! Aku di kiri!" suara itu lagi.
+"Kiri Aku di kirii!" suara itu lagi.
 
 Alice menunduk. Wajan hitam itu... **bergerak**. Dan matanya — WAJAN PUNYA MATA! — menatap Alice tajam.
 
