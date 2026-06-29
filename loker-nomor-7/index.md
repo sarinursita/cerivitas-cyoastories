@@ -1,6 +1,6 @@
 # Loker Nomor 7
 
-**Penulis:** Alaric
+**Penulis:** [nama]
 **Genre:** Drama
 **Tags:** misteri, sekolah, thriller
 **Rating:** 13+
