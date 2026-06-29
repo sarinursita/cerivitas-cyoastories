@@ -1,7 +1,8 @@
 # Scene 5C: Akhir — Truth Bombs
 
 **Setting:** Ruang serbaguna stasiun — semua penghuni dikumpulkan.
-**Karakter:** Rama, Komandan Voss, seluruh penghuni koloni
+**Karakter:**
+**Status:** END Rama, Komandan Voss, seluruh penghuni koloni
 
 ---
 
