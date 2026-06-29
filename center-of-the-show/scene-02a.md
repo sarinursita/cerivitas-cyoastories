@@ -1,4 +1,4 @@
-# Scene 02A: Membalas pesan kakak
+# Scene 02a: Membalas pesan kakak
 
 **Setting:** Masih di Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.
 **Karakter:** Sena
