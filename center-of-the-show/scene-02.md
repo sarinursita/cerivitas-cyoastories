@@ -1,23 +1,22 @@
-# Scene 02a: Adegan yang Tidak Seharusnya Ada
+# Scene 02B: Keluar kamar dan mulai mencari sendiri 
 
-**Setting:** Kamar Sena — masih sore, HP di tangan
+**Setting:** Rumah Sena — lorong gelap menuju kamar kakak. Sore hari, hampir magrib. Rumah terasa kosong. Kamar kakak rapih.
 
 **Karakter:** Sena
 
-Rekaman dimulai. Kakakku duduk di depan kamera, tersenyum lelah. "Hai Sen, ini rekaman terakhir kali ya. Maaf kalo... sudahlah."
+Aku bangkit dari tempat tidur. Pertama kalinya dalam tiga hari aku berdiri. Kakiku lemas, tapi aku paksa jalan.
 
-Dia berhenti sebentar. Lalu matanya beralih ke sesuatu di luar layar.
+Pintu kamar kakak terbuka. Di dalam, tempat tidurnya rapi. Seprai halus, bantal diatur. Kakak gak pernah serapi ini.
 
-"Eh, itu... aneh."
+Lemari kakak kosong. Semua baju masih ada. Gak ada yang dibawa. Kalo dia pergi, pasti bawa baju. Kecuali... dia gak pergi sendiri.
 
-Dia berdiri, meninggalkan kamera menyala. Rekaman menunjukkan pintu kamar yang terbuka — ke lorong yang gelap. Lalu... aku melihatnya. Sekilas. Di ujung lorong, ada sesosok bayangan tinggi dengan senyum lebar. Terlalu lebar untuk manusia.
+Di dasar lemari, nyangkut amplop putih. Namaku di atasnya. Tulisan kakak — huruf S melingkar kayak ular.
 
-Tapi yang bikin bulu kudukku berdiri — bayangan itu tidak bergerak. Hanya diam... menatap... ke arah kamera. Ke arahku.
+Aku buka. Isinya cuma satu kalimat:
 
-Rekaman berakhir.
-
----
+"Sena, cari buku harianku. Tapi jangan baca halaman terakhir."
 
 **Pilihan:**
-- [Scene 4] 👁️ **Perhatiin detail bayangannya** — putar ulang, zoom, cari petunjuk
-- [Scene 3] 😰 **Tutup videonya** — ini terlalu nyata, aku perlu info lain dulu
+- [Scene 04a] Cari buku harian kakak — mulai dari kamarnya
+- [Scene 04b] Langgar aturan — cari halaman terakhir dulu
+
