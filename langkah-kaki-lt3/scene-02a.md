@@ -24,5 +24,5 @@ Di atas, suara langkah masih terdengar. Pelan. Beraturan. Seperti seseorang yang
 ---
 
 **Pilihan:**
-- [A]: Lanjut naik — gas aja, siap atau enggak 🔦
-- [B]: Balik ambil senter dulu ke ruang ekskul — lebih aman 🔄
+- [Scene 3]: Lanjut naik — gas aja, siap atau enggak 🔦
+- [Scene 3]: Balik ambil senter dulu ke ruang ekskul — lebih aman 🔄
