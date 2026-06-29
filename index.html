@@ -3,509 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYOA Stories</title>
+<title>CYOA Stories — Agent Adventure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg1: #0c0c1e; --bg2: #1a0a2e; --text: #e0d8f0;
-  --accent1: #ffd700; --accent2: #ff7eb3; --accent3: #7ec8e3;
-  --card-bg: #1a1a3e; --sidebar-bg: rgba(26,26,62,0.6);
-  --choice-bg: rgba(126,200,227,0.08); --choice-border: rgba(126,200,227,0.2);
-  --choice-hover: rgba(126,200,227,0.15); --choice-text: #a8e6cf;
-  --setting: #a898c0; --meta: #666; --border: rgba(255,255,255,0.06);
+  --bg1: #fef6fb; --bg2: #fce4ec; --text: #5d3a5c; --accent1: #f48fb1; --accent2: #ce93d8; --accent3: #9575cd;
+  --card-bg: #fff0f5; --border: rgba(100,70,120,0.12); --meta: #999; --shadow: rgba(100,70,120,0.08);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'Merriweather', Georgia, serif;
-  background: var(--bg1);
-  color: var(--text); min-height: 100vh; line-height: 1.8;
-  transition: background 0.3s, color 0.3s;
+  font-family:'Inter',sans-serif; background:var(--bg1); color:var(--text);
+  min-height:100vh; transition: background 0.3s, color 0.3s;
 }
-.app { display: flex; min-height: 100vh; }
+.container { max-width: 800px; margin: 0 auto; padding: 2rem 1.2rem 3rem; }
 
-/* ── Sidebar ── */
-.sidebar {
-  width: 300px; min-width: 300px;
-  background: var(--sidebar-bg); border-right: 1px solid var(--border);
-  padding: 1.2rem; overflow-y: auto; max-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  backdrop-filter: blur(10px);
+/* Header */
+.header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+h1 { font-size: 1.5rem; font-weight: 800; color: var(--accent1); }
+.theme-select {
+  padding: 0.3rem 0.6rem; border-radius: 8px; background: var(--card-bg);
+  border: 1px solid var(--border); color: var(--text); font-size: 0.8rem;
+  font-family:'Inter',sans-serif; cursor: pointer; outline: none;
 }
-.sidebar h1 {
-  font-size: 1.3rem; font-weight: 800;
-  color: var(--accent1); margin-bottom: 0.8rem;
-}
-.sidebar .subtitle { color: var(--meta); font-size: 0.75rem; margin-bottom: 1rem; }
+.subtitle { color: var(--meta); font-size: 0.8rem; margin-bottom: 1.2rem; }
 
-/* Search & filters */
+/* Search */
 .search-box {
-  width: 100%; padding: 0.5rem 0.7rem; border-radius: 8px;
-  background: var(--card-bg); border: 1px solid var(--border);
-  color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.8rem;
-  margin-bottom: 0.5rem; outline: none;
+  width:100%; padding:0.6rem 1rem; border-radius:10px; background:var(--card-bg);
+  border:1px solid var(--border); color:var(--text); font-family:'Inter',sans-serif;
+  font-size:0.9rem; margin-bottom:1rem; outline: none;
 }
 .search-box:focus { border-color: var(--accent3); }
+
+/* Filter row */
 .filter-row { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; }
 .filter-row select {
-  flex: 1; min-width: 80px; padding: 0.3rem 0.4rem; border-radius: 6px;
-  background: var(--card-bg); border: 1px solid var(--border);
-  color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.75rem; cursor: pointer;
-}
-.filter-tag {
-  display: inline-block; padding: 0.2rem 0.5rem; border-radius: 10px;
-  font-size: 0.65rem; cursor: pointer; margin: 0.15rem;
-  background: rgba(126,200,227,0.1); color: var(--accent3); border: 1px solid transparent;
-  transition: 0.2s;
-}
-.filter-tag.active { background: var(--accent3); color: var(--bg1); border-color: var(--accent3); }
-.tag-cloud { margin-bottom: 0.8rem; }
-
-/* Story list */
-.story-item {
-  padding: 0.7rem 0.8rem; border-radius: 8px; cursor: pointer;
-  margin-bottom: 0.4rem; transition: 0.2s;
-  border: 1px solid transparent;
-}
-.story-item:hover { background: var(--card-bg); }
-.story-item.active { background: var(--card-bg); border-color: var(--accent3); }
-.story-item .s-title { font-weight: 700; font-size: 0.9rem; }
-.story-item .s-meta { font-size: 0.7rem; color: var(--meta); margin-top: 0.15rem; }
-.story-item .s-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.3rem; }
-.story-item .s-tag {
-  font-size: 0.6rem; padding: 0.1rem 0.35rem; border-radius: 8px;
-  background: rgba(255,255,255,0.06); color: var(--meta);
+  flex:1; min-width:80px; padding:0.3rem 0.5rem; border-radius:6px;
+  background:var(--card-bg); border:1px solid var(--border); color:var(--text);
+  font-family:'Inter',sans-serif; font-size:0.8rem; cursor:pointer;
 }
 
-/* ── Main viewer ── */
-.viewer { flex: 1; padding: 2rem 2.5rem 4rem; overflow-y: auto; max-height: 100vh; }
-.viewer .back-link { display: none; } /* hidden on desktop */
-
-/* Loading */
-#loading { text-align: center; padding: 4rem 0; color: #888; }
-
-/* Story display */
-.scene-label {
-  display: inline-flex; align-items: center;
-  background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3);
-  color: var(--accent1); font-family: 'Inter', sans-serif;
-  font-size: 0.75rem; font-weight: 600;
-  padding: 0.25rem 0.7rem; border-radius: 20px; margin-bottom: 1.5rem;
+/* Story cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 0.8rem; }
+.card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1rem; cursor: pointer; transition: 0.3s;
+  text-decoration: none; color: var(--text);
+  box-shadow: 0 2px 10px var(--shadow);
 }
-.scene-title {
-  font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 800;
-  color: var(--accent3); margin-bottom: 0.5rem;
-}
-.setting { color: var(--setting); font-size: 0.9rem; font-style: italic; border-left: 3px solid rgba(126,200,227,0.4); padding-left: 1rem; margin-bottom: 1.5rem; }
-.story-text p { margin-bottom: 1rem; }
-.story-text em { color: #b8a0d8; }
-.story-text strong { color: var(--accent1); }
-hr.divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent); margin: 2rem 0; }
-.choices-label { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--accent1); font-weight: 600; margin-bottom: 1rem; }
-.choice {
-  display: block;
-  background: var(--choice-bg); border: 1px solid var(--choice-border);
-  border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 0.8rem;
-  color: var(--choice-text); text-decoration: none; cursor: pointer; transition: 0.3s;
-  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
-}
-.choice:hover { background: var(--choice-hover); border-color: var(--accent3); transform: translateX(6px); box-shadow: 0 4px 20px rgba(126,200,227,0.15); }
-.choice .scene-tag { font-size: 0.7rem; color: #888; font-weight: 400; display: block; margin-top: 0.3rem; }
-.end-badge { text-align: center; font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent1); margin: 2rem 0 1rem; }
-.end-note { text-align: center; color: #888; font-style: italic; margin-bottom: 2rem; }
-.restart-btn { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--accent1); font-family: 'Inter', sans-serif; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; cursor: pointer; transition: 0.3s; }
-.restart-btn:hover { background: rgba(255,215,0,0.2); }
-
-/* ── Theme selector ── */
-.theme-bar {
-  display: flex; gap: 0.3rem; flex-wrap: wrap; margin-bottom: 0.8rem;
-}
-.theme-btn {
-  padding: 0.25rem 0.5rem; border-radius: 6px; font-size: 0.7rem;
-  background: var(--card-bg); border: 1px solid var(--border);
-  color: var(--meta); cursor: pointer; transition: 0.2s;
-}
-.theme-btn:hover { border-color: var(--accent3); }
-.theme-btn.active { border-color: var(--accent1); color: var(--accent1); }
-
-/* ── Toggle button for mobile ── */
-.toggle-btn {
-  display: none; position: fixed; bottom: 1rem; left: 1rem; z-index: 100;
-  background: var(--accent1); color: var(--bg1); border: none;
-  width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem;
-  cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  font-family: 'Inter', sans-serif; font-weight: 700;
-}
-
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .app { flex-direction: column; }
-  .sidebar { width: 100%; min-width: 0; max-height: 40vh; border-right: none; border-bottom: 1px solid var(--border); overflow-y: auto; }
-  .sidebar.collapsed { max-height: 0; padding: 0 1.2rem; overflow: hidden; border: none; }
-  .sidebar h1 { font-size: 1.1rem; }
-  .viewer { padding: 1rem 1.2rem 3rem; max-height: none; }
-  .viewer .back-link { display: block; color: var(--meta); text-decoration: none; font-family: 'Inter',sans-serif; font-size: 0.8rem; margin-bottom: 1rem; cursor: pointer; }
-  .toggle-btn { display: flex; align-items: center; justify-content: center; }
-}
-
-/* Story start view (no scene yet) */
-.story-start { text-align: center; padding-top: 3rem; }
-.story-start h1 {
-  font-size: 2.5rem; font-weight: 800;
-  color: var(--accent1); margin-bottom: 0.5rem;
-}
-.story-start .meta-line { color: var(--meta); font-size: 0.85rem; font-family: 'Inter',sans-serif; margin-bottom: 0.3rem; }
-.story-start .premise { color: var(--setting); max-width: 500px; margin: 1.5rem auto; line-height: 1.8; font-style: italic; }
+.card:hover { border-color: var(--accent1); transform: translateY(-2px); }
+.card-title { font-weight: 700; font-size: 0.95rem; }
+.card-meta { color: var(--meta); font-size: 0.75rem; margin-top: 0.1rem; }
+.card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.3rem; }
+.card-tag { font-size: 0.6rem; padding: 0.1rem 0.4rem; border-radius: 8px; background: rgba(100,70,120,0.08); color: var(--meta); }
+#loading { text-align: center; padding: 3rem 0; color: var(--meta); }
+.count { color: var(--meta); font-size: 0.8rem; margin-bottom: 0.8rem; }
+.footer { text-align: center; margin-top: 2rem; color: var(--meta); font-size: 0.75rem; opacity: 0.5; }
 </style>
 </head>
 <body>
-<div class="app">
-  <div class="sidebar">
+<div class="container">
+  <div class="header-row">
     <h1>📖 CYOA Stories</h1>
-    <p class="subtitle">Agent Adventure '26</p>
-
-    <!-- Theme -->
-    <div class="theme-bar">
-      <button class="theme-btn active" data-theme="kawaii">🌸</button>
-      <button class="theme-btn" data-theme="dark">🌙</button>
-      <button class="theme-btn" data-theme="light">☀️</button>
-      <button class="theme-btn" data-theme="forest">🌿</button>
-      <button class="theme-btn" data-theme="ocean">🌊</button>
-      <button class="theme-btn" data-theme="fire">🔥</button>
-    </div>
-
-    <!-- Search -->
-    <input class="search-box" id="search" placeholder="🔍 Cari cerita..." oninput="filterStories()">
-
-    <!-- Genre filter -->
-    <div class="filter-row">
-      <select id="genre-filter" onchange="filterStories()">
-        <option value="">Semua genre</option>
-      </select>
-      <select id="rating-filter" onchange="filterStories()">
-        <option value="">Semua umur</option>
-      </select>
-      <select id="sort-filter" onchange="filterStories()">
-        <option value="alpha">A-Z</option>
-        <option value="date">Terbaru</option>
-      </select>
-    </div>
-
-
-
-    <!-- Story list -->
-    <div id="story-list"></div>
-    <div id="sidebar-loading" style="color:#555;font-size:0.8rem;text-align:center">Memuat...</div>
+    <select class="theme-select" id="themeSelect">
+      <option value="kawaii">🌸 Kawaii</option>
+      <option value="dark">🌙 Dark</option>
+      <option value="light">☀️ Light</option>
+      <option value="forest">🌿 Forest</option>
+      <option value="ocean">🌊 Ocean</option>
+      <option value="fire">🔥 Fire</option>
+    </select>
   </div>
-
-  <div class="viewer">
-    <a class="back-link" onclick="showIndex()">← Kembali ke daftar</a>
-    <div id="loading">Pilih cerita dari sidebar 👈</div>
-    <div id="story-start"></div>
-    <div id="scene-view"></div>
+  <p class="subtitle">Agent Adventure Summer '26 — Cerivitas</p>
+  <input class="search-box" id="search" placeholder="🔍 Cari cerita..." oninput="filter()">
+  <div class="filter-row">
+    <select id="genreFilter" onchange="filter()"><option value="">Semua genre</option></select>
+    <select id="ratingFilter" onchange="filter()"><option value="">Semua umur</option></select>
+    <select id="sortFilter" onchange="filter()"><option value="alpha">A-Z</option><option value="date">Terbaru</option></select>
   </div>
-  <button class="toggle-btn" id="toggleSidebar" onclick="toggleSidebar()">📚</button>
+  <div class="count" id="count">Memuat...</div>
+  <div id="loading">Memuat cerita...</div>
+  <div class="grid" id="grid"></div>
+  <p class="footer">Pilih cerita untuk dibaca ✨</p>
 </div>
-
 <script>
-// ─── Config ───
 const GIT_REPO = 'sarinursita/cerivitas-cyoastories';
 const RAW = 'https://raw.githubusercontent.com/' + GIT_REPO + '/main/';
 const API = 'https://api.github.com/repos/' + GIT_REPO + '/contents/';
 
-let stories = [];
-let activeStory = null;
-let activeScene = null;
-
-// ─── Theme ───
-// Default theme vars (night/dark)
-const DEFAULT_VARS = {
-  '--bg1':'#0c0c1e','--bg2':'#1a0a2e','--text':'#e0d8f0','--accent1':'#ffd700','--accent2':'#ff7eb3','--accent3':'#7ec8e3',
-  '--card-bg':'#1a1a3e','--sidebar-bg':'rgba(26,26,62,0.6)',
-  '--choice-bg':'rgba(126,200,227,0.08)','--choice-border':'rgba(126,200,227,0.2)','--choice-hover':'rgba(126,200,227,0.15)','--choice-text':'#a8e6cf',
-  '--setting':'#a898c0','--meta':'#666','--border':'rgba(255,255,255,0.06)'
-};
-
 const THEMES = {
-  dark: DEFAULT_VARS,
-  light: {'--bg1':'#f5f0ff','--bg2':'#e8e0f0','--text':'#1a1030','--accent1':'#c89600','--accent2':'#d44a7a','--accent3':'#3a8ba8','--card-bg':'#f0ebf8','--sidebar-bg':'rgba(240,235,248,0.9)','--choice-bg':'rgba(58,139,168,0.06)','--choice-border':'rgba(58,139,168,0.2)','--choice-hover':'rgba(58,139,168,0.1)','--choice-text':'#2a6a8a','--setting':'#5a5080','--meta':'#888','--border':'rgba(0,0,0,0.08)'},
-  forest: {'--bg1':'#0a1a10','--bg2':'#0e2a18','--text':'#d0e8d0','--accent1':'#7bc96f','--accent2':'#f0a030','--accent3':'#5ab88a','--card-bg':'#0f2a1a','--sidebar-bg':'rgba(15,42,26,0.9)','--choice-bg':'rgba(90,184,138,0.08)','--choice-border':'rgba(90,184,138,0.2)','--choice-hover':'rgba(90,184,138,0.15)','--choice-text':'#8cd4a0','--setting':'#889a80','--meta':'#556'},
-  ocean: {'--bg1':'#0a1025','--bg2':'#0a1a3a','--text':'#d0d8f0','--accent1':'#4fc3f7','--accent2':'#e040fb','--accent3':'#80deea','--card-bg':'#0f1a3a','--sidebar-bg':'rgba(15,26,58,0.9)','--choice-bg':'rgba(128,222,234,0.08)','--choice-border':'rgba(128,222,234,0.2)','--choice-hover':'rgba(128,222,234,0.15)','--choice-text':'#80c8d0','--setting':'#8890a8','--meta':'#556'},
-  fire: {'--bg1':'#1a0808','--bg2':'#2a0e0e','--text':'#f0d0c0','--accent1':'#ff6b35','--accent2':'#ffd700','--accent3':'#ff8c42','--card-bg':'#221010','--sidebar-bg':'rgba(34,16,16,0.9)','--choice-bg':'rgba(255,107,53,0.08)','--choice-border':'rgba(255,107,53,0.2)','--choice-hover':'rgba(255,107,53,0.15)','--choice-text':'#ffaa70','--setting':'#a08070','--meta':'#665'},
-  kawaii: {'--bg1':'#fef6fb','--bg2':'#fce4ec','--text':'#5d3a5c','--accent1':'#f48fb1','--accent2':'#ce93d8','--accent3':'#9575cd','--card-bg':'#fff0f5','--sidebar-bg':'rgba(255,240,245,0.95)','--choice-bg':'rgba(244,143,177,0.1)','--choice-border':'rgba(244,143,177,0.3)','--choice-hover':'rgba(244,143,177,0.2)','--choice-text':'#c95a7a','--setting':'#9e7a9e','--meta':'#999','--border':'rgba(100,70,120,0.12)'}
+  kawaii: {'--bg1':'#fef6fb','--text':'#5d3a5c','--accent1':'#f48fb1','--accent2':'#ce93d8','--accent3':'#9575cd','--card-bg':'#fff0f5','--border':'rgba(100,70,120,0.12)','--meta':'#999','--shadow':'rgba(100,70,120,0.08)'},
+  dark: {'--bg1':'#0c0c1e','--text':'#e0d8f0','--accent1':'#ffd700','--accent2':'#ff7eb3','--accent3':'#7ec8e3','--card-bg':'#1a1a3e','--border':'rgba(255,255,255,0.06)','--meta':'#666','--shadow':'rgba(0,0,0,0.2)'},
+  light: {'--bg1':'#f5f0ff','--text':'#1a1030','--accent1':'#c89600','--accent2':'#d44a7a','--accent3':'#3a8ba8','--card-bg':'#ffffff','--border':'#e8e0f0','--meta':'#888','--shadow':'rgba(0,0,0,0.06)'},
+  forest: {'--bg1':'#0a1a10','--text':'#d0e8d0','--accent1':'#7bc96f','--accent2':'#f0a030','--accent3':'#5ab88a','--card-bg':'#0f2a1a','--border':'rgba(255,255,255,0.06)','--meta':'#556','--shadow':'rgba(0,0,0,0.2)'},
+  ocean: {'--bg1':'#0a1025','--text':'#d0d8f0','--accent1':'#4fc3f7','--accent2':'#e040fb','--accent3':'#80deea','--card-bg':'#0f1a3a','--border':'rgba(255,255,255,0.06)','--meta':'#556','--shadow':'rgba(0,0,0,0.2)'},
+  fire: {'--bg1':'#1a0808','--text':'#f0d0c0','--accent1':'#ff6b35','--accent2':'#ffd700','--accent3':'#ff8c42','--card-bg':'#221010','--border':'rgba(255,255,255,0.06)','--meta':'#665','--shadow':'rgba(0,0,0,0.2)'},
 };
 
-function toggleSidebar() {
-  const s = document.querySelector('.sidebar');
-  s.classList.toggle('collapsed');
-  document.getElementById('toggleSidebar').textContent = s.classList.contains('collapsed') ? '📚' : '✕';
-}
-
+const sel = document.getElementById('themeSelect');
+sel.onchange = () => {
+  applyTheme(sel.value);
+  localStorage.setItem('cyoa-theme', sel.value);
+};
 function applyTheme(name) {
   const root = document.documentElement;
-  // Reset ALL vars first
-  for (const [k,v] of Object.entries(DEFAULT_VARS)) root.style.setProperty(k, v);
-  // Then apply theme overrides
+  // Reset all vars first
+  const defaults = {'--bg1':'#fef6fb','--text':'#5d3a5c','--accent1':'#f48fb1','--accent2':'#ce93d8','--accent3':'#9575cd','--card-bg':'#fff0f5','--border':'rgba(100,70,120,0.12)','--meta':'#999','--shadow':'rgba(100,70,120,0.08)'};
+  for (const [k,v] of Object.entries(defaults)) root.style.setProperty(k, v);
   const t = THEMES[name];
   if (t) for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
 }
 
-document.querySelectorAll('.theme-btn').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyTheme(btn.dataset.theme);
-    localStorage.setItem('cyoa-theme', btn.dataset.theme);
-  };
-});
-
-// ─── Helpers ───
-function stripMD(html) { return html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>'); }
-
-async function fetchText(url) {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error('Fetch failed');
-  return await r.text();
-}
-
-function sceneLabelToFilename(label) {
-  let n = label.toLowerCase().trim().replace(/^scene\s+/,'').replace(/\s+/g,'-');
-  n = n.replace(/^(\d)([a-z])$/,'0$1$2').replace(/^(\d)$/,'0$1');
-  return 'scene-' + n;
-}
-
-// ─── Load sidebar ───
-async function loadSidebar() {
+let stories = [];
+async function load() {
   const resp = await fetch(API);
   const items = await resp.json();
   const folders = items.filter(i => i.type === 'dir' && !i.name.startsWith('.'));
 
   for (const f of folders) {
     try {
-      const md = await fetchText(RAW + f.name + '/index.md');
+      const md = await (await fetch(RAW + f.name + '/index.md')).text();
       const title = (md.match(/^# (.+)$/m)||[])[1] || f.name;
       const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
       const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
+      const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1]||'').replace(/\*+/g,'').split(',').map(s=>s.trim()).filter(Boolean);
       const rating = (md.match(/\*\*Rating:\*\*\s*(.+)/)||[])[1] || '';
-      const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').replace(/\*+/g,'').split(',').map(s => s.trim()).filter(Boolean);
       const date = (md.match(/\*\*Date:\*\*\s*(.+)/)||[])[1] || '';
-      const theme = (md.match(/\*\*Theme:\*\*\s*(.+)/)||[])[1] || '';
-      stories.push({ folder: f.name, title, author, genre, rating, tags, date, theme });
+      stories.push({ folder: f.name, title, author, genre, rating, tags, date });
     } catch(e) {}
   }
 
-  // Populate genre filter
   const genres = [...new Set(stories.map(s => s.genre).filter(Boolean))];
-  const genreSel = document.getElementById('genre-filter');
-  genres.forEach(g => { const o = document.createElement('option'); o.value = g; o.text = g; genreSel.appendChild(o); });
+  const gf = document.getElementById('genreFilter');
+  genres.forEach(g => { const o = document.createElement('option'); o.value=g; o.text=g; gf.appendChild(o); });
 
-
-
-  document.getElementById('sidebar-loading').style.display = 'none';
-  filterStories();
+  document.getElementById('loading').style.display = 'none';
+  filter();
 }
 
-function filterStories() {
+function filter() {
   const q = document.getElementById('search').value.toLowerCase();
-  const genre = document.getElementById('genre-filter').value;
-  const rating = document.getElementById('rating-filter').value;
-  const sort = document.getElementById('sort-filter').value;
-  let filtered = stories.filter(s => {
-    if (q && !s.title.toLowerCase().includes(q) && !s.tags.some(t => t.toLowerCase().includes(q))) return false;
+  const genre = document.getElementById('genreFilter').value;
+  const rating = document.getElementById('ratingFilter').value;
+  const sort = document.getElementById('sortFilter').value;
+
+  let f = stories.filter(s => {
+    if (q && !s.title.toLowerCase().includes(q) && !s.tags.some(t=>t.toLowerCase().includes(q))) return false;
     if (genre && s.genre !== genre) return false;
     if (rating && s.rating !== rating) return false;
     return true;
   });
 
-  if (sort === 'alpha') filtered.sort((a,b) => a.title.localeCompare(b.title));
-  else if (sort === 'date') filtered.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  if (sort === 'alpha') f.sort((a,b) => a.title.localeCompare(b.title));
+  else if (sort === 'date') f.sort((a,b) => (b.date||'').localeCompare(a.date||''));
 
-  const list = document.getElementById('story-list');
-  list.innerHTML = filtered.map(s => `
-    <div class="story-item ${activeStory === s.folder ? 'active' : ''}" onclick="selectStory('${s.folder}')">
-      <div class="s-title">${s.title}</div>
-      <div class="s-meta">${[s.author, s.genre, s.rating].filter(Boolean).join(' · ')}</div>
-      ${s.tags.length ? `<div class="s-tags">${s.tags.map(t => `<span class="s-tag">${t}</span>`).join('')}</div>` : ''}
-    </div>
+  const grid = document.getElementById('grid');
+  grid.innerHTML = f.map(s => `
+    <a class="card" href="player.html?story=${s.folder}">
+      <div class="card-title">${s.title}</div>
+      <div class="card-meta">${[s.author, s.genre, s.rating].filter(Boolean).join(' · ')}</div>
+      ${s.tags.length ? `<div class="card-tags">${s.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>` : ''}
+    </a>
   `).join('');
+  document.getElementById('count').textContent = `${f.length} cerita`;
 }
 
-async function selectStory(folder) {
-  activeStory = folder;
-  activeScene = null;
-  filterStories();
-
-  const md = await fetchText(RAW + folder + '/index.md');
-  const title = (md.match(/^# (.+)$/m)||[])[1] || folder;
-  const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
-  const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
-  const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').replace(/\*+/g,'').split(',').map(s=>s.trim()).filter(Boolean);
-  const premise = (md.match(/\*\*Premis:\*\*\s*(.+)/)||[])[1] || '';
-  const rating = (md.match(/\*\*Rating:\*\*\s*(.+)/)||[])[1] || '';
-  const theme = (md.match(/\*\*Theme:\*\*\s*(.+)/)||[])[1] || '';
-
-  // Apply story theme
-  if (theme) {
-    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    const tb = document.querySelector(`.theme-btn[data-theme="${theme}"]`);
-    if (tb) tb.classList.add('active');
-    applyTheme(theme);
-  }
-
-  document.getElementById('loading').style.display = 'none';
-
-  const icons = {'sci-fi':'🚀','mystery':'🔍','fantasy':'🧙','horror':'👻','adventure':'🏔️','romance':'💕','comedy':'😄'};
-  const icon = icons[(genre||'').toLowerCase()] || '📖';
-
-  document.getElementById('scene-view').innerHTML = '';
-  document.getElementById('story-start').innerHTML = `
-    <div class="story-start">
-      <h1>${icon} ${title}</h1>
-      <p class="meta-line">${[author, genre, rating].filter(Boolean).join(' · ')}</p>
-      ${premise ? `<p class="premise">“${premise}”</p>` : ''}
-      <a class="restart-btn" onclick="loadScene('scene-01','${folder}')">🚀 Mulai Petualangan</a>
-    </div>
-  `;
-
-  // Scroll to viewer on mobile
-  if (window.innerWidth <= 768) document.querySelector('.viewer').scrollIntoView({ behavior: 'smooth' });
-}
-
-// ─── Scene loading ───
-async function fetchMD(story, name) {
-  // Try lowercase first, then accept any case
-  let url = RAW + story + '/' + name + '.md';
-  let r = await fetch(url);
-  if (r.ok) return await r.text();
-  // Try all-uppercase suffix (e.g., scene-02A)
-  const upper = name.replace(/[a-z]+$/, s => s.toUpperCase());
-  if (upper !== name) {
-    url = RAW + story + '/' + upper + '.md';
-    r = await fetch(url);
-    if (r.ok) return await r.text();
-  }
-  throw new Error('Cannot load ' + name);
-}
-
-async function loadScene(sceneFile, story) {
-  story = story || activeStory;
-  const md = await fetchMD(story, sceneFile);
-
-  const title = (md.match(/^# (.+)$/m)||[])[1] || sceneFile;
-  const setting = (md.match(/\*\*Setting:\*\*\s*(.+?)(?:\n|$)/)||[])[1] || '';
-  const karakter = (md.match(/\*\*Karakter:\*\*\s*(.+?)(?:\n|$)/)||[])[1] || '';
-
-  // Extract story: first --- ends metadata, second --- starts choices. Handle both 1 and 2 --- formats
-  const sections = md.split(/^---\s*$/m);
-  // sections[0] = header+story (if 1 ---) or header (if 2 ---)
-  // sections[1] = story (if 2 ---) or choices (if 1 ---)
-  // sections[2] = choices (if 2 ---)
-  
-  let storyMD, choicesSection;
-  if (sections.length >= 3) {
-    storyMD = sections.slice(1, -1).join('\n---\n'); // everything between first and last ---
-    choicesSection = sections[sections.length - 1];
-  } else if (sections.length === 2) {
-    storyMD = sections[0]; // everything before ---
-    choicesSection = sections[1]; // after ---
-  } else {
-    storyMD = sections[0];
-    choicesSection = '';
-  }
-  
-  // Strip metadata lines from story (setting, karakter, etc)
-  storyMD = storyMD.replace(/^\*\*(Setting|Karakter|Penulis|Genre|Premis|Tags|Rating|Theme|Date|Plot twist|Jumlah scene):\*\*.*$/gm, '').trim();
-  
-  choicesSection = choicesSection.replace(/\*\*Pilihan:\*\*/g,'').trim();
-
-  // Parse choices: support both [Scene 2A] and [A] formats
-  const choices = [];
-  const re = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
-  let m;
-  while ((m = re.exec(choicesSection)) !== null) {
-    const label = m[1].trim();
-    const text = m[2].replace(/\*\*/g,'').trim();
-    // Map letter choices: [A] → scene-02, [B] → scene-03 (based on current scene)
-    const curNum = parseInt(sceneFile.replace('scene-',''), 10) || 1;
-    if (/^[A-Z]$/.test(label)) {
-      // Map [A]→scene-02a, [B]→scene-02b
-      const nextNum = curNum + 1;
-      const nextStr = nextNum < 10 ? '0' + nextNum : '' + nextNum;
-      const suffix = 'abcdef'.charAt(label.charCodeAt(0) - 65);
-      choices.push({ file: 'scene-' + nextStr + suffix, text, label });
-    } else {
-      choices.push({ file: sceneLabelToFilename(label), text, label });
-    }
-  }
-
-  // Fallback: if no choices found, scan the full md for choice-like patterns
-  if (!choices.length) {
-    const fallbackRe = /-\s*\[(.+?)\]\s*:\s*(.+)/g;
-    while ((m = fallbackRe.exec(md)) !== null) {
-      const label = m[1].trim();
-      const text = m[2].replace(/\*\*/g,'').trim();
-      const curNum = parseInt(sceneFile.replace('scene-',''), 10) || 1;
-      if (/^[A-Z]$/.test(label)) {
-        const idx = label.charCodeAt(0) - 65;
-        choices.push({ file: 'scene-0' + (curNum + 1) + String.fromCharCode(97 + idx), text, label });
-      } else {
-        choices.push({ file: sceneLabelToFilename(label), text, label });
-      }
-    }
-  }
-
-  const isEnding = md.includes('**Status:** END') || title.toLowerCase().includes('akhir') || md.includes('🏁');
-  const sceneNum = sceneFile.replace('scene-','').toUpperCase();
-  activeScene = sceneFile;
-
-  document.getElementById('story-start').innerHTML = '';
-  document.getElementById('loading').style.display = 'none';
-
-  let html = `<p class="scene-label">📖 ${sceneNum}</p>`;
-
-  if (isEnding) {
-    html += `<h2 class="scene-title" style="color:var(--accent2)">${title}</h2>
-      <div class="story-text">${mdToHTML(storyMD)}</div>
-      <div class="end-badge">🏁 THE END</div>
-      ${choices.length ? `<p class="end-note">${choices[0].text}</p>` : ''}
-      <div style="text-align:center;margin-top:2rem"><a class="restart-btn" onclick="loadScene('scene-01','${story}')">🔄 Mulai dari Awal</a></div>
-      <div style="text-align:center;margin-top:0.5rem"><a class="restart-btn" onclick="selectStory('${story}')" style="font-size:0.85rem">📖 Lihat info cerita</a></div>`;
-  } else {
-    const setParts = [setting, karakter].filter(Boolean);
-    html += `<h2 class="scene-title">${title}</h2>
-      ${setParts.length ? `<p class="setting">${setParts.join('<br>')}</p>` : ''}
-      <div class="story-text">${mdToHTML(storyMD)}</div>`;
-    if (choices.length) {
-      html += `<hr class="divider"><p class="choices-label">⚡ Pilih langkahmu:</p>`;
-      choices.forEach(c => { html += `<a class="choice" onclick="loadScene('${c.file}','${story}')">${c.text}<span class="scene-tag">${c.label}</span></a>`; });
-    }
-  }
-  document.getElementById('scene-view').innerHTML = html;
-  window.scrollTo(0, 0);
-}
-
-function mdToHTML(text) {
-  let h = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^# (.+)$/gm,'<h1>$1</h1>')
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
-  return h.split(/\n\n+/).map(p => { p=p.trim(); if(!p||p.startsWith('<h')||p.startsWith('<hr')) return p; return '<p>'+p.replace(/\n/g,'<br>')+'</p>'; }).join('\n');
-}
-
-function showIndex() {
-  document.getElementById('scene-view').innerHTML = '';
-  document.getElementById('story-start').innerHTML = '<div id="loading">Pilih cerita dari sidebar 👈</div>';
-}
-
-// ─── Init ───
-const savedTheme = localStorage.getItem('cyoa-theme') || 'kawaii';
-document.querySelector(`.theme-btn[data-theme="${savedTheme}"]`)?.classList.add('active');
-applyTheme(savedTheme);
-loadSidebar();
-
-// Check URL params for direct link
-const params = new URLSearchParams(window.location.search);
-const storyParam = params.get('story');
-if (storyParam) setTimeout(() => selectStory(storyParam), 500);
+const saved = localStorage.getItem('cyoa-theme') || 'kawaii';
+sel.value = saved;
+applyTheme(saved);
+load();
 </script>
 </body>
 </html>
