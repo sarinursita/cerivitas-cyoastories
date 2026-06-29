@@ -1,7 +1,9 @@
 # Buku Mantra Hilang
 
-**Penulis:** [nama]
+**Penulis:** Zizi
 **Genre:** Fantasy
-**Tags:** fantasi, misteri, petualangan
+**Tags:** fantasi, mantra, misteri
 **Rating:** PG
 **Date:** 2026-06-28
+
+**Premis:** Sebuah buku mantra kuno hilang dari perpustakaan sekolah. Siapa yang mengambilnya — dan apa yang mereka rencanakan?
