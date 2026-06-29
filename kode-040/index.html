@@ -212,10 +212,10 @@ function goTo(sceneId) {
 
   // Format narrative: bold, italic, paragraphs
   let narr = scene.text;
-  narr = narr.replace(/\\*\\*(.+?)\\*\\*/g, "<strong>$1</strong>");
-  narr = narr.replace(/\\*(.+?)\\*/g, "<em>$1</em>");
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
   html += '<div class="narrative">' +
-    narr.split("\\n\\n").map(p => '<p>' + esc(p).replace(/\\n/g, "<br>") + '</p>').join("") +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
     '</div>';
 
   if (scene.isEnd) {
