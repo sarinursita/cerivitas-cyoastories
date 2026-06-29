@@ -1,6 +1,6 @@
 # Buku Mantra Hilang
 
-**Penulis:** Zizi
+**Penulis:** [nama]
 **Genre:** Fantasy
 **Tags:** fantasi, mantra, misteri
 **Rating:** PG
