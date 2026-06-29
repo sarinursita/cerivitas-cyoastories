@@ -26,5 +26,5 @@ Aysel tersentak. Hali ngelakuin itu buat dia?
 ---
 
 **Pilihan:**
-- [Memaafkan Hali] — "Hal... makasih. Tapi next time bilang aja."
-- [Masih kesel] — "Gue hargai niat lo. Tapi tolong jangan atur-atur."
+- [Scene 1A]: Memaafkan Hali — "Hal... makasih. Tapi next time bilang aja."
+- [Scene 2B]: Masih kesel — "Gue hargai niat lo. Tapi tolong jangan atur-atur."
