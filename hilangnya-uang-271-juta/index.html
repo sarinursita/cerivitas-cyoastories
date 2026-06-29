@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilangnya Uang 271 Juta</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  max-width: 720px;
+  width: 100%;
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #888;
+}
+.scene {
+  flex: 1;
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.scene-title {
+  font-size: 20px;
+  color: #ffd700;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+.scene-narrative {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #d0d0d0;
+  margin-bottom: 30px;
+  white-space: pre-wrap;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #1a1a3a, #252550);
+  color: #e0e0ff;
+  border: 1px solid #3a3a6a;
+  padding: 16px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+}
+.choice-btn:hover {
+  background: linear-gradient(135deg, #2a2a5a, #353570);
+  transform: translateX(5px);
+  border-color: #5a5a9a;
+}
+.choice-btn .arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  font-size: 18px;
+}
+.ending {
+  text-align: center;
+  margin-top: 20px;
+}
+.ending-badge {
+  display: inline-block;
+  background: #ffd700;
+  color: #1a1a2a;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.restart-btn {
+  background: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+.restart-btn:hover {
+  background: #ffd700;
+  color: #0a0a1a;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">🎮 <b>Hilangnya Uang 271 Juta</b> — by Sirat Rizhqi</div>
+  <div class="scene" id="sceneContent"></div>
+</div>
+
+<script>
+const story = {
+  "scene-1": {
+    "title": "Scene 1: Kabar Hilangnya Uang Desa",
+    "narrative": "Pagi itu, desa yang biasanya tenang mendadak gempar. Ibu RT lari-lari sambil teriak, \"UANG DESA HILANG! 271 Juta raib!\"\n\nFeri yang baru bangun tidur, masih pakaian kusut, langsung melongo. \"Hah? 271 juta?\"\n\nSemua warga langsung curiga sama **Pak Kades**. Ada yang bilang Pak Kades udah beli mobil baru. Ada yang bilang liat Pak Kades keluar malam-malam bawa tas gede.\n\nTapi Feri, meskipun masih setengah ngantuk, merasa ada yang aneh. \"Pak Kades? Kayaknya nggak mungkin... tapi buktinya?\"\n\nFeri punya dua pilihan:\n\n---",
+    "choices": [
+      {
+        "text": "Datangi rumah Pak Kades — tanya langsung!",
+        "next": "scene-2a"
+      },
+      {
+        "text": "Cari bukti dulu di kantor desa",
+        "next": "scene-2b"
+      }
+    ],
+    "ending": false
+  },
+  "scene-2a": {
+    "title": "Scene 2A: Rumah Pak Kades",
+    "narrative": "Feri jalan ke rumah Pak Kades. Sepanjang jalan, tetangga pada liat dengan tatapan curiga. \"Nanyain uang ya, Fer? Pasti itu Pak Kades!\"\n\nSampai di rumah Pak Kades, Feri lihat Pak Kades lagi duduk di teras. Mukanya pucat, matanya sembab — kayak semaleman nggak tidur.\n\n\"Heh, Pak Kades... aku mau nanya soal uang desa,\" kata Feri hati-hati.\n\nPak Kades cuma geleng-geleng. \"Masuk lah, Fer. Nggak enak di luar.\"\n\nTapi waktu Feri mau masuk... dia liat **secarik kertas** jatuh dari saku Pak Kades. Ada tulisan: **\"BSM 150\"**.\n\n---",
+    "choices": [
+      {
+        "text": "Ambil kertas itu dan tanya Pak Kades langsung",
+        "next": "scene-3a"
+      },
+      {
+        "text": "Pura-pura nggak liat, ngobrol dulu sama warga sekitar",
+        "next": "scene-3b"
+      }
+    ],
+    "ending": false
+  },
+  "scene-2b": {
+    "title": "Scene 2B: Kantor Desa",
+    "narrative": "Feri memutuskan cari bukti dulu. Dia ke kantor desa yang lagi sepi — semua pada rapat darurat di balai desa.\n\n\"Wah kebetulan banget,\" gumam Feri. \"Nggak ada siapa-siapa.\"\n\nTanpa susah payah, Feri masuk ke ruang administrasi. Meja Pak Kades berantakan, tapi yang bikin Feri penasaran... ada **amplop coklat** di laci yang nggak rapi ditutup.\n\nDia buka. Isinya: dokumen transfer ke rekening **Budi S.** sebesar **150 JUTA!**\n\n\"Buset... Pak Kades transfer 150 juta ke siapa ini?\"\n\nTiba-tiba... ada suara langkah kaki mendekat!\n\n---",
+    "choices": [
+      {
+        "text": "Sembunyi dan dengerin percakapan",
+        "next": "scene-3c"
+      },
+      {
+        "text": "Keluar aja pura-pura baru datang",
+        "next": "scene-3d"
+      }
+    ],
+    "ending": false
+  },
+  "scene-3a": {
+    "title": "Scene 3A: Kertas \"BSM 150\"",
+    "narrative": "Feri ambil kertas itu. \"Pak, ini apa?\"\n\nWajah Pak Kades berubah. Tangannya gemetar. \"Itu... itu cuma catatan belanja, Fer.\"\n\n\"Cotoh, Pak. 150 juta belanja apa?\"\n\nPak Kades diem. Mukanya makin pucat. Akhirnya dia ngomong pelan, \"Feri... ini masalah rumit. Pokoknya... BUKAN aku yang ambil uang desa. Tapi aku tau siapa dalangnya.\"\n\n\"Apa maksud Pak Kades?\"\n\n\"BSM, Fer. **Budi S. Mulyono... Wakil Kades.** \"\n\n---",
+    "choices": [
+      {
+        "text": "Selidiki lebih dalam soal Wakil Kades",
+        "next": "scene-4a"
+      },
+      {
+        "text": "Cari tau kenapa Wakil Kades butuh 150 juta",
+        "next": "scene-4b"
+      }
+    ],
+    "ending": false
+  },
+  "scene-3b": {
+    "title": "Scene 3B: Gosip Warga",
+    "narrative": "Feri pura-pura nggak liat kertas itu dan pamit dari rumah Pak Kades. Dia mampir ke warung kopi — tempat favorit warga buat ngumpul.\n\n\"Pak RT, ada yang aneh nggak akhir-akhir ini?\" tanya Feri sambil pesan es teh.\n\nPak RT dan Bu Tuti saling liat. \"Anu, Fer... sebenarnya banyak yang curiga sama **Wakil Kades**,\" bisik Bu Tuti.\n\n\"Lah, bukannya semua curiga Pak Kades?\"\n\n\"Iya itu triknya! Wakil Kades sengaja nyebarin isu biar semua liat ke Pak Kades,\" sambung Pak RT. \"Tapi... ada yang liat Wakil Kades keluar dari bank bawa tas gede seminggu lalu.\"\n\nFeri mikir. Wakil Kades? Yang selalu senyum dan baik hati itu?\n\n---",
+    "choices": [
+      {
+        "text": "Cari bukti ke bank desa",
+        "next": "scene-4a"
+      },
+      {
+        "text": "Temui Wakil Kades langsung, uji dia",
+        "next": "scene-4b"
+      }
+    ],
+    "ending": false
+  },
+  "scene-3c": {
+    "title": "Scene 3C: Sembunyi & Dengar",
+    "narrative": "Feri buru-buru sembunyi di balik lemari arsip. Langkah kaki makin dekat... dua orang masuk.\n\n\"Pokoknya urusan udah beres? Surat transfernya udah diamankan?\" suara yang Feri kenal — **Wakil Kades**!\n\n\"Udah, Pak. Tapi... kertas yang tadi tertinggal di rumah Pak Kades,\" jawab Mas RT.\n\n\"BIARIN. Biar Pak Kades yang kena.\"\n\nJantung Feri deg-degan. Wakil Kades! Dalangnya!\n\nSetelah mereka pergi, Feri berdiri. Keringat dingin. \"Buset... Wakil Kades jahat banget.\"\n\n🔍 **CLUE: \"BSM\" dan dokumen transfer 150 juta cocok!**\n\n---",
+    "choices": [
+      {
+        "text": "Ikutin Wakil Kades — liat mau kemana",
+        "next": "scene-4b"
+      },
+      {
+        "text": "Ambil dokumen transfer itu dan kabur",
+        "next": "scene-4a"
+      }
+    ],
+    "ending": false
+  },
+  "scene-3d": {
+    "title": "Scene 3D: Bertemu Wakil Kades",
+    "narrative": "Feri tenang-tenang aja keluar dari ruang administrasi. \"Oh, Wakil Kades! Lagi cari Pak Kades, ternyata nggak ada.\"\n\nWakil Kades senyum ramah. \"Feri! Iya Pak Kades lagi di balai desa. Ada yang bisa dibantu?\"\n\n\"Santai aja, Pak. Cuma kepo soal uang desa yang hilang.\"\n\nSenyum Wakil Kades agak kaku. \"Ah, kamu... jangan percaya gosip, Fer. Pasti Pak Kades punya alasan. Beliau kan selama ini baik.\"\n\n\"Memangnya Wakil Kades tau sesuatu?\"\n\nWakil Kades tepuk bahu Feri. \"Pokoknya... urusan orang dewasa, Fer. Kamu nggak usah ikut campur. Berbahaya.\"\n\nAda nada ancaman di balik senyumnya.\n\n---",
+    "choices": [
+      {
+        "text": "Pura-pura nurut, tapi ikutin diam-diam",
+        "next": "scene-4b"
+      },
+      {
+        "text": "Langsung confront — \"Aku tau masalahnya, Pak!\"",
+        "next": "scene-4a"
+      }
+    ],
+    "ending": false
+  },
+  "scene-4a": {
+    "title": "Scene 4A: Menyelidiki Wakil Kades",
+    "narrative": "🔍 **CLUE TERKUMPUL: Kertas \"BSM 150\" + Dokumen transfer 150 juta ke Budi S. Mulyono**\n\nFeri pergi ke bank desa. Beruntung, tellernya temen SD-nya.\n\n\"Pin, tolong cek rekening **Budi S. Mulyono** — aku perlu tau transaksi sebulan terakhir.\"\n\nTemennya ngetik-ngetik. \"Wah, Fer... ini agak sensitive. Tapi... nih, liat bentar.\"\n\nFeri liat layar: **150 juta masuk** ke rekening Wakil Kades seminggu lalu! Tapi yang bikin syok... ada **121 juta** yang udah ditransfer lagi ke rekening lain!\n\n\"Buset... Wakil Kades dapet 150 juta, trus 121 juta udah lari kemana?\"\n\nDari balik pintu, Feri liat Wakil Kades lagi ngobrol di pinggir jalan. Mukanya tegang. Dia lagi nelpon seseorang...\n\n---",
+    "choices": [
+      {
+        "text": "Deketin dan dengerin pembicaraannya",
+        "next": "scene-5"
+      },
+      {
+        "text": "Ikutin Wakil Kades dulu diam-diam",
+        "next": "scene-4b"
+      }
+    ],
+    "ending": false
+  },
+  "scene-4b": {
+    "title": "Scene 4B: Dikejar Orang Misterius",
+    "narrative": "Feri dengan hati-hati ngikutin Wakil Kades. Tapi... dia sadar ada yang ngikutin DIA dari belakang!\n\n\"Wah... gawat.\"\n\nFeri cepet-cepet masuk ke gang sempit. Langkah kaki di belakang makin cepat. Jantung Feri mau copot!\n\n\"Hey, Nak! Berhenti!\" suara berat dari belakang.\n\nFeri liat ke samping — ada tumpukan karung beras! Dia loncat sembunyi di baliknya, napas ditahan.\n\nOrang itu lewat, nggak liat Feri. \"Kemana anak itu?\"\n\nSetelah aman, Feri keluar. Tangan gemetar. \"Wakil Kades... serius banget. Sampai nyuruh orang buat ngeliatin aku.\"\n\n🔍 **CLUE: Wakil Kades udah mulai panik — artinya Feri di jalur yang benar!**\n\n---",
+    "choices": [
+      {
+        "text": "Langsung ke rumah Wakil Kades — cari bukti!",
+        "next": "scene-5"
+      },
+      {
+        "text": "Balik ke bank dulu kumpulin lebih banyak bukti",
+        "next": "scene-4a"
+      }
+    ],
+    "ending": false
+  },
+  "scene-5": {
+    "title": "Scene 5: ⚡ PLOT TWIST — Wakil Kades Dalangnya!",
+    "narrative": "⚡ **PLOT TWIST!** ⚡\n\nFeri nekat nyelinap ke rumah Wakil Kades. Semua lampu mati — sepi banget. Dari jendela belakang, Feri liat Wakil Kades lagi ngobrol di telepon.\n\n\"Ya udah, urusan 121 juta aman. Nggak ada yang tau. Biar Pak Kades yang kena — udah tua juga, pas buat kambing hitam. Hahaha...\"\n\nDEG! Jantung Feri berhenti. **Wakil Kades. 121 juta. Pak Kades jadi kambing hitam.**\n\nFeri reflek megang hape dan **REKAM** semuanya!\n\nTapi... lampu nyala.\n\"Feri? Kamu ngapain di sini?\"\n\nWakil Kades berdiri di depan Feri. Senyumnya hilang. Matanya bengis.\n\n\"Udah denger ya, Nak? Sayang sekali... kamu jadi tau terlalu banyak.\"\n\n---",
+    "choices": [
+      {
+        "text": "Hadapi Wakil Kades langsung — berantem!",
+        "next": "scene-6a"
+      },
+      {
+        "text": "Pura-pura nggak denger apa-apa — jebak dia",
+        "next": "scene-6b"
+      },
+      {
+        "text": "Minta tolong polisi — kirim rekaman ke kantor polisi",
+        "next": "scene-6c"
+      },
+      {
+        "text": "Tanya soal \"komplotan\" — siapa lagi yang terlibat?",
+        "next": "scene-6d"
+      }
+    ],
+    "ending": false
+  },
+  "scene-6a": {
+    "title": "Scene 6A: ENDING — Konfrontasi Langsung 🏁",
+    "narrative": "\"Gue tau semuanya, Pak! Rekaman suara, dokumen transfer, kertas 'BSM 150' — semua bukti!\" teriak Feri.\n\nWakil Kades tertawa sinis. \"Pintar kamu, Fer. Tapi sayang... uang 271 juta udah hampir habis. Judi online, saham bodong, dan... sisanya buat nutup mulut orang.\"\n\n\"APA?! HABIS?!\"\n\n\"Dari 271 juta, 150 ke rekeningku. Dari situ, 121 udah lari. Sisanya 29 juta... udah masuk kantong. Nggak ada yang bisa balik.\"\n\nFeriiih. Frustrasi banget.\n\nTapi... Feri udah rekam semuanya. Wakil Kades akhirnya ditangkap polisi. Tapi uangnya nggak balik — udah habis di judi online.\n\n**🏁 ENDING A — Uang Habis, Tapi Keadilan Tegak**\n\n*\"Feri berhasil membongkar kejahatan Wakil Kades. Tapi sayang, 271 juta desa nggak bisa balik. Pahit. Tapi setidaknya, Pak Kades nggak jadi kambing hitam.\"*\n\n**[Kembali ke Awal](scene-01.html)**",
+    "choices": [],
+    "ending": true
+  },
+  "scene-6b": {
+    "title": "Scene 6B: ENDING — Jebakan Feri 🏁",
+    "narrative": "Feri pura-pura nggak denger apa-apa. \"Maaf, Pak! Aku nyari kucing, soalnya lari ke sini,\" kata Feri pura-pura polos.\n\n\"Kucing? Tengah malem gini?\" Wakil Kades agak curiga tapi Feri pergi.\n\nFeri langsung nemuin **Pak Kades**. \"Pak, aku tau siapa pelakunya. Wakil Kades. Tapi kita jebak dia!\"\n\nPak Kades setuju. Mereka bikin jebakan: pura-pura ada transfer uang masuk lagi ke rekening desa supaya Wakil Kades tergiur.\n\nMalam berikutnya... Wakil Kades ketahuan lagi transfer uang! Warga desa udah nunggu di kantor desa. Wakil Kades kaget!\n\n\"TERKEPUNG!\" teriak warga.\n\nDengan bukti rekaman Feri, rekening dibekukan. **Uang 271 juta utuh!** Balik ke kas desa! 🔥\n\n**🏁 ENDING B — Uang Kembali, Keadilan Menang!**\n\n*\"Feri pahlawan desa! Berkat keberanian dan akalnya, uang desa balik utuh. Pak Kades nangis haru. Wakil Kades dibawa polisi. Feri? Dia balik tidur — malesnya kambuh lagi.\"*\n\n**[Kembali ke Awal](scene-01.html)**",
+    "choices": [],
+    "ending": true
+  },
+  "scene-6c": {
+    "title": "Scene 6C: ENDING — Kejar-kejaran di Stasiun 🏁",
+    "narrative": "Feri sadar itu bukan saatnya berantem. Dia lari — secepat mungkin ke kantor polisi!\n\n\"PAK POLISI! ADA DARURAT! Rekaman ini bukti!\"\n\nPolisi langsung gerak cepat. Tapi Wakil Kades udah tau — dia kabur! Bawa koper gede!\n\nKejar-kejaran dimulai! 🏃💨\n\nFeri naik motor polisi. Wakil Kades udah sampe di **stasiun**, mau naik kereta malam!\n\n\"BERHENTI, PAK!\" teriak Feri.\n\nWakil Kades lari ke peron. Tapi jalannya buntu — kereta baru aja jalan! Polisi ngepung.\n\nWakil Kades menyerah. \"Kalian... kalian nggak tau apa-apa! Ada yang lebih besar dari saya!\"\n\nTapi udah telat. Wakil Kades digelandang. Besoknya berita viral: **\"Wakil Kades Tertangkap di Stasiun — 271 Juta Kembali\"**\n\n**🏁 ENDING C — Heroes Never Let Villains Escape!**\n\n*\"Feri jadi pahlawan! Fotonya ada di koran desa. Tapi Feri males baca berita — dia lagi tidur habis dikejar-kejaran. Capek, bos.\"*\n\n**[Kembali ke Awal](scene-01.html)**",
+    "choices": [],
+    "ending": true
+  },
+  "scene-6d": {
+    "title": "Scene 6D: ENDING — Komplotan Besar 👀🏁",
+    "narrative": "\"Katakan, Pak! 121 juta itu ke mana?! Siapa lagi yang terlibat?!\" teriak Feri.\n\nWakil Kades terdiam. Lalu dia tertawa. Bukan tawa jahat... tapi tawa getir.\n\n\"Kamu pinter, Fer. Tapi kamu masih kecil. Jaringannya lebih besar dari yang kamu kira. Bukan cuma saya. Ada **Bandar** — orang penting. Saya cuma pion. Yang nerima 121 juta itu... bukan saya.\"\n\n\"SIAPA?!\"\n\n\"Bupati.\"\n\nDEG! Jantung Feri berhenti.\n\n\"Ini baru awal, Fer. Kamu udah buka kotak Pandora. Apakah kamu siap?\"\n\nFeri diem. Mikir. Ini... lebih besar dari yang dia kira.\n\n**👀🏁 ENDING D — To Be Continued...?**\n\n*\"Feri sadar misteri ini belum selesai. Uang 271 juta cuma puncak gunung es. Ada yang lebih besar di balik layar. Tapi itu... cerita lain nanti.\"*\n\n**[Kembali ke Awal](scene-01.html)**",
+    "choices": [],
+    "ending": true
+  }
+};
+
+function renderScene(sceneKey) {
+  const s = story[sceneKey];
+  if (!s) return;
+  
+  const content = document.getElementById('sceneContent');
+  
+  let html = '<div class="scene fade-in">';
+  html += '<div class="scene-title">' + s.title + '</div>';
+  html += '<div class="scene-narrative">' + s.narrative + '</div>';
+  
+  if (s.ending) {
+    html += '<div class="ending">';
+    html += '<div class="ending-badge">🏁 THE END</div>';
+    html += '<br><button class="restart-btn" onclick="renderScene('scene-1')">🔄 Main Lagi</button>';
+    html += '</div>';
+  } else if (s.choices && s.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let i = 0; i < s.choices.length; i++) {
+      const c = s.choices[i];
+      html += '<button class="choice-btn" onclick="renderScene(\'' + c.next + '\')">' + c.text + ' <span class="arrow">→</span></button>';
+    }
+    html += '</div>';
+  }
+  
+  html += '</div>';
+  content.innerHTML = html;
+}
+
+renderScene('scene-1');
+</script>
+</body>
+</html>
