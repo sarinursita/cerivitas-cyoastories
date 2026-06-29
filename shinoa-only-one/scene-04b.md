@@ -22,5 +22,5 @@ Aysel hampir menjatuhkan bukunya.
 ---
 
 **Pilihan:**
-- [Nanya balik] — "Kai... serius lo gak ngganggu gue ngerjain?"
-- [Godain balik] — "Hati-hati, Kai. Gue bisa tiap hari mampir."
+- [Scene 1A]: Nanya balik — "Kai... serius lo gak ngganggu gue ngerjain?"
+- [Scene 2B]: Godain balik — "Hati-hati, Kai. Gue bisa tiap hari mampir."
