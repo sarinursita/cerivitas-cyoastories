@@ -1,7 +1,8 @@
 # Scene 7A: Rahasia di Balik Pintu
 
 **Setting:** Lab riset rahasia di lantai 3 — ruangan bawah tanah kecil, penuh monitor tua, kertas-kertas berserakan, dan... sebuah radio antik yang menyala sendiri.
-**Karakter:** Pika, Chu, & MISTERI TERUNGKAP
+**Karakter:**
+**Status:** END Pika, Chu, & MISTERI TERUNGKAP
 
 Pika mendorong pintu.
 
@@ -37,4 +38,8 @@ Pika dan Chu saling pandang. Tangan mereka gemetaran.
 
 Ada yang masih hidup di bawah sekolah. Dan mereka baru aja nemuin jalannya.
 
-🎮 **Game Over? Atau... baru awal petualangan baru?** 
+🎮 **Game Over? Atau... baru awal petualangan baru?**
+
+---
+
+🏁 THE END
