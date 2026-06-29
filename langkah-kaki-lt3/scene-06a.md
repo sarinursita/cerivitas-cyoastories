@@ -31,4 +31,4 @@ Pintu kayu itu mulai terbuka. Perlahan.
 
 **Pilihan:**
 - [Scene 7A]: Hadapin — buka pintu dan liat apa yang di dalam 🚪😈
-- [Scene 7A]: Totok Chu — ajak lari lewat jalur yang lebih aman 🏃🔥
+- [Scene 7B]: Totok Chu — ajak lari lewat jalur yang lebih aman 🏃🔥
