@@ -261,7 +261,7 @@ async function loadSidebar() {
       const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
       const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
       const rating = (md.match(/\*\*Rating:\*\*\s*(.+)/)||[])[1] || '';
-      const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').split(',').map(s => s.trim()).filter(Boolean);
+      const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').replace(/\*+/g,'').split(',').map(s => s.trim()).filter(Boolean);
       const date = (md.match(/\*\*Date:\*\*\s*(.+)/)||[])[1] || '';
       const theme = (md.match(/\*\*Theme:\*\*\s*(.+)/)||[])[1] || '';
       stories.push({ folder: f.name, title, author, genre, rating, tags, date, theme });
@@ -324,7 +324,7 @@ async function selectStory(folder) {
   const title = (md.match(/^# (.+)$/m)||[])[1] || folder;
   const author = (md.match(/\*\*Penulis:\*\*\s*(.+)/)||[])[1] || '';
   const genre = (md.match(/\*\*Genre:\*\*\s*(.+)/)||[])[1] || '';
-  const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').split(',').map(s=>s.trim()).filter(Boolean);
+  const tags = ((md.match(/\*\*Tags:\*\*\s*(.+)/)||[])[1] || '').replace(/\*+/g,'').split(',').map(s=>s.trim()).filter(Boolean);
   const premise = (md.match(/\*\*Premis:\*\*\s*(.+)/)||[])[1] || '';
   const rating = (md.match(/\*\*Rating:\*\*\s*(.+)/)||[])[1] || '';
   const theme = (md.match(/\*\*Theme:\*\*\s*(.+)/)||[])[1] || '';
@@ -347,7 +347,6 @@ async function selectStory(folder) {
     <div class="story-start">
       <h1>${icon} ${title}</h1>
       <p class="meta-line">${[author, genre, rating].filter(Boolean).join(' · ')}</p>
-      ${tags.length ? `<p class="meta-line" style="font-size:0.75rem;color:var(--meta)">${tags.map(t=>'#'+t).join(' ')}</p>` : ''}
       ${premise ? `<p class="premise">“${premise}”</p>` : ''}
       <a class="restart-btn" onclick="loadScene('scene-01','${folder}')">🚀 Mulai Petualangan</a>
     </div>
