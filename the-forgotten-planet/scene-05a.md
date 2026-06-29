@@ -6,6 +6,10 @@
 
 ---
 
+---
+🏁 THE END
+
+
 Rama memutuskan pulang. Ia duduk di ruang kendali, menatap layar yang dulu nunjukin sinyal sinetron. Kini hanya statis.
 
 Ia tau Xylos bakal hancur. Tapi mungkin — MUNGKIN — koloni stasiun bisa selamat kalo mereka bersiap dari sekarang. Xylos mati, ya udah. Mereka tinggal di stasiun. Mereka terbiasa.
