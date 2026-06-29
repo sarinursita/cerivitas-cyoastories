@@ -18,5 +18,5 @@ Bu Ani terdiam. Semua mata tertuju padanya.
 ---
 
 **Pilihan:**
-- [Scene 6a]: Bu Ani mengaku!
-- [Scene 6b]: Eh, tunggu — ternyata BUKAN Bu Ani? (tetap ke Scene 6 — plot twist)
+- [Scene 6A]: Bu Ani mengaku!
+- [Scene 6B]: Eh, tunggu — ternyata BUKAN Bu Ani? (tetap ke Scene 6 — plot twist)
