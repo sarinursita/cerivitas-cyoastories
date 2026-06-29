@@ -30,5 +30,5 @@ Aysel nahan napas. Momen ini... kayak adegan film.
 ---
 
 **Pilihan:**
-- [Peluk Hali] — "Gue juga sayang lo, Hal. Cuma... bingung."
-- [Bilang jujur] — "Gue perlu waktu. Tapi makasih udah jujur."
+- [Scene 1A]: Peluk Hali — "Gue juga sayang lo, Hal. Cuma... bingung."
+- [Scene 2B]: Bilang jujur — "Gue perlu waktu. Tapi makasih udah jujur."
