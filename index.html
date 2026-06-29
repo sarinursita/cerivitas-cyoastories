@@ -128,13 +128,24 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 .theme-btn:hover { border-color: var(--accent3); }
 .theme-btn.active { border-color: var(--accent1); color: var(--accent1); }
 
+/* ── Toggle button for mobile ── */
+.toggle-btn {
+  display: none; position: fixed; bottom: 1rem; left: 1rem; z-index: 100;
+  background: var(--accent1); color: var(--bg1); border: none;
+  width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  font-family: 'Inter', sans-serif; font-weight: 700;
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .app { flex-direction: column; }
-  .sidebar { width: 100%; min-width: 0; max-height: none; border-right: none; border-bottom: 1px solid var(--border); }
+  .sidebar { width: 100%; min-width: 0; max-height: 40vh; border-right: none; border-bottom: 1px solid var(--border); overflow-y: auto; }
+  .sidebar.collapsed { max-height: 0; padding: 0 1.2rem; overflow: hidden; border: none; }
   .sidebar h1 { font-size: 1.1rem; }
   .viewer { padding: 1rem 1.2rem 3rem; max-height: none; }
   .viewer .back-link { display: block; color: var(--meta); text-decoration: none; font-family: 'Inter',sans-serif; font-size: 0.8rem; margin-bottom: 1rem; cursor: pointer; }
+  .toggle-btn { display: flex; align-items: center; justify-content: center; }
 }
 
 /* Story start view (no scene yet) */
@@ -193,6 +204,7 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
     <div id="story-start"></div>
     <div id="scene-view"></div>
   </div>
+  <button class="toggle-btn" id="toggleSidebar" onclick="toggleSidebar()">📚</button>
 </div>
 
 <script>
@@ -206,8 +218,16 @@ let activeStory = null;
 let activeScene = null;
 
 // ─── Theme ───
+// Default theme vars (night/dark)
+const DEFAULT_VARS = {
+  '--bg1':'#0c0c1e','--bg2':'#1a0a2e','--text':'#e0d8f0','--accent1':'#ffd700','--accent2':'#ff7eb3','--accent3':'#7ec8e3',
+  '--card-bg':'#1a1a3e','--sidebar-bg':'rgba(26,26,62,0.6)',
+  '--choice-bg':'rgba(126,200,227,0.08)','--choice-border':'rgba(126,200,227,0.2)','--choice-hover':'rgba(126,200,227,0.15)','--choice-text':'#a8e6cf',
+  '--setting':'#a898c0','--meta':'#666','--border':'rgba(255,255,255,0.06)'
+};
+
 const THEMES = {
-  dark: {},
+  dark: DEFAULT_VARS,
   light: {'--bg1':'#f5f0ff','--bg2':'#e8e0f0','--text':'#1a1030','--accent1':'#c89600','--accent2':'#d44a7a','--accent3':'#3a8ba8','--card-bg':'#f0ebf8','--sidebar-bg':'rgba(240,235,248,0.9)','--choice-bg':'rgba(58,139,168,0.06)','--choice-border':'rgba(58,139,168,0.2)','--choice-hover':'rgba(58,139,168,0.1)','--choice-text':'#2a6a8a','--setting':'#5a5080','--meta':'#888','--border':'rgba(0,0,0,0.08)'},
   forest: {'--bg1':'#0a1a10','--bg2':'#0e2a18','--text':'#d0e8d0','--accent1':'#7bc96f','--accent2':'#f0a030','--accent3':'#5ab88a','--card-bg':'#0f2a1a','--sidebar-bg':'rgba(15,42,26,0.9)','--choice-bg':'rgba(90,184,138,0.08)','--choice-border':'rgba(90,184,138,0.2)','--choice-hover':'rgba(90,184,138,0.15)','--choice-text':'#8cd4a0','--setting':'#889a80','--meta':'#556'},
   ocean: {'--bg1':'#0a1025','--bg2':'#0a1a3a','--text':'#d0d8f0','--accent1':'#4fc3f7','--accent2':'#e040fb','--accent3':'#80deea','--card-bg':'#0f1a3a','--sidebar-bg':'rgba(15,26,58,0.9)','--choice-bg':'rgba(128,222,234,0.08)','--choice-border':'rgba(128,222,234,0.2)','--choice-hover':'rgba(128,222,234,0.15)','--choice-text':'#80c8d0','--setting':'#8890a8','--meta':'#556'},
@@ -215,12 +235,19 @@ const THEMES = {
   kawaii: {'--bg1':'#fef6fb','--bg2':'#fce4ec','--text':'#5d3a5c','--accent1':'#f48fb1','--accent2':'#ce93d8','--accent3':'#9575cd','--card-bg':'#fff0f5','--sidebar-bg':'rgba(255,240,245,0.95)','--choice-bg':'rgba(244,143,177,0.1)','--choice-border':'rgba(244,143,177,0.3)','--choice-hover':'rgba(244,143,177,0.2)','--choice-text':'#c95a7a','--setting':'#9e7a9e','--meta':'#999','--border':'rgba(100,70,120,0.12)'}
 };
 
+function toggleSidebar() {
+  const s = document.querySelector('.sidebar');
+  s.classList.toggle('collapsed');
+  document.getElementById('toggleSidebar').textContent = s.classList.contains('collapsed') ? '📚' : '✕';
+}
+
 function applyTheme(name) {
-  const t = THEMES[name]; if (!t) return;
   const root = document.documentElement;
-  // Remove all theme classes first
-  root.className = '';
-  for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
+  // Reset ALL vars first
+  for (const [k,v] of Object.entries(DEFAULT_VARS)) root.style.setProperty(k, v);
+  // Then apply theme overrides
+  const t = THEMES[name];
+  if (t) for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
 }
 
 document.querySelectorAll('.theme-btn').forEach(btn => {
@@ -346,7 +373,18 @@ async function selectStory(folder) {
 
 // ─── Scene loading ───
 async function fetchMD(story, name) {
-  return await fetchText(RAW + story + '/' + name + '.md');
+  // Try lowercase first, then accept any case
+  let url = RAW + story + '/' + name + '.md';
+  let r = await fetch(url);
+  if (r.ok) return await r.text();
+  // Try all-uppercase suffix (e.g., scene-02A)
+  const upper = name.replace(/[a-z]+$/, s => s.toUpperCase());
+  if (upper !== name) {
+    url = RAW + story + '/' + upper + '.md';
+    r = await fetch(url);
+    if (r.ok) return await r.text();
+  }
+  throw new Error('Cannot load ' + name);
 }
 
 async function loadScene(sceneFile, story) {
