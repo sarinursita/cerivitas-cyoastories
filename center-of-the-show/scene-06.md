@@ -2,7 +2,8 @@
 
 ## Ending A — Lawan & Lolos
 
-**Setting:** Circus Nocturne — tenda gelap
+**Setting:**
+**Karakter:** [sebutkan karakter] Circus Nocturne — tenda gelap
 
 "TIDAK!" teriakku. Aku tidak akan menjadi pertunjukan mereka.
 
@@ -28,7 +29,8 @@ Tapi di tasku... ada brosur Circus Nocturne yang tidak pernah kumasukkan.
 
 ## Ending B — Kejebak... Lalu Lolos
 
-**Setting:** Circus Nocturne — panggung
+**Setting:**
+**Karakter:** [sebutkan karakter] Circus Nocturne — panggung
 
 Aku mencoba lari. Tapi bayangan-bayangan itu terlalu cepat. Tubuhku terangkat — bukan oleh tangan, tapi oleh sesuatu yang tidak terlihat. Aku terlempar ke atas panggung.
 
