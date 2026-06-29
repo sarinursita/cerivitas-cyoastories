@@ -26,5 +26,5 @@ Dia denger semuanya.
 ---
 
 **Pilihan:**
-- [Ngejar Hali duluan] — "Hal, tunggu! Bukan gitu—!"
-- [Tetap sama Kaizo] — "Kai... gue juga suka lo."
+- [Scene 1A]: Ngejar Hali duluan — "Hal, tunggu! Bukan gitu—!"
+- [Scene 2B]: Tetap sama Kaizo — "Kai... gue juga suka lo."
