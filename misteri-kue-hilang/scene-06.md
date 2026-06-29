@@ -22,5 +22,5 @@ Semua orang terdiam sebentar... lalu pecah ketawa!
 ---
 
 **Pilihan:**
-- [Scene 7a]: Bima maafin Bu Ani — semua happy ending
-- [Scene 7b]: Bima usul — bikin kue BARU bareng-bareng!
+- [Scene 7A]: Bima maafin Bu Ani — semua happy ending
+- [Scene 7B]: Bima usul — bikin kue BARU bareng-bareng!
