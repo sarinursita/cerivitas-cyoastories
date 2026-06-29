@@ -1,6 +1,6 @@
 # Misteri Lorong Timur
 
-**Penulis:** Fatya
+**Penulis:** [nama]
 **Genre:** Misteri
 **Tags:** misteri, sekolah, horor
 **Rating:** 13+
