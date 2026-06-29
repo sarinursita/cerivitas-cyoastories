@@ -6,4 +6,4 @@
 **Rating:** PG
 **Date:** 2026-06-28
 
-**Premis:** Kakak Sena menghilang. Sena menemukan rekaman terakhirnya — tapi di rekaman itu ada sesuatu yang mengamati. Dan sesuatu itu SUKA mengobservasi manusia sebagai pertunjukan.
+**Premis:** Kakakku hilang tiga hari lalu. Tapi tiba-tiba aku dapat pesan darinya — nanya kenapa dia bisa hilang. Masalahnya... aku sendiri gak tahu jawabannya. Dan makin lama aku mikir, makin aku sadar: mungkin bukan kakakku yang hilang. Mungkin ingatanku.
