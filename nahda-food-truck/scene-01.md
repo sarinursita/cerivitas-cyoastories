@@ -7,7 +7,7 @@ Alice berdiri di depan food truck paman. Udah janjian dari jam 10, tapi paman be
 
 "Paman?" panggil Alice pelan. Nggak ada jawaban.
 
-Tapi... Alice meras sesuatu yang aneh. Seperti ada yang **ngeliatin** dia dari dalam food truck. Alice geleng-geleng kepala — ah, pasti karena cuaca panas aja.
+Tapi... Alice merasa sesuatu yang aneh. Seperti ada yang **ngeliatin** dia dari dalam food truck. Alice geleng-geleng kepala — ah, pasti karena cuaca panas aja.
 
 ---
 
