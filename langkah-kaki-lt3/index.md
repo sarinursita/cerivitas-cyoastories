@@ -1,6 +1,6 @@
 # Langkah Kaki lt.3
 
-**Penulis:** Nabil
+**Penulis:** [nama]
 **Genre:** Horor
 **Tags:** misteri, sekolah, horor
 **Rating:** PG
