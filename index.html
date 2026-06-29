@@ -155,12 +155,12 @@ hr.divider { border: none; height: 1px; background: linear-gradient(90deg, trans
 
     <!-- Theme -->
     <div class="theme-bar">
-      <button class="theme-btn active" data-theme="dark">🌙</button>
+      <button class="theme-btn active" data-theme="kawaii">🌸</button>
+      <button class="theme-btn" data-theme="dark">🌙</button>
       <button class="theme-btn" data-theme="light">☀️</button>
       <button class="theme-btn" data-theme="forest">🌿</button>
       <button class="theme-btn" data-theme="ocean">🌊</button>
       <button class="theme-btn" data-theme="fire">🔥</button>
-      <button class="theme-btn" data-theme="kawaii">🌸</button>
     </div>
 
     <!-- Search -->
@@ -216,6 +216,14 @@ const THEMES = {
   kawaii: {'--bg1':'#fef6fb','--bg2':'#fce4ec','--text':'#5d3a5c','--accent1':'#f48fb1','--accent2':'#ce93d8','--accent3':'#9575cd','--card-bg':'#fff0f5','--sidebar-bg':'rgba(255,240,245,0.95)','--choice-bg':'rgba(244,143,177,0.1)','--choice-border':'rgba(244,143,177,0.3)','--choice-hover':'rgba(244,143,177,0.2)','--choice-text':'#c95a7a','--setting':'#9e7a9e','--meta':'#999','--border':'rgba(100,70,120,0.12)'}
 };
 
+function applyTheme(name) {
+  const t = THEMES[name]; if (!t) return;
+  const root = document.documentElement;
+  // Remove all theme classes first
+  root.className = '';
+  for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
+}
+
 document.querySelectorAll('.theme-btn').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
@@ -224,11 +232,6 @@ document.querySelectorAll('.theme-btn').forEach(btn => {
     localStorage.setItem('cyoa-theme', btn.dataset.theme);
   };
 });
-function applyTheme(name) {
-  const t = THEMES[name]; if (!t) return;
-  const root = document.documentElement;
-  for (const [k,v] of Object.entries(t)) root.style.setProperty(k, v);
-}
 
 // ─── Helpers ───
 function stripMD(html) { return html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>'); }
@@ -468,7 +471,7 @@ function showIndex() {
 }
 
 // ─── Init ───
-const savedTheme = localStorage.getItem('cyoa-theme') || 'dark';
+const savedTheme = localStorage.getItem('cyoa-theme') || 'kawaii';
 document.querySelector(`.theme-btn[data-theme="${savedTheme}"]`)?.classList.add('active');
 applyTheme(savedTheme);
 loadSidebar();
