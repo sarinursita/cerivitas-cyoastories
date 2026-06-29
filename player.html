@@ -202,7 +202,8 @@ async function loadScene(sceneFile) {
 function mdToHTML(text) {
   let h = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
     .replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^# (.+)$/gm,'<h1>$1</h1>')
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/!\[(.*?)\]\((.*?)\)/g,'<img src="'+RAW+window.activeStory+'/$2" alt="$1" style="max-width:100%;border-radius:8px;margin:1rem 0" onerror="this.style.display=\'none\'">');
   return h.split(/\n\n+/).map(p => { p=p.trim(); if(!p||p.startsWith('<h')||p.startsWith('<hr')) return p; return '<p>'+p.replace(/\n/g,'<br>')+'</p>'; }).join('\n');
 }
 
