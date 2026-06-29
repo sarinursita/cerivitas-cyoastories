@@ -28,5 +28,5 @@ Kaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu.
 ---
 
 **Pilihan:**
-- [Terima] — "Iya. Bareng."
-- [Minta waktu] — "Kai... gue butuh waktu buat mikirin semuanya."
+- [Scene 1A]: Terima — "Iya. Bareng."
+- [Scene 2B]: Minta waktu — "Kai... gue butuh waktu buat mikirin semuanya."
