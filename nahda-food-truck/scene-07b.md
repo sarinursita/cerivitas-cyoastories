@@ -6,7 +6,7 @@
 
 Alice ikutin mantra di buku resep. Wajan bersinar — dan **POOF!** — Paman balik jadi manusia!
 
-"ALICE! LO BERHASIL!" teriak Paman senang. "Paman berhutang nyawa sama lo, nih!"
+"ALICE KAMU BERHASIL!" teriak Paman senang. "Paman berhutang nyawa sama kamu Al!"
 
 Alice senyum lebar. "Iya, dong! Murid jagoan Paman, kan?"
 
