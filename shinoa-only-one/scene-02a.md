@@ -22,5 +22,5 @@ Aysel tersenyum geli. Hali kalo关心 orang selalu kaku.
 ---
 
 **Pilihan:**
-- [Ajak Hali ngopi di kantin] — "Belum. Lo temenin gue ke kantin?"
-- [Balik ke kelas bareng] — "Udah. Mau ke kelas? Bareng?"
+- [Scene 1A]: Ajak Hali ngopi di kantin — "Belum. Lo temenin gue ke kantin?"
+- [Scene 2B]: Balik ke kelas bareng — "Udah. Mau ke kelas? Bareng?"
