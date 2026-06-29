@@ -1,6 +1,6 @@
 # Misteri Kue Hilang
 
-**Penulis:** Bima
+**Penulis:** [nama]
 **Genre:** Misteri
 **Tags:** misteri, makanan, sekolah
 **Rating:** PG
