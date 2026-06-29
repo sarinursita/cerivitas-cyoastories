@@ -2,6 +2,7 @@
 
 **Setting:** Pos satpam lantai 1 — penerangan temaram, segelas kopi, radio tua yang mendesis. Malam yang dingin.
 **Karakter:** Pika, Chu, & Pak Hendra
+**Status:** END
 
 Mereka duduk di pos satpam. Udara masih terasa tegang. Tangan Pika masih gemeteran.
 
@@ -38,8 +39,8 @@ Silence.
 ---
 
 **Pilihan:**
-- [Scene 3]: Lapor polisi — seriusin masalah, biar pihak berwenang yang urus 👮‍♂️📋
-- [Scene 3]: Buka ruangan itu sendiri — malam ini juga, bertiga dengan Pak Hendra 🕵️‍♂️🔦
+- [The End]: Lapor polisi — seriusin masalah, biar pihak berwenang yang urus 👮‍♂️📋
+- [The End]: Buka ruangan itu sendiri — malam ini juga, bertiga dengan Pak Hendra 🕵️‍♂️🔦
 
 *(Cerita berakhir di sini — lanjutan petualangan ada di imajinasi kamu!)*
 
