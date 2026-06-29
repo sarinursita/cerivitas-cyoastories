@@ -1,23 +1,23 @@
 # Scene 2B: Berdua Ngintip dari Jauh
 
 **Setting:** Pinggir kampung, sore-sore mau maghrib
-**Karakter:** Junior, Rina (temen sekelas)
+**Karakter:** Junior, David (temen sekelas)
 
 ---
 
-Junior narik tangan Rina, anak sebangkunya yang lagi main di pos ronda.
+Junior narik tangan David, anak sebangkunya yang lagi main di pos ronda.
 
 "Rin, liat tuh!" tunjuk Junior ke kabut.
 
-Rina melotot. "Itu apean? Kok tebel amat?"
+David melotot. "Itu apean? Kok tebel amat?"
 
 "Aneh," kata Junior. "Itu... bisikin aku tadi."
 
-Rina nengok ke Junior, mukanya pucet. "Bisik? Yang bisik?"
+David nengok ke Junior, mukanya pucet. "Bisik? Yang bisik?"
 
-Tiba-tiba, kabut bergerak. Dikit. Kaya ada yang jalan di dalemnya. Rina refleks tarik tangan Junior buat cabut. Tapi Junior nahan.
+Tiba-tiba, kabut bergerak. Dikit. Kaya ada yang jalan di dalemnya. David refleks tarik tangan Junior buat cabut. Tapi Junior nahan.
 
-"Bentar, Rin. Kita liat dulu dari sini."
+"Bentar, Dav. Kita liat dulu dari sini."
 
 ---
 
