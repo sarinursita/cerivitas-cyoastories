@@ -18,5 +18,5 @@ Suasana hening sejenak. Tapi bukan hening yang canggung. Agak... hangat.
 ---
 
 **Pilihan:**
-- [Ajak Kaizo bahas rapat OSIS] — "Gue ada ide buat acara. Mau denger?"
-- [Diam aja, salting] — *Cuma senyam-senyum sambil megang ujung baju*
+- [Scene 1A]: Ajak Kaizo bahas rapat OSIS — "Gue ada ide buat acara. Mau denger?"
+- [Scene 2B]: Diam aja, salting — *Cuma senyam-senyum sambil megang ujung baju*
