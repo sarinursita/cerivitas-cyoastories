@@ -24,5 +24,5 @@ Chu gak bisa selesaiin kalimatnya. Suara langkah kaki di atas makin terdengar je
 ---
 
 **Pilihan:**
-- [A]: Ikuti bekas cakaran — cari tahu dari mana asalnya 🐾
-- [B]: Abaikan, buru-buru naik — yang penting cari sumber suara 🏃
+- [Scene 06A]: Ikuti bekas cakaran — cari tahu dari mana asalnya 🐾
+- [Scene 06B]: Abaikan, buru-buru naik — yang penting cari sumber suara 🏃
