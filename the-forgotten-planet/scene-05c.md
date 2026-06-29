@@ -6,6 +6,10 @@
 
 ---
 
+---
+🏁 THE END
+
+
 Rama berdiri di panggung. Ia minta Komandan Voss kumpulin semua orang. Gak ada yg tau kenapa.
 
 "Selama ini kita dikasih tau Bumi udah hancur," Rama mulai. Suaranya lantang. "Dan kita satu-satunya yg tersisa."
