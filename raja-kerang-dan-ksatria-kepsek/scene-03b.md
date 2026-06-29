@@ -8,5 +8,5 @@
 ---
 
 **Pilihan:**
-- [Scene 04]: [deskripsi pilihan A] → scene-_____
-- [Scene 04]: [deskripsi pilihan B] → scene-_____
+- [Belum ditulis]: [deskripsi pilihan A] → scene-_____
+- [Belum ditulis]: [deskripsi pilihan B] → scene-_____
