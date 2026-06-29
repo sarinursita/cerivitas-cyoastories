@@ -3,6 +3,8 @@
 **Setting:** SD Harapan Bangsa, siang hari, jam istirahat — di lapangan sekolah
 **Karakter:** Bima, Rina (teman sekelas)
 
+![Gambar si Bima](Bee.png)
+
 Bel istirahat baru aja bunyi. Bima lagi asyik main kelereng di lapangan, tiba-tiba Rina berlari sambil teriak-teriak.
 
 "BIMA! KUE LOMBA MASAK HILANG! Kue Bu Rita yang paling bagus — raib! Padahal juri datang 5 menit lagi!"
