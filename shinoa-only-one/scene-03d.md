@@ -30,5 +30,5 @@ Aysel berdiri di sana, megang cokelat itu, dan ngerasa dunianya kayak jeda seben
 ---
 
 **Pilihan:**
-- [Panggil balik Kaizo] — "Kai, tunggu! Maksud lo apa?"
-- [Senyum dan simpan cokelatnya] — *Aysel megang erat cokelat itu dan senyum sendiri*
+- [Scene 1A]: Panggil balik Kaizo — "Kai, tunggu! Maksud lo apa?"
+- [Scene 2B]: Senyum dan simpan cokelatnya — *Aysel megang erat cokelat itu dan senyum sendiri*
