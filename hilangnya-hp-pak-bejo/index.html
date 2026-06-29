@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<title>Hilangnya HP Pak Bejo</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#app { max-width: 720px; width: 100%; }
+.scene {
+  background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
+  border: 1px solid #2a2a5a;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.scene-number {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.scene-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.scene-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 12px;
+}
+.scene-meta span { margin-right: 16px; }
+.narrative {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #d0d0e0;
+}
+.narrative strong { color: #ff6b6b; }
+.narrative em { color: #a0a0ff; font-style: italic; }
+.choices-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #1a1a3a, #252550);
+  color: #e0e0f0;
+  border: 1px solid #3a3a6a;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.choice-btn:hover {
+  background: linear-gradient(135deg, #2a2a5a, #3a3a7a);
+  border-color: #6a6aaa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100,100,200,0.15);
+}
+.choice-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a2a5a;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ending-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.ending-good { background: #00b894; color: #fff; }
+.ending-bad { background: #d63031; color: #fff; }
+.ending-twist { background: #6c5ce7; color: #fff; }
+.ending-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #b0b0d0;
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  border-left: 3px solid #6a6aaa;
+}
+.restart-btn {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(108,92,231,0.3);
+}
+.footer { text-align: center; margin-top: 20px; font-size: 12px; color: #444; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="scene" id="scene-container">
+    <div class="scene-number" id="scene-number"></div>
+    <h1 class="scene-title" id="scene-title"></h1>
+    <div class="scene-meta" id="scene-meta"></div>
+    <div class="narrative" id="narrative"></div>
+    <div class="choices-label" id="choices-label">PILIHAN</div>
+    <div class="choices" id="choices"></div>
+    <div id="ending-section"></div>
+  </div>
+  <div class="footer">Hilangnya HP Pak Bejo</div>
+</div>
+
+<script>
+const story = {
+  '01': {
+    title: 'HP Pak Bejo Raib!',
+    setting: 'Kelas 9A, SMP 01 Bintaro — jam kosong. Suasana santai, murid pada ngobrol.',
+    chars: 'Tedi, teman sekelas, Pak Bejo',
+    narrative: `Jam kosong. Pak Bejo keluar sebentar ke kantor buat ambil rapor. Tedi asyik main kertas pesawat sama teman-teman.
+
+Tapi pas Pak Bejo balik... mukanya pucat!
+
+"HP Bapak mana? Bapak taruh di meja tadi!" teriaknya.
+
+Kelas langsung hening. Tedi melongo. HP Pak Bejo — yang biasa buat muterin lagu dangdut pas jam pelajaran — raib!
+
+"Pasti ada maling!" seru Tedi semangat sambil langsung berdiri.
+
+"Tedi, duduk!" teriak teman-temannya. Tapi Tedi udah melesat ke pintu.`,
+    is_ending: false,
+    choices: [
+      { target: '02a', desc: 'Tedi curiga ke SATPAM — "Pasti satpam! Orang luar satu-satunya yang masuk kelas!"' },
+      { target: '02b', desc: 'Tedi curiga ke MURID LAIN — "Pasti ada temen kita yang ngambil. Coba periksa satu-satu!"' },
+    ],
+  },
+  '02a': {
+    title: 'Curiga ke Satpam',
+    setting: 'Pos satpam — dekat gerbang masuk sekolah.',
+    chars: 'Tedi, Pak Satpam',
+    narrative: `Tedi berlari ke pos satpam. Pak Satpam lagi santai minum kopi.
+
+"Pak! Bapak yang ngambil HP Pak Bejo, kan?!" Tedi langsung nuduh.
+
+Pak Satpam kaget sampe kopinya tumpah. "Astagfirullah, Nak! Bapak dari tadi di sini jagain gerbang. Mana sempat ke kelas kalian!"
+
+"Tapi Bapak kan suka lewat kelas pas jam kosong buat bersihin sampah!" Tedi makin semangat nuduh.
+
+Pak Satpam cuma geleng-geleng kepala. "Bener Bapak lewat. Tapi HP itu... Bapak liat Bu Rini perawat sekolah yang ambil. Bapak kira emang HP-nya Bu Rini!"
+
+Tedi terbeliak. Bu Rini?! Adiknya Pak Bejo?!`,
+    is_ending: false,
+    choices: [
+      { target: '03a', desc: 'Takedown ke ruang UKS — Tedi langsung cari Bu Rini' },
+    ],
+  },
+  '02b': {
+    title: 'Curiga ke Murid Lain',
+    setting: 'Kelas 9A — setelah jam kosong.',
+    chars: 'Tedi, teman sekelas',
+    narrative: `Tedi balik ke kelas dan berdiri tegap di depan papan tulis.
+
+"BAJWA! KITA AKAN NGEPERIKSA TAS SATU-SATU!" serunya sok dramatis.
+
+Teman-temannya pada mengeluh. "Ah Tedi, sok detektif! Lagian mana ada yang ngambil HP Pak Bejo."
+
+Tedi udah mulai periksa isi tas. Tapi... nggak ada. Semua isi tas normal. Malah ada yang bawa bekal rendang — jadi laper sendiri.
+
+Pas Tedi mulai hopeless, salah satu temennya bilang, "Eh, tadi aku liat Bu Rini dari UKS lewat deket kelas pas jam kosong. Bawa HP segala."
+
+"Hah?! Bu Rini?! Adiknya Pak Bejo?!"`,
+    is_ending: false,
+    choices: [
+      { target: '03b', desc: 'Buru-buru ke UKS — Tedi cari Bu Rini' },
+    ],
+  },
+  '03a': {
+    title: 'Interogasi Bu Rini',
+    setting: 'Ruang UKS — sepi, wangi obat.',
+    chars: 'Tedi, Bu Rini',
+    narrative: `Tedi gedor pintu UKS. "BU RINI! SERAHKAN HP KA—"
+
+Bu Rini kaget banget lagi ngelipat kain pasien. "Ya ampun, Tedi! Kenapa? Ada yang pingsan?"
+
+"Hp Pak Bejo! Bapak satpam bilang Ibu yang ambil!"
+
+Bu Rini tiba-tiba kelihatan panik. Tangannya nyelipin sesuatu ke saku...
+
+Tedi langsung curiga level max. "Itu di saku! Apa itu?!"
+
+Bu Rini senyum kecut. "Tedi... ini salah paham..."
+
+Tedi udah siap mental buat terima pengakuan kejahatan terbesar di SMP 01 Bintaro. Tapi...
+
+Bu Rini ngeluarin HP dari sakunya. "Ini HP-nya Mas Bejo. Aku pinjem bentar... soalnya HP-ku ketinggalan di rumah."
+
+"HAH?!"
+
+"...Terus aku mau pesen GoFood. Laper banget." 😅`,
+    is_ending: false,
+    choices: [
+      { target: '04', desc: 'Tedi speechless — twist terungkap!' },
+    ],
+  },
+  '03b': {
+    title: 'Konfrontasi di UKS',
+    setting: 'Ruang UKS — pintu setengah terbuka.',
+    chars: 'Tedi, Bu Rini',
+    narrative: `Tedi nyelip lewat pintu UKS. Bu Rini lagi duduk sambil pegang HP — iya itu HP Pak Bejo! (Tedi kenal dari stiker lucu di casing-nya.)
+
+"BU RINI! TERTANGKAP!" teriak Tedi.
+
+Bu Rini kaget, HP nya jatuh. "T-Tedi?! Kamu ngagetin aja! Ini kan HP-nya Mas Bejo — kakakku. Aku cuma pinjem."
+
+"Pinjem?! Namanya pinjem kalo yang punya tau!" Tedi udah kayak hakim di pengadilan.
+
+Bu Rini ngelus dada. "Denger dulu, Nak. HP-ku ketinggalan di rumah. Aku cuma mau pesen nasi goreng, laper banget. Makanya aku minjem HP Mas Bejo."
+
+Tedi... speechless. "Jadi... bukan kejahatan?"
+
+"Bukan. Cuma kelaperan." 😂`,
+    is_ending: false,
+    choices: [
+      { target: '04', desc: 'Tedi speechless — plot twist terbongkar!' },
+    ],
+  },
+  '04': {
+    title: 'Bukan Maling, Cuma Laper! 🤦‍♂️',
+    setting: 'Ruang UKS — Tedi masih tercengang.',
+    chars: 'Tedi, Bu Rini, Pak Bejo (datang)',
+    narrative: `Tedi berdiri kaku. Semua teka-teki, investigasi, curiga ke satpam, nuduh temen sekelas... sia-sia.
+
+Bu Rini ngelus rambut Tedi. "Maaf ya, Dek. Aku pikir Mas Bejo lagi di kantor, jadi HP-nya aman aja kalo dipinjem bentar."
+
+Pas itu Pak Bejo masuk. "RINI?! Itu HP Bapak?!"
+
+Bu Rini cengengesan. "Maaf Mas... HPku ketinggalan. Laper... 😅"
+
+Pak Bejo dan Bu Rini malah ketawa bareng. Tedi di pojok ruangan masih nunduk — malu banget udah bikin kegaduhan.
+
+"Tedi, lain kali jangan main tuduh dulu ya," kata Pak Bejo sambil ketawa.
+
+Tedi cuma garuk-garuk kepala. "Maaf, Pak..."
+
+Tapi dalam hati Tedi berpikir... "Lumayan sih, petualangan seru."`,
+    is_ending: false,
+    choices: [
+      { target: '05a', desc: 'Tedi lega — semua baik-baik aja! 😂' },
+      { target: '05b', desc: 'Tedi ikut pesen GoFood — biar ada untungnya! 🍔' },
+    ],
+  },
+  '05a': {
+    title: 'Lega & Ketawa Bareng 😂',
+    setting: 'UKS — suasana udah cair.',
+    chars: 'Tedi, Bu Rini, Pak Bejo',
+    narrative: `*<!-- Status: END -->*
+
+Akhirnya semua ketawa bareng. Tedi minta maaf ke Pak Satpam, dan Bu Rini traktir semua orang makanan dari GoFood.
+
+Pak Bejo ngomong, "Lain kali kalo ada masalah, jangan panik dulu. Pikirin dulu baik-baik."
+
+Tedi cuma mesem. "Iya Pak. Tapi seru juga sih jadi detektif bentar!"
+
+Bu Rini ngasih Tedi gorengan. "Nih, buat jagoan investigasi kita."
+
+Tedi ketawa sambil ngemil. Hari itu jadi pelajaran berharga buat Tedi: **Jangan nge-judge orang sebelum tau fakta. Dan kalo laper... ya tinggal pesen GoFood.** 😂
+
+🏁 **SELESAI — Ending A: Storytime!** 🎉
+
+"Yah, namanya juga anak sekolah. Drama dikit, ketawa-ketawa, terus balik lagi kayak biasa."`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+  '05b': {
+    title: 'GoFood Ramai-Ramai! 🍔',
+    setting: 'UKS — jadi acara makan-makan dadakan.',
+    chars: 'Tedi, Bu Rini, Pak Bejo, Satpam (ikut!)',
+    narrative: `*<!-- Status: END -->*
+
+"Bu... aku ikut pesen boleh?" Tedi malu-malu.
+
+Bu Rini ketawa. "Ya ampun, mau ikut guyur nih! Mau pesen apa?"
+
+5 menit kemudian, di UKS terjadi pesta kecil:
+- Bu Rini ☑️ Nasi goreng + es teh
+- Tedi ☑️ Ayam geprek + susu
+- Pak Bejo ☑️ Mie ayam (ternyata ikut laper)
+- Pak Satpam ☑️ Nasi uduk (datang sambil bawa kopi)
+
+"Mending HP-nya ilang tiap hari ya, Pak!" ledek Tedi.
+
+Pak Bejo cuma geleng-geleng. "Dasar Tedi!"
+
+🏁 **SELESAI — Ending B: Kelaperan!** 🍕
+
+"Misteri HP hilang berakhir dengan... perut kenyang. Bukan penyelesaian yang keren, tapi penyelesaian yang bikin kenyang! 😂"`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+};
+
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+function getEndingType(id) {
+  if (id.includes('7A') || id.includes('good')) return 'good';
+  if (id.includes('7B') || id.includes('bad')) return 'bad';
+  if (id.includes('7C') || id.includes('twist') || id.includes('plot')) return 'twist';
+  return 'twist';
+}
+
+function goTo(sceneId) {
+  if (sceneId === 'restart' || sceneId === 'Restart') {
+    goTo('01');
+    return;
+  }
+
+  const scene = story[sceneId];
+  if (!scene) {
+    document.getElementById('narrative').innerHTML = '<p>Scene belum tersedia.</p>';
+    return;
+  }
+
+  document.getElementById('scene-number').textContent = 'Scene ' + sceneId.toUpperCase();
+  document.getElementById('scene-title').textContent = scene.title;
+
+  let metaHtml = '';
+  if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
+  if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
+  document.getElementById('scene-meta').innerHTML = metaHtml;
+  let narr = scene.narrative;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  narr = narr.replace(/\n/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
+
+  const choicesDiv = document.getElementById('choices');
+  const choicesLabel = document.getElementById('choices-label');
+  const endingSection = document.getElementById('ending-section');
+
+  choicesDiv.innerHTML = '';
+  endingSection.innerHTML = '';
+
+  if (scene.is_ending) {
+    choicesLabel.style.display = 'none';
+    let badgeClass = 'ending-twist';
+    let badgeText = '🎭 PLOT TWIST ENDING';
+    const etype = getEndingType(sceneId);
+    if (etype === 'good') { badgeClass = 'ending-good'; badgeText = '✅ GOOD ENDING'; }
+    else if (etype === 'bad') { badgeClass = 'ending-bad'; badgeText = '💀 BAD ENDING'; }
+
+    // FIX: Use DOM API instead of innerHTML with onclick string.
+    // innerHTML with onclick="goTo('...')" causes SyntaxError: Unexpected number
+    // because quote escaping between Python f-string → HTML → JS is unreliable.
+    endingSection.innerHTML = '<div class="ending-badge ' + badgeClass + '">' + badgeText + '</div>';
+    const rstBtn = document.createElement('button');
+    rstBtn.className = 'restart-btn';
+    rstBtn.textContent = '🔄 Main Lagi dari Awal';
+    rstBtn.onclick = function() { goTo('01'); };
+    endingSection.appendChild(rstBtn);
+  } else {
+    choicesLabel.style.display = 'block';
+    // Auto-advance for merge scenes (auto_choice flag or single choice)
+    if (scene.auto_choice || (scene.choices.length === 1 && scene.choices[0].target !== 'restart')) {
+      setTimeout(function() {
+        goTo(scene.choices[0].target);
+      }, 2500);
+      return;  // Don't render buttons for auto scenes
+    }
+    scene.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.innerHTML = '<span class="choice-num">' + (letters[i] || (i+1)) + '</span>' + choice.desc;
+      btn.onclick = function() { goTo(choice.target); };
+      choicesDiv.appendChild(btn);
+    });
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+goTo('01');
+</script>
+</body>
+</html>
