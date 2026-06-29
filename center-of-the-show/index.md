@@ -1,4 +1,4 @@
-# Center of the Show
+# Satu Centang ✅
 
 **Penulis:** Loulament
 **Genre:** Horor, Psikologis, misteri
