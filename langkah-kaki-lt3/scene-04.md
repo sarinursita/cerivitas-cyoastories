@@ -24,5 +24,5 @@ Mereka saling pandang. Keringat dingin mulai nempel di leher.
 ---
 
 **Pilihan:**
-- [A]: Buka pintu gudang pelan-pelan — siap-siap kaget 🙈
-- [B]: Panggil "halo... ada orang?" dari luar 🗣️
+- [Scene 3]: Buka pintu gudang pelan-pelan — siap-siap kaget 🙈
+- [Scene 3]: Panggil "halo... ada orang?" dari luar 🗣️
