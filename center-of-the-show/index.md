@@ -2,10 +2,9 @@
 
 **Penulis:** Loula
 **Genre:** Horor
-**Tags:** drama, persahabatan, sekolah, misteri
+**Tags:** drama, persahabatan, sekolah
 **Rating:** PG
 **Date:** 2026-06-28
 
-**Premis:** Kakak Sena menghilang. Sena menemukan rekaman terakhirnya. Tapi di rekaman itu ada sesuatu yang mengamati — dan sesuatu itu SUKA mengobservasi manusia.
+**Premis:** Kakak Sena menghilang.
 **Jumlah scene:** 6
-**Plot twist:** Hantu sirkus yang mengobservasi manusia sebagai "pertunjukan"
