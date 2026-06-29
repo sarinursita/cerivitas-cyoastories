@@ -26,5 +26,5 @@ Tapi Pika udah melangkah.
 ---
 
 **Pilihan:**
-- [A]: Langsung cek gudang — gas pol tanpa mikir 🚪
-- [B]: Intip dari jendela dulu — liat situasi dari luar 👀
+- [Scene 3]: Langsung cek gudang — gas pol tanpa mikir 🚪
+- [Scene 3]: Intip dari jendela dulu — liat situasi dari luar 👀
