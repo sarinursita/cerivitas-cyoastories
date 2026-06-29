@@ -6,7 +6,6 @@
 <title>Why? — Cerita Interaktif</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
   body {
     background: #0a0a1a;
     color: #e0e0e0;
@@ -18,185 +17,85 @@
     justify-content: center;
     padding: 20px;
   }
-
-  .container {
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
+  .container { max-width: 700px; width: 100%; margin: 0 auto; }
   .header {
-    text-align: center;
-    margin-bottom: 30px;
-    opacity: 0.8;
+    text-align: center; margin-bottom: 30px; opacity: 0.8;
   }
-
   .header h1 {
     font-size: 2em;
     background: linear-gradient(135deg, #ff6b6b, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .header .scene-counter {
-    color: #888;
-    font-size: 0.9em;
-    margin-top: 5px;
-  }
-
-  .scene { 
-    display: none;
-    animation: fadeIn 0.6s ease;
-  }
-
+  .header .scene-counter { color: #888; font-size: 0.9em; margin-top: 5px; }
+  .scene { display: none; animation: fadeIn 0.6s ease; }
   .scene.active { display: block; }
-
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .scene-title {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-    color: #c084fc;
-  }
-
-  .scene-meta {
-    font-size: 0.85em;
-    color: #888;
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-
-  .narrative {
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    white-space: pre-wrap;
-  }
-
-  .narrative p {
-    margin-bottom: 15px;
-  }
-
+  .scene-title { font-size: 1.5em; margin-bottom: 5px; color: #c084fc; }
+  .scene-meta { font-size: 0.85em; color: #888; margin-bottom: 20px; font-style: italic; }
+  .narrative { font-size: 1.1em; line-height: 1.8; margin-bottom: 30px; white-space: pre-wrap; }
+  .narrative p { margin-bottom: 15px; }
   .ending-badge {
     display: inline-block;
     background: linear-gradient(135deg, #ff6b6b, #c084fc);
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 0.9em;
+    color: #fff; padding: 8px 20px; border-radius: 20px;
+    font-weight: bold; margin-top: 20px; font-size: 0.9em;
   }
-
-  .choices {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
+  .choices { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
   .choice-btn {
     background: linear-gradient(135deg, #1a1a3a, #1a1a4a);
-    color: #fff;
-    border: 1px solid #333;
-    padding: 16px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    text-align: left;
-    width: 100%;
-    font-family: inherit;
-    position: relative;
+    color: #fff; border: 1px solid #333;
+    padding: 16px 24px; border-radius: 12px; cursor: pointer;
+    font-size: 1em; transition: all 0.3s ease;
+    text-align: left; width: 100%; font-family: inherit;
   }
-
   .choice-btn:hover {
     background: linear-gradient(135deg, #2a2a5a, #2a2a6a);
     border-color: #c084fc;
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(192, 132, 252, 0.2);
   }
-
-  .choice-btn:active {
-    transform: translateY(0);
-  }
-
-  .choice-btn .choice-arrow {
-    color: #c084fc;
-    margin-right: 10px;
-  }
-
+  .choice-btn .choice-arrow { color: #c084fc; margin-right: 10px; }
   .restart-btn {
-    background: transparent;
-    color: #c084fc;
-    border: 1px solid #c084fc;
-    padding: 12px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    font-family: inherit;
+    background: transparent; color: #c084fc;
+    border: 1px solid #c084fc; padding: 12px 24px; border-radius: 12px;
+    cursor: pointer; font-size: 1em; transition: all 0.3s ease;
+    margin-top: 20px; font-family: inherit;
   }
-
   .restart-btn:hover {
-    background: rgba(192, 132, 252, 0.1);
-    transform: translateY(-2px);
+    background: rgba(192, 132, 252, 0.1); transform: translateY(-2px);
   }
-
-  .title-screen {
-    text-align: center;
-    padding: 60px 20px;
-  }
-
+  .title-screen { text-align: center; padding: 60px 20px; }
   .title-screen h1 {
-    font-size: 4em;
-    margin-bottom: 10px;
+    font-size: 4em; margin-bottom: 10px;
     background: linear-gradient(135deg, #ff6b6b, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .title-screen .tagline {
-    color: #888;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-  }
-
+  .title-screen .tagline { color: #888; font-size: 1.1em; margin-bottom: 40px; }
   .title-screen .premis {
-    background: #111125;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
-    font-style: italic;
-    color: #bbb;
-    line-height: 1.6;
+    background: #111125; border: 1px solid #222; border-radius: 12px;
+    padding: 20px; margin-bottom: 30px; font-style: italic;
+    color: #bbb; line-height: 1.6;
   }
-
   .start-btn {
     background: linear-gradient(135deg, #c084fc, #8b5cf6);
-    color: #fff;
-    border: none;
-    padding: 18px 50px;
-    border-radius: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    font-weight: bold;
+    color: #fff; border: none; padding: 18px 50px; border-radius: 15px;
+    font-size: 1.2em; cursor: pointer; transition: all 0.3s ease;
+    font-family: inherit; font-weight: bold;
   }
-
   .start-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(192, 132, 252, 0.3);
   }
-
+  .count-badge {
+    background: #1a1a3a; border: 1px solid #333; border-radius: 8px;
+    padding: 8px 15px; display: inline-block; font-size: 0.85em; margin-bottom: 15px;
+    color: #aaa;
+  }
   @media (max-width: 500px) {
     .title-screen h1 { font-size: 2.5em; }
     .narrative { font-size: 1em; }
@@ -217,182 +116,246 @@
       <h1>Why?</h1>
       <div class="tagline">Sebuah cerita interaktif</div>
       <div class="premis">
-        Kamu terbangun dalam tubuh seorang putri kerajaan Lumindor yang sedang sakit parah. 
-        Semua orang di sekitarmu terlihat kasihan tapi takut bicara jujur. 
-        Ternyata, kakakmu sendiri — sang Ratu — adalah dalang di balik semua ini. 
-        Bisakah kamu menemukan kebenaran sebelum terlambat?
+        Kamu terbangun dalam tubuh seorang putri kerajaan Lumindor yang sedang sakit parah.
+        Semua orang di sekitarmu terlihat kasihan tapi takut bicara jujur.
+        Kelilingi kastil, ajak bicara penghuninya, dan temukan kebenaran sebelum sang Ratu datang dengan obat malamnya...
       </div>
       <div style="color:#666; margin-bottom:20px; font-size:0.85em;">
         🖋️ oleh Shinoa Hoshiyume &nbsp;|&nbsp; 🎭 Fantasy + Misteri
       </div>
-      <button class="start-btn" onclick="goTo('scene1')">Mulai Petualangan 🚀</button>
+      <button class="start-btn" onclick="goTo('scene1')">Mulai Berkeliling 🚶‍♀️</button>
     </div>
   </div>
 
-  <!-- Dynamic Scene Container -->
   <div id="sceneContainer"></div>
 </div>
 
 <script>
 const story = {
-  "scene01": {
+  "scene1": {
     "title": "Bangun di Istana",
     "setting": "Kamar tidur mewah di Istana Lumindor — pagi hari, sinar matahari masuk lewat jendela",
-    "karakter": "Putri (pembaca), Pelayan",
-    "narrative": "**Karakter:** Putri (pembaca), Pelayan\n\nKamu membuka mata. Langit-langit marmer putih dengan ukiran emas menyambut pandanganmu. Tubuhmu terasa berat, seperti baru bangun dari mimpi panjang yang aneh.\n\n\"Yang Mulia, akhirnya sadar...\"\n\nSeorang pelayan wanita berdiri di samping tempat tidur, matanya tampak sembab. Ia tersenyum, tapi senyumnya dipaksakan.\n\n\"Paduka Ratu sudah menunggu di ruang sidang. Tapi... mungkin Yang Mulia perlu istirahat dulu.\"\n\nAda sesuatu di matanya. Ketakutan.",
+    "karakter": "Putri (pembaca)",
+    "narrative": "Kamu membuka mata. Langit-langit marmer putih dengan ukiran emas menyambut pandanganmu.\n\nTubuhmu terasa berat. Seperti baru bangun dari mimpi panjang yang aneh. Tapi ini bukan mimpimu, bukan juga tubuhmu... atau setidaknya, itu yang akan kamu sadari nanti.\n\nDi nakas samping tempat tidur, ada sepiring buah dan segelas air. Cermin di sudut ruangan memantulkan wajah asing — cantik, pucat, dengan lingkaran hitam di bawah mata.\n\nKamu bukan dirimu yang dulu.\n\nTapi tidak ada waktu untuk bingung. Suara langkah kaki terdengar di lorong. Pelayan akan segera masuk.\n\nKamu memutuskan untuk **bangun dan berkeliling kastil** — mencari tahu siapa dirimu sekarang.",
     "choices": [
       {
-        "text": "Panggil Koki — minta makanan dulu",
-        "next": "2"
-      },
-      {
-        "text": "Panggil Ksatria — tanya situasi kerajaan",
-        "next": "3"
-      },
-      {
-        "text": "Panggil Penasihat — tanya soal penyakitmu",
-        "next": "4"
-      },
-      {
-        "text": "Tanya Pelayan itu langsung — \"Apa yang disembunyikan?\"",
-        "next": "5"
+        "text": "Mulai berkeliling kastil 🚶‍♀️",
+        "next": "scene2"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": false
   },
-  "scene02": {
-    "title": "Koki Istana",
+  "scene2": {
+    "title": "Koki di Dapur",
+    "setting": "Dapur istana — hangat, harum roti dan rempah",
+    "karakter": "Koki, Putri (pembaca)",
+    "narrative": "Perjalananmu membawa kamu ke dapur istana. Seekor kucing hitam melompat saat kamu masuk.\n\nDi depan tungku besar, seorang pria bertubuh tambun dengan celemek putih sedang mengaduk sesuatu di kuali. Aroma kayu manis dan madu memenuhi ruangan.\n\nIa menoleh dan terkejut melihatmu.\n\n\"Y-Yang Mulia?! Aduh, Paduka seharusnya istirahat di kamar...\"\n\nTangannya gemetar sedikit saat meletakkan sendok kayu. Ada yang ia sembunyikan.\n\nTapi sebelum itu... mungkin kamu bisa bertanya dulu tentang keseharian putri ini. Siapa tahu ada petunjuk.",
+    "choices": [
+      {
+        "text": "Tanya ke Koki — \"Bagaimana kehidupanku di istana?\"",
+        "next": "scene2b"
+      },
+      {
+        "text": "Lanjut aja — cari orang lain",
+        "next": "scene3"
+      }
+    ],
+    "isEnd": false,
+    "isTalkScene": false
+  },
+  "scene2b": {
+    "title": "Cerita Koki",
     "setting": "Dapur istana — hangat, harum rempah",
     "karakter": "Koki, Putri (pembaca)",
-    "narrative": "**Karakter:** Koki, Putri (pembaca)\n\nKoki istana Lumindor, seorang pria bertubuh besar dengan celemek putih, sedang sibuk memotong sayuran saat melihatmu datang. Ia terkejut.\n\n\"Yang Mulia! Seharusnya Paduka beristirahat...\"\n\nTapi di balik suaranya yang ramah, kau lihat tangannya gemetar. Ada sesuatu yang ia sembunyikan di balik meja.",
+    "narrative": "\"Ceritakan tentang kehidupanku,\" pinta pelan.\n\nKoki menatapmu dengan sorot mata yang sulit diartikan — antara iba dan takut.\n\n\"Paduka... adalah putri yang sangat baik hati. Setiap pagi, Paduka turun ke dapur untuk minum teh chamomile kesukaan Paduka. Paduka suka duduk di taman belakang sambil membaca buku... dulu.\"\n\nKata 'dulu' terucap berat.\n\n\"Sejak tiga bulan lalu, Paduka mulai sakit. Dokter kerajaan bilang itu anemia. Tapi saya... saya tidak yakin. Orang yang sakit biasa tidak pernah membaik dan memburuk secara bergantian seperti ini.\"\n\nIa menunduk. \"Maaf, saya terlalu banyak bicara.\"\n\nKamu tersenyum kecil. Koki tahu sesuatu, tapi belum siap bicara.",
     "choices": [
       {
-        "text": "\"Aku tahu kau menyembunyikan sesuatu. Bicara!\"",
-        "next": "6"
-      },
-      {
-        "text": "Kembali ke kamar",
-        "next": "1"
+        "text": "Lanjut ke halaman istana",
+        "next": "scene3"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": true
   },
-  "scene03": {
-    "title": "Ksatria Pengawal",
+  "scene3": {
+    "title": "Ksatria di Halaman",
+    "setting": "Halaman istana — pagi, angin sejuk, suara pedang beradu",
+    "karakter": "Ksatria, Putri (pembaca)",
+    "narrative": "Dari dapur, langkahmu membawa ke halaman istana. Seorang ksatria berjubah biru sedang berlatih pedang. Gerakannya lincah, tepat — tapi saat melihatmu, pedangnya hampir terlepas.\n\n\"Y-Yang Mulia!\" Ia buru-buru memberi hormat, wajahnya tegang. \"Udara pagi belum baik untuk kesehatan Paduka.\"\n\nKau lihat ada keringat dingin di pelipisnya. Bukan karena lelah berlatih.",
+    "choices": [
+      {
+        "text": "Tanya Ksatria — \"Ceritakan tentang keseharianku\"",
+        "next": "scene3b"
+      },
+      {
+        "text": "Lanjut aja — cari yang lain",
+        "next": "scene4"
+      }
+    ],
+    "isEnd": false,
+    "isTalkScene": false
+  },
+  "scene3b": {
+    "title": "Cerita Ksatria",
     "setting": "Halaman istana — pagi, angin sejuk",
     "karakter": "Ksatria, Putri (pembaca)",
-    "narrative": "**Karakter:** Ksatria, Putri (pembaca)\n\nSeorang ksatria berjubah biru sedang berlatih pedang di halaman. Melihatmu, ia langsung berhenti dan memberi hormat. Wajahnya tegang.\n\n\"Yang Mulia, sebaiknya Paduka tidak keluar kamar... udara pagi belum baik untuk kesehatan.\"\n\nIa menunduk, tapi kau sempat melihat raut bersalah di wajahnya.",
+    "narrative": "Kau bertanya padanya tentang keseharianmu.\n\nKsatria itu menghela napas, matanya menerawang. \"Paduka dulu... sering duduk di sini, menonton latihan para pengawal. Kadang Paduka ikut memanah — dan jujur, lebih baik dari saya.\"\n\nIa tersenyum kecil, tapi cepat memudar.\n\n\"Tapi belakangan, Paduka sering mengurung diri. Tidak seperti biasa. Saya... saya pikir Paduka hanya lelah. Tapi sekarang saya rasa bukan itu.\"\n\nSuaranya menurun jadi bisikan. \"Saya pernah lihat Ratu keluar dari kamar Paduka tengah malam, bawa botol kecil. Waktu saya tanya, beliau bilang itu 'obat'.\"\n\nKsatria mengepalkan tangannya. \"Saya tidak berani bicara lebih. Tapi tolong... hati-hati, Yang Mulia.\"",
     "choices": [
       {
-        "text": "\"Kau tahu sesuatu. Cepat katakan!\"",
-        "next": "6"
-      },
-      {
-        "text": "Kembali ke kamar",
-        "next": "1"
+        "text": "Lanjut ke perpustakaan",
+        "next": "scene4"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": true
   },
-  "scene04": {
-    "title": "Penasihat Kerajaan",
-    "setting": "Perpustakaan istana — rak buku tinggi, remang-remang",
+  "scene4": {
+    "title": "Penasihat di Perpustakaan",
+    "setting": "Perpustakaan istana — gelap, rak buku tinggi menjulang, bau kertas tua",
     "karakter": "Penasihat, Putri (pembaca)",
-    "narrative": "**Karakter:** Penasihat, Putri (pembaca)\n\nPenasihat kerajaan, seorang pria tua dengan janggut putih, sedang membaca gulungan tua. Ia menoleh pelan saat kau masuk.\n\n\"Yang Mulia... penyakit Paduka belum sembuh total. Sebaiknya jangan banyak bergerak.\"\n\nIa tersenyum, tapi matanya tidak ikut tersenyum.",
+    "narrative": "Langkahmu berikutnya membawa ke perpustakaan. Di antara tumpukan gulungan kuno, seorang pria tua berjanggut putih duduk dengan kacamata setengah mata.\n\nIa mendongak saat kau masuk. Tidak terkejut — seolah sudah menunggu.\n\n\"Ah, Yang Mulia. Akhirnya Paduka bangun juga.\"\n\nSorot matanya tajam. Ia tahu sesuatu.",
     "choices": [
       {
-        "text": "\"Katakan yang sebenarnya! Apa yang terjadi padaku?\"",
-        "next": "6"
+        "text": "Tanya Penasihat — \"Apa yang kau sembunyikan?\"",
+        "next": "scene4b"
       },
       {
-        "text": "Kembali ke kamar",
-        "next": "1"
+        "text": "Lanjut aja — cari yang lain",
+        "next": "scene5"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": false
   },
-  "scene05": {
-    "title": "Pelayan Setia",
+  "scene4b": {
+    "title": "Cerita Penasihat",
+    "setting": "Perpustakaan istana — remang-remang, sunyi",
+    "karakter": "Penasihat, Putri (pembaca)",
+    "narrative": "Kau duduk di hadapannya. Penasihat menatapmu lama, lalu membuka sebuah buku tua bersampul kulit hitam.\n\n\"Paduka pernah datang ke sini setiap senja. Membaca buku sejarah kerajaan. Paduka sangat pintar — lebih pintar dari yang Paduka kira.\"\n\nIa membuka halaman yang ditandai. \"Buku ini... catatan tentang ramuan-ramuan kerajaan. Termasuk racun.\"\n\nJarinya menunjuk satu baris. *Datura Hitam — menyebabkan demam, lemas, halusinasi ringan. Dapat mematikan dalam dosis tinggi.*\n\n\"Tiga bulan lalu, seseorang meminjam buku ini. Saya tidak ingat siapa.\"\n\nIa menatapmu tajam. \"Tapi yang jelas, Yang Mulia — Paduka tidak sakit secara alami.\"",
+    "choices": [
+      {
+        "text": "Lanjut ke lorong belakang",
+        "next": "scene5"
+      }
+    ],
+    "isEnd": false,
+    "isTalkScene": true
+  },
+  "scene5": {
+    "title": "Pelayan di Lorong",
+    "setting": "Lorong istana — sepi, cahaya temaram dari jendela",
+    "karakter": "Pelayan, Putri (pembaca)",
+    "narrative": "Di lorong yang sepi, kau melihat pelayan yang tadi pagi menunggumu. Ia sedang membereskan vas bunga — tapi tangannya gemetar saat melihatmu.\n\n\"Ya ampun... Y-Yang Mulia!\"\n\nDari sakunya, selembar kertas jatuh. Ia buru-buru memungutnya, tapi kau sempat melihat satu kata: **TOLONG**.",
+    "choices": [
+      {
+        "text": "Tanya Pelayan — \"Apa kertas itu?\"",
+        "next": "scene5b"
+      },
+      {
+        "text": "Lanjut aja — kembali ke kamar",
+        "next": "scene6"
+      }
+    ],
+    "isEnd": false,
+    "isTalkScene": false
+  },
+  "scene5b": {
+    "title": "Cerita Pelayan",
     "setting": "Lorong istana — sepi, hanya kalian berdua",
-    "karakter": "Pelayan (yang tadi pagi), Putri (pembaca)",
-    "narrative": "**Karakter:** Pelayan (yang tadi pagi), Putri (pembaca)\n\nKau mendekati pelayan yang tadi menunggumu. Ia sedang membereskan vas bunga di lorong. Melihatmu, vas itu hampir terjatuh.\n\n\"Ya ampun... Yang Mulia, maaf—\"\n\nKau lihat sesuatu di sakunya. Selembar kertas. Ia buru-buru menyembunyikannya.",
+    "karakter": "Pelayan, Putri (pembaca)",
+    "narrative": "Kau memungut kertas itu sebelum ia bisa mengambilnya. Isinya hanya satu kalimat pendek, ditulis tangan gemetar:\n\n*\"Jangan minum obat dari Ratu.\"*\n\nPelayan menangis. \"Maafkan saya, Yang Mulia! Saya tahu dari awal... saya lihat Ratu memasukkan sesuatu ke gelas Paduka setiap malam. Tapi saya takut! Saya hanya pelayan...\"\n\nIa berlutut. \"Saya tidak punya kuasa. Tapi saya tidak tega melihat Paduka semakin lemah setiap hari.\"\n\nKau membantu ia berdiri. Dari matanya yang berkaca-kaca, kau tahu ia jujur.\n\n\"Terima kasih,\" bisikmu. \"Kau lebih berani dari yang kau kira.\"",
     "choices": [
       {
-        "text": "\"Apa itu? Berikan padaku!\"",
-        "next": "6"
-      },
-      {
-        "text": "Kembali ke kamar",
-        "next": "1"
+        "text": "Kembali ke kamar — malam akan tiba",
+        "next": "scene6"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": true
   },
-  "scene06": {
+  "scene6": {
     "title": "Malam Yang Menentukan",
     "setting": "Kamar tidur putri — malam, hanya diterangi lilin",
     "karakter": "Ratu (kakak), Putri (pembaca)",
-    "narrative": "**Karakter:** Ratu (kakak), Putri (pembaca)\n\nMalam tiba. Kamu terbaring lemah di tempat tidur ketika pintu kamar terbuka.\n\nSang Ratu masuk. Kakakmu sendiri. Wajahnya cantik, anggun — tapi senyumnya... senyumnya dingin.\n\n\"Adikku tersayang... waktunya minum obat.\"\n\nDi tangannya, segelas cairan merah pekat. Aroma aneh tercium darinya.\n\n\"Kau tahu, adikku,\" bisiknya pelan. \"Seharusnya kau tidak pernah bangun dari tidur panjangmu.\"",
+    "narrative": "Malam tiba. Kamu terbaring lemah di tempat tidur ketika pintu kamar terbuka.\n\nSang Ratu masuk. Kakakmu sendiri. Wajahnya cantik, anggun — tapi senyumnya di bawah cahaya lilin terlihat... dingin.\n\n\"Adikku tersayang... waktunya minum obat.\"\n\nDi tangannya, segelas cairan merah pekat. Aroma aneh — seperti bunga dan logam.\n\n\"Kau tahu, adikku...\"\n\nIa mendekat, jemarinya menyentuh pipimu.\n\n\"Seharusnya kau tidak pernah sadar.\"\n\nRacun itu siap diminumkan. Ini saat penentuan.\n\n*Keputusanmu hari ini — siapa yang kamu ajak bicara — akan menentukan semuanya...*",
     "choices": [
       {
-        "text": "(Jika 4 karakter diajak) — Semua datang menyelamatkan!",
-        "next": "7a"
-      },
-      {
-        "text": "(Jika 3 karakter diajak) — Satu orang tidak datang",
-        "next": "7b"
-      },
-      {
-        "text": "(Jika ≤2 karakter diajak) — Kesendirian di malam gelap",
-        "next": "7c"
+        "text": "*Lanjutkan...*",
+        "next": "scene7"
       }
     ],
-    "isEnd": false
+    "isEnd": false,
+    "isTalkScene": false
   },
   "scene7a": {
     "title": "Bersatu Melawan Kegelapan 🏆",
     "setting": "Kamar tidur putri — malam, dramatis",
     "karakter": "Koki, Ksatria, Penasihat, Pelayan, Putri, Ratu",
-    "narrative": "**Karakter:** Koki, Ksatria, Penasihat, Pelayan, Putri, Ratu\n*<!-- Status: END -->*\n\nSaat Ratu mendekat dengan racun di tangan, pintu kamar terbuka lebar!\n\nKoki, Ksatria, Penasihat, dan Pelayan masuk bersamaan. Mereka berdiri di antaramu dan sang Ratu.\n\n\"Cukup, Yang Mulia!\" teriak Ksatria dengan pedang terhunus.\n\n\"Dosis racun dalam 'obat' itu sudah kami ketahui,\" kata Penasihat dengan tenang. \"Datura hitam. Cukup untuk melumpuhkan seseorang selama berminggu-minggu... atau membunuh.\"\n\nRatu mundur, wajahnya pucat pasi. \"Kalian... kalian berkhianat?!\"\n\n\"Kami hanya melindungi yang benar,\" bisik Pelayan, memegang erat tanganmu.\n\nPara penjaga datang. Sang Ratu digiring ke penjara bawah tanah.\n\nKeesokan harinya, kau duduk di singgasana — kini sebagai Ratu Lumindor yang baru. Racun telah dibersihkan dari tubuhmu. Kerajaan aman.\n\nDan di dadamu, kau merasa hangat. Bukan karena obat... tapi karena tahu ada orang-orang yang peduli.\n\n🏁 **THE END — GOOD ENDING** \n*Kau selamat berkat persatuan. Kepercayaan menyelamatkanmu.*",
+    "narrative": "*<!-- Status: END -->*\n\nSaat Ratu mendekat dengan racun di tangan, pintu kamar terbuka lebar!\n\nKoki, Ksatria, Penasihat, dan Pelayan masuk bersamaan. Mereka berdiri di antaramu dan sang Ratu.\n\n\"Cukup, Yang Mulia!\" teriak Ksatria dengan pedang terhunus.\n\n\"Dosis racun dalam 'obat' itu sudah kami ketahui,\" kata Penasihat dengan tenang. \"Datura hitam. Cukup untuk melumpuhkan seseorang selama berminggu-minggu... atau membunuh.\"\n\nRatu mundur, wajahnya pucat pasi. \"Kalian... kalian berkhianat?!\"\n\n\"Kami hanya melindungi yang benar,\" bisik Pelayan, memegang erat tanganmu.\n\nPara penjaga datang. Sang Ratu digiring ke penjara bawah tanah.\n\nKeesokan harinya, kau duduk di singgasana — kini sebagai Ratu Lumindor yang baru. Racun telah dibersihkan dari tubuhmu. Kerajaan aman.\n\nDan di dadamu, kau merasa hangat. Bukan karena obat... tapi karena tahu ada orang-orang yang peduli.\n\n🏁 **THE END — GOOD ENDING** \n*Kau selamat berkat persatuan. Kepercayaan menyelamatkanmu.*",
     "choices": [
       {
         "text": "Main lagi",
-        "next": "1"
+        "next": "scene1"
       }
     ],
-    "isEnd": true
+    "isEnd": true,
+    "isTalkScene": false
   },
   "scene7b": {
     "title": "Setengah Kebenaran ⚠️",
     "setting": "Kamar tidur putri — malam, chaos",
     "karakter": "Ratu, Putri, + 3 karakter yang dipilih",
-    "narrative": "**Karakter:** Ratu, Putri, + 3 karakter yang dipilih\n*<!-- Status: END -->*\n\nSaat Ratu mendekatkan racun ke bibirmu, pintu terbuka!\n\nTiga orang berhasil datang. Tapi satu orang tidak ada. Yang tidak kau ajak bicara... tidak tahu apa yang terjadi malam ini.\n\nMereka bertarung. Berhasil mengusir Ratu. Tapi di tengah kericuhan, setetes racun jatuh ke lidahmu.\n\nTidak cukup untuk membunuh. Tapi cukup untuk meninggalkan bekas.\n\nHari-hari berikutnya, kau selamat. Tapi tubuhmu tidak pernah pulih sepenuhnya. Kadang-kadang, saat kau bercermin... kau tidak ingat siapa yang kau lihat.\n\nWajah di cermin itu familiar. Tapi rasanya... bukan milikmu.\n\n🏁 **THE END — BITTERSWEET ENDING**\n*Kau selamat... tapi sebagian dari dirimu telah hilang.*",
+    "narrative": "*<!-- Status: END -->*\n\nSaat Ratu mendekatkan racun ke bibirmu, pintu terbuka!\n\nTiga orang berhasil datang. Tapi satu orang tidak ada. Yang tidak kau ajak bicara... tidak tahu apa yang terjadi malam ini.\n\nMereka bertarung. Berhasil mengusir Ratu. Tapi di tengah kericuhan, setetes racun jatuh ke lidahmu.\n\nTidak cukup untuk membunuh. Tapi cukup untuk meninggalkan bekas.\n\nHari-hari berikutnya, kau selamat. Tapi tubuhmu tidak pernah pulih sepenuhnya. Kadang-kadang, saat kau bercermin... kau tidak ingat siapa yang kau lihat.\n\nWajah di cermin itu familiar. Tapi rasanya... bukan milikmu.\n\n🏁 **THE END — BITTERSWEET ENDING**\n*Kau selamat... tapi sebagian dari dirimu telah hilang.*",
     "choices": [
       {
         "text": "Coba lagi — ajak semua orang!",
-        "next": "1"
+        "next": "scene1"
       }
     ],
-    "isEnd": true
+    "isEnd": true,
+    "isTalkScene": false
   },
   "scene7c": {
     "title": "Yang Hilang 💀",
     "setting": "Kamar tidur putri — malam, sunyi",
     "karakter": "Ratu, Putri",
-    "narrative": "**Karakter:** Ratu, Putri\n*<!-- Status: END -->*\n\nKesepian.\n\nTidak ada yang datang. Tidak ada yang tahu. Atau mungkin... mereka tahu, dan terlalu takut.\n\nRatu tersenyum. Lembut, penuh kemenangan.\n\n\"Minumlah, adikku. Ini akan mengakhiri semuanya.\"\n\nKau minum. Rasanya pahit.\n\nDunia berputar. Gelap.",
+    "narrative": "*<!-- Status: END -->*\n\nKesepian.\n\nTidak ada yang datang. Tidak ada yang tahu. Atau mungkin... mereka tahu, dan terlalu takut.\n\nRatu tersenyum. Lembut, penuh kemenangan.\n\n\"Minumlah, adikku. Ini akan mengakhiri semuanya.\"\n\nKau minum. Rasanya pahit.\n\nDunia berputar. Gelap.",
     "choices": [
       {
         "text": "Mulai dari awal",
-        "next": "1"
+        "next": "scene1"
       }
     ],
-    "isEnd": true
+    "isEnd": true,
+    "isTalkScene": false
   }
 };
 
+// Track how many characters the player talks to
+let talkCount = 0;
+const talkScenes = ["scene2b", "scene3b", "scene4b", "scene5b"];
+
 function goTo(sceneId) {
+  // Check if we're going to scene7 (which should be dynamic)
+  if (sceneId === "scene7") {
+    // Based on talkCount, redirect to the right ending
+    if (talkCount >= 4) {
+      sceneId = "scene7a";
+    } else if (talkCount >= 3) {
+      sceneId = "scene7b";
+    } else {
+      sceneId = "scene7c";
+    }
+  }
+
   const scene = story[sceneId];
   if (!scene) return;
+
+  // Count talk scenes
+  if (talkScenes.includes(sceneId)) {
+    talkCount++;
+  }
 
   // Hide title screen
   document.getElementById('titleScreen').classList.remove('active');
@@ -407,7 +370,6 @@ function goTo(sceneId) {
     container.appendChild(sceneDiv);
   }
 
-  // Build scene content
   let metaParts = [];
   if (scene.setting) metaParts.push('📍 ' + scene.setting);
   if (scene.karakter) metaParts.push('👤 ' + scene.karakter);
@@ -417,13 +379,18 @@ function goTo(sceneId) {
     html += '<div class="scene-meta">' + metaParts.join(' &nbsp;|&nbsp; ') + '</div>';
   }
 
-  // Format narrative (split by double newlines to paragraphs)
+  // Format narrative
   let narrativeHtml = scene.narrative
     .split('\n\n')
     .filter(p => p.trim())
     .map(p => '<p>' + p.replace(/\n/g, '<br>') + '</p>')
     .join('');
   html += '<div class="narrative">' + narrativeHtml + '</div>';
+
+  // Show talk counter in scene 6
+  if (sceneId === "scene6") {
+    html += '<div class="count-badge">💬 Karakter yang diajak bicara: ' + talkCount + ' dari 4</div>';
+  }
 
   // Ending badge
   if (scene.isEnd) {
@@ -434,26 +401,24 @@ function goTo(sceneId) {
   if (scene.choices && scene.choices.length > 0) {
     html += '<div class="choices">';
     scene.choices.forEach(choice => {
-      const target = 'scene' + choice.next;
-      html += '<button class="choice-btn" onclick="goTo(\'' + target + '\')">';
+      html += '<button class="choice-btn" onclick="goTo(\'' + choice.next + '\')">';
       html += '<span class="choice-arrow">➤</span> ' + choice.text;
       html += '</button>';
     });
     html += '</div>';
   }
 
-  // Restart button for ending scenes
+  // Restart for ending scenes
   if (scene.isEnd) {
     html += '<div style="text-align:center;"><button class="restart-btn" onclick="restart()">⟳ Main Lagi</button></div>';
   }
 
   sceneDiv.innerHTML = html;
 
-  // Show this scene
   document.querySelectorAll('.scene').forEach(el => el.classList.remove('active'));
   sceneDiv.classList.add('active');
   sceneDiv.style.animation = 'none';
-  sceneDiv.offsetHeight; // trigger reflow
+  sceneDiv.offsetHeight;
   sceneDiv.style.animation = 'fadeIn 0.6s ease';
 
   // Update counter
@@ -464,6 +429,7 @@ function goTo(sceneId) {
 }
 
 function restart() {
+  talkCount = 0;
   document.querySelectorAll('.scene').forEach(el => el.classList.remove('active'));
   document.getElementById('titleScreen').classList.add('active');
   document.getElementById('sceneCounter').textContent = '';

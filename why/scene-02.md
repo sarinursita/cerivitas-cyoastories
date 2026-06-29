@@ -1,16 +1,22 @@
-# Scene 2: Koki Istana
+# Scene 2: Koki di Dapur
 
-**Setting:** Dapur istana — hangat, harum rempah
+**Setting:** Dapur istana — hangat, harum roti dan rempah
 **Karakter:** Koki, Putri (pembaca)
 
-Koki istana Lumindor, seorang pria bertubuh besar dengan celemek putih, sedang sibuk memotong sayuran saat melihatmu datang. Ia terkejut.
+Perjalananmu membawa kamu ke dapur istana. Seekor kucing hitam melompat saat kamu masuk.
 
-"Yang Mulia! Seharusnya Paduka beristirahat..."
+Di depan tungku besar, seorang pria bertubuh tambun dengan celemek putih sedang mengaduk sesuatu di kuali. Aroma kayu manis dan madu memenuhi ruangan.
 
-Tapi di balik suaranya yang ramah, kau lihat tangannya gemetar. Ada sesuatu yang ia sembunyikan di balik meja.
+Ia menoleh dan terkejut melihatmu.
+
+"Y-Yang Mulia?! Aduh, Paduka seharusnya istirahat di kamar..."
+
+Tangannya gemetar sedikit saat meletakkan sendok kayu. Ada yang ia sembunyikan.
+
+Tapi sebelum itu... mungkin kamu bisa bertanya dulu tentang keseharian putri ini. Siapa tahu ada petunjuk.
 
 ---
 
 **Pilihan:**
-- [Scene 6]: "Aku tahu kau menyembunyikan sesuatu. Bicara!"
-- [Scene 1]: Kembali ke kamar
+- [Scene 2B]: Tanya ke Koki — "Bagaimana kehidupanku di istana?"
+- [Scene 3]: Lanjut aja — cari orang lain

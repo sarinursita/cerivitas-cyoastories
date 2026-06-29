@@ -1,16 +1,16 @@
-# Scene 3: Ksatria Pengawal
+# Scene 3: Ksatria di Halaman
 
-**Setting:** Halaman istana — pagi, angin sejuk
+**Setting:** Halaman istana — pagi, angin sejuk, suara pedang beradu
 **Karakter:** Ksatria, Putri (pembaca)
 
-Seorang ksatria berjubah biru sedang berlatih pedang di halaman. Melihatmu, ia langsung berhenti dan memberi hormat. Wajahnya tegang.
+Dari dapur, langkahmu membawa ke halaman istana. Seorang ksatria berjubah biru sedang berlatih pedang. Gerakannya lincah, tepat — tapi saat melihatmu, pedangnya hampir terlepas.
 
-"Yang Mulia, sebaiknya Paduka tidak keluar kamar... udara pagi belum baik untuk kesehatan."
+"Y-Yang Mulia!" Ia buru-buru memberi hormat, wajahnya tegang. "Udara pagi belum baik untuk kesehatan Paduka."
 
-Ia menunduk, tapi kau sempat melihat raut bersalah di wajahnya.
+Kau lihat ada keringat dingin di pelipisnya. Bukan karena lelah berlatih.
 
 ---
 
 **Pilihan:**
-- [Scene 6]: "Kau tahu sesuatu. Cepat katakan!"
-- [Scene 1]: Kembali ke kamar
+- [Scene 3B]: Tanya Ksatria — "Ceritakan tentang keseharianku"
+- [Scene 4]: Lanjut aja — cari yang lain

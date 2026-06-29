@@ -1,16 +1,16 @@
-# Scene 5: Pelayan Setia
+# Scene 5: Pelayan di Lorong
 
-**Setting:** Lorong istana — sepi, hanya kalian berdua
-**Karakter:** Pelayan (yang tadi pagi), Putri (pembaca)
+**Setting:** Lorong istana — sepi, cahaya temaram dari jendela
+**Karakter:** Pelayan, Putri (pembaca)
 
-Kau mendekati pelayan yang tadi menunggumu. Ia sedang membereskan vas bunga di lorong. Melihatmu, vas itu hampir terjatuh.
+Di lorong yang sepi, kau melihat pelayan yang tadi pagi menunggumu. Ia sedang membereskan vas bunga — tapi tangannya gemetar saat melihatmu.
 
-"Ya ampun... Yang Mulia, maaf—"
+"Ya ampun... Y-Yang Mulia!"
 
-Kau lihat sesuatu di sakunya. Selembar kertas. Ia buru-buru menyembunyikannya.
+Dari sakunya, selembar kertas jatuh. Ia buru-buru memungutnya, tapi kau sempat melihat satu kata: **TOLONG**.
 
 ---
 
 **Pilihan:**
-- [Scene 6]: "Apa itu? Berikan padaku!"
-- [Scene 1]: Kembali ke kamar
+- [Scene 5B]: Tanya Pelayan — "Apa kertas itu?"
+- [Scene 6]: Lanjut aja — kembali ke kamar

@@ -1,22 +1,21 @@
 # Scene 1: Bangun di Istana
 
 **Setting:** Kamar tidur mewah di Istana Lumindor — pagi hari, sinar matahari masuk lewat jendela
-**Karakter:** Putri (pembaca), Pelayan
+**Karakter:** Putri (pembaca)
 
-Kamu membuka mata. Langit-langit marmer putih dengan ukiran emas menyambut pandanganmu. Tubuhmu terasa berat, seperti baru bangun dari mimpi panjang yang aneh.
+Kamu membuka mata. Langit-langit marmer putih dengan ukiran emas menyambut pandanganmu.
 
-"Yang Mulia, akhirnya sadar..."
+Tubuhmu terasa berat. Seperti baru bangun dari mimpi panjang yang aneh. Tapi ini bukan mimpimu, bukan juga tubuhmu... atau setidaknya, itu yang akan kamu sadari nanti.
 
-Seorang pelayan wanita berdiri di samping tempat tidur, matanya tampak sembab. Ia tersenyum, tapi senyumnya dipaksakan.
+Di nakas samping tempat tidur, ada sepiring buah dan segelas air. Cermin di sudut ruangan memantulkan wajah asing — cantik, pucat, dengan lingkaran hitam di bawah mata.
 
-"Paduka Ratu sudah menunggu di ruang sidang. Tapi... mungkin Yang Mulia perlu istirahat dulu."
+Kamu bukan dirimu yang dulu.
 
-Ada sesuatu di matanya. Ketakutan.
+Tapi tidak ada waktu untuk bingung. Suara langkah kaki terdengar di lorong. Pelayan akan segera masuk.
+
+Kamu memutuskan untuk **bangun dan berkeliling kastil** — mencari tahu siapa dirimu sekarang.
 
 ---
 
 **Pilihan:**
-- [Scene 2]: Panggil Koki — minta makanan dulu
-- [Scene 3]: Panggil Ksatria — tanya situasi kerajaan
-- [Scene 4]: Panggil Penasihat — tanya soal penyakitmu
-- [Scene 5]: Tanya Pelayan itu langsung — "Apa yang disembunyikan?"
+- [Scene 2]: Mulai berkeliling kastil 🚶‍♀️

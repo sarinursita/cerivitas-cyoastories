@@ -1,16 +1,16 @@
-# Scene 4: Penasihat Kerajaan
+# Scene 4: Penasihat di Perpustakaan
 
-**Setting:** Perpustakaan istana — rak buku tinggi, remang-remang
+**Setting:** Perpustakaan istana — gelap, rak buku tinggi menjulang, bau kertas tua
 **Karakter:** Penasihat, Putri (pembaca)
 
-Penasihat kerajaan, seorang pria tua dengan janggut putih, sedang membaca gulungan tua. Ia menoleh pelan saat kau masuk.
+Langkahmu berikutnya membawa ke perpustakaan. Di antara tumpukan gulungan kuno, seorang pria tua berjanggut putih duduk dengan kacamata setengah mata.
 
-"Yang Mulia... penyakit Paduka belum sembuh total. Sebaiknya jangan banyak bergerak."
+Ia mendongak saat kau masuk. Tidak terkejut — seolah sudah menunggu.
 
-Ia tersenyum, tapi matanya tidak ikut tersenyum.
+"Ah, Yang Mulia. Akhirnya Paduka bangun juga."
 
----
+Sorot matanya tajam. Ia tahu sesuatu.
 
 **Pilihan:**
-- [Scene 6]: "Katakan yang sebenarnya! Apa yang terjadi padaku?"
-- [Scene 1]: Kembali ke kamar
+- [Scene 4B]: Tanya Penasihat — "Apa yang kau sembunyikan?"
+- [Scene 5]: Lanjut aja — cari yang lain
