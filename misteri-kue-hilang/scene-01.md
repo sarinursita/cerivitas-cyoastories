@@ -14,5 +14,5 @@ Bima berdiri, nyengir khasnya. "Tenang, Detektif Bima siap bertugas! Tapi... kit
 ---
 
 **Pilihan:**
-- [Scene 2a]: Interogasi teman-teman sekelas — cari saksi mata!
-- [Scene 2b]: Cek Tempat Kejadian Perkara (TKP) — dapur lomba masak
+- [Scene 2A]: Interogasi teman-teman sekelas — cari saksi mata!
+- [Scene 2B]: Cek Tempat Kejadian Perkara (TKP) — dapur lomba masak
