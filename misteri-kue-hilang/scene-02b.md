@@ -14,5 +14,5 @@ Pak Edi, penjaga sekolah yang sedang menyapu, manggut-manggut. "Oh, kue ya? Aku 
 ---
 
 **Pilihan:**
-- [Scene 3a]: Curiga ke petugas kantin (baju ijo!) — kejar!
-- [Scene 3b]: Selidiki petunjuk ruang guru dulu
+- [Scene 3A]: Curiga ke petugas kantin (baju ijo!) — kejar!
+- [Scene 3B]: Selidiki petunjuk ruang guru dulu
