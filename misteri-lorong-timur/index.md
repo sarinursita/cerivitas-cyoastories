@@ -6,5 +6,5 @@
 **Rating:** PG
 **Date:** 2026-06-28
 
-**Premis:** Barang-barang murid di Sekolah Harapan Bangsa hilang satu per satu — dan semua curiga sama Liam. Tapi semakin dalam Liam menyelidiki, semakin aneh kejadiannya.
+**Premis:** Barang murid hilang, semua curiga Liam.
 **Jumlah scene:** 18
