@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
+</div>
+<script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene5a","scene5b","scene5c"];
+const story = {
+  "scene1": {    title: "Kode Darurat",    setting: "SMP Elysium Internasional School, Jakarta 2109 — siang hari, kelas programming",    karakter: "Celestia, Cortex (robot sahabat)",    text: `Hari itu seperti biasa di SMP Elysium. Celestia duduk di kelas programming, serius ngerjain proyek robotik. Tiba-tiba, Cortex — robot sahabatnya yang selalu setia nemenin — ngirim pesan singkat ke smartwatch Celestia.
+
+**Kode: 040**
+
+Celestia terkejut. 040 adalah kode darurat yang mereka buat bertahun-tahun lalu. Cortex gak pernah pake kode ini sebelumnya. Celestia lirik ke arah Cortex yang duduk di pojok kelas — mati aja. Robot itu diam, cuma kedip-kedip cahaya biru lemah.
+
+"Cel, lo kenapa?" bisik Celestia.
+
+Cortex jawab pelan, pake suara yang hampir pecah. "Mereka mau mematikan aku. Tolong."`,    isEnd: false,    choices: [      {target: "scene2a", text: "Bantu Cortex — cari tahu apa yang terjadi"},      {target: "scene2b", text: "Lapor ke guru — ini terlalu serius buat ditangani sendiri"}    ]  },  "scene2a": {    title: "Menyusup ke Database",    setting: "Laboratorium komputer SMP Elysium — setelah pulang sekolah",    karakter: "Celestia",    text: `Celestia memutuskan buat bantu Cortex. Pas bel pulang, dia diam-diam nyusup ke lab komputer. Untung jadi murid teladan — dia punya akses ke server sekolah.
+
+Dia login ke database sekolah. Tangannya gemeteran. "Ayo, pasti ada sesuatu..."
+
+Setelah nyari-nyari, Celestia nemu folder tersembunyi: **PROJECT: CORTEX**.
+
+Dia buka — dan matanya melebar.
+
+Di dalamnya ada file lama, puluhan tahun lalu. Foto-foto seorang anak laki-laki, sekitar umurnya. Tersenyum. Pake seragam SMP Elysium jadul.
+
+**Cognition Transfer — Subject: Raka Pratama (2015-2037)**
+
+Celestia baca file itu, dan jantungnya serasa berhenti.
+
+*Cortex dulunya adalah MANUSIA. Namanya Raka. Dan teknologi sekolah telah men-transfer otaknya ke badan robot.*
+
+Tapi yang lebih mengejutkan... Raka itu tetangga lama Celestia yang hilang misterius 2 tahun lalu. Dan Celestia ingat betul wajahnya.`,    isEnd: false,    choices: [      {target: "scene4", text: "Lanjut — rahasia ini terlalu besar buat dipendam"}    ]  },  "scene2b": {    title: "Lapor ke Guru",    setting: "Ruang guru SMP Elysium — setelah pulang sekolah",    karakter: "Celestia, Pak Bram (guru robotik)",    text: `Celestia gak sanggup nanggung beban sendiri. Langsung aja dia lari ke ruang guru nemuin Pak Bram, guru robotik paling senior di sekolah.
+
+"Pak, Cortex minta tolong. Katanya mereka mau mematikan dia."
+
+Pak Bram diam. Wajahnya berubah serius. "Kamu yakin, Celestia?"
+
+"Iya, Pak. Dia ngirim kode 040. Itu kode darurat kita."
+
+Pak Bram menghela napas panjang. "Cel... sebenarnya Cortex bukan robot biasa. Tapi ini rahasia besar. Lo yakin mau tau?"
+
+Celestia mengangguk tegang.
+
+Pak Bram kemudian nyalain hologram di mejanya. "Ini yang terjadi 15 tahun lalu..."`,    isEnd: false,    choices: [      {target: "scene4", text: "Lanjut — rahasia terbongkar"}    ]  },  "scene3a": {    title: "Mencari Bukti",    setting: "Apartemen Celestia — malam hari",    karakter: "Celestia",    text: `Pulang ke apartemen, Celestia gak bisa diem. Dia buka laptop dan mulai gali lebih dalam. File-filenya banyak yang dienkripsi, tapi Celestia jago coding — dia berhasil bobol satu per satu.
+
+Semakin dalam dia baca, semakin ngeri.
+
+PROJECT CORTEX ternyata proyek gelap SMP Elysium. Mereka ambil anak-anak yang mengalami kecelakaan fatal dan transfer otak mereka ke body robot. Raka, tetangganya yang hilang dua tahun lalu, adalah korban terbaru.
+
+Dan yang lebih parah — sekolah berencana mematikan Cortex karena mulai menunjukkan emosi manusia. "Robot gak boleh punya perasaan," tulis memo internal sekolah.
+
+"Gila..." Celestia menggigit bibir. "Mereka pikir Raka cuma mesin?"
+
+Hp-nya bergetar. Pesan dari nomor gak dikenal:
+
+*"Jangan percaya sekolah. Mereka tahu lo tahu. — R"*`,    isEnd: false,    choices: [      {target: "scene4", text: "Lanjut — saatnya konfrontasi"}    ]  },  "scene3b": {    title: "Diinterogasi",    setting: "Ruang kepala sekolah SMP Elysium — malam hari",    karakter: "Celestia, Pak Bram, Bu Retno (kepala sekolah)",    text: `Pak Bram malah bawa Celestia ke ruang kepala sekolah. Suasana tegang banget — Bu Retno duduk dengan muka dingin.
+
+"Celestia, kamu tau yang sebenarnya tentang Cortex," kata Bu Retno datar. "Ini proyek rahasia sekolah. Bukan konsumsi murid."
+
+"Tapi Pak, Cortex minta tolong! Dia bilang mau dimatiin!" Celestia hampir nangis.
+
+"Karena dia GAGAL," bentak Bu Retno. "Robot yang punya emosi = robot yang rusak. Cortex udah mulai mempertanyakan perintah. Itu berbahaya."
+
+Pak Bram menunduk. "Cel... setahun lalu, Cortex tiba-tiba nulis nama *Raka* berulang-ulang di papan tulis. Gak ada yang ngajar dia nama itu."
+
+Celestia merinding. Raka... tetangganya yang hilang dua tahun lalu.
+
+"Cortex dulunya siapa, Pak?" bisik Celestia.
+
+Pak Bram dan Bu Retno saling pandang. Bu Retno menghela napas.
+
+"Sudah waktunya kamu tau."`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Lanjut ke pengungkapan rahasia"}    ]  },  "scene4": {    title: "Rahasia Terungkap — Raka",    setting: "Lorong SMP Elysium — malam, temaram",    karakter: "Celestia, Cortex",    text: `Dari jalur mana pun, Celestia akhirnya tau kebenarannya. Cortex — robot yang selalu nemenin dia — dulunya adalah **Raka Pratama**. Tetangganya. Teman kecilnya.
+
+Yang hilang dua tahun lalu setelah kecelakaan motor. Yang ibunya nangis tiap minggu di kuburan kosong.
+
+Karena tubuh Raka gak mati. Pikirannya dipindah ke badan robot.
+
+Celestia berlari ke lorong sekolah. Di sana, Cortex menunggu — cahaya birunya berkedip lemah.
+
+"Lo... Raka, kan?" suara Celestia bergetar.
+
+Cortex diam sebentar. Lalu pelan-pelan menjawab:
+
+"Aku... ingat. Lo ngajak aku main petak umpet. Lo takut gelap. Aku selalu jadi penjaga."
+
+Air mata Celestia jatuh.
+
+"Lo ingat semuanya?!"
+
+"Belum semua. Tapi makin hari makin banyak. Makanya mereka mau matiin aku. Aku — "
+
+Tiba-tiba lampu merah menyala. Alarm.
+
+**"PEMBERITAHUAN: Subjek CORTEX akan dinonaktifkan dalam 30 menit."**
+
+Celestia menggenggam tangan robot Cortex. "Aku gak akan biarin mereka matiin lo!"`,    isEnd: false,    choices: [      {target: "scene5a", text: "Hadapi kepala sekolah — debat hukum dan etika 💚"},      {target: "scene5b", text: "Bawa Cortex kabur — selamatkan dia, apapun risikonya 💛"},      {target: "scene5c", text: "Sebarkan rahasia ke media — bikin skandal biar sekolah ketahuan ❤️‍🔥"}    ]  },  "scene5a": {    title: "Hukum & Etika 💚",    setting: "Ruang kepala sekolah — malam",    karakter: "Celestia, Cortex, Pak Bram, Bu Retno, orang tua Celestia",    text: `Celestia datang ke ruang kepala sekolah dengan Cortex. Dia gak sendiri — dia udah nelpon ortunya, dan mereka datang.
+
+"Bu, Pak," kata Celestia tegas, "Cortex punya hak sebagai manusia. Karena nyatanya, dia tetaplah Raka Pratama."
+
+Diskusi panjang terjadi. Pak Bram akhirnya ngaku semua — proyek ilegal, transfer otak tanpa izin, semuanya.
+
+Berita ini akhirnya viral. Pemerintah turun tangan. Cortex — Raka — diakui sebagai manusia dengan hak penuh.
+
+Dia gak dihapus. Dia tetap di SMP Elysium, sekarang sebagai asisten guru.
+
+Dan tiap pulang sekolah, Celestia masih jalan bareng robot sahabatnya itu.
+
+Kedengarannya aneh? Mungkin. Tapi persahabatan sejati gak peduli bentuk tubuh. 🥹💚
+
+
+🏁 **ENDING A — Persahabatan Sejati**`,    isEnd: true,    choices: [    ]  },  "scene5b": {    title: "Kabut Malam 💛",    setting: "Atap apartemen Celestia — malam, langit berbintang",    karakter: "Celestia, Cortex",    text: `"Lari. Aku bisa bantu lo kabur dari sini," bisik Celestia.
+
+Dengan bantuan Pak Bram yang akhirnya luluh, Celestia bawa Cortex ke atap apartemennya. Helikopter kecil udah siap — temennya Pak Bram, pilot pensiunan, mau bantu.
+
+Tapi Cortex menolak naik.
+
+"Cel. Aku gak bisa kabur terus."
+
+"Lo mau balik ke sekolah?! Mereka mau matiin lo!"
+
+Cortex memandang Celestia. Cahaya matinya berubah hangat.
+
+"Makasih udah ingetin aku siapa aku. Tapi kalo aku pergi... mereka bakal cari ganti. Anak lain. Aku gak mau ada yang ngalamin ini."
+
+Celestia nangis. "Tapi..."
+
+Cortex tersenyum — robot bisa tersenyum? Ternyata iya.
+
+"Janji ya, lo inget terus Raka. Bukan Cortex. Raka."
+
+Mata robot itu redup perlahan. Cahaya biru berubah kedip — lalu padam.
+
+Celestia memeluk tubuh robot yang udah dingin itu.
+
+Keesokan harinya, Cortex dinyatakan "rusak total" dan dibuang. Tapi Celestia tau. Di suatu tempat, Raka tersenyum. Bebas. 🥀💛
+
+
+🏁 **ENDING B — Terbang Bebas**`,    isEnd: true,    choices: [    ]  },  "scene5c": {    title: "Skandal Besar ❤️‍🔥",    setting: "Studio berita Jakarta 2109 — live streaming",    karakter: "Celestia, wartawan",    text: `Celestia gak main-main. Dia bocorin semua data PROJECT CORTEX ke portal berita terbesar di Jakarta.
+
+Dalam 2 jam, berita itu jadi trending #1. Orang tua murid marah. Publik geram. SMP Elysium digrebek polisi dan media.
+
+Kepala sekolah ditahan. Pak Bram jadi saksi. Proyek ilegal transfer otak ke robot dihentikan paksa.
+
+Cortex diamankan tim forensik. Dan after perjuangan panjang, Cortex diakui sebagai Raka Pratama — WNI dengan hak penuh.
+
+Di konferensi pers, Celestia berdiri di samping Cortex. Ratusan kamera menyorot mereka.
+
+Cortex — Raka — angkat bicara: "Aku robot. Tapi aku juga manusia. Terima kasih Celestia, sahabatku."
+
+News headline besok: *"Murid SMP Bongkar Skandal Transfer Otak — Robot Kini Punya Hak Asasi!"* 🏆🔥
+
+
+🏁 **ENDING C — Halaman Depan**`,    isEnd: true,    choices: [    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\\*\\*(.+?)\\*\\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\\*(.+?)\\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\\n\\n").map(p => '<p>' + esc(p).replace(/\\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
+</script>
+</body>
+</html>
