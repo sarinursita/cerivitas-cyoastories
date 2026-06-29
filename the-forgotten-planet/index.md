@@ -1,6 +1,6 @@
 # The Forgotten Planet
 
-**Penulis:** Rama
+**Penulis:** [nama]
 **Genre:** Sci-Fi
 **Tags:** sci-fi, ruang-angksa, twist
 **Theme:** fire
