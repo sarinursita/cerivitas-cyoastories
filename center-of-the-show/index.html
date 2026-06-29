@@ -1,343 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Center of the Show</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0a0a0a;
-      color: #e0d5c0;
-      font-family: 'Segoe UI', 'Courier New', monospace;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      max-width: 700px;
-      width: 100%;
-      padding: 30px 20px;
-      position: relative;
-    }
-    .scene {
-      background: linear-gradient(145deg, #111 0%, #1a1410 100%);
-      border: 1px solid #2a1a1a;
-      border-radius: 16px;
-      padding: 40px 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(80,20,20,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-    .scene::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #8b0000, #ff4500, #8b0000, transparent);
-    }
-    .scene-number {
-      position: absolute;
-      top: 15px; right: 20px;
-      font-size: 12px;
-      color: #4a3020;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .scene-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #ff6b35;
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px rgba(255,107,53,0.2);
-    }
-    .scene-setting {
-      font-size: 13px;
-      color: #6a5040;
-      font-style: italic;
-      margin-bottom: 6px;
-      border-left: 2px solid #3a2020;
-      padding-left: 12px;
-    }
-    .scene-char {
-      font-size: 13px;
-      color: #6a5040;
-      margin-bottom: 20px;
-      border-left: 2px solid #3a2020;
-      padding-left: 12px;
-    }
-    .scene-text {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #d4c8b0;
-      margin-bottom: 30px;
-      text-align: justify;
-    }
-    .scene-text em {
-      color: #ff6b35;
-      font-style: italic;
-    }
-    .choices {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .choice-btn {
-      background: linear-gradient(135deg, #1a0f0a 0%, #221510 100%);
-      color: #d4c8b0;
-      border: 1px solid #3a2520;
-      padding: 16px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 15px;
-      text-align: left;
-      transition: all 0.3s ease;
-      font-family: inherit;
-      position: relative;
-      overflow: hidden;
-    }
-    .choice-btn:hover {
-      background: linear-gradient(135deg, #2a1510 0%, #331a15 100%);
-      border-color: #ff6b35;
-      transform: translateX(4px);
-      box-shadow: 0 0 20px rgba(255,107,53,0.1);
-    }
-    .choice-btn:active {
-      transform: translateX(2px);
-    }
-    .choice-btn .emoji {
-      margin-right: 10px;
-    }
-    .ending-badge {
-      display: inline-block;
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    .ending-a {
-      background: #1a2a1a;
-      color: #66cc66;
-      border: 1px solid #2a4a2a;
-    }
-    .ending-b {
-      background: #2a1a1a;
-      color: #cc6666;
-      border: 1px solid #4a2a2a;
-    }
-    .ending-text {
-      margin-bottom: 20px;
-    }
-    .restart-btn {
-      background: transparent;
-      color: #ff6b35;
-      border: 1px solid #ff6b35;
-      padding: 12px 30px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-      font-family: inherit;
-      transition: all 0.3s ease;
-      margin-top: 10px;
-    }
-    .restart-btn:hover {
-      background: rgba(255,107,53,0.1);
-      box-shadow: 0 0 25px rgba(255,107,53,0.2);
-    }
-    .progress {
-      text-align: center;
-      color: #3a3030;
-      font-size: 12px;
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
-    .twinkling {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      background: radial-gradient(ellipse at center, transparent 0%, #050505 100%);
-    }
-    .fade-in {
-      animation: sceneIn 0.6s ease;
-    }
-    @keyframes sceneIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .glow-text {
-      color: #ff6b35;
-      text-shadow: 0 0 15px rgba(255,107,53,0.3);
-    }
-    .note-text {
-      font-size: 13px;
-      color: #5a4040;
-      font-style: italic;
-      text-align: center;
-      margin: 10px 0;
-    }
-    @media (max-width: 500px) {
-      .scene { padding: 25px 18px; }
-      .scene-title { font-size: 18px; }
-      .scene-text { font-size: 14px; }
-      .choice-btn { font-size: 13px; padding: 14px 16px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
 </head>
 <body>
-<div class="twinkling"></div>
-<div class="container">
-  <div class="scene fade-in" id="scene">
-    <div class="scene-number" id="sceneNumber">SCENE 0/6</div>
-    <div class="scene-title" id="sceneTitle"></div>
-    <div class="scene-setting" id="sceneSetting"></div>
-    <div class="scene-char" id="sceneChar"></div>
-    <div class="scene-text" id="sceneText"></div>
-    <div id="choicesContainer"></div>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
   </div>
-  <div class="progress" id="progressText">Center of the Show — Circus Nocturne 🎪</div>
+  <div id="sceneContainer"></div>
 </div>
-
 <script>
-  const story = {
-    scene1: {
-      number: 1,
-      title: 'Rekaman Terakhir',
-      setting: 'Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.',
-      character: 'Sena',
-      text: 'Sudah tiga hari sejak kakakku menghilang. Polisi bilang mereka masih "menyelidiki", tapi aku tahu artinya: mereka tidak punya petunjuk. Aku hanya bisa berbaring di tempat tidur, memandangi langit-langit kamar yang mulai gelap.<br><br>Tiba-tiba, HP-ku bergetar. Sebuah notifikasi dari aplikasi kamera — "Rekaman tersimpan: 3 hari yang lalu". Aku menelan ludah. Itu rekaman terakhir yang diambil kakakku sebelum dia hilang. Aku belum berani membukanya sama sekali.<br><br>Jari-jariku gemetar memegang HP. Di layar, thumbnail videonya gelap... tapi sepertinya ada sesuatu yang bergerak di dalamnya.',
-      choices: [
-        { text: '🔴 Putar rekaman — aku harus tahu apa yang terjadi padanya', next: 'scene2' },
-        { text: '📞 Hubungi polisi dulu — biar mereka yang lihat, ini terlalu menyeramkan', next: 'scene3' }
-      ]
-    },
-    scene02a: {
-      number: 2,
-      title: 'Adegan yang Tidak Seharusnya Ada',
-      setting: 'Kamar Sena — masih sore, HP di tangan',
-      character: 'Sena',
-      text: 'Rekaman dimulai. Kakakku duduk di depan kamera, tersenyum lelah. "Hai Sen, ini rekaman terakhir kali ya. Maaf kalo... sudahlah."<br><br>Dia berhenti sebentar. Lalu matanya beralih ke sesuatu di luar layar.<br><br>"Eh, itu... aneh."<br><br>Dia berdiri, meninggalkan kamera menyala. Rekaman menunjukkan pintu kamar yang terbuka — ke lorong yang gelap. Lalu... aku melihatnya. Sekilas. Di ujung lorong, ada sesosok bayangan tinggi dengan <em>senyum lebar</em>. Terlalu lebar untuk manusia.<br><br>Tapi yang bikin bulu kudukku berdiri — bayangan itu tidak bergerak. Hanya diam... menatap... ke arah kamera. Ke arahku.<br><br>Rekaman berakhir.',
-      choices: [
-        { text: '👁️ Perhatiin detail bayangannya — putar ulang, zoom, cari petunjuk', next: 'scene4' },
-        { text: '😰 Tutup videonya — ini terlalu nyata, aku perlu info lain dulu', next: 'scene3' }
-      ]
-    },
-    scene3: {
-      number: 3,
-      title: 'Mulai Mencari',
-      setting: 'Rumah Sena — mulai malam',
-      character: 'Sena',
-      text: 'Dengan tangan gemetar, aku mencoba mencari jawaban lewat cara yang lebih... aman. Tapi polisi hanya bilang "kami akan menghubungi". Teman-teman kakakku juga tidak ada yang tahu apa-apa.<br><br>"Kakakmu akhir-akhir ini sering ngomong soal tempat aneh," kata seorang temannya lewat chat. "Dia bilang ada... pertunjukan. Sirkus atau sesuatu."<br><br>Sirkus? Kakakku tidak pernah suka sirkus.<br><br>Tapi di chat lama kakakku, aku menemukannya. Sebuah pesan yang belum terkirim: <em>"Sen, kalau aku hilang... cari di Pasar Malam pinggir kota. Tapi jangan datang sendiri. Mereka suka mengamati."</em><br><br>Mereka suka mengamati. Kata-kata itu bikin dadaku sesak.',
-      choices: [
-        { text: '🔦 Cari di kamar kakak — mungkin ada petunjuk lain yang lebih jelas', next: 'scene4' },
-        { text: '🚶 Langsung ke Pasar Malam — tidak ada waktu, kakakku mungkin masih di sana', next: 'scene5' }
-      ]
-    },
-    scene4: {
-      number: 4,
-      title: 'Petunjuk Sirkus',
-      setting: 'Kamar kakak Sena — berdebu, barang berantakan',
-      character: 'Sena',
-      text: 'Kamar kakakku berantakan — lebih dari biasanya. Seperti seseorang sudah menggeledahnya sebelum polisi datang. Tapi di balik lemari, aku menemukan sebuah kotak kayu tua. Di dalamnya ada brosur kusam.<br><br><em>"Circus Nocturne — Pertunjukan Tengah Malam"</em><br><br>Di brosur itu ada gambar: sirkus tua dengan tenda hitam, dan di sekelilingnya... bayangan-bayangan tinggi dengan senyum lebar. Sama persis seperti yang kulihat di rekaman.<br><br>Di bagian bawah brosur, tulisan tangan kakakku: <em>"Mereka mengamati aku sejak seminggu lalu. Aku pikir ini hanya lelucon. Tapi malam ini... mereka tersenyum padaku. SEN, JANGAN IKUTI AKU."</em><br><br>Tapi sudah terlambat. Aku sudah terlanjur penasaran. Dan di balik jendela kamar kakakku, di antara pepohonan... aku melihat sekilas tenda hitam di kejauhan.',
-      choices: [
-        { text: '🚶 Ikuti ke arah tenda hitam — kakakku mungkin ada di sana', next: 'scene5' },
-        { text: '🏃 Kabur balik ke kamar — ini terlalu nyata, aku takut', next: 'scene5' }
-      ]
-    },
-    scene5: {
-      number: 5,
-      title: 'TWIST — Pertunjukan Dimulai 🎭',
-      setting: 'Circus Nocturne — tenda hitam besar, lampu redup, bangku kosong, panggung di tengah',
-      character: 'Sena, Hantu Sirkus',
-      text: 'Aku berdiri di tengah tenda. Lampu-lampu berkedip, menyinari panggung kosong. Tapi aku tidak sendiri.<br><br>Satu per satu, mereka muncul dari balik tirai. Makhluk-makhluk tinggi dengan senyum lebar, tubuh seperti bayangan, mata putih tanpa pupil. Mereka berjalan mengelilingiku — langkah mereka tidak menimbulkan suara. Seperti mereka melayang.<br><br>"Selamat datang," suara mereka serempak, seperti paduan suara dari kubur. "Kau penonton yang sudah lama kami tunggu."<br><br>Aku melihat ke samping. Di pojok panggung, tergeletak jaket kakakku. Ada setitik darah di kerahnya.<br><br>"Kakakmu," kata mereka, "adalah pertunjukan terbaik kami. Sayang sekali dia tidak bertahan lama. Tapi kau..." mereka mendekat, senyum melebar hingga ke telinga. "Kau akan menjadi <em>SANGAT</em> menghibur."<br><br>Satu dari mereka melangkah maju, tubuh bayangannya menjulang di atasku. "Di sini, kami yang menjadi pusat pertunjukan. Manusia hanyalah... penampil tamu."',
-      choices: [
-        { text: '⚔️ Lawan! — aku tidak akan menjadi pertunjukan mereka, cari jalan keluar!', next: 'scene6a' },
-        { text: '🏃 Lari! — semua ini terlalu nyata, aku harus keluar dari sini!', next: 'scene6b' }
-      ],
-      note: 'Kedua pilihan berakhir di Scene 6 — tapi ending-nya beda tergantung pilihanmu!'
-    },
-    scene6a: {
-      number: 6,
-      title: 'Ending A — Lawan & Lolos 🎪',
-      isEnding: true,
-      endingType: 'a',
-      setting: 'Circus Nocturne — tenda gelap',
-      character: 'Sena',
-      text: '<span class="ending-badge ending-a">✦ ENDING A — LOLOS ✦</span><br><br>"TIDAK!" teriakku. Aku tidak akan menjadi pertunjukan mereka.<br><br>Dengan sisa keberanian yang kupunya, aku meraih kursi kayu terdekat dan menghantamkannya ke arah bayangan terdekat. Tubuh mereka seperti asap — tapi mereka <em>MEMANTUL</em>, terdorong ke belakang.<br><br>"Berani sekali," desis mereka. Tapi nada suaranya bukan marah... mereka <em>TERKESAN</em>.<br><br>Aku berlari. Tenda belakang robek oleh sebuah lampu panggung yang kujatuhkan. Cahaya terang menyinari lorong belakang — dan hantu-hantu itu menjerit, menjauh dari sorot lampu!<br><br>Mereka benci cahaya.<br><br>Aku menerobos keluar ke udara segar. Samar-samar kudengar suara mereka dari dalam: <em>"Sampai jumpa... penonton yang menarik..."</em><br><br>Aku berlari sampai subuh. Pulang. Selamat.<br><br>Tapi di tasku... ada brosur Circus Nocturne yang tidak pernah kumasukkan.<br><br><span class="glow-text">🎪 ENDING A — Lolos. Tapi mereka masih mengamati... 👁️</span>'
-    },
-    scene6b: {
-      number: 6,
-      title: 'Ending B — Kejebak... Lalu Lolos 🎭',
-      isEnding: true,
-      endingType: 'b',
-      setting: 'Circus Nocturne — panggung',
-      character: 'Sena',
-      text: '<span class="ending-badge ending-b">✦ ENDING B — TERJEBAK, TAPI LOLOS ✦</span><br><br>Aku mencoba lari. Tapi bayangan-bayangan itu terlalu cepat. Tubuhku terangkat — bukan oleh tangan, tapi oleh sesuatu yang tidak terlihat. Aku terlempar ke atas panggung.<br><br>Sorot lampu menyinari wajahku.<br><br>"PERTUNJUKAN DIMULAI!" teriak mereka.<br><br>Aku dipaksa bergerak. Menari. Melompat. Seperti boneka tali. Penonton bayangan bersorak tanpa suara. Aku menangis. Aku teriak. Tapi tidak ada yang berhenti.<br><br>Hari berganti... aku tidak tahu berapa lama.<br><br>Tapi suatu malam, ketika lampu panggung mati karena badai — aku melihat celah. Kabel longgar di belakang tirai. Dalam hitungan detik, aku menyambar kabel itu dan menyambar tiang lampu hingga roboh. LED terang meledak — cahaya putih memenuhi tenda!<br><br>Hantu-hantu itu menjerit, melebur ke bayangan.<br><br>Aku lari. Kaki masih lemas, tapi aku tidak berhenti sampai matahari terbit.<br><br>Di rumah, aku melihat diriku di cermin. Di leherku, ada jejak tangan hitam — bekas pertunjukan. Aku hidup. Tapi aku tidak akan pernah benar-benar melupakan Circus Nocturne.<br><br><span class="glow-text">🎭 ENDING B — Terjebak sebentar, tapi lolos dengan luka yang tidak terlihat.</span>'
-    }
-  };
+const SCENES = ["scene1","scene2a","scene2b"];
+const story = {
+  "scene1": {    title: "Pesan dari kakak",    setting: "Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",    karakter: "Sena",    text: `# Scene 1: Pesan dari kakak
+ 
 
-  function goTo(sceneId) {
-    const scene = story[sceneId];
-    if (!scene) return;
 
-    document.getElementById('scene').classList.remove('fade-in');
-    void document.getElementById('scene').offsetWidth;
-    document.getElementById('scene').classList.add('fade-in');
+Sudah tiga hari sejak kakakku menghilang. Polisi bilang mereka masih "menyelidiki", tapi aku tahu artinya: mereka tidak punya petunjuk. Aku hanya bisa berbaring di tempat tidur, memandangi langit-langit kamar yang mulai gelap.
 
-    document.getElementById('sceneNumber').textContent = scene.isEnding ? '✦ ENDING ✦' : 'SCENE ' + scene.number + '/6';
-    document.getElementById('sceneTitle').textContent = scene.title;
+Tiba-tiba, HP-ku bergetar. Sebuah notifikasi dari.. kakak?
 
-    if (scene.setting) {
-      document.getElementById('sceneSetting').textContent = '📍 ' + scene.setting;
-      document.getElementById('sceneSetting').style.display = 'block';
-    } else {
-      document.getElementById('sceneSetting').style.display = 'none';
-    }
+Aku buka pesan itu. Satu kalimat pendek:
+ 
+"Sena, kakak lupa. Kakak tuh kenapa bisa hilang?"
 
-    if (scene.character) {
-      document.getElementById('sceneChar').textContent = '👤 ' + scene.character;
-      document.getElementById('sceneChar').style.display = 'block';
-    } else {
-      document.getElementById('sceneChar').style.display = 'none';
-    }
+Aku diam. Membaca ulang. Pertanyaan itu aneh — masa orang yang hilang nanya kenapa dia hilang? Tapi semakin lama aku mikir, semakin aku sadar sesuatu:
 
-    document.getElementById('sceneText').innerHTML = scene.text;
+Aku sendiri juga gak tahu. Polisi bilang "menghilang", tapi mereka gak pernah bilang gimana caranya. Dan aku... aku gak pernah nanya. Dokter bilang aku kaget, trauma. Tapi sekarang, dipikir-pikir...
+Kenapa aku gak nanya?
+ 
+Kenapa tiga hari ini aku cuma di kamar, gak nyari kakak, gak ngehubungin temen-temennya, gak ngecek sosial medianya?
+ 
+Aku buka galeri HP. Foto terakhir yang aku ambil... tiga hari yang lalu. Sebuah selfie. Aku tersenyum. Di latar belakang, kakak lagi duduk di meja makan, minum kopi, santai.
+Itu adalah hari kakak dinyatakan hilang.
+ 
+Dan di foto itu... kakak kelihatan baik-baik aja.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Membalas pesan kakak — coba cari tahu lebih banyak lewat HP"},      {target: "scene2b", text: "Keluar kamar dan mulai mencari sendiri — ada sesuatu yang gak beres"}    ]  },  "scene2a": {    title: "Membalas pesan kakak",    setting: "Masih di Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",    karakter: "Sena",    text: `Aku buka pesan itu. Mikir keras. Akhirnya cuma ngetik:
 
-    const choicesDiv = document.getElementById('choicesContainer');
-    choicesDiv.innerHTML = '';
+"Kak, lo di mana?"
 
-    if (scene.isEnding) {
-      const btn = document.createElement('button');
-      btn.className = 'restart-btn';
-      btn.textContent = '🔄 Main Lagi';
-      btn.onclick = () => goTo('scene1');
-      choicesDiv.appendChild(btn);
-    } else {
-      if (scene.note) {
-        const note = document.createElement('div');
-        note.className = 'note-text';
-        note.textContent = scene.note;
-        choicesDiv.appendChild(note);
-      }
-      const choicesWrap = document.createElement('div');
-      choicesWrap.className = 'choices';
-      scene.choices.forEach(choice => {
-        const btn = document.createElement('button');
-        btn.className = 'choice-btn';
-        btn.innerHTML = choice.text;
-        btn.onclick = () => goTo(choice.next);
-        choicesWrap.appendChild(btn);
-      });
-      choicesDiv.appendChild(choicesWrap);
-    }
+Tiga titik muncul di layar. Dia lagi ngetik. Jantungku berdegup kencang.
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+Tapi centang cuma satu. Pesanku gak terkirim. Sinyal penuh, tapi gak bisa kirim. Aneh.
+
+Balasan kakak masuk:
+
+"Gak usah cari aku, Sen. Lo cari aja ingatan lo yang ilang."
+
+Ingatan? Maksudnya apa? Aku bingung. Mau nanya lagi, tapi tiga titik itu muncul lalu hilang. Gak ada balasan lagi.
+
+Aku cek nomor pengirim. Itu bener nomor kakak. Tapi foto profilnya bukan foto kakak — foto kamar kosong. Kamarku. Diambil dari sudut pintu.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Cek galeri HP — mungkin ada foto lain yang bisa jelasin"},      {target: "scene3b", text: "Coba telpon nomor kakak — dengar suaranya langsung"}    ]  },  "scene2b": {    title: "Keluar kamar dan mulai mencari sendiri",    setting: "Rumah Sena — lorong gelap menuju kamar kakak. Sore hari, hampir magrib. Rumah terasa kosong. Kamar kakak rapih.",    karakter: "Sena",    text: `Aku bangkit dari tempat tidur. Pertama kalinya dalam tiga hari aku berdiri. Kakiku lemas, tapi aku paksa jalan.
+
+Pintu kamar kakak terbuka. Di dalam, tempat tidurnya rapi. Seprai halus, bantal diatur. Kakak gak pernah serapi ini.
+
+Lemari kakak kosong. Semua baju masih ada. Gak ada yang dibawa. Kalo dia pergi, pasti bawa baju. Kecuali... dia gak pergi sendiri.
+
+Di dasar lemari, nyangkut amplop putih. Namaku di atasnya. Tulisan kakak — huruf S melingkar kayak ular.
+
+Aku buka. Isinya cuma satu kalimat:
+
+"Sena, cari buku harianku. Tapi jangan baca halaman terakhir."`,    isEnd: false,    choices: [      {target: "scene4a", text: "Cari buku harian kakak — mulai dari kamarnya"},      {target: "scene4b", text: "Cek kamar sendiri dulu — mungkin ada petunjuk yang selama ini gak disadari"}    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
   }
 
-  goTo('scene1');
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
 </script>
 </body>
 </html>
