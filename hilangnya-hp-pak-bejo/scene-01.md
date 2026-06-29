@@ -3,6 +3,8 @@
 **Setting:** Kelas 9A, SMP 01 Bintaro — jam kosong. Suasana santai, murid pada ngobrol.
 **Karakter:** Tedi, teman sekelas, Pak Bejo
 
+![Ini gambar pencuri](Neo.png)
+
 Jam kosong. Pak Bejo keluar sebentar ke kantor buat ambil rapor. Tedi asyik main kertas pesawat sama teman-teman.
 
 Tapi pas Pak Bejo balik... mukanya pucat!
