@@ -38,8 +38,8 @@ Silence.
 ---
 
 **Pilihan:**
-- [A]: Lapor polisi — seriusin masalah, biar pihak berwenang yang urus 👮‍♂️📋
-- [B]: Buka ruangan itu sendiri — malam ini juga, bertiga dengan Pak Hendra 🕵️‍♂️🔦
+- [Scene 3]: Lapor polisi — seriusin masalah, biar pihak berwenang yang urus 👮‍♂️📋
+- [Scene 3]: Buka ruangan itu sendiri — malam ini juga, bertiga dengan Pak Hendra 🕵️‍♂️🔦
 
 *(Cerita berakhir di sini — lanjutan petualangan ada di imajinasi kamu!)*
 
