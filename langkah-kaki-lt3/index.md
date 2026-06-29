@@ -1,8 +1,7 @@
 # Langkah Kaki di Lantai 3
 
 - **Genre:**
-**Tags:** misteri, sekolah, horor
-**Penulis:** [nama] Misteri 🕵️
+**Tags:** misteri, sekolah, horor**Penulis:** [nama] Misteri 🕵️
 - **Author:** Sari
 - **Premis:** Dua sahabat, Pika dan Chu, terjebak di sekolah usai acara ekskul. Dari lantai 3 terdengar suara langkah kaki misterius — padahal seharusnya sudah tidak ada orang.
 - **Jumlah scene:** 7
