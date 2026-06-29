@@ -18,5 +18,6 @@ Aku buka. Isinya cuma satu kalimat:
 
 **Pilihan:**
 - [Scene 04a] Cari buku harian kakak — mulai dari kamarnya
-- [Scene 04b] Langgar aturan — cari halaman terakhir dulu
+- [Scene 04b] Cek kamar sendiri dulu — mungkin ada petunjuk yang selama ini gak disadari
+
 
