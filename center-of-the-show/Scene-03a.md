@@ -19,6 +19,6 @@ Lalu siapa yang motret?
 ---
 
 **Pilihan:**
-- [Scene 05]: Periksa meja makan — cari petunjuk di dapur
-- [Scene 05]: Balas pesan kakak lagi — coba tanya soal foto itu
+- [Scene 05a]: Periksa meja makan — cari petunjuk di dapur
+- [Scene 05b]: Balas pesan kakak lagi — coba tanya soal foto itu
 
