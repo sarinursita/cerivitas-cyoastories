@@ -1,6 +1,6 @@
 # Center of the Show
 
-**Penulis:** Loula
+**Penulis:** [nama]
 **Genre:** Horor
 **Tags:** drama, persahabatan, sekolah, misteri
 **Rating:** 13+
