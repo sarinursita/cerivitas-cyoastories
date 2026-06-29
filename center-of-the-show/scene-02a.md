@@ -19,3 +19,5 @@ Ingatan? Maksudnya apa? Aku bingung. Mau nanya lagi, tapi tiga titik itu muncul 
 
 Aku cek nomor pengirim. Itu bener nomor kakak. Tapi foto profilnya bukan foto kakak — foto kamar kosong. Kamarku. Diambil dari sudut pintu.
 
+- [scene 03a] Cek galeri HP — mungkin ada foto lain yang bisa jelasin
+- [scene 03b] Coba telpon nomor kakak — dengar suaranya langsung
