@@ -16,5 +16,5 @@ Rina dan Bima saling pandang. Ruang guru?
 ---
 
 **Pilihan:**
-- [Scene 3a]: Curiga ke petugas kantin — kejar!
-- [Scene 3b]: Selidiki petunjuk ruang guru dulu
+- [Scene 3A]: Curiga ke petugas kantin — kejar!
+- [Scene 3B]: Selidiki petunjuk ruang guru dulu
