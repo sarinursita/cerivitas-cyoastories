@@ -14,5 +14,5 @@ Mereka nonton berduaan, asik banget. Sampai tiba-tiba TV di pojok ruangan **kres
 ---
 
 **Pilihan:**
-- [Scene 04]: Benerin TV — masa bodoh, kali aja bisa. Tinggal colok-colok kabel doang
-- [Scene 04]: Bilang gak bisa — ogah! Takut kesetrum, mending kabur
+- [Belum ditulis]: Benerin TV — masa bodoh, kali aja bisa. Tinggal colok-colok kabel doang
+- [Belum ditulis]: Bilang gak bisa — ogah! Takut kesetrum, mending kabur
