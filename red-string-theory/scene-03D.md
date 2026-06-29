@@ -19,6 +19,7 @@ Aksa langsung membeku. Sendok di tangannya jatuh.
 
 Arga. Nama itu... adalah nama target misi terakhir Aksa. Misi yang gagal dia selesaikan—misi yang bikin dia kabur dari PMC.
 
-**Otomatis lanjut ke Scene 04.**
+**Pilihan (otomatis lanjut):**
+- [Scene 04]: Bongkar rahasia Arga bersama Eril...
 
 ---

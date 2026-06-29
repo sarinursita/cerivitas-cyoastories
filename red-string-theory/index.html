@@ -233,11 +233,11 @@ Eril kaget setengah mati, hampir numpahin kopinya. "Nggak... nggak kok. Aku ngga
 
 Eril buru-buru berkemas, hampir jatuhin kursi. Tapi pas dia ambil tas, dompetnya jatuh dan terbuka. Foto di dalemnya keliatan JELAS sekarang: dua anak kecil. Satu putih, rambut ikal—Eril waktu kecil. Satu lagi... si rambut coklat dengan lesung pipit.
 
-Persis kayak Aksa waktu kecil.
-
-**Otomatis lanjut ke Scene 04.**`,
+Persis kayak Aksa waktu kecil.`,
     is_ending: false,
+    auto_choice: true,
     choices: [
+      { target: '04', desc: 'Temukan Arga di foto Eril...' },
     ],
   },
   '03b': {
@@ -254,11 +254,11 @@ Di dalam, ada puluhan monitor. Di satu layar: foto Eril. Di layar lain: foto Aks
 
 Label di bawahnya: **"ARGA — STATUS: HILANG. BONUS: 5M CREDITS"**
 
-Aksa membeku. Arga. Nama itu...
-
-**Otomatis lanjut ke Scene 04.**`,
+Aksa membeku. Arga. Nama itu...`,
     is_ending: false,
+    auto_choice: true,
     choices: [
+      { target: '04', desc: 'Intai markas PMC dan cari tahu lebih banyak...' },
     ],
   },
   '03c': {
@@ -275,11 +275,11 @@ Di dalam: puluhan monitor, peta digital, dan senjata di dinding. Sebuah markas P
 
 Tapi yang bikin Aksa lemes... adalah logo di dinding. Logo yang sama persis yang ia kenakan selama 10 tahun.
 
-Logo PMC Phoenix—tempat Aksa jadi tentara bayaran.
-
-**Otomatis lanjut ke Scene 04.**`,
+Logo PMC Phoenix—tempat Aksa jadi tentara bayaran.`,
     is_ending: false,
+    auto_choice: true,
     choices: [
+      { target: '04', desc: 'Sadari hubunganmu dengan PMC Phoenix...' },
     ],
   },
   '03d': {
@@ -300,11 +300,11 @@ Bertahan—lama. Mereka mulai ngobrol, dan makin lama makin nyambung. Eril cerit
 
 Aksa langsung membeku. Sendok di tangannya jatuh.
 
-Arga. Nama itu... adalah nama target misi terakhir Aksa. Misi yang gagal dia selesaikan—misi yang bikin dia kabur dari PMC.
-
-**Otomatis lanjut ke Scene 04.**`,
+Arga. Nama itu... adalah nama target misi terakhir Aksa. Misi yang gagal dia selesaikan—misi yang bikin dia kabur dari PMC.`,
     is_ending: false,
+    auto_choice: true,
     choices: [
+      { target: '04', desc: 'Bongkar rahasia Arga bersama Eril...' },
     ],
   },
   '04': {
@@ -527,8 +527,11 @@ function goTo(sceneId) {
   let narr = scene.narrative;
   narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  narr = narr.replace(/\n/g, '<br>');
-  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
+  narr = narr.replace(/
+/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('
+
+').join('</p><p>') + '</p>';
 
   const choicesDiv = document.getElementById('choices');
   const choicesLabel = document.getElementById('choices-label');
