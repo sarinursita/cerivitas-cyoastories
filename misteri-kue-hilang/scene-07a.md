@@ -2,6 +2,7 @@
 
 **Setting:** Lapangan sekolah — semua tersenyum
 **Karakter:** Bima, Bu Ani, Bu Rita, Rina, semua siswa
+**Status:** END
 
 Bu Rita akhirnya tertawa. "Ya udah, Bu Ani. Lain kali sarapan dulu! Tapi... kue saya tetap harus diganti, ya!"
 
@@ -16,3 +17,7 @@ Bu Rita dan Bu Ani pun berpelukan. Dan Bima? Dia dapat hadiah spesial dari Pak K
 **THE END — Selamat! Kamu memecahkan misterinya!** 🕵️🎉
 
 *Mau main lagi? 🙌*
+
+---
+
+🏁 THE END
