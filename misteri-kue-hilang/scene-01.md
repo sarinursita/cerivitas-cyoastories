@@ -3,7 +3,7 @@
 **Setting:** SD Harapan Bangsa, siang hari, jam istirahat — di lapangan sekolah
 **Karakter:** Bima, Rina (teman sekelas)
 
-!(Bee.png)
+![Keterangan gambar](Bee.png)
 
 Bel istirahat baru aja bunyi. Bima lagi asyik main kelereng di lapangan, tiba-tiba Rina berlari sambil teriak-teriak.
 
