@@ -22,5 +22,5 @@ Kemudian dia jalan duluan, kaya nggak terjadi apa-apa. Tapi telinganya... merah.
 ---
 
 **Pilihan:**
-- [Kejar dan tanya] — "Hal, tunggu! Maksud lo apa tadi?"
-- [Diem aja sambil senyum sendiri] — *Aysel cuma bisa geleng-geleng kepala sambil mesem*
+- [Scene 1A]: Kejar dan tanya — "Hal, tunggu! Maksud lo apa tadi?"
+- [Scene 2B]: Diem aja sambil senyum sendiri — *Aysel cuma bisa geleng-geleng kepala sambil mesem*
