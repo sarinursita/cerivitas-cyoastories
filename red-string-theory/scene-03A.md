@@ -13,6 +13,6 @@ Eril buru-buru berkemas, hampir jatuhin kursi. Tapi pas dia ambil tas, dompetnya
 
 Persis kayak Aksa waktu kecil.
 
-**Pilihan (otomatis lanjut):**
+**Pilihan:**
 - [Scene 04]: Temukan Arga di foto Eril...
 ---

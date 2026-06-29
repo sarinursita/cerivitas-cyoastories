@@ -15,7 +15,7 @@ Tapi yang bikin Aksa lemes... adalah logo di dinding. Logo yang sama persis yang
 
 Logo PMC Phoenix—tempat Aksa jadi tentara bayaran.
 
-**Pilihan (otomatis lanjut):**
+**Pilihan:**
 - [Scene 04]: Sadari hubunganmu dengan PMC Phoenix...
 
 ---

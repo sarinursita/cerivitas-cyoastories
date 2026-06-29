@@ -15,6 +15,6 @@ Label di bawahnya: **"ARGA — STATUS: HILANG. BONUS: 5M CREDITS"**
 
 Aksa membeku. Arga. Nama itu...
 
-**Pilihan (otomatis lanjut):**
+**Pilihan:**
 - [Scene 04]: Intai markas PMC dan cari tahu lebih banyak...
 ---
