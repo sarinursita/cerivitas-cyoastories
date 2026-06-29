@@ -18,5 +18,5 @@ Dito dan gengnya diem. Tunduk. Untuk pertama kalinya, mereka kalah.
 ---
 
 **Pilihan:**
-- [Scene 7A]: Dito dikeluarkan — sekolah lega, Rendra lega (Good Ending)
+- [Belum ditulis]: Dito dikeluarkan — sekolah lega, Rendra lega (Good Ending)
 - [Scene 7C]: Pak Ardian tawarkan program anti-bully — Rendra jadi ketuanya (True Ending)
