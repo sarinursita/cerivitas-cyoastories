@@ -1,7 +1,8 @@
 # Scene 5A: Akhir — Bertahan di Koloni
 
 **Setting:** Stasiun luar angkasa vintage — ruang kendali utama. Malam.
-**Karakter:** Rama
+**Karakter:**
+**Status:** END Rama
 
 ---
 
