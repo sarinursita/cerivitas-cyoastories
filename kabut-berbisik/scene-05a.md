@@ -1,13 +1,13 @@
 # Scene 5A: Junior Percaya
 
-**Setting:** Dalam kabut, bersama kakaknya Dani
-**Karakter:** Junior, Dani (arwah kakak)
+**Setting:** Dalam kabut, bersama kakaknya Senior
+**Karakter:** Junior, Senior (arwah kakak)
 
 ---
 
 Junior napas dalam. "Oke, Kak. Aku percaya. Terus... yang harus aku lakuin apa?"
 
-Dani nghela napas. Kabut di sekelilingnya bergetar. "Gue butuh bantuan lo, Jun. Jiwa gue ga bisa tenang di sini. Nyangkut di antara dua dunia. Karena... pas gue jatuh dulu, gue ga sendirian."
+Senior nghela napas. Kabut di sekelilingnya bergetar. "Gue butuh bantuan lo, Jun. Jiwa gue ga bisa tenang di sini. Nyangkut di antara dua dunia. Karena... pas gue jatuh dulu, gue ga sendirian."
 
 Junior merinding. "Maksud Kakak?"
 
@@ -15,7 +15,7 @@ Junior merinding. "Maksud Kakak?"
 
 "Caranya?"
 
-Dani ngulurkan tangan. "Ikut gue. Ke puncak. Di sana ada batu besar. Batu penjara. Kalo lo pecahin... gue bebas."
+Senior ngulurkan tangan. "Ikut gue. Ke puncak. Di sana ada batu besar. Batu penjara. Kalo lo pecahin... gue bebas."
 
 Kabut mulai berputar-putar di sekeliling mereka. Angin dingin berhembus kencang.
 

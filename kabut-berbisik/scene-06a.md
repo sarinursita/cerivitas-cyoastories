@@ -1,13 +1,13 @@
 # Scene 6A: Bebas! 🏁 (Ending A)
 
 **Setting:** Puncak gunung, di depan batu besar hitam
-**Karakter:** Junior, Dani (arwah kakak)
+**Karakter:** Junior, Senior (arwah kakak)
 
 ---
 
 Junior dan kakaknya naik ke puncak. Dingin banget. Tapi ada batu hitam besar di tengah-tengah — dari batu itu kabut putih terus keluar kayak asap.
 
-"Ini dia," kata Dani. "Batu penjara."
+"Ini dia," kata Senior. "Batu penjara."
 
 Junior ngeliat batu itu. Ada ukiran aneh di permukaannya, kayak tulisan kuno. Tanpa mikir panjang, Junior angkat batu di dekatnya dan PUKUL batu hitam itu.
 
@@ -15,17 +15,17 @@ BRAK!
 
 Batu hitam itu retak. Cahaya terang menyembur dari celah-celahnya. Kabut di sekeliling mereka mulai menghilang — kehisap ke dalam retakan.
 
-Dani mulai bersinar. Kakinya perlahan berubah jadi titik-titik cahaya.
+Senior mulai bersinar. Kakinya perlahan berubah jadi titik-titik cahaya.
 
 "Kak!" teriak Junior.
 
-Dani nyengir, matanya berkaca-kaca. "Makasih, Jun. Lo berhasil."
+Senior nyengir, matanya berkaca-kaca. "Makasih, Jun. Lo berhasil."
 
 "Kakak mau ke mana?!"
 
-"Tenang aja. Kakak... sekarang beneran bebas." Cahaya di sekeliling Dani makin terang. "Jaga diri lo, adek gue. Dan inget — kalo suatu saat lo butuh kakak... lo tau di mana nyari."
+"Tenang aja. Kakak... sekarang beneran bebas." Cahaya di sekeliling Senior makin terang. "Jaga diri lo, adek gue. Dan inget — kalo suatu saat lo butuh kakak... lo tau di mana nyari."
 
-Dani ngilang. Kabut menghilang total. Dari kampung, orang-orang liat puncak gunung bersinar terang — kayak bintang jatuh.
+Senior ngilang. Kabut menghilang total. Dari kampung, orang-orang liat puncak gunung bersinar terang — kayak bintang jatuh.
 
 Junior berdiri di puncak sendirian. Nangis. Tapi juga senyum.
 

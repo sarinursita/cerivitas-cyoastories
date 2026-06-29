@@ -1,7 +1,7 @@
 # Scene 6B: Terjebak Selamanya 🏁 (Ending B)
 
 **Setting:** Dalam kabut — ruang kosong tanpa ujung
-**Karakter:** Junior, Dani (arwah kakak)
+**Karakter:** Junior, Senior (arwah kakak)
 
 ---
 
@@ -9,15 +9,15 @@ Junior lari. Lari. Lari. Kaki rasanya mau copot. Tapi kabut di depan, belakang, 
 
 Akhirnya dia berhenti. Napasnya tersengal. Jantungnya mau meledak.
 
-"Sudah..." bisik Dani, muncul dari balik kabut. Wajahnya sedih. "Jun, kalo lo terus lari... lo ga akan nemu jalan keluar."
+"Sudah..." bisik Senior, muncul dari balik kabut. Wajahnya sedih. "Jun, kalo lo terus lari... lo ga akan nemu jalan keluar."
 
 Junior duduk lemas. Air mata netes. "Aku takut, Kak..."
 
-Dani duduk di sampingnya. Kabut di sekitar mereka mulai tenang. "Kakak tau. Maaf... kakak ga maksa lo. Cuma... ini satu-satunya cara kakak ketemu lo lagi."
+Senior duduk di sampingnya. Kabut di sekitar mereka mulai tenang. "Kakak tau. Maaf... kakak ga maksa lo. Cuma... ini satu-satunya cara kakak ketemu lo lagi."
 
 Junior nengok ke kakaknya. "Terus sekarang gimana?"
 
-Dani ngeliat ke langit — yang di dalem kabut cuma putih semua. "Kita tunggu."
+Senior ngeliat ke langit — yang di dalem kabut cuma putih semua. "Kita tunggu."
 
 "Tunggu apa?"
 

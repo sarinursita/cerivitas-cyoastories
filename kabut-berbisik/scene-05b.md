@@ -1,13 +1,13 @@
 # Scene 5B: Junior Kabur
 
 **Setting:** Dalam kabut, Junior mundur perlahan
-**Karakter:** Junior, Dani (arwah kakak)
+**Karakter:** Junior, Senior (arwah kakak)
 
 ---
 
 Junior goyangin kepala. "Nggak. Nggak... ini ga mungkin. Kakak udah mati. Orang mati ga bisa balik!"
 
-Dani mukanya sedih. "Jun..."
+Senior mukanya sedih. "Jun..."
 
 "AKU PULANG!" teriak Junior, lalu muter badan dan lari.
 

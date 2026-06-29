@@ -14,7 +14,7 @@ Cowok itu nyengir. "Akhirnya lo inget juga, Jun."
 
 "Nih, lo kira gue bakal lupa?" Junior nahan tangis. "Lo ilang 3 tahun lalu. Pas naik gunung. Mereka bilang lo... lo udah ga ada."
 
-"Bener," kata kakaknya, Dani. "Gue emang udah ga ada. Tapi... gapen TOTALLY ilang. Jiwa gue nyangkut di puncak. Nunggu."
+"Bener," kata kakaknya, Senior. "Gue emang udah ga ada. Tapi... gapen TOTALLY ilang. Jiwa gue nyangkut di puncak. Nunggu."
 
 "Nunggu apa?"
 
@@ -22,7 +22,7 @@ Cowok itu nyengir. "Akhirnya lo inget juga, Jun."
 
 Junior terdiam. Kakaknya pernah cerita soal itu dulu — perasaan aneh kalo salah satu lagi susah. Tapi Junior ga pernah percaya.
 
-"Sekarang lo percaya?" Dani nyengir.
+"Sekarang lo percaya?" Senior nyengir.
 
 ---
 
