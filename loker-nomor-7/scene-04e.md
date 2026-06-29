@@ -15,4 +15,4 @@ Rendra cuma bisa diem. Ia ingat surat itu. *"Jangan kayak aku."* Tapi mungkin...
 
 **Pilihan:**
 - [Scene 6B]: Hubungi nomor itu — tolong, aku butuh bantuan!
-- [Scene 7B]: Pindah sekolah — kayak Andi dulu
+- [Belum ditulis]: Pindah sekolah — kayak Andi dulu
