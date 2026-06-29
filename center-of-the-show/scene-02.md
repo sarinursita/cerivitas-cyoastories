@@ -1,4 +1,4 @@
-# Scene 2: Adegan yang Tidak Seharusnya Ada
+# Scene 02a: Adegan yang Tidak Seharusnya Ada
 
 **Setting:** Kamar Sena — masih sore, HP di tangan
 
