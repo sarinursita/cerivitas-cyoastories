@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<title>Red String Theory\n</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#app { max-width: 720px; width: 100%; }
+.scene {
+  background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
+  border: 1px solid #2a2a5a;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.scene-number {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.scene-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.scene-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 12px;
+}
+.scene-meta span { margin-right: 16px; }
+.narrative {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #d0d0e0;
+}
+.narrative strong { color: #ff6b6b; }
+.narrative em { color: #a0a0ff; font-style: italic; }
+.choices-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #1a1a3a, #252550);
+  color: #e0e0f0;
+  border: 1px solid #3a3a6a;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.choice-btn:hover {
+  background: linear-gradient(135deg, #2a2a5a, #3a3a7a);
+  border-color: #6a6aaa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100,100,200,0.15);
+}
+.choice-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a2a5a;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ending-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.ending-good { background: #00b894; color: #fff; }
+.ending-bad { background: #d63031; color: #fff; }
+.ending-twist { background: #6c5ce7; color: #fff; }
+.ending-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #b0b0d0;
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  border-left: 3px solid #6a6aaa;
+}
+.restart-btn {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(108,92,231,0.3);
+}
+.footer { text-align: center; margin-top: 20px; font-size: 12px; color: #444; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="scene" id="scene-container">
+    <div class="scene-number" id="scene-number"></div>
+    <h1 class="scene-title" id="scene-title"></h1>
+    <div class="scene-meta" id="scene-meta"></div>
+    <div class="narrative" id="narrative"></div>
+    <div class="choices-label" id="choices-label">PILIHAN</div>
+    <div class="choices" id="choices"></div>
+    <div id="ending-section"></div>
+  </div>
+  <div class="footer">Red String Theory\n</div>
+</div>
+
+<script>
+const story = {
+  '01': {
+    title: 'Pertemuan di Kafe',
+    setting: 'Kafe "Neon Brew", lantai 120 — Jakarta 3026. Gedung pencakar langit tembus awan, flying pods melintas di luar jendela kaca besar',
+    chars: 'Aksa (24, mantan tentara bayaran PMC), Eril (pria misterius)',
+    narrative: `Aksa duduk sendiri di meja dekat jendela, ngopi hitam sambil liat hiruk-pikuk Jakarta 3026 dari ketinggian. Hidupnya setelah keluar dari PMC terasa hampa—nggak ada misi, nggak ada tujuan.
+
+Tiba-tiba, seorang cowok duduk di meja sebelah. Rambut hitam agak panjang diponi samping, kemeja hitam lusuh, mata cokelat yang... entah kenapa familiar banget. Cowok itu kelhatan gelisah, sering liat jam, sering liat ke luar jendela kayak takut ada yang ngikutin.
+
+Pas cowok itu buka dompet buat bayar, Aksa liat sekilas foto di dalam dompetnya—foto dua anak kecil, satu putih rambut ikal, dan satu lagi rambut coklat dengan lesung pipit.
+
+Jantung Aksa berdegup kencang.`,
+    is_ending: false,
+    choices: [
+      { target: '02A', desc: 'Dekati Eril dan ajak ngobrol — "Sendirian aja? Kopimu dingin, aku traktir yang baru."' },
+      { target: '02B', desc: 'Ngintip dari jauh, jangan dateng dulu — Cari tau dulu situasi sebelum bertindak.' },
+    ],
+  },
+  '02A': {
+    title: 'Ngobrol Santai',
+    setting: 'Kafe "Neon Brew", meja dekat jendela dengan pemandangan flying pods melintas di antara gedung pencakar langit',
+    chars: 'Aksa, Eril',
+    narrative: `"Sendirian aja?"
+
+Eril kaget, tapi senyum canggung. "Iya... lagi nunggu seseorang."
+
+Aksa duduk, pesen kopi dua. Mereka ngobrol ringan—hujan sintetis di luar jendela, pemandangan flying pods berpendar di antara gedung-gedung baja. Obrolan mengalir, tapi Aksa ngerasa ada yang aneh. Eril sering ngelak pas ditanya soal kerjaan, soal asal-usul.
+
+"Nama gue Eril," katanya, sambil mainin sedotan.
+
+"Aksa."
+
+Pas Eril senyum, Aksa liat lesung pipit yang sama persis kayak... foto di dompet tadi. Jantungnya makin kenceng.
+
+Dari sudut mata, Aksa liat sesosok cowok bertubuh kekar berdiri di luar kafe—persis di seberang jalan—ngeliatin mereka dengan tatapan tajam. Wajahnya setengah ketutup hoodie hitam.`,
+    is_ending: false,
+    choices: [
+      { target: '03A', desc: 'Tanya langsung: "Kamu kenal orang itu?" — Konfrontasi langsung soal cowok misterius di luar.' },
+      { target: '03B', desc: 'Diem aja, tapi perhatiin dari deket — Jangan buat Eril panik, tapi waspada.' },
+    ],
+  },
+  '02B': {
+    title: 'Ngintip dari Jauh',
+    setting: 'Kafe "Neon Brew", sudut ruangan yang gelap—Aksa ngamati dari kejauhan',
+    chars: 'Aksa, Eril, Cowok Bertubuh Kekar',
+    narrative: `Aksa milih diem di tempat, ngamatin Eril dari kejauhan. Insting tentara bayarannya aktif—kenali lingkungan, kumpulin data, baru bergerak.
+
+Eril keliatan makin gelisah. Sering liat jam apung di pergelangan tangannya. Sering liat ke luar jendela. Kayak orang yang lagi nunggu sesuatu... atau seseorang.
+
+Lima belas menit kemudian, sesosok cowok bertubuh kekar masuk kafe, langsung nyamperin meja Eril. Mereka ngomong pelan—Aksa nggak bisa denger dari jarak itu. Tapi dia liat cowok itu ngasih amplop cokelat ke Eril. Wajah Eril tegang. Tapi dia tetep nerima amplop itu dan cepet-cepet nyembunyiin ke dalam tas.
+
+Cowok itu pergi tanpa basa-basi, ninggalin Eril yang makin pucat.`,
+    is_ending: false,
+    choices: [
+      { target: '03C', desc: 'Ikutin orang yang ngasih amplop — Cari tau siapa dia dan darimana asalnya.' },
+      { target: '03D', desc: 'Tunggu, terus hampiri Eril — Langsung aja hadepin Eril dan tanya semuanya.' },
+    ],
+  },
+  '03A': {
+    title: 'Tanya Langsung',
+    setting: 'Kafe "Neon Brew", meja dekat jendela',
+    chars: 'Aksa, Eril',
+    narrative: `Aksa nunjuk ke cowok bertubuh kekar di luar kaca. "Kamu kenal dia?"
+
+Eril kaget setengah mati, hampir numpahin kopinya. "Nggak... nggak kok. Aku nggak kenal." Tapi matanya menghindar, tangannya gemeter pas megang cangkir. Napasnya mulai cepet—dia panik.
+
+"Aku... maaf, aku harus pergi."
+
+Eril buru-buru berkemas, hampir jatuhin kursi. Tapi pas dia ambil tas, dompetnya jatuh dan terbuka. Foto di dalemnya keliatan JELAS sekarang: dua anak kecil. Satu putih, rambut ikal—Eril waktu kecil. Satu lagi... si rambut coklat dengan lesung pipit.
+
+Persis kayak Aksa waktu kecil.
+
+**Otomatis lanjut ke Scene 04.**`,
+    is_ending: false,
+    choices: [
+    ],
+  },
+  '03B': {
+    title: 'Diam — Incér dari Deket',
+    setting: 'Kafe "Neon Brew" — lalu area parkir flying pods',
+    chars: 'Aksa, Eril, Cowok Misterius',
+    narrative: `Aksa pura-pura sibuk main hape, tapi matanya tetep ngawasin. Pas Eril bangun ke toilet, cowok misterius itu masuk kafe dengan cepat. Dia ngehampiri meja Eril, ngambil amplop cokelat dari tas Eril, ngeliatin foto selembar, lalu pergi.
+
+Aksa nggak mikir dua kali. Dia ikutin cowok itu.
+
+Dari kafe, ke stasiun flying pod, turun ke lantai dasar kota—ke Old Town Sector Jakarta yang kumuh dan gelap. Cowok itu masuk ke sebuah gedung tua. Aksa ngintip dari celah pintu.
+
+Di dalam, ada puluhan monitor. Di satu layar: foto Eril. Di layar lain: foto Aksa sendiri. Dan di layar utama... foto seorang pria dengan tanda silang merah.
+
+Label di bawahnya: **"ARGA — STATUS: HILANG. BONUS: 5M CREDITS"**
+
+Aksa membeku. Arga. Nama itu...
+
+**Otomatis lanjut ke Scene 04.**`,
+    is_ending: false,
+    choices: [
+    ],
+  },
+  '03C': {
+    title: 'Ikutin Orang Amplop',
+    setting: 'Lorong bawah tanah Old Town Sector — Jakarta 3026. Lampu neon kedip-kedip, dinding penuh coretan graffiti',
+    chars: 'Aksa, Cowok Bertubuh Kekar (anggota PMC)',
+    narrative: `Aksa ngikutin cowok kekar itu. Mereka turun lewat tangga darurat—tiga lantai ke bawah, ke bagian kota yang nggak pernah kena sinar matahari. Di sini udara bau logam dan lembab.
+
+Cowok itu akhirnya masuk ke sebuah gedung tua dengan pintu besi berat. Aksa nunggu beberapa detik, lalu ngintip lewat jendela berdebu.
+
+Jantung Aksa langsung berhenti.
+
+Di dalam: puluhan monitor, peta digital, dan senjata di dinding. Sebuah markas PMC. Di layar tengah, foto seorang pria—ARGA—dengan keterangan: **"TARGET BURONAN. HADIAH: 5M CREDITS"**
+
+Tapi yang bikin Aksa lemes... adalah logo di dinding. Logo yang sama persis yang ia kenakan selama 10 tahun.
+
+Logo PMC Phoenix—tempat Aksa jadi tentara bayaran.
+
+**Otomatis lanjut ke Scene 04.**`,
+    is_ending: false,
+    choices: [
+    ],
+  },
+  '03D': {
+    title: 'Tunggu — Hampiri Eril',
+    setting: 'Kafe "Neon Brew", meja dekat jendela — setelah cowok misterius pergi',
+    chars: 'Aksa, Eril',
+    narrative: `Aksa nunggu sampai cowok misterius itu bener-bener pergi. Baru dia ambil napas, jalan mendekati meja Eril.
+
+"Hei, kamu kelihatan panik. Ada yang bisa dibantu?"
+
+Eril kaget, tapi kali ini senyumnya lebih tulus. "Maaf, apa aku keliatan sepanik itu?"
+
+"Kelihatan banget," Aksa senyum. "Kopi lagi?"
+
+Bertahan—lama. Mereka mulai ngobrol, dan makin lama makin nyambung. Eril cerita soal masa kecilnya di luar Jakarta—kota kecil yang hancur karena proyek pemerintah yang gagal. Tentang orang tuanya yang meninggal di kecelakaan pesawat. Dan tentang kakaknya...
+
+"Aku lagi nyari seseorang. Kakakku. Namanya Arga. Hilang 15 tahun lalu."
+
+Aksa langsung membeku. Sendok di tangannya jatuh.
+
+Arga. Nama itu... adalah nama target misi terakhir Aksa. Misi yang gagal dia selesaikan—misi yang bikin dia kabur dari PMC.
+
+**Otomatis lanjut ke Scene 04.**`,
+    is_ending: false,
+    choices: [
+    ],
+  },
+  '04': {
+    title: 'Foto Dompet — Arga',
+    setting: 'Taman kecil di pinggir jalan flying pods, lantai 80 — suara kendaraan apung terdengar samar dari atas',
+    chars: 'Aksa, Eril',
+    narrative: `Mereka sekarang duduk di bangku taman, dikelilingi taman vertikal yang diterangi lampu neon biru. Suasananya adem, tapi hati Aksa nggak adem-adem amat.
+
+Eril ngeluarin sebuah foto lama—lapuk di pinggirnya. Foto tiga orang: dua anak kecil dan satu remaja. Yang remaja, rambutnya coklat, senyum lebar, lengan melingkar di pundak kedua adiknya.
+
+"Ini gue sama kakak gue, Arga," Eril suaranya bergetar. "Dan ini... anak yang satu lagi. Temen masa kecil gue." Dia nunjuk bocah berlesung pipit. "Gue lupa namanya, tapi gue inget... dia selalu pake syal merah. Syal yang gue kasih."
+
+Aksa menelan ludah. Syal merah. Syal merah yang masih ada di lemari kosannya. Syal yang selama ini dikira cuma barang random...
+
+"Aku..." Aksa berhenti. "Aku kenal anak itu."
+
+Eril nengok, matanya berbinar. "Bener? Kamu tahu dia sekarang dimana?"`,
+    is_ending: false,
+    choices: [
+      { target: '05', desc: '"Itu aku, Eril. Anak di foto itu... aku." — Jujur dari awal, apapun resikonya.' },
+    ],
+  },
+  '05': {
+    title: 'Syal Merah',
+    setting: 'Taman Kenangan, lantai 50 — taman hening dengan air mancur bercahaya, jauh dari keramaian Jakarta 3026',
+    chars: 'Aksa, Eril',
+    narrative: `Mereka pindah ke taman yang lebih sepi. Air mancur memancarkan cahaya biru kehijauan. Di sini cuma ada mereka berdua.
+
+Eril duduk di pinggir air mancur, tangannya gemeter. "Dulu, sebelum kecelakaan pesawat yang ngorbanin mama papa... gue punya temen deket. Namanya Aksa."
+
+Aksa diam.
+
+"Kita main bareng tiap sore di belakang rumah. Dia anak yatim piatu yang tinggal di panti sebelah. Ortu gue sering bawain dia makanan. Dan suatu hari..." Eril senyum tipis. "Gue ngasih dia syal merah. Syal kesayangan gue. Biar dia tau kalo dia punya keluarga juga."
+
+Diam. Beberapa detik.
+
+Aksa merogoh tas—tangannya gemetaran—dan ngeluarin sesuatu. Seutas syal merah, lusuh, usang, simbol elang kecil di sudutnya hampir pudar.
+
+"Ini," suara Aksa serak. "Ini masih ada. Masih aku simpen."
+
+Eril terpaku. Matanya melebar. Air matanya jatuh tanpa suara.`,
+    is_ending: false,
+    choices: [
+      { target: '06', desc: 'Lanjutkan cerita...' },
+    ],
+  },
+  '06': {
+    title: 'Semua Terbongkar',
+    setting: 'Taman Kenangan, lantai 50 — air mancur bercahaya jadi sakbis pertemuan dua jiwa yang kehilangan masa lalu',
+    chars: 'Aksa, Eril',
+    narrative: `Dengan syal merah di tangan, Aksa cerita semuanya.
+
+Tentang panti asuhan. Tentang dirinya yang direkrut PMC Phoenix waktu umur 14 tahun. Tentang pelatihan berat—cara menembak, cara bertarung, cara menghilang. Tentang misi-misi tanpa nama. Dan tentang misi terakhir yang mengubah segalanya.
+
+"Targetnya... Arga."
+
+Eril kaget. "Apa?"
+
+"Mereka suruh gue bersihin Arga. Tapi gue nggak tau kalo dia kakak kamu. Gue nggak tau apa-apa. Gue cuma tau... sesuatu di foto target itu—sesuatu tentang wajahnya—ngerasa familiar. Dan gue nggak bisa lakuin itu."
+
+"Jadi... Arga?" bisik Eril.
+
+"Arga masih hidup," kata Aksa pelan. "Mereka nahan dia. Sebagai jaminan—kalo gue balik, mereka lepasin dia. Itu alasan gue balik ke Jakarta."
+
+Air mata Eril jatuh. Di matanya ada seribu perasaan—marah, sedih, lega, bingung.
+
+Dia diam. Menatap Aksa lama. Lalu dia liat syal itu lagi—syal merah yang masih dipegang erat Aksa.
+
+Sekarang, semuanya tergantung pada pilihan Aksa.`,
+    is_ending: false,
+    choices: [
+      { target: '07A', desc: '"Aku harus bilang semuanya ke Eril. Jujur. Biar dia tau semua dari aku." — Ending A: Maafin Aku' },
+      { target: '07B', desc: '"Aku bakal lindungin Eril aja. Dia nggak perlu tau." — Ending B: Diam & Lindungin' },
+      { target: '07C', desc: '"Gas balik ke PMC dan selametin Arga." — Ending C: Balas Dendam' },
+      { target: '07D', desc: '"Aku tunjukin syal ini ke Eril, dan mulai dari awal..." — Ending D: Mulai dari Awal' },
+    ],
+  },
+  '07A': {
+    title: 'Maafin Aku 💔',
+    setting: 'Taman Kenangan, lantai 50 — malam mulai turun, lampu kota berkilauan di kejauhan',
+    chars: 'Aksa, Eril',
+    narrative: `**SELAMAT — ENDING A: MAAFIN AKU**
+
+Air mata Eril jatuh satu per satu. Nggak ada teriakan, nggak ada drama—cuma keheningan yang berat.
+
+"Kamu..." suara Eril serak. "Kamu tau dari awal? Semua ini?"
+
+Aksa mengangguk pelan. "Gue tau. Tapi gue nggak tau caranya ngomong."
+
+Eril bangun, tangannya gemetaran. "Gue nyari Arga selama 15 tahun. 15 tahun, Aksa. Dan kamu diam aja?"
+
+"Karena gue takut," bisik Aksa. "Takut kehilangan kamu lagi, sebelum sempet dapet kamu balik."
+
+Eril berhenti. Pandangannya menerawang jauh ke lampu-lampu kota Jakarta yang berkelap-kelip. Lalu pelan-pelan, dia duduk lagi—di samping Aksa.
+
+"Nggak gampang... buat maafin semua ini," kata Eril pelan. "Tapi... gue seneng akhirnya tau."
+
+Mereka duduk berdampingan dalam diam. Nggak sempurna, nggak langsung baikan. Tapi ini awal.
+
+Awal dari proses memaafkan.`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+  '07B': {
+    title: 'Diam & Lindungin 🛡️',
+    setting: 'Jakarta 3026 — lorong-lorong Old Town Sector, markas rahasia PMC yang gelap',
+    chars: 'Aksa, Eril',
+    narrative: `**SELAMAT — ENDING B: DIAM & LINDUNGIN**
+
+Aksa memilih diam. Nggak bilang apa-apa soal Arga. Nggak bilang soal misi. Biar Eril hidup tenang tanpa tau beban masa lalu.
+
+Tapi dia bakal lindungin Eril dari bayang-bayang. Diam-diam, Aksa balik ke jaringan lamanya, gunain koneksi gelapnya buat putus semua jejak yang ngaitin Eril ke PMC. Bayar informan. Hapus data. Ancamin orang-orang yang berani nyentuh Eril.
+
+Eril nggak pernah tau.
+
+Dia jalan terus, hidup seperti biasa, nggak sadar kalo ada bayangan yang setia ngikutin dari jauh, mastiin dia aman.
+
+Di suatu malam, pas Eril duduk di kafe yang sama sambil minum kopi sendirian—Aksa ngeliat dari seberang jalan. Senyum tipis.
+
+"Hei, Eril. Mungkin kamu nggak tau. Tapi gue jagain kamu dari sini."
+
+Dia tarik kerudung, menghilang dalam keramaian Jakarta 3026.`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+  '07C': {
+    title: 'Balas Dendam 🔥',
+    setting: 'Markas PMC Phoenix, Old Town Sector — malam, hujan sintetis deras',
+    chars: 'Aksa, Eril, Anggota PMC',
+    narrative: `**SELAMAT — ENDING C: BALAS DENDAM**
+
+"Nggak. Gue muak," kata Aksa. "Gue bukan orang yang bisa diem aja."
+
+Aksa ambil hape, kirim pesan ke satu-satunya kontak yang masih setia di PMC. "Gue balik. Persiapan, target internal."
+
+Eril bingung. "Apaan?"
+
+"Kita bongkar tempat ini. Bareng-bareng."
+
+Malam itu, mereka nyusup ke markas PMC Phoenix. Sistem keamanan, kamera pengintai, 12 anggota bersenjata—Aksa udah biasa. Yang beda, kali ini dia nggak sendiri.
+
+Mereka berhasil nemuin Arga: kurus, lemah, tapi masih hidup. Dan di momen itu, Eril lari dan peluk kakaknya. 15 tahun.
+
+Tapi perjalanan belum selesai. Bundel data tentang kejahatan PMC harus bocor ke publik.
+
+Aksa, Eril, dan Arga kabur lewat jalur bawah tanah. Ledakan di belakang mereka—markas PMC hancur, bersama semua rahasia kelamnya.
+
+Mereka bertiga duduk di atap gedung lantai 60, ngeliat markas yang terbakar di kejauhan, hujan sintetis basahin rambut mereka. Lelah, tapi lega.
+
+"Makasih," bisik Eril.
+
+Aksa senyum. "Gue janji. Mulai sekarang—kita keluarga."`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+  '07D': {
+    title: 'Mulai dari Awal 🧣',
+    setting: 'Taman Kenangan, lantai 50 — air mancur bercahaya, suara gemericik air menenangkan',
+    chars: 'Aksa, Eril',
+    narrative: `**SELAMAT — ENDING D: MULAI DARI AWAL**
+
+Aksa merogoh saku jaketnya. Jarinya gemetaran waktu narik seutas syal merah lusuh—yang selama ini disimpen, yang dikasih Eril 15 tahun lalu.
+
+Dia ulurkan syal itu ke Eril.
+
+"Hei... aku inget."
+
+Eril terpaku.
+
+"Dulu, kamu yang kasih ini, kan? Pas kita kecil. Di belakang rumah. Kamu bilang..." Aksa suaranya pecah. "Kamu bilang... 'Sekarang kamu punya keluarga.'"
+
+Eril nggak tahan. Air matanya tumpah. Dia tertawa sambil nangis, megang syal merah itu, elus-elus kainnya yang udah pudar.
+
+"Iya," isaknya. "Itu aku. Dan sekarang... aku nemuin kamu lagi."
+
+Mereka duduk di pinggir air mancur, tanpa kata-kata yang rumit. Nggak ada dendam. Nggak ada saling salah. Cuma dua orang yang dulunya berpisah—dan sekarang ketemu lagi.
+
+Eril pegang tangan Aksa. "Mulai dari awal?"
+
+Aksa senyum, air mata di pipi. "Mulai dari awal."
+
+Syal merah itu melilit di pergelangan tangan mereka berdua—simpul yang nggak akan pernah lepas lagi.`,
+    is_ending: true,
+    choices: [
+    ],
+  },
+};
+
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+function getEndingType(id) {
+  if (id.includes('7A') || id.includes('good')) return 'good';
+  if (id.includes('7B') || id.includes('bad')) return 'bad';
+  if (id.includes('7C') || id.includes('twist') || id.includes('plot')) return 'twist';
+  return 'twist';
+}
+
+function goTo(sceneId) {
+  if (sceneId === 'restart' || sceneId === 'Restart') {
+    goTo('01');
+    return;
+  }
+
+  const scene = story[sceneId];
+  if (!scene) {
+    document.getElementById('narrative').innerHTML = '<p>Scene belum tersedia.</p>';
+    return;
+  }
+
+  document.getElementById('scene-number').textContent = 'Scene ' + sceneId.toUpperCase();
+  document.getElementById('scene-title').textContent = scene.title;
+
+  let metaHtml = '';
+  if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
+  if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
+  document.getElementById('scene-meta').innerHTML = metaHtml;
+
+  let narr = scene.narrative;
+  narr = narr.replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>');
+  narr = narr.replace(/\\*(.+?)\\*/g, '<em>$1</em>');
+  narr = narr.replace(/\\n/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\\n\\n').join('</p><p>') + '</p>';
+
+  const choicesDiv = document.getElementById('choices');
+  const choicesLabel = document.getElementById('choices-label');
+  const endingSection = document.getElementById('ending-section');
+
+  choicesDiv.innerHTML = '';
+  endingSection.innerHTML = '';
+
+  if (scene.is_ending) {
+    choicesLabel.style.display = 'none';
+    let badgeClass = 'ending-twist';
+    let badgeText = '🎭 PLOT TWIST ENDING';
+    const etype = getEndingType(sceneId);
+    if (etype === 'good') { badgeClass = 'ending-good'; badgeText = '✅ GOOD ENDING'; }
+    else if (etype === 'bad') { badgeClass = 'ending-bad'; badgeText = '💀 BAD ENDING'; }
+
+    // FIX: Use DOM API instead of innerHTML with onclick string.
+    // innerHTML with onclick="goTo('...')" causes SyntaxError: Unexpected number
+    // because quote escaping between Python f-string → HTML → JS is unreliable.
+    endingSection.innerHTML = '<div class="ending-badge ' + badgeClass + '">' + badgeText + '</div>';
+    const rstBtn = document.createElement('button');
+    rstBtn.className = 'restart-btn';
+    rstBtn.textContent = '🔄 Main Lagi dari Awal';
+    rstBtn.onclick = function() { goTo('01'); };
+    endingSection.appendChild(rstBtn);
+  } else {
+    choicesLabel.style.display = 'block';
+    // Auto-advance for merge scenes (auto_choice flag or single choice)
+    if (scene.auto_choice || (scene.choices.length === 1 && scene.choices[0].target !== 'restart')) {
+      setTimeout(function() {
+        goTo(scene.choices[0].target);
+      }, 2500);
+      return;  // Don't render buttons for auto scenes
+    }
+    scene.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.innerHTML = '<span class="choice-num">' + (letters[i] || (i+1)) + '</span>' + choice.desc;
+      btn.onclick = function() { goTo(choice.target); };
+      choicesDiv.appendChild(btn);
+    });
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+goTo('01');
+</script>
+</body>
+</html>
