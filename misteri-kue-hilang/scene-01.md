@@ -11,8 +11,11 @@ Bima mengernyitkan dahi. "Kue hilang? Serius?" Rina mengangguk panik. "Iya! Semu
 
 Bima berdiri, nyengir khasnya. "Tenang, Detektif Bima siap bertugas! Tapi... kita mulai dari mana ya?"
 
+Bima terlihat bingung.
+
 ---
 
 **Pilihan:**
 - [Scene 2A]: Interogasi teman-teman sekelas — cari saksi mata!
 - [Scene 2B]: Cek Tempat Kejadian Perkara (TKP) — dapur lomba masak
+- [Scene 2C]: Ke kamar mandi dulu
