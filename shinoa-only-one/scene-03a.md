@@ -24,5 +24,5 @@ Aysel nggak nyangka Hali bisa ngomong kayak gitu. Si cool and quiet yang biasany
 ---
 
 **Pilihan:**
-- [Tanya balik serius] — "Hal... lo serius?"
-- [Bercanda biar cair] — "Wah, jadi lo sengaja debat sama gue? Ngeselin banget sih!"
+- [Scene 1A]: Tanya balik serius — "Hal... lo serius?"
+- [Scene 2B]: Bercanda biar cair — "Wah, jadi lo sengaja debat sama gue? Ngeselin banget sih!"
