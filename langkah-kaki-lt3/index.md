@@ -6,5 +6,5 @@
 **Rating:** PG
 **Date:** 2026-06-28
 
-**Premis:** Pika dan Chu jadi panitia ekskul yang beberes paling akhir. Dari lantai 3 yang udah dikunci sejak jam 5, terdengar suara langkah kaki. Padahal mereka berdua di sini dari jam 4.
+**Premis:** Pika dan Chu dengar langkah kaki dari lantai 3 yang terkunci.
 **Jumlah scene:** 10
