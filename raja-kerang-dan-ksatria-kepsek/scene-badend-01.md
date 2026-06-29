@@ -1,3 +1,5 @@
+# Scene 6: Bad Ending
+
 # ❌ Bad End: Skors!
 
 **Setting:** Kantin sekolah
