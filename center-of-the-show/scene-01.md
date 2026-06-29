@@ -27,6 +27,6 @@ Dan di foto itu... kakak kelihatan baik-baik aja.
 ---
  
   **Pilihan:**
-- [Scene 02A] Membalas pesan kakak — coba cari tahu lebih banyak lewat HP
-- [Scene 02B] Keluar kamar dan mulai mencari sendiri — ada sesuatu yang gak beres
+- [Scene 02A]: Membalas pesan kakak — coba cari tahu lebih banyak lewat HP
+- [Scene 02B]: Keluar kamar dan mulai mencari sendiri — ada sesuatu yang gak beres
 
