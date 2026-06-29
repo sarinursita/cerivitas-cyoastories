@@ -16,5 +16,5 @@ Mungkin... Andi salah. Tapi setidaknya dia coba bantu. Lebih dari yang lain.
 ---
 
 **Pilihan:**
-- [Scene 7A]: Maafin Andi — "Maaf aku marah. Makasih... udah peduli."
+- [Belum ditulis]: Maafin Andi — "Maaf aku marah. Makasih... udah peduli."
 - [Scene 7B]: Hapus semua — urus sendiri, pindah sekolah
