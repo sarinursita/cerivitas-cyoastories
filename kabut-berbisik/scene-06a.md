@@ -19,11 +19,11 @@ Senior mulai bersinar. Kakinya perlahan berubah jadi titik-titik cahaya.
 
 "Kak!" teriak Junior.
 
-Senior nyengir, matanya berkaca-kaca. "Makasih, Jun. Lo berhasil."
+Senior nyengir, matanya berkaca-kaca. "Makasih, Jun. Kamu berhasil."
 
 "Kakak mau ke mana?!"
 
-"Tenang aja. Kakak... sekarang beneran bebas." Cahaya di sekeliling Senior makin terang. "Jaga diri lo, adek gue. Dan inget — kalo suatu saat lo butuh kakak... lo tau di mana nyari."
+"Tenang aja. Kakak... sekarang beneran bebas." Cahaya di sekeliling Senior makin terang. "Jaga diri kamu, adek aku. Dan inget — kalo suatu saat kamu butuh kakak... kamu tau di mana nyari."
 
 Senior ngilang. Kabut menghilang total. Dari kampung, orang-orang liat puncak gunung bersinar terang — kayak bintang jatuh.
 

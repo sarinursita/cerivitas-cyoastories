@@ -10,19 +10,19 @@ Bayangan di depan Junior makin jelas. Bukan lagi bayangan — sekarang wujudnya 
 
 "Kakak..." bisik Junior, matanya melebar.
 
-Cowok itu nyengir. "Akhirnya lo inget juga, Jun."
+Cowok itu nyengir. "Akhirnya kamu inget juga, Jun."
 
-"Nih, lo kira gue bakal lupa?" Junior nahan tangis. "Lo ilang 3 tahun lalu. Pas naik gunung. Mereka bilang lo... lo udah ga ada."
+"Nih, kamu kira aku bakal lupa?" Junior nahan tangis. "Kamu ilang 3 tahun lalu. Pas naik gunung. Mereka bilang kamu... kamu udah ga ada."
 
-"Bener," kata kakaknya, Senior. "Gue emang udah ga ada. Tapi... gapen TOTALLY ilang. Jiwa gue nyangkut di puncak. Nunggu."
+"Bener," kata kakaknya, Senior. "Aku emang udah ga ada. Tapi... gapen TOTALLY ilang. Jiwa aku nyangkut di puncak. Nunggu."
 
 "Nunggu apa?"
 
-"Nunggu lo. Karena cuma lo yang bisa denger suara gue. Karena kita... kembar. Bukan kembar identik biasa. Jiwa kita nyambung."
+"Nunggu kamu. Karena cuma kamu yang bisa denger suara aku. Karena kita... kembar. Bukan kembar identik biasa. Jiwa kita nyambung."
 
 Junior terdiam. Kakaknya pernah cerita soal itu dulu — perasaan aneh kalo salah satu lagi susah. Tapi Junior ga pernah percaya.
 
-"Sekarang lo percaya?" Senior nyengir.
+"Sekarang kamu percaya?" Senior nyengir.
 
 ---
 

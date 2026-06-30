@@ -14,7 +14,7 @@ Senior mukanya sedih. "Jun..."
 Tapi kabut di sekelilingnya makin tebal. Mau lari ke mana aja, yang keluar cuma putih semua. Ga ada jalan. Ga ada kampung. Ga ada apa-apa, kecuali suara kakaknya yang berbisik dari segala arah:
 
 "Jun... jangan lari..."
-"Kakak ga akan nyakitin lo..."
+"Kakak ga akan nyakitin kamu..."
 "Kakak cuma butuh bantuan..."
 
 Junior nutup kuping rapet-rapet. Tapi suara itu nyusup. Kayak langsung ke dalem kepala.

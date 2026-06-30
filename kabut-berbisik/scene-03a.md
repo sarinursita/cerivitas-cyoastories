@@ -12,11 +12,11 @@ Bisikan itu makin jelas.
 "Juniooor... Akhirnya kamuuu..."
 "Udah lama aku nunggu... Luuuma..."
 
-Junior mundur setapak. "S-siapa lo?!"
+Junior mundur setapak. "S-siapa kamu?!"
 
 Kabut di depannya berputar, kayak pusaran kecil. Terus dari dalam pusaran itu, muncul BAYANGAN. Samar-samar bentuknya kayak orang.
 
-"Lo ga inget aku, Junior?" suaranya berubah. Dari bisik, jadi suara yang... familiar.
+"Kamu ga inget aku, Junior?" suaranya berubah. Dari bisik, jadi suara yang... familiar.
 
 Banget.
 
