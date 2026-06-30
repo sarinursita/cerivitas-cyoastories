@@ -1,8 +1,8 @@
 # Scene 07a: Buka Halaman Terakhir 
 
-**Setting:** Kamar kakak — lantai dingin, buku harian di pangkuan Sena. Halaman terakhir terbuka. Sepi. Hanya suara detak jantung sendiri.
+**setting:** Kamar kakak — lantai dingin, buku harian di pangkuan Sena. Halaman terakhir terbuka. Sepi. Hanya suara detak jantung sendiri.
 
-**Karakter:** Sena
+**karakter:** Sena
 
 Aku buka halaman terakhir. Kertasnya lebih tebal dari halaman lain. Tapi gak ada tulisan panjang — cuma satu baris. Ditulis besar, tekanan kuat sampe tembus ke halaman belakang:
 
