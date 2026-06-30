@@ -1,6 +1,6 @@
 # Satu Centang ✅
 
-**Penulis:** Loulament
+**Penulis:** Veronica L.
 **Genre:** Psikologis, misteri, Drama
 **Tags:** Drama, Persahabatan, Sekolah, Misteri, Psychology
 **Rating:** PG
