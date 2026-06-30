@@ -1,4 +1,4 @@
-# Scene 04A: Buku Harian Kakak
+# Scene 04a: Buku Harian Kakak
 
 **Setting:** Kamar kakak Sena — rapih, sepi, dingin. Lemari terbuka, amplop putih masih di tangan Sena.
 
