@@ -1,4 +1,4 @@
-# Scene 02B: Keluar kamar dan mulai mencari sendiri 
+# Scene 02b: Keluar kamar dan mulai mencari sendiri 
 
 **Setting:** Rumah Sena — lorong gelap menuju kamar kakak. Sore hari, hampir magrib. Rumah terasa kosong. Kamar kakak rapih.
 
