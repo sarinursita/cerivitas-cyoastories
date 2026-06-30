@@ -1,7 +1,7 @@
 # Scene 3B: Jalan Pulang Tertutup Kabut
 
 **Setting:** Pinggir kampung, mulai gelap
-**Karakter:** Junior (dan Rina kalo lewat 2B)
+**Karakter:** Junior (dan David kalo lewat 2B)
 
 ---
 

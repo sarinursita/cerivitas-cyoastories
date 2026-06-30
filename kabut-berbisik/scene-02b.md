@@ -7,7 +7,7 @@
 
 Junior narik tangan David, anak sebangkunya yang lagi main di pos ronda.
 
-"Rin, liat tuh!" tunjuk Junior ke kabut.
+"Dav, liat tuh!" tunjuk Junior ke kabut.
 
 David melotot. "Itu apean? Kok tebel amat?"
 
