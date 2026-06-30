@@ -1,4 +1,4 @@
-# cene 08b: Terima & Lanjut 
+# Scene 08b: Terima & Lanjut 
 
 **setting:** Kamar Sena — foto sobek di tangan. Tulisan "Aku janji gak bakal inget" di baliknya. Tengah malam. Lampu kamar mati.
 
