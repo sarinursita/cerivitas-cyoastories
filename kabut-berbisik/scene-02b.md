@@ -9,7 +9,7 @@ Junior narik tangan David, anak sebangkunya yang lagi main di pos ronda.
 
 "Dav, liat tuh!" tunjuk Junior ke kabut.
 
-David melotot. "Itu apean? Kok tebel amat?"
+David melotot. "Itu apaan? Kok tebel amat?"
 
 "Aneh," kata Junior. "Itu... bisikin aku tadi."
 
