@@ -10,7 +10,7 @@ Bayangan di depan Junior makin jelas. Bukan lagi bayangan — sekarang wujudnya 
 
 "Kakak..." bisik Junior, matanya melebar.
 
-Cowok itu nyengir. "Akhirnya kamu inget juga, Jun."
+Cowok itu menyeringai. "Akhirnya kamu inget juga, Jun."
 
 "Nih, kamu kira aku bakal lupa?" Junior nahan tangis. "Kamu ilang 3 tahun lalu. Pas naik gunung. Mereka bilang kamu... kamu udah ga ada."
 
@@ -22,7 +22,7 @@ Cowok itu nyengir. "Akhirnya kamu inget juga, Jun."
 
 Junior terdiam. Kakaknya pernah cerita soal itu dulu — perasaan aneh kalo salah satu lagi susah. Tapi Junior ga pernah percaya.
 
-"Sekarang kamu percaya?" Senior nyengir.
+"Sekarang kamu percaya?" Senior menyeringai.
 
 ---
 
