@@ -1,6 +1,7 @@
 # Scene 03b: "Cari di Google Drive"
 
 **Setting:** Kamar Sena — laptop kakak terbuka di meja. Layar biru Google Drive. Malam hari, lampu kamar cuma dari layar laptop.
+
 **Karakter:** Sena
 
 Aku buka laptop kakak. Biasanya dia gak pernah ninggalin laptop, apalagi dalam keadaan nyala. Tapi ini — terbuka, layar Google Drive, kayak sengaja dibiarin.
