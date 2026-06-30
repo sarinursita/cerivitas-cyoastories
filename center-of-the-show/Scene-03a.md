@@ -1,4 +1,4 @@
-# Scene 03A: Cek Galeri HP
+# Scene 03a: Cek Galeri HP
 
 **Setting:** Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.
 **Karakter:** Sena
