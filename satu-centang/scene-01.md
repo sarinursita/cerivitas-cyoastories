@@ -19,7 +19,11 @@ Kenapa aku gak nanya?
  
 Kenapa tiga hari ini aku cuma di kamar, gak nyari kakak, gak ngehubungin temen-temennya, gak ngecek sosial medianya?
  
-Aku buka galeri HP. Foto terakhir yang aku ambil... tiga hari yang lalu. Sebuah selfie. Aku tersenyum. Di latar belakang, kakak lagi duduk di meja makan, minum kopi, santai.
+Aku buka galeri HP. Foto terakhir yang aku ambil... tiga hari yang lalu. Sebuah selfie.
+
+![Selfie Sena dengan Kakak, di meja makan.](foto-scene-1.png)
+
+Aku tersenyum. Di latar belakang, kakak lagi duduk di meja makan, minum kopi, santai.
 Itu adalah hari kakak dinyatakan hilang.
  
 Dan di foto itu... kakak kelihatan baik-baik aja.
