@@ -3,6 +3,8 @@
 **Setting:** Teras rumah Feri, siang hari, suasana desa yang ramai tiba-tiba heboh
 **Karakter:** Feri, Warga Desa
 
+![Suasana desa yang heboh](Village.png)
+
 Pagi itu, desa yang biasanya tenang mendadak gempar. Ibu RT lari-lari sambil teriak, "UANG DESA HILANG! 271 Juta raib!"
 
 Feri yang baru bangun tidur, masih pakaian kusut, langsung melongo. "Hah? 271 juta?"
