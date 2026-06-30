@@ -24,4 +24,4 @@ Aku cek nomor pengirim. Itu bener nomor kakak. Tapi foto profilnya bukan foto ka
 **Pilihan**
 
 - [Scene 03a]: Cek galeri HP — mungkin ada foto lain yang bisa jelasin
-- [Scene 03b]: Coba telpon nomor kakak — dengar suaranya langsung
+- [Scene 03b]: Cek Gdrvive kakak — Pasti ada petunjuk
