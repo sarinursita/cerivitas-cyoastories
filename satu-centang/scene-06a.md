@@ -30,4 +30,4 @@ Rana jatuh. Kakak bawa pergi. Dan kakak — kakak ada di sana. Kakak liat semuan
 
 Tapi kakak pergi. Dan aku baru sadar sekarang.
 
-— END 9 🏁 —
+— END 1 🏁 —
