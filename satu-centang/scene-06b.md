@@ -28,4 +28,4 @@ Kakak gak bohong. Kakak gak nutupin kematian. Kakak cuma... lindungin aku dari r
 
 Aku pegang koran itu, lipat rapi, simpan di saku. Mungkin ini yang namanya centang satu — pesan gak terkirim, tapi isinya bikin tenang.
 
-— END 10 🏁 —
+— END 1 🏁 —
