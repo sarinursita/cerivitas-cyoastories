@@ -29,5 +29,5 @@ Di folder yang sama, ada satu folder lagi. Namanya cuma satu kata: "TAMAN" — d
 
 **Pilihan:**
 
-[Scene 06a]: Coba tebak password folder TAMAN
-[Scene 06b]: Cari petunjuk di kamar kakak dulu — jangan asal nebak
+- [Scene 06a]: Coba tebak password folder TAMAN
+- [Scene 06b]: Cari petunjuk di kamar kakak dulu — jangan asal nebak
