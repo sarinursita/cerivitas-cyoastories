@@ -1,23 +1,24 @@
-# Scene 03A: Ke Taman
+# Scene 03A: Cek Galeri HP
 
-**Setting:** Taman di ujung kompleks — senja, lampu taman mati, bangku besi berkarat. Sepi. Angin berhembus pelan. Rumput dibiarkan tinggi.
+**Setting:** Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.
 
 **Karakter:** Sena
 
-Aku berdiri di pintu masuk taman. Setelah nemu titik lokasi tersimpan di akun kakak, aku gak berpikir dua kali — langsung jalan ke sini. Taman ini cuma 5 menit dari rumah, tapi rasanya asing banget. Kayak planet lain.
+Aku buka galeri HP. Scroll ke bawah. Seminggu terakhir — foto biasa. Makanan, tugas, selfie.
 
-Tubuhku gemetaran. Bukan karena dingin. Tapi karena sesuatu di dalam diriku kayak... tahu tempat ini. Padahal aku gak ingat pernah ke sini. Aku coba ingat — kosong. Kayak ada yang sengaja ngapus memori itu.
+Tapi pas aku scroll ke tiga hari lalu, tanggal kakak hilang... galerinya kosong. Ada celah. Beberapa foto kehapus?
 
-Aku jalan ke bangku di tengah. Bangku besi, catnya mengelupas, berkarat di bagian kaki. Di bawahnya, tanah kelihatan gembur. Kayak baru digali. Gak sampe seminggu yang lalu.
+Aku cek "Recently Deleted". Cuma ada satu foto. Diambil jam 23:47, malam sebelum kakak dinyatakan hilang.
 
-Aku jongkok. Tanahnya basah. Bau tanah kena air. Ada jejak kaki — kecil, kayak ukuran sepatu cewek. Mungkin kakiku. Atau... mungkin kakak.
+Isinya: kursi kosong di meja makan. Dua piring. Dua gelas. Tapi di atas salah satu piring, ada catatan kecil yang tertulis: "Maaf, Sen."
 
-Ada sesuatu di sini. Dan aku harus cari tahu.
+Tulisan tangan kakak. Tapi foto itu diambil dari sudut langit-langit — seperti dari kamera tersembunyi. Bukan dari HP-ku.
+
+Lalu siapa yang motret?
 
 ---
 
-**Pilihan:**
+**Pilihan**
 
-- [Scene 05a]: Cari di sekitar bangku — lihat apa yang ada di permukaan
-- [Scene 05b]: Gali tanahnya — cari apa yang terkubur di sana
-
+- [Scene 05a]: Periksa meja makan — cari petunjuk di dapur
+- [Scene 05b]: Balas pesan kakak lagi — coba tanya soal foto itu
