@@ -3,6 +3,8 @@
 **Setting:** Masih di Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.
 **Karakter:** Sena
 
+![Sena melihat pesan dari kakak](foto-scene-2.png)
+
 Aku buka pesan itu. Mikir keras. Akhirnya cuma ngetik:
 
 "Kak, lo di mana?"
