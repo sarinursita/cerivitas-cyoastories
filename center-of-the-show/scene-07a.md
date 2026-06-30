@@ -1,4 +1,4 @@
-# Scene 07A: Buka Halaman Terakhir 
+# Scene 07a: Buka Halaman Terakhir 
 
 **Setting:** Kamar kakak — lantai dingin, buku harian di pangkuan Sena. Halaman terakhir terbuka. Sepi. Hanya suara detak jantung sendiri.
 
