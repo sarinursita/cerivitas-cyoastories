@@ -22,4 +22,4 @@ HP bergetar. "Sen? Lama banget lo ilang. I miss you."
 
 Aku kaku. Rana gak marah. Rana kangen.
 
-— END 10 🏁 —
+— END 2 🏁 —
