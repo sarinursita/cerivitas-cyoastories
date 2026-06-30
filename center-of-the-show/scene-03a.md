@@ -1,7 +1,8 @@
 # Scene 03A: Cek Galeri HP
 
-**Setting:** Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.
-**Karakter:** Sena
+ **Setting:** Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.
+ 
+ **Karakter:** Sena
 
 Aku buka galeri HP. Biasanya aku jarang liat galeri — isinya foto random, screenshot tugas, meme yang dikirim temen. Tapi sekarang aku liat semuanya dengan mata yang beda.
 
