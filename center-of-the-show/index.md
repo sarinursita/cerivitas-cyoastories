@@ -1,7 +1,7 @@
 # Satu Centang ✅
 
 **Penulis:** Loulament
-**Genre:** Horor, Psikologis, misteri
+**Genre:** Horor, Psikologis, misteri, Drama
 **Tags:** drama, persahabatan, sekolah, misteri
 **Rating:** PG
 **Date:** 2026-06-28
