@@ -1,4 +1,4 @@
-# Scene 06B: Cari Petunjuk di Kamar Kakak 🔍
+# Scene 06b: Cari Petunjuk di Kamar Kakak 
 
 **Setting:** Kamar kakak — rapih, dingin, lampu menyala terang. Lukisan pemandangan di dinding, satu sudut debunya ilang — tanda baru diangkat. Jam dinding menunjukkan pukul 11 malam. Sepi.
 
