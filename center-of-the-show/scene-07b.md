@@ -1,4 +1,4 @@
-# Scene 07B: Turuti Pesan Kakak 
+# Scene 07b: Turuti Pesan Kakak 
 
 **Setting**: Kamar kakak — Sena tutup buku harian, gak jadi baca halaman terakhir. Letakin buku di lantai. Lampu kamar redup. Sepi.
 
