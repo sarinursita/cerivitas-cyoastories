@@ -1,28 +1,47 @@
-# Scene 05b: "Gali Lagi"
-**Setting:** Taman di ujung kompleks — makin gelap, lampu taman mulai menyala tapi redup. Suara jangkrik. Bangku taman berkarat.
+# Scene 05b: Balas Pesan Kakak 
+
+**Setting:** Kamar Sena — HP di tangan, layar chat dengan kakak. Jari Sena melayang di atas keyboard. Lampu kamar mati, cuma layar HP yang terang.
 
 **Karakter:** Sena
 
-Aku gali lagi. Lebih dalem. Di bawah kotak kayu tadi, masih ada sesuatu. Tangan aku nyentuh benda keras — bentuknya persegi panjang.
+Aku buka chat kakak. Pesan terakhir dari tiga hari lalu: "Gak usah cari aku, Sen. Lo cari aja ingatan lo yang ilang."
 
-HP. Rusak. Layarnya retak parah, casingnya copot. Tapi masih ada secercah nyawa — layar berkedip sebentar, terus mati lagi. Aku pencet tombol power beberapa kali. Akhirnya nyala selama 10 detik sebelum mati total.
+Belum dibales. Centang satu.
 
-Tapi 10 detik itu cukup.
+Aku ngetik pelan-pelan: "Kak. Foto di galeriku — itu dari kamera di langit-langit dapur. Lo yang pasang? Atau ada orang lain?"
 
-Layar terakhir yang kelihatan: aplikasi WhatsApp. Chat dengan kontak "Kakak 💙". Pesan terakhir dari kakak:
+Akirim. Centang satu. Gak terkirim. Kayak biasa.
 
-"Udah tenang. Kakak urus semuanya. Lo diem aja."
+Aku tarik napas. Udah tiga hari centang satu terus. Tapi kali ini beda — satu menit kemudian, HPku bergetar. Layar chat berubah. Centang satu jadi centang dua. Terkirim.
 
-Balasan aku, tepat di bawahnya:
+Lalu tiga titik muncul. Dia lagi ngetik.
 
-"Tapi kak... dia jatuh karena aku."
+HP bergetar lagi. Balasan masuk:
 
-Aku bacanya berulang kali. Kata-kata itu asing. Tapi aku tahu aku yang ngetik. Aku ingat momen itu.
+"Bukan aku yang pasang. Tapi aku tahu. Kamera itu dari mantan pacar Rana. Dia curiga Rana selingkuh. Tapi yang direkam malah kita."
 
-Rana marah. Dorong. Aku dorong balik. Rana jatuh ke belakang. Kepala dia ke batu. Rana gak gerak. Aku panik. Kakak datang entah dari mana — langsung angkat Rana, bawa pergi, bisik ke aku: "Diem. Lo gak liat apa-apa."
+Aku baca ulang. Mantan pacar Rana? Rana punya pacar? Apa hubungan Rana sama semua ini?
 
-Itu kejadian di taman.
+Aku ngetik: "Rana? Kak — Rana siapa? Apa hubungannya sama taman?"
 
-Bukan Sena-pelaku. Tapi Sena yang panik. Dan kakak yang lindungin.
+Tiga titik muncul. Lalu ilang. Muncul lagi. Ilang lagi.
 
-— END 11 🏁 —
+Akhirnya balasan masuk:
+
+"Lo beneran gak inget Rana? Temen lo sendiri? Sen... lo yang dorong dia di taman. Lo yang bikin dia jatuh. Lo yang lupa. Bukan aku."
+
+Aku megang HP dengan tangan gemetar. Aku yang dorong?
+
+Balasan lagi masuk:
+
+"Cari HP lo yang lama. Di bawah bangku taman, ada yang terkubur. Hidupin. Lo bakal inget semuanya. Tapi... kalo lo gak siap, jangan."
+
+Aku ke taman. Gali di bawah bangku. Nemu HP rusak — HP lamaku, yang aku kira ilang setahun lalu. Layar masih nyala 10 detik. Chat terbuka: "Tapi kak... dia jatuh karena aku." Tiba-tiba ingatan balik.
+
+Rana marah. Dorong. Aku dorong balik. Rana jatuh. Kakak datang. Satu centang... baru sekarang aku paham kenapa kakak bilang cari ingatan yang ilang.
+
+Panik. Kakak datang entah dari mana — langsung angkat Rana, bawa pergi, bisik ke aku: "Diem. Lo gak liat apa-apa."
+
+---
+
+— END 11 🏁 — 
