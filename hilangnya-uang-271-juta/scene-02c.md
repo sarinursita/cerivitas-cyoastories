@@ -1,0 +1,1 @@
+Feri pun tidak memecahkan kasus tersebut, dan kasusnya di tangani oleh kepolisian
