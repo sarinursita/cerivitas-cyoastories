@@ -18,4 +18,4 @@ Centang satu.
 
 Tapi sekarang aku tahu jawabannya.
 
-— END 11 🏁 —
+— END 3 🏁 —
