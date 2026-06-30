@@ -1,4 +1,4 @@
-# Scene 04B: "Cek Kamar Sendiri"
+# Scene 04b: "Cek Kamar Sendiri"
 
 **Setting:** Kamar Sena — gelap, cuma lampu HP yang nyala. Berantakan, baju di mana-mana, tisu bekas berserakan.
 
