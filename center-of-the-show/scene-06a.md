@@ -1,4 +1,5 @@
 # Scene 06a: "Hack Folder TAMAN"
+
 **Setting:** Kamar Sena — laptop kakak masih nyala. Folder "TAMAN" dengan icon gembok. Jam 11 malam, rumah sepi.
 
 **Karakter:** Sena
