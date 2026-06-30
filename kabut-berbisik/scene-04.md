@@ -14,7 +14,7 @@ Cowok itu nyengir. "Akhirnya kamu inget juga, Jun."
 
 "Nih, kamu kira aku bakal lupa?" Junior nahan tangis. "Kamu ilang 3 tahun lalu. Pas naik gunung. Mereka bilang kamu... kamu udah ga ada."
 
-"Bener," kata kakaknya, Senior. "Aku emang udah ga ada. Tapi... gapen TOTALLY ilang. Jiwa aku nyangkut di puncak. Nunggu."
+"Bener," kata kakaknya, Senior. "Aku emang udah ga ada. Tapi... menguap hilang. Jiwa aku nyangkut di puncak. Nunggu."
 
 "Nunggu apa?"
 
