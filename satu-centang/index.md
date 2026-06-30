@@ -2,7 +2,7 @@
 
 **Penulis:** Loulament
 **Genre:** Psikologis, misteri, Drama
-**Tags:** drama, persahabatan, sekolah, misteri
+**Tags:** Drama, Persahabatan, Sekolah, Misteri, Psychology, Drama
 **Rating:** PG
 **Date:** 2026-06-28
 
