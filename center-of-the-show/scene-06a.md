@@ -1,4 +1,4 @@
-# Scene 06A: Hack Folder TAMAN
+# Scene 06a: Hack Folder TAMAN
 
 **Setting:** Kamar Sena — laptop kakak masih nyala, folder "TAMAN" dengan icon gembok di layar. Jam 11 malam, rumah sepi. Hanya suara kipas laptop yang terdengar.
 
