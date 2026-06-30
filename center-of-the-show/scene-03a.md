@@ -1,37 +1,23 @@
-# Scene 03A: Cek Galeri HP
+# Scene 03A: Ke Taman
 
- **Setting:** Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.
- 
- **Karakter:** Sena
+**Setting:** Taman di ujung kompleks — senja, lampu taman mati, bangku besi berkarat. Sepi. Angin berhembus pelan. Rumput dibiarkan tinggi.
 
-Aku buka galeri HP. Biasanya aku jarang liat galeri — isinya foto random, screenshot tugas, meme yang dikirim temen. Tapi sekarang aku liat semuanya dengan mata yang beda.
+**Karakter:** Sena
 
-Jari aku scroll ke bawah. Seminggu terakhir. Foto biasa — makanan yang aku makan, tugas sekolah yang aku foto, selfie iseng. Gak ada yang aneh.
+Aku berdiri di pintu masuk taman. Setelah nemu titik lokasi tersimpan di akun kakak, aku gak berpikir dua kali — langsung jalan ke sini. Taman ini cuma 5 menit dari rumah, tapi rasanya asing banget. Kayak planet lain.
 
-Tapi pas aku scroll ke tiga hari lalu, tanggal kakak hilang... galerinya kosong. Bukan kosong kayak gak ada foto. Tapi kosong kayak ada yang sengaja dihapus. Ada celah. Jam 12 siang ke jam 3 sore — biasanya pasti ada sesuatu. Tapi di sini, kosong melompong.
+Tubuhku gemetaran. Bukan karena dingin. Tapi karena sesuatu di dalam diriku kayak... tahu tempat ini. Padahal aku gak ingat pernah ke sini. Aku coba ingat — kosong. Kayak ada yang sengaja ngapus memori itu.
 
-Aku cek "Recently Deleted". Biasanya isinya banyak — foto blur yang gak sengaja kejepret. Tapi sekarang cuma ada satu foto. Satu. Kayak sengaja ninggalin satu aja.
+Aku jalan ke bangku di tengah. Bangku besi, catnya mengelupas, berkarat di bagian kaki. Di bawahnya, tanah kelihatan gembur. Kayak baru digali. Gak sampe seminggu yang lalu.
 
-Foto itu diambil jam 23:47. Malam sebelum kakak dinyatakan hilang.
+Aku jongkok. Tanahnya basah. Bau tanah kena air. Ada jejak kaki — kecil, kayak ukuran sepatu cewek. Mungkin kakiku. Atau... mungkin kakak.
 
-Aku buka. Layar HP aku terang. Foto meja makan — dari sudut atas, kayak dari langit-langit. Dua piring. Dua gelas. Sepasang sumpit masih terbungkus. Kayak baru aja selesai makan berdua.
-
-Tapi di atas salah satu piring — piring yang biasanya tempat kakak duduk — ada selembar kertas kecil. Dilipat dua. Dan di atasnya, tulisan tangan yang aku kenal banget:
-
-"Maaf, Sen."
-
-Bulu kuduk aku berdiri. Tulisan kakak. Tapi foto ini diambil jam 23:47 — tengah malam. Kakak gak pernah makan tengah malam. Dan catatan "Maaf, Sen" — kayak dia tahu sesuatu bakal terjadi.
-
-Tapi yang bikin aku paling merinding: siapa yang motret?
-
-Ini bukan foto selfie. Ini dari sudut langit-langit. Dari arah yang mustahil kalo foto pake HP biasa. Kayak ada kamera yang dipasang di atas lemari dapur, atau di sudut langit-langit.
-
-Kamera tersembunyi.
-Apa kakak yang pasang? Atau... ada orang lain di rumah ini yang gak aku kenal?
+Ada sesuatu di sini. Dan aku harus cari tahu.
 
 ---
 
 **Pilihan:**
 
-- [Scene 05a]: Periksa meja makan — cari petunjuk di dapur
-- [Scene 05b]: Balas pesan kakak lagi — coba tanya soal foto itu
+- [Scene 05a]: Cari di sekitar bangku — lihat apa yang ada di permukaan
+- [Scene 05b]: Gali tanahnya — cari apa yang terkubur di sana
+
