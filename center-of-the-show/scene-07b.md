@@ -1,8 +1,8 @@
 # Scene 07b: Turuti Pesan Kakak 
 
-**Setting**: Kamar kakak — Sena tutup buku harian, gak jadi baca halaman terakhir. Letakin buku di lantai. Lampu kamar redup. Sepi.
+**setting**: Kamar kakak — Sena tutup buku harian, gak jadi baca halaman terakhir. Letakin buku di lantai. Lampu kamar redup. Sepi.
 
-**Karakter:** Sena
+**karakter:** Sena
 
 Aku tutup buku itu. Kakak bilang jangan buka halaman terakhir — untuk sekali ini, aku denger kakak.
 
