@@ -35,4 +35,4 @@ Aku ke taman. Nemu kotak kayu di bawah bangku. Isinya kalung inisial "RN". Surat
 Kayak centang satu di WhatsApp. Pesan ke kakak gak pernah sampe, tapi aku tahu dia ada di suatu tempat. Baik-baik aja. Mungkin suatu hari centangnya jadi dua.
 
 
-— END 12 🏁 — 
+— END 4 🏁 — 
