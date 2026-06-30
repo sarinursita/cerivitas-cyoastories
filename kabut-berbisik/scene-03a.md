@@ -10,7 +10,7 @@ Junior melangkah masuk. Kabut di sekelilingnya tebal banget — sampe ga keliata
 Bisikan itu makin jelas.
 
 "Juniooor... Akhirnya kamuuu..."
-"Udah lama aku nunggu... Luuuma..."
+"Udah lama aku nunggu... Laaama..."
 
 Junior mundur setapak. "S-siapa kamu?!"
 
