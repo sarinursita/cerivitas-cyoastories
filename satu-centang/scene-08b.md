@@ -24,4 +24,4 @@ Kosong. Bersih.
 
 Kayak kakak sengaja ninggalin satu halaman kosong, buat aku nulis cerita sendiri.
 
-— END 12 🏁 —
+— END 4 🏁 —
