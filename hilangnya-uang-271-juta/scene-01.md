@@ -17,3 +17,4 @@ Feri punya dua pilihan:
 **Pilihan:**
 - [Scene 2A]: Datangi rumah Pak Kades — tanya langsung!
 - [Scene 2B]: Cari bukti dulu di kantor desa
+- [Scene 2C]: Lanjut tidur dulu ah...
