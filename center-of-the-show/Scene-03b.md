@@ -1,19 +1,32 @@
-Scene 03b — "Telpon Kakak" 📞
+# Scene 03B: "Cari di Google Drive"
 
-Jariku menekan tombol panggil. Nama kakak terpampang di layar. Aku tempelkan HP ke telinga.
->
-Tut... tut... tut...
->
-Tiba-tiba, nada sambung berhenti. Ada yang angkat. Tapi suara yang keluar bukan suara kakak.
->
-Suara cewek. Muda. Agak pelan, kayak lagi berbisik:
->
-"Halo... ini siapa ya?"
->
-Aku kaget. "Ini... ini punya kakak aku. Kakak aku hilang tiga hari lalu. Kamu siapa?"
->
-Keheningan di ujung telepon. Lalu suara itu berkata pelan:
->
-"Ini HP aku. Aku beli dari orang — seminggu yang lalu. Di pasar loak."
->
-Jantungku berhenti. Nomer kakak — dijual di pasar loak? Tiga hari sebelum dia dinyatakan hilang?
+**Setting:** Kamar Sena — laptop kakak terbuka di meja. Layar biru Google Drive. Malam hari, lampu kamar cuma dari layar laptop.
+**Karakter:** Sena
+
+Aku buka laptop kakak. Biasanya dia gak pernah ninggalin laptop, apalagi dalam keadaan nyala. Tapi ini — terbuka, layar Google Drive, kayak sengaja dibiarin.
+
+Folder pertama: "Buat Sen"
+
+Jantungku berdegup. Aku klik. Ratusan file teks berjejer rapi. Tanggalnya setahun ke belakang. Setiap hari — gak pernah bolong. Kayak kakak punya kewajiban buat nulis sesuatu setiap malam.
+
+Aku buka yang paling awal, setahun lalu. Isinya cuma dua kalimat:
+
+"Hari ini Sena cerita soal temen barunya. Rana. Cowok? Cewek? Gak penting. Yang penting Sena seneng."
+
+Aku lanjut scroll. Polanya sama setiap hari. "Sena makan apa", "Sena nonton apa", "Sena ketawa berapa kali". Detil banget. Tapi makin ke sini, makin pendek tulisannya.
+
+Yang bikin aku berhenti — ada satu file audio di bagian paling bawah. Format MP3. Nama filenya: "Sen — jangan panik"
+
+Aku pencet play. Suara kakak muncul. Napasnya berat, kayak lagi di tempat gelap. Terus dia bisik:
+
+"Sen. Kalo lo denger ini, artinya gue udah gak di rumah lagi. Bukan hilang — maksud gue, gue pergi. Lo inget taman? Taman di ujung kompleks? Kejadian di sana... gue yang mulai. Bukan lo. Ingat itu."
+
+File selesai. Aku play ulang. Tiga kali. Tangan aku udah gemetaran.
+
+Di folder yang sama, ada satu folder lagi. Namanya cuma satu kata: "TAMAN" — dengan icon gembok.
+
+---
+
+Pilihan:
+[Scene 06a]: Coba tebak password folder TAMAN
+[Scene 06b]: Cari petunjuk di kamar kakak dulu — jangan asal nebak
