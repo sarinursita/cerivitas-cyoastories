@@ -44,4 +44,4 @@ Panik. Kakak datang entah dari mana — langsung angkat Rana, bawa pergi, bisik 
 
 ---
 
-— END 11 🏁 — 
+— END 3 🏁 — 
