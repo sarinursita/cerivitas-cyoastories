@@ -18,4 +18,4 @@ Aku baca lagi. Besok. Berarti kakak belum pergi. Berarti kakak masih di kota ini
 
 Aku pegang tiket itu erat. Kakak masih ada. Masih ada waktu.
 
-— END 9 🏁 —
+— END 1 🏁 —
