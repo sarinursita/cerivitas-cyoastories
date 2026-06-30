@@ -38,5 +38,5 @@ Kakak bilang jangan dibaca. Tapi apa aku bisa tidur tenang kalo gak tahu?
 
 **Pilihan:**
 
-[Scene 07a]: Buka halaman terakhir — aku harus tahu
-[Scene 07b]: Turuti pesan kakak — tutup bukunya dulu, cari petunjuk lain di kamar
+- [Scene 07a]: Buka halaman terakhir — aku harus tahu
+- [Scene 07b]: Turuti pesan kakak — tutup bukunya dulu, cari petunjuk lain di kamar
