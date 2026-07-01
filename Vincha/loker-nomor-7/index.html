@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>">
+<title>Loker Nomor 7</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#app { max-width: 720px; width: 100%; }
+.scene {
+  background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
+  border: 1px solid #2a2a5a;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.scene-number {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.scene-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.scene-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 12px;
+}
+.scene-meta span { margin-right: 16px; }
+.scene-meta .icon { margin-right: 4px; }
+.narrative {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #d0d0e0;
+}
+.narrative p { margin-bottom: 14px; }
+.narrative strong { color: #ff6b6b; }
+.narrative em { color: #a0a0ff; font-style: italic; }
+.choices-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #1a1a3a, #252550);
+  color: #e0e0f0;
+  border: 1px solid #3a3a6a;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.choice-btn:hover {
+  background: linear-gradient(135deg, #2a2a5a, #3a3a7a);
+  border-color: #6a6aaa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100,100,200,0.15);
+}
+.choice-btn:active {
+  transform: translateY(0);
+}
+.choice-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2a2a5a;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ending-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.ending-good { background: #00b894; color: #fff; }
+.ending-bad { background: #d63031; color: #fff; }
+.ending-twist { background: #6c5ce7; color: #fff; }
+.ending-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #b0b0d0;
+  margin: 16px 0;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  border-left: 3px solid #6a6aaa;
+}
+.restart-btn {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(108,92,231,0.3);
+}
+.footer { text-align: center; margin-top: 20px; font-size: 12px; color: #444; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="scene" id="scene-container">
+    <div class="scene-number" id="scene-number"></div>
+    <h1 class="scene-title" id="scene-title"></h1>
+    <div class="scene-meta" id="scene-meta"></div>
+    <div class="narrative" id="narrative"></div>
+    <div class="choices-label" id="choices-label">PILIHAN</div>
+    <div class="choices" id="choices"></div>
+    <div id="ending-section"></div>
+  </div>
+  <div class="footer">Loker Nomor 7 — by Alaric 🎒</div>
+</div>
+
+<script>
+const story = {
+  '01': {
+    title: 'Coretan di Loker',
+    setting: 'SMP Harapan Bangsa, pagi hari — koridor masih sepi',
+    chars: 'Rendra, beberapa siswa lewat',
+    narrative: `Hari Senin pagi, Rendra jalan ke lokernya — loker nomor 7. Tapi begitu sampai, ia berhenti.
+
+Di pintu loker, dicat merah besar: **"PENDIAM"**
+
+Rendra cuma bisa diam. Menunduk. Tangan menggenggam erat tali tas. Beberapa siswa lewat, lihat, terus cekikikan. Gak ada yang bilang apa-apa.
+
+Dengan tangan gemetar, Rendra buka lokernya... dan di dalamnya ada selembar kertas lipat. Bukan surat ancaman. Tapi tulisan tangan rapi:
+
+*"Kamu gak sendirian. Aku pernah di posisimu. Loker ini dulunya punyaku. Cari R.A. — dia tau caranya."*
+
+Rendra bingung. Siapa yang naruh? R.A. siapa? Apa ini jebakan? Atau... beneran ada yang mau bantu?`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '02A', desc: 'Cari tahu siapa yang nulis surat — cari inisial R.A.' },
+      { target: '02B', desc: 'Lapor ke guru BK — biar gurur yang urus' },
+      { target: '02C', desc: 'Diam aja — suratnya dibuang, anggap gak terjadi apa-apa' },
+    ],
+  },
+  '02A': {
+    title: 'Inisial R.A.',
+    setting: 'Koridor sekolah, jam istirahat',
+    chars: 'Rendra',
+    narrative: `Rendra pegang erat surat itu. R.A. — siapa? Cuma itu petunjuknya.
+
+Ia mulai ngintip-ngintip papan nama di pintu kelas. Guru-guru. Siswa OSIS. Eh, ada nama di piket kelas 9A: **Rama Andika**. R.A.!
+
+Tapi Rama ini terkenal diem juga. Gak masuk geng. Sering duduk sendiri di kantin. Apa mungkin dia yang nulis?
+
+Atau... jangan-jangan dia bagian dari bully yang mau jebak Rendra?`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '03A', desc: 'Dekatin Rama langsung — "Kamu R.A.? Yang nulis surat?"' },
+      { target: '03B', desc: 'Baca ulang suratnya detail — mungkin ada petunjuk lain yang kelewat' },
+    ],
+  },
+  '02B': {
+    title: 'Guru BK Turun Tangan',
+    setting: 'Ruang BK — dinding penuh poster motivasi, meja guru rapi',
+    chars: 'Rendra, Bu Hesti (guru BK)',
+    narrative: `"Ada apa, Rendra? Kamu kelihatan kurang enak badan?" Bu Hesti senyum ramah.
+
+Rendra mengeluarkan kertas surat itu. Dan cerita. Tentang coretan "PENDIAM" di loker. Tentang bully yang udah berbulan-bulan. Bu Hesti dengar dengan serius.
+
+"Kamu berani banget lapor, Rendra. Ini langkah yang tepat."
+
+Bu Hesti janji akan panggil para bully dan kasih peringatan. Rendra merasa lega... tapi di dalam hati, ada suara kecil: *"Gimana kalo mereka balas dendam?"*`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '03C', desc: 'Rasain lega — akhirnya ada yang dengerin' },
+      { target: '03D', desc: 'Takut — "Bu, jangan bilang kalo aku yang lapor..."' },
+    ],
+  },
+  '02C': {
+    title: 'Diam Terus',
+    setting: 'Kelas, jam pelajaran — tapi pikiran Rendra kosong melayang',
+    chars: 'Rendra',
+    narrative: `Rendra meremas surat itu dan membuangnya ke tempat sampah. "Gak usah peduliin."
+
+Tapi — sepanjang pelajaran, ia gak bisa fokus. Pikirannya muter terus. Coretan merah di loker. Cat "PENDIAM". Surat misterius itu.
+
+Jam pulang, bully mencegat Rendra di parkiran.
+
+"Eh, si PENDIAM! Surat cinta dari siapa tuh? Hahaha?"
+
+Mereka dorong Rendra. Tasnya jatuh. Semua isi berhamburan. Rendra cuma bisa diem. Tapi di dalam — ada yang pecah. Udah gak tahan.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '03E', desc: 'Rendra berdiri — "STOP! KALIAN UDAH CUKUP!"' },
+      { target: '03F', desc: 'Tahan terus — mungkin kalo diem, mereka bosen' },
+    ],
+  },
+  '03A': {
+    title: 'Rama Buka Suara',
+    setting: 'Kantin sekolah, saat istirahat — Rama duduk sendiri',
+    chars: 'Rendra, Rama (Andika)',
+    narrative: `"Kamu... Rama? Yang inisialnya R.A.?"
+
+Rama lihat Rendra dengan tatapan hati-hati. "Iya. Kenapa?"
+
+Rendra duduk di depannya. "Ini... surat dari loker aku." Ia sodorkan surat itu.
+
+Rama diam lama. Lalu napasnya berat. "Aku tahu surat itu. Karena... aku yang nulis."
+
+Rendra kaget. "Kamu?! Jadi ini jebakan?"
+
+"Bukan!" Rama cepat-cepat ngangkat tangan. "Dengar dulu. Loker 7... dulu punyaku. Tahun lalu. Aku juga korban bully. Sampe akhirnya aku pindah sekolah."
+
+Rama — atau Andi, nama aslinya — cerita. Betapa ia gak tahan. Sampe orang tuanya mutusin pindahin sekolah. Tapi sebelum pergi, ia ninggalin surat di loker 7 — siapa tau penghuni loker berikutnya butuh pertolongan juga.
+
+**"Aku tau isi suratnya. 'Kamu gak sendirian.' Dan itu serius."**`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04A', desc: 'Percaya Rama — "Bantu aku, kayak kamu bantu aku lewat surat"' },
+      { target: '04B', desc: 'Curiga — "Kok kamu gak bilang dari awal? Ini taktik lo?"' },
+    ],
+  },
+  '03B': {
+    title: 'Makna Surat',
+    setting: 'Perpustakaan sekolah — sepi, wangi buku',
+    chars: 'Rendra',
+    narrative: `Rendra baca surat itu lagi. Lebih teliti. Ada bagian yang ia lewatkan di bawah lipatan kertas:
+
+*"PS: Coretan 'PENDIAM' di loker itu dari A KU. Bukan dari mereka. Aku sengaja. Biar kamu TERBANGUN. Jangan diem terus kayak aku dulu. Aku menyesal."*
+
+Rendra tersentak. Jadi... coretan di loker bukan dari bully? Tapi dari orang yang sama yang nulis surat — yang mau bantu?!
+
+Dari kejauhan, Rendra lihat seseorang duduk sendirian di kantin. **Rama Andika.** Inisial R.A.`,
+    is_ending: false,
+    auto_choice: true,
+    choices: [
+      { target: '04A', desc: 'Temui Rama Andika — "Kamu R.A.? Kita perlu ngomong."' },
+    ],
+  },
+  '03C': {
+    title: 'Harapan Baru',
+    setting: 'Ruang BK — Rendra duduk, Bu Hesti baru selesai nelpon',
+    chars: 'Rendra, Bu Hesti',
+    narrative: `"Aku udah panggil anak-anak itu. Mereka dapat peringatan keras. Kalau ada lagi, sanksinya skorsing," kata Bu Hesti tegas.
+
+Rendra menghela napas. Lega. Akhirnya ada yang dengerin.
+
+Sepanjang hari, bully memang gak berani deketin Rendra. Tapi sesekali, mereka lirik sinis dari jauh. Belum beres. Rendra tau.
+
+Di loker, ada kertas baru. Bukan ancaman. Tapi catatan:
+
+*"Langkah pertama udah. Langkah selanjutnya: biar mereka berhenti selamanya. Cari R.A. di kantin."*`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04D', desc: 'Cari R.A. — penasaran siapa yang nulis terus' },
+      { target: '04E', desc: 'Abaikan — lebih baik aman, jangan cari masalah' },
+    ],
+  },
+  '03D': {
+    title: 'Ketakutan',
+    setting: 'Lorong sekolah — sepi, jam pulang',
+    chars: 'Rendra',
+    narrative: `Pulang sekolah, Rendra jalan cepat. Tapi di tikungan, mereka udah nunggu. Empat anak. Senyum sinis.
+
+" Lo laporin kita? Berani banget ya, PENDIAM?"
+
+Mereka dorong Rendra ke tembok. Gak sampe mukul, tapi intimidasi. Rendra menggigil.
+
+"Kalo lo berani lapor lagi... lo tau risikonya."
+
+Mereka pergi. Rendra merosot di lantai. Ia pegang surat di sakunya. Mungkin... lebih baik mundur aja. Tapi di sisi lain — gak mungkin juga diem terus.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04F', desc: 'Kumpulin bukti — rekam, foto, kumpulin saksi. Lawan pake data!' },
+      { target: '03F', desc: 'Tarik laporan ke BK — minta maaf, bilang itu salah paham' },
+    ],
+  },
+  '03E': {
+    title: 'Rendra Melawan!',
+    setting: 'Parkiran sekolah — pulang sekolah, sepi',
+    chars: 'Rendra, Dito (ketua bully), 2 anak lainnya',
+    narrative: `Tas Rendra jatuh. Buku berhamburan. Dan Rendra...
+
+"STOP!"
+
+Semua terdiam. Dito mengerjap. "Apa?!"
+
+"AKU BILANG STOP!" Rendra teriak, suaranya bergetar tapi keras. "KALIAN PIKIR AKU TAKUT? UDAH SETAHUN KALIAN NGGAK ADA KREATIF-KREATIFNYA! BULLY TERUS! GITU DOANG!"
+
+Dito tertegun. Gak nyangka Rendra yang pendiem bisa ngomong gitu. Beberapa siswa mulai ngeliat. Ada yang motoin pake hape.
+
+"Berani lo ya?" Dito mendekat, tapi... ragu. Semakin banyak yang nonton.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04D', desc: 'Berdiri sendiri — gak butuh siapa-siapa!' },
+      { target: '04G', desc: 'Ajak temen-temen yang nonton — "Kalian mau diem aja liat ini?!"' },
+    ],
+  },
+  '03F': {
+    title: 'Semakin Terpuruk',
+    setting: 'Kamar Rendra — malam, lampu redup',
+    chars: 'Rendra',
+    narrative: `Rendra duduk di lantai kamar. Pandangan kosong.
+
+Lokernya dirusak lagi hari ini. Cat "PENDIAM" ditambah "BANGSAT" di bawahnya. Ganti rugi? Orang tua marah. Sekolah?
+
+"Kok bisa aja ada kejadian kayak gini di sekolah?" kata mamah. "Mending pindah aja, Nak."
+
+Pindah. Lagi-lagi pindah.
+
+Rendra megang hapenya. Ia scroll kontak. Gak ada yang bisa diajak cerita. Sendirian.
+
+Tapi di saku jaket — kertas surat itu masih ada. Belum dibuang. *"Kamu gak sendirian. Loker ini dulunya punyaku."*
+
+Air mata Rendra jatuh. Tapi di antara tangis, muncul tekad kecil. "Aku... gak mau kayak gini terus."`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04F', desc: 'Cari bantuan — chat Rama? Atau cari nomor yang bisa dihubungi dari surat' },
+      { target: '04H', desc: 'Nyerah — besok ngajuin pindah aja' },
+    ],
+  },
+  '04A': {
+    title: 'Kisah Andi',
+    setting: 'Taman sekolah — bangku bawah pohon rindang',
+    chars: 'Rendra, Rama (Andi)',
+    narrative: `Rama — atau Andi — duduk di samping Rendra. Pandangannya kosong ke langit.
+
+"Aku tahun lalu persis kayak kamu. Diem. Cuma bisa terima. Sampe akhirnya... aku pindah."
+
+"Kenapa pindah? Bukan mereka yang dihukum?" tanya Rendra.
+
+Andi ketawa getir. "Kata orang tuaku 'lingkungan gak sehat'. Tapi yang salah kan mereka, bukan aku. Tapi aku yang pergi. Gila, ya?"
+
+Rendra diem. Tapi Andi lanjut.
+
+"Sebelum pindah, aku nulis surat itu. Dan nenek aku — yang kerja bersihin sekolah — dia yang nolong naruh di loker 7. Aku titip pesan: siapa pun penghuni baru loker itu, jangan kayak aku. Jangan diem."
+
+Lama mereka diem berdua. Lalu Andi nengok ke Rendra. "Coretan 'PENDIAM' itu dari aku juga. Maaf. Aku sengaja biar kamu sadar."`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '05', desc: 'Maafin Andi — "Makasih. Lo bikin aku sadar." 😊' },
+      { target: '06B', desc: 'Marah — "Lo ngerusak properti sekolah! Lo nyuruh aku tanpa izin!"' },
+    ],
+  },
+  '04B': {
+    title: 'Curiga Sama Rama',
+    setting: 'Belakang kantin — Rendra ngintai Rama dari jauh',
+    chars: 'Rendra, Rama',
+    narrative: `Rendra ngintai Rama dari balik pilar. Rama lagi ngobrol... sama geng bully?!
+
+"Ih, gila. Dia bagian dari mereka?"
+
+Tapi makin diamati... Rama gak tertawa. Mukanya tegang. Kayak dipaksa ngobrol. Begitu bully pergi, Rama napas lega.
+
+Rendra berdecak. "Bukan. Dia juga korban." Rendra jalan mendekat. "Rama. Aku tau lo R.A. Lo yang nulis surat. Aku perlu ngomong."
+
+Rama kaget. Tapi kemudian tersenyum kecut. "Akhirnya... lo datang juga."`,
+    is_ending: false,
+    auto_choice: true,
+    choices: [
+      { target: '04A', desc: 'Dengerin cerita Rama — ini plot twist-nya mulai' },
+    ],
+  },
+  '04C': {
+    title: 'Petunjuk di Surat',
+    setting: 'Perpustakaan — Rendra baca surat lagi dengan saksama',
+    chars: 'Rendra',
+    narrative: `Di pojok kanan bawah surat, ada tulisan kecil nyaris gak keliatan:
+
+*"Cari kakek Badrun — cleaning service. Dia tau di mana aku tinggal. #R.A."*
+
+Rendra terkesiap. Jadi ada saksi lain! Kakek Badrun yang jaga sekolah dari dulu — pasti tau banyak hal.
+
+Rendra cari kakek Badrun. Ketemunya di gudang belakang. Kakek itu kaget. "Kamu... yang pake loker 7?"
+
+"Iya, Kek."
+
+Kakek Badrun menghela napas. "Rama — eh, Andi — nitip nomor hape buat kamu. Katanya, *'kalau adeknya udah siap, kabarin aku.'*"`,
+    is_ending: false,
+    auto_choice: true,
+    choices: [
+      { target: '04A', desc: 'Hubungi nomor itu — akhirnya nyambung ke Andi' },
+    ],
+  },
+  '04D': {
+    title: 'Satu Lawan Satu',
+    setting: 'Kelas — pulang sekolah, Rendra sendirian',
+    chars: 'Rendra',
+    narrative: `Rendra berdiri sendiri. Geng bully Dito memang dihukum — tapi yang lain masih lirik sinis. Rendra tau, perang belum selesai.
+
+Tapi di loker, ada kertas lagi. Kali ini ada nomor hape.
+
+*"Ini nomor aku. Aku yang nulis surat pertama. Nama aku Rama — dulu Andi. Aku di loker 7 sebelum kamu. Chat aku kalo lo siap.* 🫂"
+
+Rendra megang hp. Jari di atas keyboard. Haruskah ia chat?`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04A', desc: 'Chat nomor itu — "Halo... ini Rendra. Penghuni baru loker 7."' },
+      { target: '04E', desc: 'Hapus nomor — lebih aman sendiri' },
+    ],
+  },
+  '04E': {
+    title: 'Kembali ke Diam',
+    setting: 'Rumah Rendra — malam, lampu kamar temaram',
+    chars: 'Rendra',
+    narrative: `Rendra buang nomor itu. Gak usah. Better safe than sorry.
+
+Tapi besoknya... Dito dan gengnya malah makin menjadi. Mereka tahu Rendra gak punya temen. Gak punya bukti. Gak punya apa-apa.
+
+Loker Rendra dicoret lagi. Kali pakai spidol hitam: **"NGADU? LO MAU MATI?"**
+
+Rendra cuma bisa diem. Ia ingat surat itu. *"Jangan kayak aku."* Tapi mungkin... udah terlambat.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '06B', desc: 'Hubungi nomor itu — tolong, aku butuh bantuan!' },
+      { target: '07B', desc: 'Pindah sekolah — kayak Andi dulu' },
+    ],
+  },
+  '04F': {
+    title: 'Kumpulkan Bukti',
+    setting: 'Sekolah — Rendra mulai beraksi diam-diam',
+    chars: 'Rendra',
+    narrative: `Rendra gak mau diem lagi. Tapi juga gak mau teriak-teriak.
+
+Ia mulai kumpulin bukti. Screenshot chat. Rekaman suara (dari jarak aman). Foto coretan di loker. Minta saksi — beberapa anak kelas lain yang liat tapi diem aja.
+
+Tiga orang berani ngaku. Satu ngasih video pendek. Sandra, temen sekelas, bilang: "Aku liat Dito yang nulis itu. Aku bersaksi."
+
+Perlahan, bukti terkumpul. Rendra punya map tebal berisi semua kekejian yang mereka lakukan.
+
+Dan di map itu, ia selipkan surat pertama dari Andi.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '06A', desc: 'Lapor ke kepala sekolah — sekarang pake bukti lengkap' },
+      { target: '06B', desc: 'Chat Andi dulu — minta saran sebelum bertindak' },
+    ],
+  },
+  '04G': {
+    title: 'Bersama Lebih Kuat',
+    setting: 'Koridor sekolah — kerumunan kecil mulai terbentuk',
+    chars: 'Rendra, Sandra, Andi (via chat), beberapa siswa lain',
+    narrative: `Rendra berdiri di koridor. Ia teriak ke teman-teman yang nonton: "KALIAN DIEM AJA LIAT INI? KALO GILIRAN KALIAN BESOK? LO ON!"
+
+Suasana hening. Lalu Sandra maju. "Aku bareng Rendra!"
+
+Satu per satu, siswa lain mulai maju. Dua orang. Lima orang. Sepuluh. Mereka berdiri di belakang Rendra. Geng Dito mundur — kalah jumlah. Muka mereka pucat.
+
+"Lo pikir lo hebat? Kita berani karena kita BERSAMA!" teriak Sandra.
+
+Dito dan gengnya kabur. Tepuk tangan pecah. Rendra gak nyangka — ia punya temen selama ini. Cuma gak ada yang berani pertama.
+
+Hape Rendra bergetar. Chat dari nomor gak dikenal: *"Gue liat videonya. Makasih, Rendra. Lo berani. Bangga sama lo. — Andi (mantan penghuni loker 7) 🫂"*`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '04A', desc: 'Balas chat Andi — akhirnya mereka terhubung!' },
+    ],
+  },
+  '04H': {
+    title: 'Menyerah',
+    setting: 'Kamar Rendra — gelap, gorden tertutup',
+    chars: 'Rendra',
+    narrative: `Rendra berbaring di kasur. Pandangan kosong ke langit-langit.
+
+"Besok... ngomong ke mama. Pindah sekolah."
+
+Udah. Gak sanggup lagi. Surat itu? Mungkin omong kosong. Gak ada yang bisa nolong.
+
+Tapi sebelum tidur, hapenya bergetar. Pesan dari nomor gak dikenal:
+
+*"Halo, ini Andi. Mantan penghuni loker 7. Kakek Badrun kasih nomormu. Aku tau lo lagi down. Aku juga pernah. Tapi percaya — gak perlu lawan sendirian. Balas ya. Aku di sini."*
+
+Rendra baca pesan itu berulang kali. Air mata jatuh lagi. Tapi kali ini... ada sedikit hangat.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '06B', desc: 'Balas — "Aku Rendra. Lo... beneran mau bantu?"' },
+      { target: '07B', desc: 'Hapus — udah males, pengen lupa semuanya' },
+    ],
+  },
+  '05': {
+    title: 'Plot Twist — Andi & Surat Itu 🤯',
+    setting: 'Taman sekolah — bangku bawah pohon, hape di tangan Rendra',
+    chars: 'Rendra, Andi (via chat)',
+    narrative: `Rendra megang hape. Akhirnya ia chat nomor itu. Dan jawabannya cepat.
+
+**Andi:** "Halo. Ini Andi. Rama Andika — nama asliku. Panggil aja Andi."
+
+**Rendra:** "Lo... yang tulis surat itu?"
+
+**Andi:** "Iya. Dan coretan 'PENDIAM' di loker lo. Maaf. Aku sengaja biar lo peka. Biar lo gak diem kayak aku dulu."
+
+**Rendra:** "Tapi kan itu... ngerusak properti?"
+
+**Andi:** "Iya. Aku salah. Aku minta maaf. Tapi aku udah pesen sama kakek Badrun — dia siap bersihin. Tapi sebelum dibersihin... aku mau lo liat itu dulu. Biar lo marah. Biar lo bergerak."
+
+Rendra diem. Campur aduk. Marah? Kecewa? Tapi juga... di sisi lain, tanpa coretan itu, mungkin Rendra gak bakal nyari tau. Gak bakal ketemu Andi.
+
+**Andi:** "Lo marah? Gapapa. Aku terima. Tapi tau gak — setelah setahun pindah, aku nyesel. Bukan karena pindah. Tapi karena gak pernah lawan. Aku gak mau lo ngerasain hal yang sama."
+
+**Rendra:** "Gue... gak tau harus marah atau makasih."
+
+**Andi:** "Dua-duanya boleh. Yang penting — lo udah gak diem lagi."`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '06A', desc: 'Terima Andi — "Makasih. Aku bakal lawan. Bukan cuma buat aku, tapi buat yang lain."' },
+      { target: '06B', desc: 'Marah — "Gue gak suka dijebak. Jangan chat gue lagi."' },
+    ],
+  },
+  '06A': {
+    title: 'Bersatu Melawan Bully',
+    setting: 'Ruang kepala sekolah — tegang, tapi Rendra siap',
+    chars: 'Rendra, Bu Hesti (guru BK), Pak Ardian (kepala sekolah), Sandra, Dito & gengnya',
+    narrative: `Rendra berdiri di depan Pak Ardian. Map tebal berisi bukti ada di meja. Sandra di sampingnya. Dan di layar hape — Andi ikut via video call.
+
+"Dito. Ini buktinya. Screenshot chat ancaman. Foto coretan loker. Rekaman intimidasi. Tiga saksi. Dan mantan korban tahun lalu — Andi — yang pindah karena kalian," kata Rendra tegas.
+
+Dito mukanya pucat. "Itu... semua fitnah!"
+
+"FITNAH?" Sandra nyolot. "Aku liat sendiri lo ngerusak lokernya!"
+
+Pak Ardian buka map satu per satu. Mukanya makin serius. "Dito... ini udah masuk ranah pidana anak. Lo bisa dikeluarkan."
+
+Dito dan gengnya diem. Tunduk. Untuk pertama kalinya, mereka kalah.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '07A', desc: 'Dito dikeluarkan — sekolah lega, Rendra lega (Good Ending)' },
+      { target: '07C', desc: 'Pak Ardian tawarkan program anti-bully — Rendra jadi ketuanya (True Ending)' },
+    ],
+  },
+  '06B': {
+    title: 'Sendirian Lagi',
+    setting: 'Rumah Rendra — ia megang hape, bingung',
+    chars: 'Rendra',
+    narrative: `Rendra putusin komunikasi sama Andi. Marah. Ngerasa dimanfaatin.
+
+"Apaan sih, ngerusak properti sekolah, nitip surat, main petak umpet! Dasar pengecut!"
+
+Tapi setelah marah reda... Rendra mikir. Andi bilang dia nyesel. Dia minta maaf. Dia cuma mau bantu — dengan cara yang kacau, tapi tulus.
+
+Rendra scroll chat lama. Kata-kata Andi: *"Jangan diem kayak aku."*
+
+Mungkin... Andi salah. Tapi setidaknya dia coba bantu. Lebih dari yang lain.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+      { target: '07A', desc: 'Maafin Andi — "Maaf aku marah. Makasih... udah peduli."' },
+      { target: '07B', desc: 'Hapus semua — urus sendiri, pindah sekolah' },
+    ],
+  },
+  '07A': {
+    title: 'Good Ending — Bangkit dari Diam ✅',
+    setting: 'Lapangan upacara, Senin pagi — seluruh sekolah berkumpul',
+    chars: 'Rendra, Sandra, siswa lain',
+    narrative: `Pak Ardian berdiri di mic. "Hari ini, kita umumkan bahwa **Dito dan kawan-kawan** resmi dikeluarkan dari SMP Harapan Bangsa karena kasus perundungan."
+
+Semua siswa diam. Tapi kemudian — tepuk tangan. Pelan, lalu makin keras. Rendra berdiri di barisan, jantung berdebar.
+
+Pak Ardian melanjutkan: "Kita juga mau kasih penghargaan khusus buat **Rendra**, yang berani speak up. Dan pengumuman — kita resmi buka **SATGAS ANTI-BULLY** yang diketuai oleh... Rendra sendiri."
+
+Rendra kaget. Sandra dorong punggungnya. "Majulah, Bang!"
+
+Rendra jalan ke depan. Mic di tangan. Ia liat satu per satu wajah teman-temannya. Termasuk Andi — yang datang khusus hari ini.
+
+"Makasih," kata Rendra pelan. "Buat yang lagi ngalamin: **kamu gak sendirian.**"`,
+    is_ending: true,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+  '07B': {
+    title: 'Bad Ending — Pindah, Lari dari Masalah ❌',
+    setting: 'Kamar Rendra — kardus packing di mana-mana',
+    chars: 'Rendra, Mama Rendra',
+    narrative: `Rendra bantu mama masukkan buku ke kardus. Rumah baru. Sekolah baru.
+
+"Kamu gak salah, Nak. Sekolah itu yang gagal lindungi kamu," kata Mama.
+
+Rendra cuma angguk. Tapi di dalam hatinya, ia tahu. Ia lari. Sama kayak Andi dulu.
+
+Di tengah packing, Rendra nemu kertas — surat dari loker nomor 7. *"Jangan diem kayak aku."*
+
+Rendra diam. Lalu sobek surat itu. Buang ke tempat sampah.
+
+"Iya... gue juga bakal lari. Sama kayak lo."`,
+    is_ending: true,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+  '07C': {
+    title: 'True Ending — Gerakan Seluruh Sekolah 🌟',
+    setting: 'Aula sekolah — semua siswa berkumpul, spanduk "STOP BULLY" di panggung',
+    chars: 'Rendra, Sandra, Andi (datang khusus), Pak Ardian, Bu Hesti, seluruh siswa',
+    narrative: `Satu bulan setelah kejadian.
+
+Dito dan gengnya diskors sementara. Tapi yang lebih penting dari hukuman — perubahan.
+
+Pak Ardian mengumumkan: **"Program Anti-Bully SMP Harapan Bangsa: SATGAS PELINDUNG."** Ketua? Rendra. Wakil? Sandra. Anggota? 12 siswa dari tiap kelas.
+
+Rendra naik ke panggung. Mikrofon di tangan. Ia tidak sendirian — Sandra di kiri, Andi di kanan (iya, Andi datang dari sekolah barunya!).
+
+"Hari ini, aku gak cuma ngomong buat diriku sendiri," Rendra mulai. "Tapi buat yang diem di kelas, yang nangis di kamar, yang gak tau harus bilang ke siapa. **Kita ada buat lo.** "
+
+Andi ambil mic. "Aku Andi. Korban tahun lalu. Aku pindah karena gak tahan. Tapi sekarang, aku lihat perubahan. **Jangan lari. Lawan — bukan dengan kekerasan, tapi dengan keberanian dan persatuan.** "
+
+Aula pecah dengan tepuk tangan. Spanduk **#Loker7Berani** diterbangkan.`,
+    is_ending: false,
+    auto_choice: false,
+    choices: [
+    ],
+  },
+};
+
+
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+function goTo(sceneId) {
+  if (sceneId === 'restart') {
+    goTo('01');
+    return;
+  }
+  
+  const scene = story[sceneId];
+  if (!scene) { document.getElementById('narrative').innerHTML = '<p>Scene belum tersedia.</p>'; return; }
+  
+  document.getElementById('scene-number').textContent = 'Scene ' + sceneId;
+  document.getElementById('scene-title').textContent = scene.title;
+  
+  let metaHtml = '';
+  if (scene.setting) metaHtml += '<span>📍 ' + scene.setting + '</span>';
+  if (scene.chars) metaHtml += '<span>👤 ' + scene.chars + '</span>';
+  document.getElementById('scene-meta').innerHTML = metaHtml;
+  
+  // Format narrative: bold/italic markers
+  let narr = scene.narrative;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  narr = narr.replace(/\n/g, '<br>');
+  document.getElementById('narrative').innerHTML = '<p>' + narr.split('\n\n').join('</p><p>') + '</p>';
+  
+  const choicesDiv = document.getElementById('choices');
+  const choicesLabel = document.getElementById('choices-label');
+  const endingSection = document.getElementById('ending-section');
+  
+  choicesDiv.innerHTML = '';
+  endingSection.innerHTML = '';
+  
+  if (scene.is_ending) {
+    choicesLabel.style.display = 'none';
+    
+    // Determine ending type
+    let badgeClass = 'ending-twist';
+    let badgeText = '🎭 PLOT TWIST ENDING';
+    if (sceneId.includes('7A')) { badgeClass = 'ending-good'; badgeText = '✅ GOOD ENDING'; }
+    else if (sceneId.includes('7B')) { badgeClass = 'ending-bad'; badgeText = '💀 BAD ENDING'; }
+    
+    let endingHtml = '<div class="ending-badge ' + badgeClass + '">' + badgeText + '</div>';
+    
+    // Extract ending text from narrative
+    const lines = scene.narrative.split('\n');
+    for (let line of lines) {
+      if (line.includes('SELAMAT') || line.includes('GAME OVER') || line.includes('PLOT TWIST ENDING') || line.includes('Kadang musuh')) {
+        endingHtml += '<div class="ending-text">' + line.replace(/\*\*/g, '').replace(/\*/g, '') + '</div>';
+      }
+    }
+    
+    // Add restart button
+    const rstBtn = document.createElement('button');
+    rstBtn.className = 'restart-btn';
+    rstBtn.textContent = '🔄 Main Lagi dari Awal';
+    rstBtn.onclick = function() { goTo('01'); };
+    endingSection.appendChild(rstBtn);
+  } else {
+    choicesLabel.style.display = 'block';
+  }
+  
+  // Auto-advance for scenes with only one choice or auto_choice flag
+  if (scene.auto_choice || (scene.choices.length === 1 && scene.choices[0].target !== 'restart')) {
+    setTimeout(function() {
+      goTo(scene.choices[0].target);
+    }, 2500);
+  }
+  
+  // Add choice buttons
+  if (!scene.is_ending) {
+    scene.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      let label = letters[i] || (i + 1);
+      btn.innerHTML = '<span class="choice-num">' + label + '</span>' + choice.desc;
+      btn.onclick = function() { goTo(choice.target); };
+      choicesDiv.appendChild(btn);
+    });
+  }
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Start the story
+goTo('01');
+</script>
+</body>
+</html>
