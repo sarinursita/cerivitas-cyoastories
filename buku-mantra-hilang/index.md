@@ -1,6 +1,6 @@
-# Buku Mantra Hilang
+# Misteri Buku Mantra Yang Hilang
 
-**Penulis:** [nama]
+**Penulis:** [Melody]
 **Genre:** Fantasy
 **Tags:** fantasi, mantra, misteri
 **Rating:** PG
