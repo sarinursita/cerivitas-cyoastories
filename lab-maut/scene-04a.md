@@ -16,5 +16,5 @@ Xavier mengerjap. Pandangan makin kabur. Dia harus cepet minum obat...
 ---
 
 **Pilihan:**
-- [Scene 05A]: Langsung minum obat dari kantong — buru-buru ❌
-- [Ending 01]: Cek ke dokter dulu — lebih aman ✅
+- [Scene 05A]: Langsung minum obat dari kantong — buru-buru
+- [Ending 01]: Cek ke dokter dulu

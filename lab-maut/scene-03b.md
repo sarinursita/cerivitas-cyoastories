@@ -18,5 +18,5 @@ Xavier melenggang ke ruang 4. Di dalam, botol M-7 terpajang di lemari pendingin.
 ---
 
 **Pilihan:**
-- [Scene 04A]: Ambil 1 pil aja — alarm ga bunyi kalo ambil dikit
-- [Scene 04B]: Ambil beberapa pil + ambil dokumen di meja — alarm mungkin bunyi
+- [Scene 04A]: Ambil 1 pil aja
+- [Scene 04B]: Ambil beberapa pil + ambil dokumen di meja

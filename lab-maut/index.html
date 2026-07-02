@@ -3,411 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab Maut — Cerita Interaktif</title>
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0a0a1a;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    background-image: radial-gradient(ellipse at 20% 50%, #0d0d2b 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, #1a0a2e 0%, transparent 50%);
-  }
-  .container {
-    max-width: 720px;
-    width: 100%;
-    margin: 40px auto;
-  }
-  .scene-card {
-    background: rgba(20, 20, 50, 0.85);
-    border: 1px solid rgba(100, 100, 200, 0.2);
-    border-radius: 16px;
-    padding: 40px 35px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    animation: fadeSlide 0.6s ease-out;
-  }
-  @keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .scene-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .scene-num {
-    background: linear-gradient(135deg, #6c4fa7, #8b6fcc);
-    color: #fff;
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .scene-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .scene-meta {
-    font-size: 14px;
-    color: #8888aa;
-    margin-bottom: 20px;
-    border-left: 3px solid #6c4fa7;
-    padding-left: 15px;
-    line-height: 1.6;
-  }
-  .scene-meta strong { color: #b8b8d8; }
-  .scene-text {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #d0d0e8;
-    margin-bottom: 30px;
-  }
-  .scene-text p { margin-bottom: 15px; }
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(100, 100, 200, 0.3), transparent);
-    margin-bottom: 25px;
-  }
-  .choices-label {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8888aa;
-    margin-bottom: 15px;
-  }
-  .choices {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .choice-btn {
-    background: rgba(30, 30, 70, 0.8);
-    color: #e0e0f0;
-    border: 1px solid rgba(100, 100, 200, 0.25);
-    padding: 16px 22px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 16px;
-    text-align: left;
-    font-family: inherit;
-    line-height: 1.5;
-  }
-  .choice-btn:hover {
-    background: rgba(60, 50, 120, 0.8);
-    border-color: rgba(139, 111, 204, 0.6);
-    transform: translateX(5px);
-    box-shadow: 0 0 20px rgba(108, 79, 167, 0.2);
-  }
-  .choice-btn:active { transform: translateX(2px); }
-  .ending-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #f59e0b, #ef4444);
-    color: #fff;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-  }
-  .restart-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #6c4fa7, #8b6fcc);
-    color: #fff;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 25px;
-    transition: all 0.3s;
-    font-family: inherit;
-  }
-  .restart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(108, 79, 167, 0.4);
-  }
-  .progress-bar {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-  }
-  .progress-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(100, 100, 200, 0.15);
-    border: 1px solid rgba(100, 100, 200, 0.2);
-    transition: all 0.5s;
-  }
-  .progress-dot.active { background: #8b6fcc; border-color: #8b6fcc; box-shadow: 0 0 10px rgba(139, 111, 204, 0.5); }
-  .progress-dot.visited { background: rgba(139, 111, 204, 0.4); border-color: rgba(139, 111, 204, 0.4); }
-  .typing-cursor::after {
-    content: '';
-    display: inline-block;
-    width: 3px;
-    height: 18px;
-    background: #8b6fcc;
-    margin-left: 4px;
-    animation: blink 1s infinite;
-    vertical-align: middle;
-  }
-  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-  .scene-ending .scene-title { background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  @media (max-width: 600px) {
-    body { padding: 12px; }
-    .scene-card { padding: 25px 20px; }
-    .scene-title { font-size: 20px; }
-    .scene-text { font-size: 15px; }
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div id="progress" class="progress-bar"></div>
-  <div class="scene-card" id="scene-container">
-    <div id="scene-content"></div>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
   </div>
+  <div id="sceneContainer"></div>
 </div>
-
 <script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4a","scene4b","scene5a","scene6a","scene6b"];
 const story = {
-  "01": {
-    num: "1",
-    title: "Misi Datang",
-    setting: "Markas intelijen, masa depan fiksi. Ruang briefing minimalis dengan layar holografik.",
-    chars: "Xavier, Komandan",
-    text: "Xavier berdiri tegap di depan meja holografik. Di atasnya, data seorang perempuan — korban uji coba — berputar dalam sinar biru.<br><br>&ldquo;Korban ketiga,&rdquo; kata Komandan datar. &ldquo;Laboratorium itu... kita sebut Lab Maut. Profesor-profesor terkenal di balik temboknya. Mereka bikin pil aneh, dan orang-orang jadi kelinci percobaan.&rdquo;<br><br>Xavier menatap data itu. Perempuan itu jatuh meninggal beberapa detik setelah minum pil.<br><br>&ldquo;Kita butuh satu sampel pil itu. Dan bukti,&rdquo; lanjut Komandan. &ldquo;Kau yang paling bisa dipercaya, Xavier.&rdquo;",
-    choices: [
-      {text: "🚀 Langsung berangkat — gas pol, ga pake persiapan", next: "02a"},
-      {text: "📋 Riset dulu soal lab — lebih aman tapi makan waktu", next: "02b"}
-    ]
-  },
-  "02a": {
-    num: "2A",
-    title: "Nyusup ke Lab (Langsung)",
-    setting: "Laboratorium — gedung tinggi, dinding putih, lorong-lorong steril dengan lampu neon kedap-kedip. Malam hari.",
-    chars: "Xavier",
-    text: "Xavier melompat pagar belakang lab tanpa suara. Tanpa persiapan, dia hanya modal naluri dan peralatan standar.<br><br>Lorong lab sepi. Terlalu sepi. Langkah kakinya menggema di ubin putih. Di kejauhan, terdengar suara mesin berderu rendah.<br><br>Tiba-tiba — langkah kaki dari ujung lorong. Xavier menyempit ke balik pintu. Dua orang staff lab lewat, ngobrol pelan.<br><br>&ldquo;Kata Profesor, pil M-7 udah siap di ruang 4.&rdquo;<br><br>&ldquo;Siap-siap aja. Besok uji coba lagi.&rdquo;<br><br>Xavier menunggu mereka pergi. Ruang 4, ya?",
-    choices: [
-      {text: "🚪 Cari jalan ke ruang 4 lewat pintu belakang (aman)", next: "03a"},
-      {text: "🎭 Ikuti staffnya, nyamar nimbrung (berisiko)", next: "03b"}
-    ]
-  },
-  "02b": {
-    num: "2B",
-    title: "Nyusup ke Lab (Riset Dulu)",
-    setting: "Laboratorium — gedung tinggi, lorong steril. Xavier udah pelajari denah selama 2 jam.",
-    chars: "Xavier",
-    text: "Berkat riset, Xavier tau persis: ventilasi di lantai 2, jadwal shift staff, dan kamera buta di sayap timur.<br><br>Dia masuk lewat pintu samping — persis 7 menit setelah pergantian shift. Denah lab udah di kepala.<br><br>Lorong sepi. Tapi Xavier nemuin sesuatu yang ganjil: ada lenceng staff tergeletak di lantai. Masih hangat. Kayak baru aja dipake.<br><br>&ldquo;Pasti ada yang baru lewat,&rdquo; gumamnya.<br><br>Dari ujung lorong, terdengar suara pintu metal dibuka. Xavier sigap.",
-    choices: [
-      {text: "💨 Jalan lewat jalur ventilasi (aman, lebih lambat)", next: "03a"},
-      {text: "🪪 Pake lenceng staff buat nyamar masuk (cepat, berisiko)", next: "03b"}
-    ]
-  },
-  "03a": {
-    num: "3A",
-    title: "Nemuin Pil Aneh (Pintu Belakang)",
-    setting: "Ruang penyimpanan di belakang lab. Suhu dingin, rak-rak logam penuh botol kimia. Hanya satu lampu darurat menyala.",
-    chars: "Xavier",
-    text: "Xavier masuk lewat lorong belakang — persis di belakang ruang 4. Lewat celah pintu, dia liat meja kaca penuh alat lab.<br><br>Dan di tengah meja: satu botol kecil. Label merah bertuliskan <strong>M-7</strong>.<br><br>Xavier mengintip. Di luar, dua profesor lagi diskusi.<br><br>&ldquo;Efek sampingnya masih belum stabil,&rdquo; kata satu suara.<br><br>&ldquo;Toh korban ga bakal ngadu,&rdquo; jawab yang lain, dingin.<br><br>Xavier menunggu mereka pergi. Botol M-7 ada di depannya. Di sebelahnya ada dokumen riset.",
-    choices: [
-      {text: "💊 Ambil 1 pil aja — cepat, low risk", next: "04a"},
-      {text: "📑 Ambil beberapa pil + dokumennya — berani, banyak bukti", next: "04b"}
-    ]
-  },
-  "03b": {
-    num: "3B",
-    title: "Nemuin Pil Aneh (Nyamar Staff)",
-    setting: "Ruang penelitian utama Lab Maut. Besar, modern, penuh monitor. Para profesor sibuk di depan data.",
-    chars: "Xavier, Profesor Alpha, Profesor Beta",
-    text: "Xavier pake lenceng staff dan jalan percaya diri. Jantungnya deg-degan, tapi wajahnya datar — profesional dingin banget.<br><br>&ldquo;Kamu staff baru?&rdquo; tegur seseorang.<br><br>Xavier menoleh. Seorang profesor tua dengan kacamata tebal menatapnya curiga.<br><br>&ldquo;Aku dari divisi logistik,&rdquo; jawab Xavier tenang. &ldquo;Ada permintaan cek suhu ruang penyimpanan.&rdquo;<br><br>Profesor itu mengernyit, lalu mengangguk malas. &ldquo;Cepetan. Ruang 4. Jangan ganggu riset.&rdquo;<br><br>Xavier melenggang ke ruang 4. Di dalam, botol M-7 terpajang di lemari pendingin. Tapi ada alarm kecil di gagangnya.",
-    choices: [
-      {text: "💊 Ambil 1 pil aja — alarm ga bunyi kalo ambil dikit", next: "04a"},
-      {text: "📑 Ambil beberapa pil + ambil dokumen di meja — alarm mungkin bunyi", next: "04b"}
-    ]
-  },
-  "04a": {
-    num: "4A",
-    title: "Pusing di Markas (Hati-hati)",
-    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",
-    chars: "Xavier",
-    text: "Xavier kembali ke markas dengan satu pil M-7 aman di kantong. Misi berhasil.<br><br>Tapi tiba-tiba... kepalanya pusing. Pandangan berkunang-kunang.<br><br>Xavier terhuyung ke meja. Jari-jarinya gemetar. &ldquo;Sial... penyakit lamaku kambuh,&rdquo; gumamnya.<br><br>Dia merogoh saku jaket — tempat obat sakit kepalanya. Tapi di saku yang sama, ada pil M-7 yang baru dia ambil. Keduanya hampir identik: bulat, putih, tanpa label.<br><br>Xavier mengerjap. Pandangan makin kabur. Dia harus cepet minum obat...",
-    choices: [
-      {text: "❌ Langsung minum obat dari kantong — buru-buru", next: "05a"},
-      {text: "✅ Cek ke dokter dulu — lebih aman", next: "end01"}
-    ]
-  },
-  "04b": {
-    num: "4B",
-    title: "Pusing di Markas (Bawa Banyak Bukti)",
-    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",
-    chars: "Xavier",
-    text: "Xavier kembali dengan 3 pil M-7 dan setumpuk dokumen riset. Misi besar.<br><br>Tapi di tengah perjalanan, kepalanya mendadak pusing berat. Penyakit lamanya kumat.<br><br>Xavier jatuh ke kursi, merogoh saku. Di dalamnya: pil M-7 dan obat sakit kepalanya — sama persis bentuknya.<br><br>&ldquo;Mana yang mana...?&rdquo; bisiknya, mata udah berkunang.<br><br>Waktu terasa berhenti. Tangan Xavier meraba-raba di antara dua pil yang identik. Salah satu bisa nyelamatin dia. Yang satunya... bisa kirim dia ke dunia yang ga dikenal.",
-    choices: [
-      {text: "❌ Minum aja, ga ada waktu mikir", next: "05a"},
-      {text: "✅ Paksa diri ke klinik markas", next: "end01"}
-    ]
-  },
-  "05a": {
-    num: "5",
-    title: "Bangun di Dunia Lain",
-    setting: "Dunia lain — langit ungu, tanah hitam berkilau, pepohonan transparan seperti kaca. Udara dingin dan tipis.",
-    chars: "Xavier",
-    text: "Xavier membuka mata. Langit ungu menyambutnya.<br><br>&ldquo;Haah?!&rdquo;<br><br>Dia bangun. Badannya ringan. Pusing hilang. Tapi ini... bukan markas. Bukan lab. Bukan tempat yang dia kenal.<br><br>Di kejauhan, ada dua jalur:<br>&nbsp;&nbsp;🌅 <strong>Timur:</strong> Cahaya hangat, keemasan, seperti matahari terbit.<br>&nbsp;&nbsp;🌑 <strong>Barat:</strong> Gelap pekat, tapi ada semacam denyut cahaya ungu di dalamnya.<br><br>Xavier menepuk kantongnya. Pil M-7 masih ada. Dan selembar kertas robek dari dokumen lab — entah gimana caranya ikut.<br><br>&ldquo;Jadi... ini efek pil M-7?&rdquo; gumamnya.<br><br>Suara aneh berdesir di angkasa. Udara bergetar. Xavier harus memilih.",
-    choices: [
-      {text: "🌅 Jalan ke arah cahaya — mungkin ada jawaban", next: "06a"},
-      {text: "🌑 Jalan ke arah gelap — nyali besar, mau liat sisi lain", next: "06b"}
-    ]
-  },
-  "06a": {
-    num: "6",
-    title: "Eksplorasi — Cahaya",
-    setting: "Dunia cahaya — hamparan emas, bangunan-bangunan transparan seperti kristal. Tenang, tapi ada yang disembunyikan.",
-    chars: "Xavier",
-    text: "Xavier berjalan menuju cahaya. Semakin dekat, suasananya makin hangat. Tapi ada bunyi aneh — seperti bisikan.<br><br>&ldquo;Itu... suara manusia?&rdquo;<br><br>Di tengah hamparan emas, Xavier melihat mereka: para korban uji coba. Termasuk perempuan yang mati di lab. Mereka ada di sini — sebagai bayangan tembus pandang, seperti hologram.<br><br>&ldquo;Kau... salah satu dari mereka?&rdquo; tanya bayangan itu.<br><br>Xavier kaget. Dia bisa diajak ngomong.<br><br>Bayangan itu menatapnya sedih. &ldquo;Pil M-7 bukan obat. Ini portal. Profesor mengirim kami ke sini... untuk jadi sumber energi dunia ini.&rdquo;<br><br>Xavier mengepalkan tangan. Rahasia profesor terbongkar. Tapi sekarang dia ada di sini, di dunia lain. Mau apa?",
-    choices: [
-      {text: "🚪 Cari jalan keluar — kabur dari dunia ini", next: "end02"},
-      {text: "🔍 Cari tahu rahasia lebih dalam — mungkin ada yang lebih besar", next: "end03"}
-    ]
-  },
-  "06b": {
-    num: "6",
-    title: "Eksplorasi — Gelap",
-    setting: "Dunia gelap — langit hitam dengan kilau ungu, tanah berbatu, suara deru mesin dari dalam perut bumi.",
-    chars: "Xavier",
-    text: "Xavier melangkah ke kegelapan. Semakin dalam, semakin terasa... familiar.<br><br>&ldquo;Tempat ini...&rdquo; bisiknya.<br><br>Di tengah kegelapan, ada singgasana besar dari kristal hitam. Dan di atasnya — sesosok bayangan duduk, menunggu.<br><br>&ldquo;Akhirnya kau datang, Xavier.&rdquo;<br><br>Suara itu... Xavier pernah denger sebelumnya. Bayangan itu berdiri. Wajahnya — samar, tapi Xavier bisa lihat — mirip seseorang.<br><br>&ldquo;Aku adalah Profesor yang kau cari. Tapi bukan yang di dunia realitas.&rdquo; Bayangan itu tersenyum. &ldquo;Aku versi dia yang berhasil kabur ke sini. Dan kau... kau jatuh ke perangkapnya.&rdquo;<br><br>Xavier terdiam. Jadi profesor udah pernah ke sini sebelumnya?",
-    choices: [
-      {text: "😔 Terima takdir — mungkin ini memang tempatku sekarang", next: "end04"},
-      {text: "⚔️ Lawan kegelapan — ga ada yang bisa nahan Xavier!", next: "end05"}
-    ]
-  },
-  "end01": {
-    num: "🏁",
-    title: "Ending: Lab Dibongkar",
-    ending: true,
-    text: '<div class="ending-badge">ENDING 1</div>Xavier berhasil ke klinik tepat waktu. Dokter bilang, kalo telat 5 menit lagi, Xavier bisa koma.<br><br>Dengan bukti pil M-7 dan dokumen riset, tim intelijen menggerebek Lab Maut. Semua profesor ditangkap. Pil aneh disita.<br><br>Di ruang interogasi, Profesor Alpha cuma tersenyum tipis.<br><br>&ldquo;Kalian pikir ini kemenangan?&rdquo; katanya pelan. &ldquo;Pil M-7 cuma permulaan. Dunia lain itu nyata. Dan cepat atau lambat... mereka yang di sana bakal balik.&rdquo;<br><br>Xavier menatap profesor itu dingin. &ldquo;Biar kita lihat siapa yang duluan balik.&rdquo;<br><br><strong>🏁 Lab Maut ditutup. Tapi rahasianya baru dimulai...</strong>'
-  },
-  "end02": {
-    num: "🏁",
-    title: "Ending: Kembali dengan Rahasia",
-    ending: true,
-    text: '<div class="ending-badge">ENDING 2</div>Xavier memutuskan cari jalan keluar. Bayangan para korban menunjukkan<br><br>&ldquo;Tapi hati-hati,&rdquo; bisik bayangan itu. &ldquo;Kau bawa sesuatu dari sini... di dalam tubuhmu.&rdquo;<br><br>Xavier melangkah ke gerbang. Cahaya menyilaukan.<br><br>🌌<br><br>Dia bangun di markas. Tim medis mengelilinginya. Tapi Xavier merasa beda. Di tangannya, ada luka kecil berbentuk aneh — seperti simbol yang sama di botol M-7.<br><br>Diam-diam, Xavier sadar: dia pulang, tapi ada <em>sesuatu</em> yang ikut.<br><br><strong>🏁 Xavier selamat. Tapi rahasia profesor sekarang ada di dalam dirinya...</strong>'
-  },
-  "end03": {
-    num: "🏁",
-    title: "Ending: Rahasia Gelap Terungkap",
-    ending: true,
-    text: '<div class="ending-badge">ENDING 3</div>Xavier memilih mencari tahu lebih dalam. Bayangan korban membawanya ke pusat dunia cahaya — dan di sana, Xavier menemukan kebenaran yang mengejutkan.<br><br>Para profesor di lab bukan penemu pil M-7. Mereka cuma kurir. Sosok di balik semua ini adalah... <strong>pemerintah dunia fiksi itu sendiri.</strong> Mereka butuh energi manusia dari dunia nyata untuk bertahan hidup.<br><br>&ldquo;Kau tau kenapa profesor bekerja sama?&rdquo; tanya bayangan itu. &ldquo;Karena janji: mereka bisa hidup abadi di sini.&rdquo;<br><br>Xavier menatap langit emas. Dia punya pilihan sulit: hancurin sistem ini, atau jadi bagian darinya.<br><br><strong>🏁 Rahasia terbongkar. Tapi pilihan Xavier belum selesai...</strong>'
-  },
-  "end04": {
-    num: "🏁",
-    title: "Ending: Terjebak Selamanya",
-    ending: true,
-    text: '<div class="ending-badge">ENDING 4</div>Xavier menunduk. &ldquo;Mungkin... ini memang tempatku.&rdquo;<br><br>Shadow Profesor tertawa pelan. &ldquo;Kau bijak, Xavier. Lab Maut udah selesai di duniamu. Tapi di sini... kau baru memulai.&rdquo;<br><br>Dunia gelap menyelimuti Xavier. Tubuhnya perlahan berubah — bukan jadi bayangan, tapi penjaga baru dunia ini. Shadow Profesor menghilang, meninggalkan Xavier di singgasana.<br><br>Xavier — si profesional dingin — sekarang jadi penguasa dunia lain.<br><br>Tapi jauh di dalam hatinya, dia tau... dia ga bisa balik lagi.<br><br><strong>🏁 Selamat tinggal, dunia nyata. Xavier sekarang milik dunia lain.</strong>'
-  },
-  "end05": {
-    num: "🏁",
-    title: "Ending: Kembali dengan Kekuatan",
-    ending: true,
-    text: '<div class="ending-badge">ENDING 5</div>&ldquo;Ga ada yang bisa nahan Xavier,&rdquo; desisnya dingin. Dia menerjang bayangan profesor.<br><br>Pertarungan sengit terjadi. Xavier — bekas intel terbaik — ngandalin insting. Tapi Shadow Profesor punya kekuatan dunia lain.<br><br>Di saat kritis, Xavier ingat sesuatu: pil M-7 masih di kantongnya. Kalo di dunia sini pil itu adalah kunci... mungkin dia bisa pake sebaliknya?<br><br>Xavier menghancurkan pil itu di tanah. Cahaya ungu meledak. Shadow Profesor menjerit, sirna.<br><br>🌌<br><br>Xavier bangun di markas — hidup! Di tangannya, ada sisa energi ungu yang berkilau. Kekuatan dari dunia lain masih melekat.<br><br>Xavier tersenyum tipis. &ldquo;Lab Maut... belum selesai.&rdquo;<br><br><strong>🏁 Xavier pulang. Dengan kekuatan baru. Dan satu misi baru: balas dendam.</strong>'
-  }
-};
+  "scene1": {    title: "Misi Datang",    setting: "Markas intelijen, masa depan fiksi. Ruang briefing minimalis dengan layar holografik.",    karakter: "Xavier, Komandan",    text: `Xavier berdiri tegap di depan meja holografik. Di atasnya, data seorang perempuan — korban uji coba — berputar dalam sinar biru.
 
-const allSceneIds = ["01","02a","02b","03a","03b","04a","04b","05a","06a","06b","end01","end02","end03","end04","end05"];
-const mainScenes = ["01","02a","02b","03a","03b","04a","04b","05a","06a","06b"];
+"Korban ketiga," kata Komandan datar. "Laboratorium itu... kita sebut Lab Maut. Profesor-profesor terkenal di balik temboknya. Mereka bikin pil aneh, dan orang-orang jadi kelinci percobaan."
 
-let currentScene = "01";
-let visited = new Set();
-let history = [];
+Xavier menatap data itu. Perempuan itu jatuh meninggal beberapa detik setelah minum pil.
 
-function renderScene(id) {
-  const scene = story[id];
-  if (!scene) return;
+"Kita butuh satu sampel pil itu. Dan bukti," lanjut Komandan. "Kau yang paling bisa dipercaya, Xavier."`,    isEnd: false,    choices: [      {target: "scene2a", text: "Langsung berangkat — gas pol, ga pake persiapan"},      {target: "scene2b", text: "Riset dulu soal lab"}    ]  },  "scene2a": {    title: "Nyusup ke Lab (Langsung)",    setting: "Laboratorium — gedung tinggi, dinding putih, lorong-lorong steril dengan lampu neon kedap-kedip. Malam hari.",    karakter: "Xavier",    text: `Xavier melompat pagar belakang lab tanpa suara. Tanpa persiapan, dia hanya modal naluri dan peralatan standar.
 
-  currentScene = id;
-  visited.add(id);
-  history.push(id);
+Lorong lab sepi. Terlalu sepi. Langkah kakinya menggema di ubin putih. Di kejauhan, terdengar suara mesin berderu rendah.
 
-  // Progress bar
-  const progressEl = document.getElementById('progress');
-  progressEl.innerHTML = mainScenes.map(sid => 
-    `<div class="progress-dot ${sid === id ? 'active' : visited.has(sid) ? 'visited' : ''}"></div>`
-  ).join('');
+Tiba-tiba — langkah kaki dari ujung lorong. Xavier menyempit ke balik pintu. Dua orang staff lab lewat, ngobrol pelan.
 
-  const container = document.getElementById('scene-content');
+"Kata Profesor, pil M-7 udah siap di ruang 4."
 
-  if (scene.ending) {
-    container.innerHTML = `
-      <div class="scene-ending">
-        <div class="scene-header">
-          <span class="scene-num">🏁 ENDING</span>
-        </div>
-        <div class="scene-title">${scene.title}</div>
-        <div class="scene-text">${scene.text}</div>
-        <button class="restart-btn" onclick="restart()">🔄 Main Lagi</button>
-      </div>
-    `;
-  } else {
-    const choicesHtml = scene.choices.map((c, i) =>
-      `<button class="choice-btn" onclick="goTo('${c.next}')">${c.text}</button>`
-    ).join('');
+"Siap-siap aja. Besok uji coba lagi."
 
-    container.innerHTML = `
-      <div class="scene-header">
-        <span class="scene-num">Scene ${scene.num}</span>
-      </div>
-      <div class="scene-title">${scene.title}</div>
-      <div class="scene-meta">
-        <strong>Setting:</strong> ${scene.setting}<br>
-        <strong>Karakter:</strong> ${scene.chars}
-      </div>
-      <div class="scene-text">${scene.text}</div>
-      <div class="divider"></div>
-      <div class="choices-label">PILIHAN</div>
-      <div class="choices">${choicesHtml}</div>
-    `;
-  }
+Xavier menunggu mereka pergi. Ruang 4, ya?`,    isEnd: false,    choices: [      {target: "scene3a", text: "Cari jalan ke ruang 4 lewat pintu belakang"},      {target: "scene3b", text: "Ikuti staffnya, nyamar nimbrung"}    ]  },  "scene2b": {    title: "Nyusup ke Lab (Riset Dulu)",    setting: "Laboratorium — gedung tinggi, lorong steril. Xavier udah pelajari denah selama 2 jam.",    karakter: "Xavier",    text: `Berkat riset, Xavier tau persis: ventilasi di lantai 2, jadwal shift staff, dan kamera buta di sayap timur.
 
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+Dia masuk lewat pintu samping — persis 7 menit setelah pergantian shift. Denah lab udah di kepala.
 
-  // Re-trigger animation
-  const card = document.querySelector('.scene-card');
-  card.style.animation = 'none';
-  card.offsetHeight; // force reflow
-  card.style.animation = 'fadeSlide 0.6s ease-out';
-}
+Lorong sepi. Tapi Xavier nemuin sesuatu yang ganjil: ada lenceng staff tergeletak di lantai. Masih hangat. Kayak baru aja dipake.
+
+"Pasti ada yang baru lewat," gumamnya.
+
+Dari ujung lorong, terdengar suara pintu metal dibuka. Xavier sigap.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Jalan lewat jalur ventilasi — lebih lambat"},      {target: "scene3b", text: "Pake lenceng staff buat nyamar masuk — cepat"}    ]  },  "scene3a": {    title: "Nemuin Pil Aneh (Pintu Belakang)",    setting: "Ruang penyimpanan di belakang lab. Suhu dingin, rak-rak logam penuh botol kimia. Hanya satu lampu darurat menyala.",    karakter: "Xavier",    text: `Xavier masuk lewat lorong belakang — persis di belakang ruang 4. Lewat celah pintu, dia liat meja kaca penuh alat lab.
+
+Dan di tengah meja: satu botol kecil. Label merah bertuliskan **M-7**.
+
+Xavier mengintip. Di luar, dua profesor lagi diskusi.
+
+"Efek sampingnya masih belum stabil," kata satu suara.
+
+"Toh korban ga bakal ngadu," jawab yang lain, dingin.
+
+Xavier menunggu mereka pergi. Botol M-7 ada di depannya. Di sebelahnya ada dokumen riset.`,    isEnd: false,    choices: [      {target: "scene4a", text: "Ambil 1 pil aja — cepat"},      {target: "scene4b", text: "Ambil beberapa pil + dokumennya"}    ]  },  "scene3b": {    title: "Nemuin Pil Aneh (Nyamar Staff)",    setting: "Ruang penelitian utama Lab Maut. Besar, modern, penuh monitor. Para profesor sibuk di depan data.",    karakter: "Xavier, Profesor Alpha, Profesor Beta",    text: `Xavier pake lenceng staff dan jalan percaya diri. Jantungnya deg-degan, tapi wajahnya datar — profesional dingin banget.
+
+"Kamu staff baru?" tegur seseorang.
+
+Xavier menoleh. Seorang profesor tua dengan kacamata tebal menatapnya curiga.
+
+"Aku dari divisi logistik," jawab Xavier tenang. "Ada permintaan cek suhu ruang penyimpanan."
+
+Profesor itu mengernyit, lalu mengangguk malas. "Cepetan. Ruang 4. Jangan ganggu riset."
+
+Xavier melenggang ke ruang 4. Di dalam, botol M-7 terpajang di lemari pendingin. Tapi ada alarm kecil di gagangnya.`,    isEnd: false,    choices: [      {target: "scene4a", text: "Ambil 1 pil aja"},      {target: "scene4b", text: "Ambil beberapa pil + ambil dokumen di meja"}    ]  },  "scene4a": {    title: "Pusing di Markas (Hati-hati)",    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",    karakter: "Xavier",    text: `Xavier kembali ke markas dengan satu pil M-7 aman di kantong. Misi berhasil.
+
+Tapi tiba-tiba... kepalanya pusing. Pandangan berkunang-kunang.
+
+Xavier terhuyung ke meja. Jari-jarinya gemetar. "Sial... penyakit lamaku kambuh," gumamnya.
+
+Dia merogoh saku jaket — tempat obat sakit kepalanya. Tapi di saku yang sama, ada pil M-7 yang baru dia ambil. Keduanya hampir identik: bulat, putih, tanpa label.
+
+Xavier mengerjap. Pandangan makin kabur. Dia harus cepet minum obat...`,    isEnd: false,    choices: [      {target: "scene5a", text: "Langsung minum obat dari kantong — buru-buru"}    ]  },  "scene4b": {    title: "Pusing di Markas (Bawa Banyak Bukti)",    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",    karakter: "Xavier",    text: `Xavier kembali dengan 3 pil M-7 dan setumpuk dokumen riset. Misi besar.
+
+Tapi di tengah perjalanan, kepalanya mendadak pusing berat. Penyakit lamanya kumat.
+
+Xavier jatuh ke kursi, merogoh saku. Di dalamnya: pil M-7 dan obat sakit kepalanya — sama persis bentuknya.
+
+"Mana yang mana...?" bisiknya, mata udah berkunang.
+
+Waktu terasa berhenti. Tangan Xavier meraba-raba di antara dua pil yang identik. Salah satu bisa nyelamatin dia. Yang satunya... bisa kirim dia ke dunia yang ga dikenal.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Minum aja, ga ada waktu mikir"}    ]  },  "scene5a": {    title: "Bangun di Dunia Lain",    setting: "Dunia lain — langit ungu, tanah hitam berkilau, pepohonan transparan seperti kaca. Udara dingin dan tipis.",    karakter: "Xavier",    text: `**
+
+Xavier membuka mata. Langit ungu menyambutnya.
+
+"Haah?!"
+
+Dia bangun. Badannya ringan. Pusing hilang. Tapi ini... bukan markas. Bukan lab. Bukan tempat yang dia kenal.
+
+Di kejauhan, ada dua jalur:
+- **Timur:** Cahaya hangat, keemasan, seperti matahari terbit.
+- **Barat:** Gelap pekat, tapi ada semacam denyut cahaya ungu di dalamnya.
+
+Xavier menepuk kantongnya. Pil M-7 masih ada. Dan selembar kertas robek dari dokumen lab — entah gimana caranya ikut.
+
+"Jadi... ini efek pil M-7?" gumamnya.
+
+Suara aneh berdesir di angkasa. Udara bergetar. Xavier harus memilih.`,    isEnd: false,    choices: [      {target: "scene6a", text: "Jalan ke arah cahaya — penasaran, mungkin ada jawaban"},      {target: "scene6b", text: "Jalan ke arah gelap — nyali besar, mau liat sisi lain dunia ini"}    ]  },  "scene6a": {    title: "Eksplorasi — Cahaya",    setting: "Dunia cahaya — hamparan emas, bangunan-bangunan transparan seperti kristal. Tenang, tapi ada yang disembunyikan.",    karakter: "Xavier",    text: `**
+
+Xavier berjalan menuju cahaya. Semakin dekat, suasananya makin hangat. Tapi ada bunyi aneh — seperti bisikan.
+
+"Itu... suara manusia?"
+
+Di tengah hamparan emas, Xavier melihat mereka: para korban uji coba. Termasuk perempuan yang mati di lab. Mereka ada di sini — sebagai bayangan tembus pandang, seperti hologram.
+
+"Kau... salah satu dari mereka?" tanya bayangan itu.
+
+Xavier kaget. Dia bisa diajak ngomong.
+
+Bayangan itu menatapnya sedih. "Pil M-7 bukan obat. Ini portal. Profesor mengirim kami ke sini... untuk jadi sumber energi dunia ini."
+
+Xavier mengepalkan tangan. Rahasia profesor terbongkar. Tapi sekarang dia ada di sini, di dunia lain. Mau apa?`,    isEnd: false,    choices: [    ]  },  "scene6b": {    title: "Eksplorasi — Gelap",    setting: "Dunia gelap — langit hitam dengan kilau ungu, tanah berbatu, suara deru mesin dari dalam perut bumi.",    karakter: "Xavier",    text: `**
+
+Xavier melangkah ke kegelapan. Semakin dalam, semakin terasa... familiar.
+
+"Tempat ini..." bisiknya.
+
+Di tengah kegelapan, ada singgasana besar dari kristal hitam. Dan di atasnya — sesosok bayangan duduk, menunggu.
+
+"Akhirnya kau datang, Xavier."
+
+Suara itu... Xavier pernah denger sebelumnya. Bayangan itu berdiri. Wajahnya — samar, tapi Xavier bisa lihat — mirip seseorang.
+
+"Aku adalah Profesor yang kau cari. Tapi bukan yang di dunia realitas." Bayangan itu tersenyum. "Aku versi dia yang berhasil kabur ke sini. Dan kau... kau jatuh ke perangkapnya."
+
+Xavier terdiam. Jadi profesor udah pernah ke sini sebelumnya?`,    isEnd: false,    choices: [    ]  }};
+
+let currentScene = "scene1";
 
 function goTo(sceneId) {
-  if (story[sceneId]) renderScene(sceneId);
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function restart() {
-  visited = new Set();
-  history = [];
-  renderScene("01");
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Start
-renderScene("01");
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
 </script>
 </body>
 </html>
