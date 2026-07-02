@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 1: Kabut Pertama](scene1-image.png)
+
 Junior baru pulang dari warung. Langit pun sudah mulai gelap, tapi yang membuat dia berhenti melangkah, ada kabut tebal turun dari atas gunung. Turunnya cepet sekali. Dalam 5 menit, kampung mulai terselimut oleh kabut.
 
 Tapi yang aneh, kabutnya berhenti tepat di pinggir kampung antara kampung dan gunung ada batas yang rapi seperti ada tembok kaca.
