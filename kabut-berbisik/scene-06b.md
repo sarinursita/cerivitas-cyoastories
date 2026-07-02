@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 6B: Terjebak Bersama](scene6b-image.png)
+
 Junior berlari, kakinya terasa mau copot. Tapi kabut di depan, belakang, kiri, kanan sama saja.
 
 Akhirnya dia berhenti, napasnya tersengal, jantungnya mau meledak.

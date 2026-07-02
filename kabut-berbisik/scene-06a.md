@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 6A: Kakak Bebas](scene6a-image.png)
+
 Junior dan kakaknya naik ke puncak. Dingin banget. Tapi ada batu hitam besar di tengah-tengah — dari batu itu kabut putih terus keluar kayak asap.
 
 "Ini dia," kata Senior. "Batu penjara."
