@@ -9,7 +9,7 @@ Spatula tiba-tiba ngelejit dari tempatnya. "Awas, awas, panas-panas! Si Wajan la
 
 Panci di sebelah ikut-ikutan bergoyang. "Dia lagi bad mood gara-gara semalem digosok pake sabun abal-abal!" sahut panci.
 
-Wajan hitam mendengus. "DIAM LO SEMUA! ALICE, DENGERIN GUA! Kalo lu mau masak yang bener, lu kudu dengerin **instruksi gue**! Nggak percaya sama peralatan murahan ini!"
+Wajan hitam mendengus. "DIAM KALIAN SEMUA! ALICE, DENGERIN AKU SI PANCI! Kalo kamu mau masak yang bener, kudu dengerin **instruksiku**! Nggak percaya sama peralatan murahan ini!"
 
 Alice bingung — wajan galak tapi kayaknya dia yang paling tau soal masak. Di sisi lain, alat-alat lain kayaknya lebih ramah...
 
