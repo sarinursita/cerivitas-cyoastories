@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 3A: Kabut Berbisik](scene3a-image.png)
+
 Junior melangkah masuk. Kabut di sekelilingnya tebal banget — sampe ga keliatan tangan sendiri. Tapi yang bikin dia jalan terus...
 
 Bisikan itu makin jelas.
