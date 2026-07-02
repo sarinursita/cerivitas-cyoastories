@@ -38,7 +38,7 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
   <div id="sceneContainer"></div>
 </div>
 <script>
-const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4a","scene4b","scene5a","scene6a","scene6b"];
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4a","scene4b","scene5a","scene6a","scene6b","scene7a","scene7b","scene7c","scene7d","scene7e"];
 const story = {
   "scene1": {    title: "Misi Datang",    setting: "Markas intelijen, masa depan fiksi. Ruang briefing minimalis dengan layar holografik.",    karakter: "Xavier, Komandan",    text: `Xavier berdiri tegap di depan meja holografik. Di atasnya, data seorang perempuan — korban uji coba — berputar dalam sinar biru.
 
@@ -46,7 +46,7 @@ const story = {
 
 Xavier menatap data itu. Perempuan itu jatuh meninggal beberapa detik setelah minum pil.
 
-"Kita butuh satu sampel pil itu. Dan bukti," lanjut Komandan. "Kau yang paling bisa dipercaya, Xavier."`,    isEnd: false,    choices: [      {target: "scene2a", text: "Langsung berangkat — gas pol, ga pake persiapan"},      {target: "scene2b", text: "Riset dulu soal lab"}    ]  },  "scene2a": {    title: "Nyusup ke Lab (Langsung)",    setting: "Laboratorium — gedung tinggi, dinding putih, lorong-lorong steril dengan lampu neon kedap-kedip. Malam hari.",    karakter: "Xavier",    text: `Xavier melompat pagar belakang lab tanpa suara. Tanpa persiapan, dia hanya modal naluri dan peralatan standar.
+"Kita butuh satu sampel pil itu. Dan bukti," lanjut Komandan. "Kau yang paling bisa dipercaya, Xavier."`,    isEnd: false,    choices: [      {target: "scene2a", text: "Langsung berangkat — gas pol"},      {target: "scene2b", text: "Riset dulu soal lab"}    ]  },  "scene2a": {    title: "Nyusup ke Lab (Langsung)",    setting: "Laboratorium — gedung tinggi, dinding putih, lorong-lorong steril dengan lampu neon kedap-kedip. Malam hari.",    karakter: "Xavier",    text: `Xavier melompat pagar belakang lab tanpa suara. Tanpa persiapan, dia hanya modal naluri dan peralatan standar.
 
 Lorong lab sepi. Terlalu sepi. Langkah kakinya menggema di ubin putih. Di kejauhan, terdengar suara mesin berderu rendah.
 
@@ -64,7 +64,7 @@ Lorong sepi. Tapi Xavier nemuin sesuatu yang ganjil: ada lenceng staff tergeleta
 
 "Pasti ada yang baru lewat," gumamnya.
 
-Dari ujung lorong, terdengar suara pintu metal dibuka. Xavier sigap.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Jalan lewat jalur ventilasi — lebih lambat"},      {target: "scene3b", text: "Pake lenceng staff buat nyamar masuk — cepat"}    ]  },  "scene3a": {    title: "Nemuin Pil Aneh (Pintu Belakang)",    setting: "Ruang penyimpanan di belakang lab. Suhu dingin, rak-rak logam penuh botol kimia. Hanya satu lampu darurat menyala.",    karakter: "Xavier",    text: `Xavier masuk lewat lorong belakang — persis di belakang ruang 4. Lewat celah pintu, dia liat meja kaca penuh alat lab.
+Dari ujung lorong, terdengar suara pintu metal dibuka. Xavier sigap.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Jalan lewat jalur ventilasi"},      {target: "scene3b", text: "Pake lenceng staff buat nyamar masuk"}    ]  },  "scene3a": {    title: "Nemuin Pil Aneh (Pintu Belakang)",    setting: "Ruang penyimpanan di belakang lab. Suhu dingin, rak-rak logam penuh botol kimia. Hanya satu lampu darurat menyala.",    karakter: "Xavier",    text: `Xavier masuk lewat lorong belakang — persis di belakang ruang 4. Lewat celah pintu, dia liat meja kaca penuh alat lab.
 
 Dan di tengah meja: satu botol kecil. Label merah bertuliskan **M-7**.
 
@@ -74,7 +74,7 @@ Xavier mengintip. Di luar, dua profesor lagi diskusi.
 
 "Toh korban ga bakal ngadu," jawab yang lain, dingin.
 
-Xavier menunggu mereka pergi. Botol M-7 ada di depannya. Di sebelahnya ada dokumen riset.`,    isEnd: false,    choices: [      {target: "scene4a", text: "Ambil 1 pil aja — cepat"},      {target: "scene4b", text: "Ambil beberapa pil + dokumennya"}    ]  },  "scene3b": {    title: "Nemuin Pil Aneh (Nyamar Staff)",    setting: "Ruang penelitian utama Lab Maut. Besar, modern, penuh monitor. Para profesor sibuk di depan data.",    karakter: "Xavier, Profesor Alpha, Profesor Beta",    text: `Xavier pake lenceng staff dan jalan percaya diri. Jantungnya deg-degan, tapi wajahnya datar — profesional dingin banget.
+Xavier menunggu mereka pergi. Botol M-7 ada di depannya. Di sebelahnya ada dokumen riset.`,    isEnd: false,    choices: [      {target: "scene4a", text: "Ambil 1 pil aja"},      {target: "scene4b", text: "Ambil beberapa pil + dokumennya"}    ]  },  "scene3b": {    title: "Nemuin Pil Aneh (Nyamar Staff)",    setting: "Ruang penelitian utama Lab Maut. Besar, modern, penuh monitor. Para profesor sibuk di depan data.",    karakter: "Xavier, Profesor Alpha, Profesor Beta",    text: `Xavier pake lenceng staff dan jalan percaya diri. Jantungnya deg-degan, tapi wajahnya datar — profesional dingin banget.
 
 "Kamu staff baru?" tegur seseorang.
 
@@ -92,7 +92,7 @@ Xavier terhuyung ke meja. Jari-jarinya gemetar. "Sial... penyakit lamaku kambuh,
 
 Dia merogoh saku jaket — tempat obat sakit kepalanya. Tapi di saku yang sama, ada pil M-7 yang baru dia ambil. Keduanya hampir identik: bulat, putih, tanpa label.
 
-Xavier mengerjap. Pandangan makin kabur. Dia harus cepet minum obat...`,    isEnd: false,    choices: [      {target: "scene5a", text: "Langsung minum obat dari kantong — buru-buru"}    ]  },  "scene4b": {    title: "Pusing di Markas (Bawa Banyak Bukti)",    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",    karakter: "Xavier",    text: `Xavier kembali dengan 3 pil M-7 dan setumpuk dokumen riset. Misi besar.
+Xavier mengerjap. Pandangan makin kabur. Dia harus cepet minum obat...`,    isEnd: false,    choices: [      {target: "scene5a", text: "Langsung minum obat dari kantong"},      {target: "scene7a", text: "Cek ke dokter dulu"}    ]  },  "scene4b": {    title: "Pusing di Markas (Bawa Banyak Bukti)",    setting: "Markas intelijen, ruang pribadi Xavier. Malam hari.",    karakter: "Xavier",    text: `Xavier kembali dengan 3 pil M-7 dan setumpuk dokumen riset. Misi besar.
 
 Tapi di tengah perjalanan, kepalanya mendadak pusing berat. Penyakit lamanya kumat.
 
@@ -100,7 +100,7 @@ Xavier jatuh ke kursi, merogoh saku. Di dalamnya: pil M-7 dan obat sakit kepalan
 
 "Mana yang mana...?" bisiknya, mata udah berkunang.
 
-Waktu terasa berhenti. Tangan Xavier meraba-raba di antara dua pil yang identik. Salah satu bisa nyelamatin dia. Yang satunya... bisa kirim dia ke dunia yang ga dikenal.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Minum aja, ga ada waktu mikir"}    ]  },  "scene5a": {    title: "Bangun di Dunia Lain",    setting: "Dunia lain — langit ungu, tanah hitam berkilau, pepohonan transparan seperti kaca. Udara dingin dan tipis.",    karakter: "Xavier",    text: `**
+Waktu terasa berhenti. Tangan Xavier meraba-raba di antara dua pil yang identik. Salah satu bisa nyelamatin dia. Yang satunya... bisa kirim dia ke dunia yang ga dikenal.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Minum aja, ga ada waktu mikir"},      {target: "scene7a", text: "Paksa diri ke klinik markas"}    ]  },  "scene5a": {    title: "Bangun di Dunia Lain",    setting: "Dunia lain — langit ungu, tanah hitam berkilau, pepohonan transparan seperti kaca. Udara dingin dan tipis.",    karakter: "Xavier",    text: `**
 
 Xavier membuka mata. Langit ungu menyambutnya.
 
@@ -116,7 +116,7 @@ Xavier menepuk kantongnya. Pil M-7 masih ada. Dan selembar kertas robek dari dok
 
 "Jadi... ini efek pil M-7?" gumamnya.
 
-Suara aneh berdesir di angkasa. Udara bergetar. Xavier harus memilih.`,    isEnd: false,    choices: [      {target: "scene6a", text: "Jalan ke arah cahaya — penasaran, mungkin ada jawaban"},      {target: "scene6b", text: "Jalan ke arah gelap — nyali besar, mau liat sisi lain dunia ini"}    ]  },  "scene6a": {    title: "Eksplorasi — Cahaya",    setting: "Dunia cahaya — hamparan emas, bangunan-bangunan transparan seperti kristal. Tenang, tapi ada yang disembunyikan.",    karakter: "Xavier",    text: `**
+Suara aneh berdesir di angkasa. Udara bergetar. Xavier harus memilih.`,    isEnd: false,    choices: [      {target: "scene6a", text: "Jalan ke arah cahaya — penasaran"},      {target: "scene6b", text: "Jalan ke arah gelap — nyali besar"}    ]  },  "scene6a": {    title: "Eksplorasi — Cahaya",    setting: "Dunia cahaya — hamparan emas, bangunan-bangunan transparan seperti kristal. Tenang, tapi ada yang disembunyikan.",    karakter: "Xavier",    text: `**
 
 Xavier berjalan menuju cahaya. Semakin dekat, suasananya makin hangat. Tapi ada bunyi aneh — seperti bisikan.
 
@@ -130,7 +130,7 @@ Xavier kaget. Dia bisa diajak ngomong.
 
 Bayangan itu menatapnya sedih. "Pil M-7 bukan obat. Ini portal. Profesor mengirim kami ke sini... untuk jadi sumber energi dunia ini."
 
-Xavier mengepalkan tangan. Rahasia profesor terbongkar. Tapi sekarang dia ada di sini, di dunia lain. Mau apa?`,    isEnd: false,    choices: [    ]  },  "scene6b": {    title: "Eksplorasi — Gelap",    setting: "Dunia gelap — langit hitam dengan kilau ungu, tanah berbatu, suara deru mesin dari dalam perut bumi.",    karakter: "Xavier",    text: `**
+Xavier mengepalkan tangan. Rahasia profesor terbongkar. Tapi sekarang dia ada di sini, di dunia lain. Mau apa?`,    isEnd: false,    choices: [      {target: "scene7b", text: "Cari jalan keluar"},      {target: "scene7c", text: "Cari tahu rahasia lebih dalam"}    ]  },  "scene6b": {    title: "Eksplorasi — Gelap",    setting: "Dunia gelap — langit hitam dengan kilau ungu, tanah berbatu, suara deru mesin dari dalam perut bumi.",    karakter: "Xavier",    text: `**
 
 Xavier melangkah ke kegelapan. Semakin dalam, semakin terasa... familiar.
 
@@ -144,7 +144,91 @@ Suara itu... Xavier pernah denger sebelumnya. Bayangan itu berdiri. Wajahnya —
 
 "Aku adalah Profesor yang kau cari. Tapi bukan yang di dunia realitas." Bayangan itu tersenyum. "Aku versi dia yang berhasil kabur ke sini. Dan kau... kau jatuh ke perangkapnya."
 
-Xavier terdiam. Jadi profesor udah pernah ke sini sebelumnya?`,    isEnd: false,    choices: [    ]  }};
+Xavier terdiam. Jadi profesor udah pernah ke sini sebelumnya?`,    isEnd: false,    choices: [      {target: "scene7d", text: "Terima takdir"},      {target: "scene7e", text: "Lawan kegelapan"}    ]  },  "scene7a": {    title: "",    setting: "Markas intelijen, ruang interogasi.",    karakter: "Xavier, Komandan, Profesor Alpha",    text: `**
+
+Xavier berhasil ke klinik tepat waktu. Dokter bilang, kalo telat 5 menit lagi, Xavier bisa koma.
+
+Dengan bukti pil M-7 dan dokumen riset, tim intelijen menggerebek Lab Maut. Semua profesor ditangkap. Pil aneh disita.
+
+Di ruang interogasi, Profesor Alpha cuma tersenyum tipis.
+
+"Kalian pikir ini kemenangan?" katanya pelan. "Pil M-7 cuma permulaan. Dunia lain itu nyata. Dan cepat atau lambat... mereka yang di sana bakal balik."
+
+Xavier menatap profesor itu dingin. "Biar kita lihat siapa yang duluan balik."
+
+**🏁 Lab Maut ditutup. Tapi rahasianya baru dimulai...**
+
+**— THE END —**
+
+[Restart Cerita](../index.html)`,    isEnd: true,    choices: [    ]  },  "scene7b": {    title: "",    setting: "Dunia cahaya — perbatasan antara dua dunia. Gerbang berkilauan.",    karakter: "Xavier, Bayangan Korban",    text: `**
+
+Xavier memutuskan cari jalan keluar. Bayangan para korban menunjukkan jalannya — sebuah gerbang kristal di ujung hamparan emas.
+
+"Tapi hati-hati," bisik bayangan itu. "Kau bawa sesuatu dari sini... di dalam tubuhmu."
+
+Xavier melangkah ke gerbang. Cahaya menyilaukan.
+
+🌌
+
+Dia bangun di markas. Tim medis mengelilinginya. Tapi Xavier merasa beda. Di tangannya, ada luka kecil berbentuk aneh — seperti simbol yang sama di botol M-7.
+
+Diam-diam, Xavier sadar: dia pulang, tapi ada *sesuatu* yang ikut.
+
+**🏁 Xavier selamat. Tapi rahasia profesor sekarang ada di dalam dirinya...**
+
+**— THE END —**
+
+[Restart Cerita](../index.html)`,    isEnd: true,    choices: [    ]  },  "scene7c": {    title: "",    setting: "Dunia cahaya—pusat energi, tempat sumber kekuatan dunia lain.",    karakter: "Xavier, Bayangan Korban, Sesosok Siluet",    text: `**
+
+Xavier memilih mencari tahu lebih dalam. Bayangan korban membawanya ke pusat dunia cahaya — dan di sana, Xavier menemukan kebenaran yang mengejutkan.
+
+Para profesor di lab bukan penemu pil M-7. Mereka cuma kurir. Sosok di balik semua ini adalah... **pemerintah dunia fiksi itu sendiri.** Mereka butuh energi manusia dari dunia nyata untuk bertahan hidup.
+
+"Kau tau kenapa profesor bekerja sama?" tanya bayangan itu. "Karena janji: mereka bisa hidup abadi di sini."
+
+Xavier menatap langit emas. Dia punya pilihan sulit: hancurin sistem ini, atau jadi bagian darinya.
+
+**🏁 Rahasia terbongkar. Tapi pilihan Xavier belum selesai...**
+
+**— THE END —**
+
+[Restart Cerita](../index.html)`,    isEnd: true,    choices: [    ]  },  "scene7d": {    title: "",    setting: "Dunia gelap — singgasana kristal hitam, bayangan profesor tersenyum.",    karakter: "Xavier, Shadow Profesor",    text: `**
+
+Xavier menunduk. "Mungkin... ini memang tempatku."
+
+Shadow Profesor tertawa pelan. "Kau bijak, Xavier. Lab Maut udah selesai di duniamu. Tapi di sini... kau baru memulai."
+
+Dunia gelap menyelimuti Xavier. Tubuhnya perlahan berubah — bukan jadi bayangan, tapi penjaga baru dunia ini. Shadow Profesor menghilang, meninggalkan Xavier di singgasana.
+
+Xavier — si profesional dingin — sekarang jadi penguasa dunia lain.
+
+Tapi jauh di dalam hatinya, dia tau... dia ga bisa balik lagi.
+
+**🏁 Selamat tinggal, dunia nyata. Xavier sekarang milik dunia lain.**
+
+**— THE END —**
+
+[Restart Cerita](../index.html)`,    isEnd: true,    choices: [    ]  },  "scene7e": {    title: "",    setting: "Dunia gelap — pertarungan epik di singgasana kristal.",    karakter: "Xavier, Shadow Profesor",    text: `**
+
+"Ga ada yang bisa nahan Xavier," desis Xavier dingin. Dia menerjang bayangan profesor.
+
+Pertarungan sengit terjadi. Xavier — bekas intel terbaik — ngandalin insting. Tapi Shadow Profesor punya kekuatan dunia lain.
+
+Di saat kritis, Xavier ingat sesuatu: pil M-7 masih di kantongnya. Kalo di dunia sini pil itu adalah kunci... mungkin dia bisa pake sebaliknya?
+
+Xavier menghancurkan pil itu di tanah. Cahaya ungu meledak. Shadow Profesor menjerit, sirna.
+
+🌌
+
+Xavier bangun di markas — hidup! Di tangannya, ada sisa energi ungu yang berkilau. Kekuatan dari dunia lain masih melekat.
+
+Xavier tersenyum tipis. "Lab Maut... belum selesai."
+
+**🏁 Xavier pulang. Dengan kekuatan baru. Dan satu misi baru: balas dendam.**
+
+**— THE END —**
+
+[Restart Cerita](../index.html)`,    isEnd: true,    choices: [    ]  }};
 
 let currentScene = "scene1";
 

@@ -21,5 +21,5 @@ Xavier terdiam. Jadi profesor udah pernah ke sini sebelumnya?
 ---
 
 **Pilihan:**
-- [Ending 04]: Terima takdir — mungkin ini memang tempatku sekarang
-- [Ending 05]: Lawan kegelapan — ga ada yang bisa nahan Xavier!
+- [Scene 07D]: Terima takdir
+- [Scene 07E]: Lawan kegelapan

@@ -18,5 +18,5 @@ Xavier menunggu mereka pergi. Botol M-7 ada di depannya. Di sebelahnya ada dokum
 ---
 
 **Pilihan:**
-- [Scene 04A]: Ambil 1 pil aja — cepat
+- [Scene 04A]: Ambil 1 pil aja
 - [Scene 04B]: Ambil beberapa pil + dokumennya

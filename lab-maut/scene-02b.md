@@ -16,5 +16,5 @@ Dari ujung lorong, terdengar suara pintu metal dibuka. Xavier sigap.
 ---
 
 **Pilihan:**
-- [Scene 03A]: Jalan lewat jalur ventilasi — lebih lambat
-- [Scene 03B]: Pake lenceng staff buat nyamar masuk — cepat
+- [Scene 03A]: Jalan lewat jalur ventilasi
+- [Scene 03B]: Pake lenceng staff buat nyamar masuk

@@ -17,4 +17,4 @@ Waktu terasa berhenti. Tangan Xavier meraba-raba di antara dua pil yang identik.
 
 **Pilihan:**
 - [Scene 05A]: Minum aja, ga ada waktu mikir
-- [Ending 01]: Paksa diri ke klinik markas
+- [Scene 07A]: Paksa diri ke klinik markas
