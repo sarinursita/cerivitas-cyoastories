@@ -69,7 +69,7 @@ Cari petunjuk di perpustakaan terlarang! Itulah yang terbesit di kepala Luna. Ia
 
 "Setidaknya aku lebih waras dari kamu," Luna balik mencibir.
 
-Kite dan Clara tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sama nekad.
+Kite dan Clara tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sama nekat.
 
 "Jadi apa rencananya?"
 
@@ -77,4 +77,4 @@ Kite dan Clara tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sa
 
 **Pilihan:**
 - [Scene 2A]: 🕵️ Cari petunjuk di Perpustakaan Terlarang — diam-diam, tanpa ketahuan siapapun
-- [Scene 2B]: 🔍 Selidiki orang-orang yang keliatan suspicious — mereka pasti tahu sesuatu!
+- [Scene 2B]: 🔍 Cari pelakunya saja! Lebih aman
