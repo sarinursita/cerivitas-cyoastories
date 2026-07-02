@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 2A: Sendirian di Kabut](scene2a-image.png)
+
 Junior ngatur napas. Kakinya maju pelan-pelan ke arah kabut. Dingin. Udara di dekat kabut berasa beda — kayak masuk kulkas raksasa.
 
 "Hello?" bisik Junior.
