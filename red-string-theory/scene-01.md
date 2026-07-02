@@ -3,8 +3,6 @@
 **Setting:** Kafe "Neon Brew", lantai 120 — Jakarta 3026. Gedung pencakar langit tembus awan, flying pods melintas di luar jendela kaca besar
 **Karakter:** Aksa (24, mantan tentara bayaran PMC), Eril (pria misterius)
 
-! [keterangan gambar] [red-string-theory/Aksa.png/IMG-20260624-WA0055.jpg]
-
 Aksa duduk sendiri di meja dekat jendela, ngopi hitam sambil liat hiruk-pikuk Jakarta 3026 dari ketinggian. Hidupnya setelah keluar dari PMC terasa hampa—nggak ada misi, nggak ada tujuan.
 
 Tiba-tiba, seorang cowok duduk di meja sebelah. Rambut hitam agak panjang diponi samping, kemeja hitam lusuh, mata cokelat yang... entah kenapa familiar banget. Cowok itu kelhatan gelisah, sering liat jam, sering liat ke luar jendela kayak takut ada yang ngikutin.
