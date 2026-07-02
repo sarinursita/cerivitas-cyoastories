@@ -2,7 +2,7 @@
 
 **Setting:** Pinggir pantai, siang hari panas terik. Food truck warna-warni dengan tulisan "Paman's Kitchen"
 **Karakter:** Alice
-[ IMG_2026702_195548.jpg]
+[Bee_png]
 Alice berdiri di depan food truck paman. Udah janjian dari jam 10, tapi paman belum keliatan batang hidungnya. Pintu food truck-nya kebuka setengah. Di food truck, semua alat masak berjejer rapi — wajan, panci, spatula — semuanya mengilap di bawah sinar matahari pantai yang terik.
 
 "PAMAN!" teriak Alice kencang. Nggak ada jawaban.
