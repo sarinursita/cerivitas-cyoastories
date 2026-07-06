@@ -3,6 +3,8 @@
 **Setting:** Markas intelijen, masa depan fiksi. Ruang briefing minimalis dengan layar holografik.
 **Karakter:** Xavier, Komandan
 
+![Scene 1: Markas Intelijen](scene1-image.jpg)
+
 Xavier berdiri tegap di depan meja holografik. Di atasnya, data seorang perempuan — korban uji coba — berputar dalam sinar biru.
 
 "Korban ketiga," kata Komandan datar. "Laboratorium itu... kita sebut Lab Maut. Profesor-profesor terkenal di balik temboknya. Mereka bikin pil aneh, dan orang-orang jadi kelinci percobaan."
