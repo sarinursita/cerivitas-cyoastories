@@ -3,7 +3,7 @@
 **Setting:** Markas intelijen, masa depan fiksi. Ruang briefing minimalis dengan layar holografik.
 **Karakter:** Xavier, Komandan
 
-![Scene 1: Markas Intelijen](scene1-image.jpg)
+![Scene 1: Markas Intelijen](scene1-image.webp)
 
 Xavier berdiri tegap di depan meja holografik. Di atasnya, data seorang perempuan — korban uji coba — berputar dalam sinar biru.
 
