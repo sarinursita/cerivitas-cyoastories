@@ -1,4 +1,4 @@
-# Scene 6: Pilihan Terakhir
+# Scene 6: Keputusan
 
 **Setting:** Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah
 **Karakter:** Ice, Noa, Gempa Reverse

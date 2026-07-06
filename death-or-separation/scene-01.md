@@ -1,4 +1,4 @@
-# Scene 1: Akhir Pertempuran
+# Scene 1: Medan Perang
 
 **Setting:** Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap
 **Karakter:** Ice, Noa

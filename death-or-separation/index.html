@@ -40,7 +40,7 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 <script>
 const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene5a","scene5b","scene6","scene7a","scene7b"];
 const story = {
-  "scene1": {    title: "Akhir Pertempuran",    setting: "Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap",    karakter: "Ice, Noa",    text: `Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
+  "scene1": {    title: "Medan Perang",    setting: "Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap",    karakter: "Ice, Noa",    text: `Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
 
 Di samping Ice, Noa berdiri dengan napas berat. Wajahnya tenang, tapi Ice bisa lihat ada yang ganjil.
 
@@ -110,7 +110,7 @@ Gempa Reverse tertawa — suara yang dulu hangat, sekarang menusuk.
 
 Noa meronta lemah. Dari bibir Noa terbentuk kata-kata tanpa suara: *Jangan. Jangan dengar dia.*
 
-Tapi cengkeraman Gempa semakin kuat. Wajah Noa semakin pucat.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Buat keputusan"}    ]  },  "scene6": {    title: "Pilihan Terakhir",    setting: "Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah",    karakter: "Ice, Noa, Gempa Reverse",    text: `Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
+Tapi cengkeraman Gempa semakin kuat. Wajah Noa semakin pucat.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Buat keputusan"}    ]  },  "scene6": {    title: "Keputusan",    setting: "Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah",    karakter: "Ice, Noa, Gempa Reverse",    text: `Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
 
 "Noa... Noa!" Ice berlutut, memangku kepala Noa.
 
@@ -144,7 +144,7 @@ Keduanya membeku dalam pelukan terakhir.
 
 🏁 **Ending — Es yang Tak Pernah Mencair**
 
-*Ice memilih tetap bersama Noa sampai akhir.*`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Reverse 🏁",    setting: "Tengah reruntuhan — gempa bumi, langit hitam",    karakter: "Ice, Noa (meninggal), Gempa Reverse",    text: `Ice berdiri.
+*Ice memilih tetap bersama Noa sampai akhir.*`,    isEnd: true,    choices: [    ]  },  "scene7b": {    title: "Reverse 🏁",    setting: "Tengah reruntuhan — gempa bumi, langit hitam",    karakter: "Ice, Noa (meninggal), Gempa Reverse",    text: `Ice berdiri.
 
 Noa tetap di pangkuannya — sudah tidak bergerak. Tapi Ice berdiri, menatap Gempa dengan mata kosong.
 
@@ -168,7 +168,7 @@ Tapi dia akan bertahan. Karena Noa ingin dia bertahan.
 
 🏁 **Ending — Hati yang Membeku Selamanya**
 
-*Ice menjadi Reverse. Hidup. Tapi kehilangan segalanya.*`,    isEnd: false,    choices: [    ]  }};
+*Ice menjadi Reverse. Hidup. Tapi kehilangan segalanya.*`,    isEnd: true,    choices: [    ]  }};
 
 let currentScene = "scene1";
 
