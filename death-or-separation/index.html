@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
+</div>
+<script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene5a","scene5b","scene6","scene7a","scene7b"];
+const story = {
+  "scene1": {    title: "Akhir Pertempuran",    setting: "Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap",    karakter: "Ice, Noa",    text: `**
+
+Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
+
+Di samping Ice, Noa berdiri dengan napas berat. Wajahnya tenang, tapi Ice bisa lihat ada yang ganjil.
+
+"Ice," suara Noa lembut. "Kita tinggal berdua."
+
+Ice mengepalkan tangan. Semua kawan sudah jatuh. Tinggal mereka.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Maju duluan — serang Taufan Reverse"},      {target: "scene2b", text: "Dengar strategi Noa dulu"}    ]  },  "scene2a": {    title: "Terjang Duluan",    setting: "Medan pertempuran — zona tengah, puing-puing beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `**
+
+"Tunggu, Ice—!"
+
+Tapi Ice sudah melesat. Elemen esnya membekukan tanah di setiap langkah. Taufan Reverse menyambut dengan senyum sinis — angin hitam melingkar di tangannya.
+
+"Adikku yang paling keras kepala," cibir Taufan dengan suara yang salah — terlalu dingin, terlalu kejam.
+
+Ice melancarkan serangan es, tapi Taufan Reverse menghindar dengan kecepatan angin. Dari sudut mata, Ice lihat Noa menyusul — tapi gerakannya sedikit lambat.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Fokus lawan Taufan sendirian"},      {target: "scene3b", text: "Minta bantuan Noa"}    ]  },  "scene2b": {    title: "Strategi Noa",    setting: "Balik reruntuhan — tempat berlindung sementara",    karakter: "Ice, Noa",    text: `**
+
+Noa menarik lengan Ice ke balik dinding beton yang roboh. Napasnya pendek-pendek.
+
+"Dengar," Noa berbisik, mata coklatnya menatap tajam. "Taufan sama Halilintar paling berbahaya dalam bentuk Reverse. Tapi kelemahan mereka... mereka terlalu percaya diri."
+
+Ice mengangguk, hati berdebar bukan karena pertarungan. Jarak mereka terlalu dekat. Noa tersenyum tipis.
+
+"Aku bakal ciptain celah. Kamu serang dari blind spot mereka."
+
+"Tapi kamu—"
+
+"Aku kuat, Ice." Potong Noa. Tapi ada sesuatu di matanya yang Ice nggak suka.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Turuti strategi — serang dari bayangan"},      {target: "scene3b", text: "Tolak — Noa keliatan lemah"}    ]  },  "scene3a": {    title: "Lawan Taufan",    setting: "Lahan terbuka — angin kencang, serpihan beton beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `**
+
+Ice mengunci Taufan Reverse dalam pertarungan jarak dekat. Tinju es bertabrakan dengan angin hitam — setiap pukulan terasa seperti memukul badai.
+
+"Kamu lemah, Ice!" teriak Taufan, anginnya mengiris pipi Ice. "Kamu selalu yang paling lemah!"
+
+Ice terjatuh, punggung menghantam tanah keras. Taufan Reverse sudah siap menghabisi—
+
+Tiba-tiba, kilatan cahaya. Noa muncul di antara mereka, tangan terbuka lebar. Satu tamparan energi membuat Taufan terpental.
+
+"Ayo, Ice!" Noa meraih tangannya. Tapi waktu Noa membantunya berdiri, Ice merasakan tangan Noa gemetar.`,    isEnd: false,    choices: [      {target: "scene4", text: "Terus maju — kejar Taufan yang jatuh"},      {target: "scene4", text: "Tahan Noa — \"Kamu kenapa?\""}    ]  },  "scene3b": {    title: "Lawan Halilintar",    setting: "Antara gedung runtuh — lorong sempit penuh reruntuhan",    karakter: "Ice, Halilintar Reverse, Noa",    text: `**
+
+Mereka bertemu Halilintar Reverse di lorong sempit. Petir hitam menyambar dari ujung jari Halilintar — setiap sambaran membuat beton meleleh.
+
+"Strateginya!" teriak Noa. "Ice, dari atas!"
+
+Ice melompat ke reruntuhan di atas, sementara Noa jadi pengalih. Halilintar Reverse terkekeh, petirnya mengejar Noa.
+
+"Awas!" Ice meluncur turun, perisai es melindungi Noa dari sambaran. Tapi esnya retak — petir hitam terlalu kuat.
+
+Ice melihat Noa terhuyung, tangan Noa memegang lambung. Ada darah di sela jari-jarinya.`,    isEnd: false,    choices: [      {target: "scene4", text: "Tanyain Noa sekarang — \"Dari tadi kamu sembunyiin sesuatu!\""},      {target: "scene4", text: "Abaikan — fokus bertahan dulu"}    ]  },  "scene4": {    title: "Gempa",    setting: "Pusat medan perang — tanah terbelah, api menjilat langit",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
+
+Belum sempat Ice memproses luka Noa, tanah berguncang. Gempa Reverse muncul dari balik reruntuhan — yang tertua, yang paling kuat. Rambut putihnya berkibar, satu helai coklat jatuh di wajahnya.
+
+Raksasa.
+
+"Sudah cukup," suara Gempa bergema.
+
+Dalam sekejap, tanah di bawah mereka hancur. Ice terpental ke belakang — dan saat debu mulai turun, jantungnya berhenti.
+
+Gempa memegang Noa. Dari leher.
+
+Noa menggeliat, tangan mencakar pegangan Gempa, tapi kekuatan Reverse terlalu besar. Wajah Noa memucat, napas tersengal.
+
+"NOA!"
+
+Gempa menatap Ice dengan dingin. "Pilih, adikku. Dia... atau perang ini."`,    isEnd: false,    choices: [      {target: "scene5a", text: "Serang Gempa sekarang juga!"},      {target: "scene5b", text: "Coba nego — \"Lepaskan dia!\""}    ]  },  "scene5a": {    title: "Serangan Putus Asa",    setting: "Medan pertempuran — tanah terus berguncang",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
+
+Ice melesat tanpa berpikir. Es membalut seluruh tubuhnya — satu serangan habis-habisan.
+
+Gempa hanya mengangkat tangan. Tanah di depan Ice terbelah, jurang menganga. Ice jatuh, tubuh terbentur batu.
+
+"Bodoh," desis Gempa.
+
+Dari atas jurang, Ice melihat Noa masih tercekik. Tapi Noa menggeleng — matanya berkata *jangan*. Jangan buang nyawamu.
+
+Tapi Ice sudah tak peduli. Dengan sisa tenaga, dia memanjat keluar. Es membeku di tangannya membentuk tombak.
+
+"LEPASKAN DIA!"`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Terus berjuang"}    ]  },  "scene5b": {    title: "Nego Putus Asa",    setting: "Medan pertempuran — Gempa berdiri di atas puing",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
+
+"Lepaskan dia!" suara Ice bergetar. "Apa pun yang kamu mau, ambil! Tapi lepaskan dia!"
+
+Gempa Reverse tertawa — suara yang dulu hangat, sekarang menusuk.
+
+"Apa yang aku mau?" Gempa mengangkat Noa lebih tinggi. "Kamu, Ice. Jadilah salah satu dari kami. Atau dia mati sekarang."
+
+Noa meronta lemah. Dari bibir Noa terbentuk kata-kata tanpa suara: *Jangan. Jangan dengar dia.*
+
+Tapi cengkeraman Gempa semakin kuat. Wajah Noa semakin pucat.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Buat keputusan"}    ]  },  "scene6": {    title: "Pilihan Terakhir",    setting: "Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
+
+Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
+
+"Noa... Noa!" Ice berlutut, memangku kepala Noa.
+
+Darah. Darah di mana-mana. Di luka lambung yang Noa sembunyikan sejak awal pertempuran. Di sudut mulut Noa yang berusaha tersenyum.
+
+"Maaf," bisik Noa, suara hampir tak terdengar. "Aku bilang aku kuat... tapi aku..."
+
+"Nggak usah bicara!" suara Ice pecah. "Kamu akan baik-baik aja! Aku bakal—"
+
+Tangan Noa naik, menyentuh pipi Ice. Lembab, hangat, dan penuh darah.
+
+"Cukup, Ice." Noa tersenyum — senyum yang sama yang selalu membuat Ice deg-degan. "Kamu harus... memilih."
+
+Jari Noa jatuh.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Tetap di sini — gendong Noa, biarkan semuanya berakhir"},      {target: "scene7b", text: "Berdiri — lawan Gempa... dan biarkan Reverse mengambil alih"}    ]  },  "scene7a": {    title: "Sampai Akhir 🏁",    setting: "Tengah reruntuhan — sunyi, api menjilat di kejauhan",    karakter: "Ice, Noa (tak sadarkan diri)",    text: `**
+
+Ice tidak berdiri.
+
+Dia tetap di sana, memangku Noa, air mata jatuh di wajah Noa yang pucat.
+
+"Dasar lemah," gumam Gempa Reverse, berbalik. "Kalau begitu, habislah kalian berdua."
+
+Tapi Ice tidak peduli.
+
+Dia menyentuh wajah Noa, kening Noa, rambut Noa yang berlumuran darah.
+
+"Kita berdua aja," bisik Ice, mengingat kata Noa dari awal. "Sekarang... kita berdua aja."
+
+Dan saat tanah mulai berguncang — saat Gempa Reverse mengangkat tangan untuk mengakhiri — Ice hanya memeluk Noa lebih erat.
+
+Es perlahan membeku di sekeliling mereka. Bukan untuk bertahan. Tapi untuk tidur bersama. Selamanya.
+
+Keduanya membeku dalam pelukan terakhir.
+
+🏁 **Ending — Es yang Tak Pernah Mencair**
+
+*Ice memilih tetap bersama Noa sampai akhir.*`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Reverse 🏁",    setting: "Tengah reruntuhan — gempa bumi, langit hitam",    karakter: "Ice, Noa (meninggal), Gempa Reverse",    text: `**
+
+Ice berdiri.
+
+Noa tetap di pangkuannya — sudah tidak bergerak. Tapi Ice berdiri, menatap Gempa dengan mata kosong.
+
+"Hei," suara Ice serak. "Kamu mau aku jadi Reverse, kan?"
+
+Gempa tersenyum. "Kau akhirnya mengerti."
+
+Ice menatap Noa sekali lagi. Wajahnya yang damai. Senyum terakhir yang diberikan padanya.
+
+*"Kamu harus memilih."*
+
+Dan Ice sudah memilih.
+
+Dia memilih untuk hidup. Tapi hidup tanpa Noa... apa itu masih hidup?
+
+Saat energi Reverse mulai mengalir — saat rambut Ice berubah menjadi putih dengan satu helai coklat — satu hal yang Ice tahu:
+
+Dia tidak akan pernah memaafkan dirinya sendiri.
+
+Tapi dia akan bertahan. Karena Noa ingin dia bertahan.
+
+🏁 **Ending — Hati yang Membeku Selamanya**
+
+*Ice menjadi Reverse. Hidup. Tapi kehilangan segalanya.*`,    isEnd: false,    choices: [    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
+</script>
+</body>
+</html>
