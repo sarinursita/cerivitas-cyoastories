@@ -23,5 +23,5 @@ Suara aneh berdesir di angkasa. Udara bergetar. Xavier harus memilih.
 ---
 
 **Pilihan:**
-- [Scene 06A]: Jalan ke arah cahaya — penasaran, mungkin ada jawaban
-- [Scene 06B]: Jalan ke arah gelap — nyali besar, mau liat sisi lain dunia ini
+- [Scene 06A]: Jalan ke arah cahaya — penasaran
+- [Scene 06B]: Jalan ke arah gelap — nyali besar

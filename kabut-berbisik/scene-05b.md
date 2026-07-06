@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 5B: Junior Kabur](scene5b-image.png)
+
 Junior goyangin kepala. "Nggak. Nggak... ini ga mungkin. Kakak udah mati. Orang mati ga bisa balik!"
 
 Senior mukanya sedih. "Jun..."

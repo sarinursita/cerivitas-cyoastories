@@ -1,6 +1,6 @@
-# Shinoa Only One
+# Only One
 
-**Penulis:** [nama]
+**Penulis:** Shinoa Hoshiyume
 **Genre:** Romance
 **Tags:** drama, persahabatan, sekolah
 **Rating:** PG

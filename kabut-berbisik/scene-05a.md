@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 5A: Junior Percaya](scene5a-image.png)
+
 Junior napas dalam. "Oke, Kak. Aku percaya. Terus... yang harus aku lakuin apa?"
 
 Senior nghela napas. Kabut di sekelilingnya bergetar. "Aku butuh bantuan kamu, Jun. Jiwa aku ga bisa tenang di sini. Nyangkut di antara dua dunia. Karena... pas aku jatuh dulu, aku ga sendirian."

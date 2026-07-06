@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 2B: Berdua Ngintip dari Jauh](scene2b-image.png)
+
 Junior narik tangan David, anak sebangkunya yang lagi main di pos ronda.
 
 "Dav, liat tuh!" tunjuk Junior ke kabut.

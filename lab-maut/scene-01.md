@@ -16,5 +16,5 @@ Xavier menatap data itu. Perempuan itu jatuh meninggal beberapa detik setelah mi
 ---
 
 **Pilihan:**
-- [Scene 02A]: Langsung berangkat — gas pol, ga pake persiapan
-- [Scene 02B]: Riset dulu soal lab — lebih aman tapi makan waktu
+- [Scene 02A]: Langsung berangkat — gas pol
+- [Scene 02B]: Riset dulu soal lab

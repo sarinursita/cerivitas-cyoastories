@@ -18,5 +18,5 @@ Xavier menunggu mereka pergi. Ruang 4, ya?
 ---
 
 **Pilihan:**
-- [Scene 03A]: Cari jalan ke ruang 4 lewat pintu belakang (aman)
-- [Scene 03B]: Ikuti staffnya, nyamar nimbrung (berisiko)
+- [Scene 03A]: Cari jalan ke ruang 4 lewat pintu belakang
+- [Scene 03B]: Ikuti staffnya, nyamar nimbrung

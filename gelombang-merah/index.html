@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
+</div>
+<script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene5a","scene5b","scene5c"];
+const story = {
+  "scene1": {    title: "",    setting: "Stasiun Galaksi — Ruang Kontrol Utama — Malam hari",    karakter: "Bintang (pelajar magang, 17 tahun)",    text: `Malam ini jadwal jaga Bintang sendirian di ruang kontrol Stasiun Galaksi. Sepi. Cuma suara mesin dan lampu indikator yang berkedip-kedip pelan.
+
+Tiba-tiba... **BIP... BIP... BIP.**
+
+Alarm sinyal masuk. Bintang cek layar — ada transmisi dari arah Mars. Tapi itu mustahil. Koloni Mars udah mati 50 tahun lalu. Semua orang tahu itu.
+
+Bintang makin penasaran waktu liat data awal—ini bukan sinyal random. Ini sinyal terstruktur. Kaya pesan. Sengaja dikirim. **Dari Mars.**
+
+Jantung Bintang deg-degan. Ini penemuan besar. Tapi juga... agak serem.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Riset sinyal ini dari lab komputer, cari tahu asalnya"},      {target: "scene2b", text: "Kirim balik sinyal, jawab siapa kamu"}    ]  },  "scene2a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer",    karakter: "Bintang",    text: `Bintang duduk di depan layar lab, ngolah data sinyal satu per satu. Matanya udah merah karena begadang. Tapi rasa penasaran lebih kuat dari ngantuk.
+
+"Ini aneh..." gumam Bintang.
+
+Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingin sama database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
+
+Bintang bandingin sama data medis stasiun — data detak jantung kru.
+
+Dan waktu liat layar, Bintang membeku.
+
+Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak waktu deg-degan.
+
+*Kok bisa sinyal dari Mars cocok sama jantung gue?*`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3a", text: "Lanjutkan penelitian"}    ]  },  "scene2b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `"Gas," bisik Bintang, sebelum menekan tombol TRANSMIT.
+
+"Siapa kamu?"
+
+Satu kalimat pendek dari Bintang meluncur ke Mars. 5 menit. 10 menit. Bintang mulai ragu—mungkin cuma noise.
+
+**BIP.**
+
+Layar berkedip. Ada balasan.
+
+Satu kata.
+
+**"Aku."**
+
+Bintang hampir jatuh dari kursi. *Ada yang jawab. Dari Mars. 50 tahun setelah koloni mati!*
+
+Dengan tangan gemetar, Bintang lanjut komunikasi.
+
+"Siapa 'aku'?"
+
+Balasannya datang lebih cepat kali ini. Bukan satu kata, tapi pesan panjang. Bintang kaget waktu baca isinya—isi pesan ini nggak mungkin diketahui orang lain.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3b", text: "Baca pesan selengkapnya"}    ]  },  "scene3a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer — Pagi buta",    karakter: "Bintang",    text: `Bintang udah begadang semalaman, tapi nggak peduli. Data udah terkumpul. Dan hasilnya... nggak masuk akal.
+
+Dia ngecek sidik jari genetik—prosedur standar buat verifikasi asal sinyal biologis. Dan hasilnya bikin Bintang tercengang:
+
+**Kecocokan DNA: 99.9% — SAMPLE: BINTANG — SUMBER: MARS**
+
+"Gila..." bisik Bintang. *DNA gue ada di Mars?!*
+
+Bintang cek ulang. Tiga kali. Hasilnya sama.
+
+Sinyal itu bukan dari alien. Bukan dari koloni Mars. Sinyal itu... dari seseorang yang secara genetik identik dengan Bintang.
+
+Tapi gimana caranya?!
+
+Bintang harus cari tahu lebih lanjut. Ada yang janggal di data komunikasi—kayak ada informasi tambahan yang disembunyiin.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Cari tahu kebenarannya"}    ]  },  "scene3b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `Pesan dari Mars itu panjang. Dan isinya... bikin Bintang merinding.
+
+Bukan soal Mars. Bukan soal alien. Tapi soal **Bintang sendiri**.
+
+Orang di ujung sana tahu nama lengkap Bintang. Tanggal lahir. Makanan favorit. Nama panggilan yang cuma ibu yang tahu. Bahkan kenangan kecil pas umur 5 tahun—kejadian yang nggak mungkin diketahui orang lain.
+
+*KECUALI...*
+
+"Kok dia tahu semua ini?" Bintang menggenggam kursi erat-erat.
+
+Pesan terakhirnya makin serem:
+
+*"Kamu pasti bingung. Tapi percaya—aku tahu semua ini karena aku dulu persis kayak kamu. Aku Bintang. Bintang yang 20 tahun lebih tua."*
+
+Darah Bintang serasa berhenti mengalir.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Terima apa adanya, hadapi kenyataan"}    ]  },  "scene4": {    title: "",    setting: "Stasiun Galaksi — Kamar Pribadi Bintang",    karakter: "Bintang",    text: `Bintang duduk di tepi tempat tidur, layar tablet di tangan. Semua data udah terkumpul. Semua potongan puzzle nyambung. Dan jawabannya...
+
+*Sinyal dari Mars itu bukan dari alien. Bukan dari koloni yang mati. Tapi dari...*
+
+**Diri Bintang sendiri.**
+
+Bintang versi masa depan. Yang entah gimana caranya terdampar di Mars. Mungkin misi rahasia. Mungkin kecelakaan. Yang jelas—Bintang masa depan udah 10 tahun terdampar di sana. Sendirian. Pake peralatan darurat koloni buat kirim sinyal ke masa lalu. Ke Bintang yang sekarang.
+
+Pesan audio terakhir dari Mars mulai diputar. Suaranya... suara Bintang sendiri. Tapi lebih tua. Lebih capek. Lebih patah.
+
+*"Halo, diriku yang dulu. Aku tahu ini gila. Tapi aku cuma mau bilang—aku di sini karena pilihan yang salah. Satu keputusan bodoh yang bikin nyangkut di sini. Aku kirim sinyal ini ke masa lalu... ke kamu. Tolong. Jangan ulangi kesalahanku. Aku percaya kamu bisa—"*
+
+Pesan terputus. Statis.
+
+Bintang dihadapkan sama pilihan.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Coba komunikasi balik, tanya apa yang sebenarnya terjadi"},      {target: "scene5b", text: "Cari cara ke Mars selametin Bintang masa depan"},      {target: "scene5c", text: "Diam aja, pantau terus dari jauh"}    ]  },  "scene5a": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang 🏁",    text: `**Status: END — SELAMAT!**
+
+Bintang ambil napas dalam-dalam, lalu mulai ngetik.
+
+"Aku denger kamu. Ceritain semuanya."
+
+Komunikasi intensif selama seminggu. Bintang masa depan cerita semua—gimana dia ke Mars, apa yang salah, dan apa yang harus dihindari.
+
+Dengan informasi itu, Bintang mengubah hidupnya. Fokus ke penelitian, jauhi risiko yang bikin Bintang masa depan terjebak.
+
+**20 tahun kemudian...**
+
+Bintang jadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perjalanan waktu diakui dunia.
+
+Tapi malam ini, di puncak karirnya...
+
+*BIP... BIP... BIP.*
+
+Layar komunikasi berkedip. Sinyal baru.
+
+Dari **Jupiter**.
+
+Bintang tersenyum. *Lingkaran waktu terus berputar...*
+
+🏁 **HAPPY ENDING** — Tapi petualangan belum selesai...`,    isEnd: true,    choices: [    ]  },  "scene5b": {    title: "",    setting: "Luar Angkasa — Pesawat Darurat",    karakter: "Bintang 🏁",    text: `**Status: END — GAME OVER**
+
+"Aku akan ke Mars."
+
+Bintang nekat. Ngebajak pesawat darurat stasiun dan meluncur ke Mars sendirian. Perjalanan 3 bulan penuh risiko.
+
+Hari ke-45... **BOOM.**
+
+Panel oksigen meledak. Alarm meraung. Oksigen bocor perlahan.
+
+"Tidak... tidak!" Bintang panik, coba perbaiki. Tapi terlalu lambat.
+
+Pesawat mulai hancur. Pendingin mati. Suhu turun drastis.
+
+Di Mars, seseorang menunggu. Bintang masa depan tahu—karena dia juga pernah bikin pilihan yang sama.
+
+Satu sinyal terakhir dikirim dari pesawat yang sekarat:
+
+*"Maaf... aku gagal. Tapi tenang. Aku di jalan yang sama... sekarang aku akan bersamamu."*
+
+Di permukaan Mars, Bintang masa depan memejamkan mata. Satu titik cahaya melintas di langit.
+
+Mereka akhirnya bersatu lagi. Di Mars. Selamanya.
+
+🏁 **SAD ENDING** — Jangan ulangi kesalahan yang sama...`,    isEnd: true,    choices: [    ]  },  "scene5c": {    title: "",    setting: "Stasiun Galaksi — Berbulan-bulan kemudian",    karakter: "Bintang 🏁",    text: `**Status: END — ???**
+
+Bintang memutuskan buat diem aja.
+
+Nggak jawab. Nggak cari cara ke Mars. Cuma pantau sinyal itu dari jauh.
+
+3 hari kemudian... sinyalnya berhenti.`,    isEnd: false,    choices: [    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
+</script>
+</body>
+</html>
