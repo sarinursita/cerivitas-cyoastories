@@ -2,7 +2,7 @@
 
 **Setting:** Antara gedung runtuh — lorong sempit penuh reruntuhan
 **Karakter:** Ice, Halilintar Reverse, Noa
-*<!-- Status: belum-selesai -->*
+<!-- Status: belum-selesai -->
 
 Mereka bertemu Halilintar Reverse di lorong sempit. Petir hitam menyambar dari ujung jari Halilintar — setiap sambaran membuat beton meleleh.
 

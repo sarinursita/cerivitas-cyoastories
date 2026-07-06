@@ -2,7 +2,7 @@
 
 **Setting:** Medan pertempuran — tanah terus berguncang
 **Karakter:** Ice, Noa, Gempa Reverse
-*<!-- Status: belum-selesai -->*
+<!-- Status: belum-selesai -->
 
 Ice melesat tanpa berpikir. Es membalut seluruh tubuhnya — satu serangan habis-habisan.
 

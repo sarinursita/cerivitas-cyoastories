@@ -2,7 +2,7 @@
 
 **Setting:** Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap
 **Karakter:** Ice, Noa
-*<!-- Status: belum-selesai -->*
+<!-- Status: belum-selesai -->
 
 Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
 

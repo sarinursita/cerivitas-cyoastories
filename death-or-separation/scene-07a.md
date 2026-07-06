@@ -2,7 +2,7 @@
 
 **Setting:** Tengah reruntuhan — sunyi, api menjilat di kejauhan
 **Karakter:** Ice, Noa (tak sadarkan diri)
-*<!-- Status: END -->*
+<!-- Status: END -->
 
 Ice tidak berdiri.
 

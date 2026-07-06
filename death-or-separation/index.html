@@ -40,25 +40,19 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 <script>
 const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene5a","scene5b","scene6","scene7a","scene7b"];
 const story = {
-  "scene1": {    title: "Akhir Pertempuran",    setting: "Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap",    karakter: "Ice, Noa",    text: `**
-
-Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
+  "scene1": {    title: "Akhir Pertempuran",    setting: "Medan perang hancur — gedung runtuh, api di mana-mana, langit merah gelap",    karakter: "Ice, Noa",    text: `Angin dingin menyapu reruntuhan. Di depan Ice, lima sosok berdiri dengan rambut putih dan satu helai coklat — saudara-saudaranya sendiri. Taufan, Halilintar, Gempa, Blaze, Thorn, Solar... semuanya sudah berubah.
 
 Di samping Ice, Noa berdiri dengan napas berat. Wajahnya tenang, tapi Ice bisa lihat ada yang ganjil.
 
 "Ice," suara Noa lembut. "Kita tinggal berdua."
 
-Ice mengepalkan tangan. Semua kawan sudah jatuh. Tinggal mereka.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Maju duluan — serang Taufan Reverse"},      {target: "scene2b", text: "Dengar strategi Noa dulu"}    ]  },  "scene2a": {    title: "Terjang Duluan",    setting: "Medan pertempuran — zona tengah, puing-puing beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `**
-
-"Tunggu, Ice—!"
+Ice mengepalkan tangan. Semua kawan sudah jatuh. Tinggal mereka.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Maju duluan — serang Taufan Reverse"},      {target: "scene2b", text: "Dengar strategi Noa dulu"}    ]  },  "scene2a": {    title: "Terjang Duluan",    setting: "Medan pertempuran — zona tengah, puing-puing beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `"Tunggu, Ice—!"
 
 Tapi Ice sudah melesat. Elemen esnya membekukan tanah di setiap langkah. Taufan Reverse menyambut dengan senyum sinis — angin hitam melingkar di tangannya.
 
 "Adikku yang paling keras kepala," cibir Taufan dengan suara yang salah — terlalu dingin, terlalu kejam.
 
-Ice melancarkan serangan es, tapi Taufan Reverse menghindar dengan kecepatan angin. Dari sudut mata, Ice lihat Noa menyusul — tapi gerakannya sedikit lambat.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Fokus lawan Taufan sendirian"},      {target: "scene3b", text: "Minta bantuan Noa"}    ]  },  "scene2b": {    title: "Strategi Noa",    setting: "Balik reruntuhan — tempat berlindung sementara",    karakter: "Ice, Noa",    text: `**
-
-Noa menarik lengan Ice ke balik dinding beton yang roboh. Napasnya pendek-pendek.
+Ice melancarkan serangan es, tapi Taufan Reverse menghindar dengan kecepatan angin. Dari sudut mata, Ice lihat Noa menyusul — tapi gerakannya sedikit lambat.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Fokus lawan Taufan sendirian"},      {target: "scene3b", text: "Minta bantuan Noa"}    ]  },  "scene2b": {    title: "Strategi Noa",    setting: "Balik reruntuhan — tempat berlindung sementara",    karakter: "Ice, Noa",    text: `Noa menarik lengan Ice ke balik dinding beton yang roboh. Napasnya pendek-pendek.
 
 "Dengar," Noa berbisik, mata coklatnya menatap tajam. "Taufan sama Halilintar paling berbahaya dalam bentuk Reverse. Tapi kelemahan mereka... mereka terlalu percaya diri."
 
@@ -68,9 +62,7 @@ Ice mengangguk, hati berdebar bukan karena pertarungan. Jarak mereka terlalu dek
 
 "Tapi kamu—"
 
-"Aku kuat, Ice." Potong Noa. Tapi ada sesuatu di matanya yang Ice nggak suka.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Turuti strategi — serang dari bayangan"},      {target: "scene3b", text: "Tolak — Noa keliatan lemah"}    ]  },  "scene3a": {    title: "Lawan Taufan",    setting: "Lahan terbuka — angin kencang, serpihan beton beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `**
-
-Ice mengunci Taufan Reverse dalam pertarungan jarak dekat. Tinju es bertabrakan dengan angin hitam — setiap pukulan terasa seperti memukul badai.
+"Aku kuat, Ice." Potong Noa. Tapi ada sesuatu di matanya yang Ice nggak suka.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Turuti strategi — serang dari bayangan"},      {target: "scene3b", text: "Tolak — Noa keliatan lemah"}    ]  },  "scene3a": {    title: "Lawan Taufan",    setting: "Lahan terbuka — angin kencang, serpihan beton beterbangan",    karakter: "Ice, Taufan Reverse, Noa",    text: `Ice mengunci Taufan Reverse dalam pertarungan jarak dekat. Tinju es bertabrakan dengan angin hitam — setiap pukulan terasa seperti memukul badai.
 
 "Kamu lemah, Ice!" teriak Taufan, anginnya mengiris pipi Ice. "Kamu selalu yang paling lemah!"
 
@@ -78,9 +70,7 @@ Ice terjatuh, punggung menghantam tanah keras. Taufan Reverse sudah siap menghab
 
 Tiba-tiba, kilatan cahaya. Noa muncul di antara mereka, tangan terbuka lebar. Satu tamparan energi membuat Taufan terpental.
 
-"Ayo, Ice!" Noa meraih tangannya. Tapi waktu Noa membantunya berdiri, Ice merasakan tangan Noa gemetar.`,    isEnd: false,    choices: [      {target: "scene4", text: "Terus maju — kejar Taufan yang jatuh"},      {target: "scene4", text: "Tahan Noa — \"Kamu kenapa?\""}    ]  },  "scene3b": {    title: "Lawan Halilintar",    setting: "Antara gedung runtuh — lorong sempit penuh reruntuhan",    karakter: "Ice, Halilintar Reverse, Noa",    text: `**
-
-Mereka bertemu Halilintar Reverse di lorong sempit. Petir hitam menyambar dari ujung jari Halilintar — setiap sambaran membuat beton meleleh.
+"Ayo, Ice!" Noa meraih tangannya. Tapi waktu Noa membantunya berdiri, Ice merasakan tangan Noa gemetar.`,    isEnd: false,    choices: [      {target: "scene4", text: "Terus maju — kejar Taufan yang jatuh"},      {target: "scene4", text: "Tahan Noa — \"Kamu kenapa?\""}    ]  },  "scene3b": {    title: "Lawan Halilintar",    setting: "Antara gedung runtuh — lorong sempit penuh reruntuhan",    karakter: "Ice, Halilintar Reverse, Noa",    text: `Mereka bertemu Halilintar Reverse di lorong sempit. Petir hitam menyambar dari ujung jari Halilintar — setiap sambaran membuat beton meleleh.
 
 "Strateginya!" teriak Noa. "Ice, dari atas!"
 
@@ -88,9 +78,7 @@ Ice melompat ke reruntuhan di atas, sementara Noa jadi pengalih. Halilintar Reve
 
 "Awas!" Ice meluncur turun, perisai es melindungi Noa dari sambaran. Tapi esnya retak — petir hitam terlalu kuat.
 
-Ice melihat Noa terhuyung, tangan Noa memegang lambung. Ada darah di sela jari-jarinya.`,    isEnd: false,    choices: [      {target: "scene4", text: "Tanyain Noa sekarang — \"Dari tadi kamu sembunyiin sesuatu!\""},      {target: "scene4", text: "Abaikan — fokus bertahan dulu"}    ]  },  "scene4": {    title: "Gempa",    setting: "Pusat medan perang — tanah terbelah, api menjilat langit",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
-
-Belum sempat Ice memproses luka Noa, tanah berguncang. Gempa Reverse muncul dari balik reruntuhan — yang tertua, yang paling kuat. Rambut putihnya berkibar, satu helai coklat jatuh di wajahnya.
+Ice melihat Noa terhuyung, tangan Noa memegang lambung. Ada darah di sela jari-jarinya.`,    isEnd: false,    choices: [      {target: "scene4", text: "Tanyain Noa sekarang — \"Dari tadi kamu sembunyiin sesuatu!\""},      {target: "scene4", text: "Abaikan — fokus bertahan dulu"}    ]  },  "scene4": {    title: "Gempa",    setting: "Pusat medan perang — tanah terbelah, api menjilat langit",    karakter: "Ice, Noa, Gempa Reverse",    text: `Belum sempat Ice memproses luka Noa, tanah berguncang. Gempa Reverse muncul dari balik reruntuhan — yang tertua, yang paling kuat. Rambut putihnya berkibar, satu helai coklat jatuh di wajahnya.
 
 Raksasa.
 
@@ -104,9 +92,7 @@ Noa menggeliat, tangan mencakar pegangan Gempa, tapi kekuatan Reverse terlalu be
 
 "NOA!"
 
-Gempa menatap Ice dengan dingin. "Pilih, adikku. Dia... atau perang ini."`,    isEnd: false,    choices: [      {target: "scene5a", text: "Serang Gempa sekarang juga!"},      {target: "scene5b", text: "Coba nego — \"Lepaskan dia!\""}    ]  },  "scene5a": {    title: "Serangan Putus Asa",    setting: "Medan pertempuran — tanah terus berguncang",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
-
-Ice melesat tanpa berpikir. Es membalut seluruh tubuhnya — satu serangan habis-habisan.
+Gempa menatap Ice dengan dingin. "Pilih, adikku. Dia... atau perang ini."`,    isEnd: false,    choices: [      {target: "scene5a", text: "Serang Gempa sekarang juga!"},      {target: "scene5b", text: "Coba nego — \"Lepaskan dia!\""}    ]  },  "scene5a": {    title: "Serangan Putus Asa",    setting: "Medan pertempuran — tanah terus berguncang",    karakter: "Ice, Noa, Gempa Reverse",    text: `Ice melesat tanpa berpikir. Es membalut seluruh tubuhnya — satu serangan habis-habisan.
 
 Gempa hanya mengangkat tangan. Tanah di depan Ice terbelah, jurang menganga. Ice jatuh, tubuh terbentur batu.
 
@@ -116,9 +102,7 @@ Dari atas jurang, Ice melihat Noa masih tercekik. Tapi Noa menggeleng — matany
 
 Tapi Ice sudah tak peduli. Dengan sisa tenaga, dia memanjat keluar. Es membeku di tangannya membentuk tombak.
 
-"LEPASKAN DIA!"`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Terus berjuang"}    ]  },  "scene5b": {    title: "Nego Putus Asa",    setting: "Medan pertempuran — Gempa berdiri di atas puing",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
-
-"Lepaskan dia!" suara Ice bergetar. "Apa pun yang kamu mau, ambil! Tapi lepaskan dia!"
+"LEPASKAN DIA!"`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Terus berjuang"}    ]  },  "scene5b": {    title: "Nego Putus Asa",    setting: "Medan pertempuran — Gempa berdiri di atas puing",    karakter: "Ice, Noa, Gempa Reverse",    text: `"Lepaskan dia!" suara Ice bergetar. "Apa pun yang kamu mau, ambil! Tapi lepaskan dia!"
 
 Gempa Reverse tertawa — suara yang dulu hangat, sekarang menusuk.
 
@@ -126,9 +110,7 @@ Gempa Reverse tertawa — suara yang dulu hangat, sekarang menusuk.
 
 Noa meronta lemah. Dari bibir Noa terbentuk kata-kata tanpa suara: *Jangan. Jangan dengar dia.*
 
-Tapi cengkeraman Gempa semakin kuat. Wajah Noa semakin pucat.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Buat keputusan"}    ]  },  "scene6": {    title: "Pilihan Terakhir",    setting: "Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah",    karakter: "Ice, Noa, Gempa Reverse",    text: `**
-
-Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
+Tapi cengkeraman Gempa semakin kuat. Wajah Noa semakin pucat.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene6", text: "Buat keputusan"}    ]  },  "scene6": {    title: "Pilihan Terakhir",    setting: "Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah",    karakter: "Ice, Noa, Gempa Reverse",    text: `Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
 
 "Noa... Noa!" Ice berlutut, memangku kepala Noa.
 
@@ -142,9 +124,7 @@ Tangan Noa naik, menyentuh pipi Ice. Lembab, hangat, dan penuh darah.
 
 "Cukup, Ice." Noa tersenyum — senyum yang sama yang selalu membuat Ice deg-degan. "Kamu harus... memilih."
 
-Jari Noa jatuh.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Tetap di sini — gendong Noa, biarkan semuanya berakhir"},      {target: "scene7b", text: "Berdiri — lawan Gempa... dan biarkan Reverse mengambil alih"}    ]  },  "scene7a": {    title: "Sampai Akhir 🏁",    setting: "Tengah reruntuhan — sunyi, api menjilat di kejauhan",    karakter: "Ice, Noa (tak sadarkan diri)",    text: `**
-
-Ice tidak berdiri.
+Jari Noa jatuh.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Tetap di sini — gendong Noa, biarkan semuanya berakhir"},      {target: "scene7b", text: "Berdiri — lawan Gempa... dan biarkan Reverse mengambil alih"}    ]  },  "scene7a": {    title: "Sampai Akhir 🏁",    setting: "Tengah reruntuhan — sunyi, api menjilat di kejauhan",    karakter: "Ice, Noa (tak sadarkan diri)",    text: `Ice tidak berdiri.
 
 Dia tetap di sana, memangku Noa, air mata jatuh di wajah Noa yang pucat.
 
@@ -164,9 +144,7 @@ Keduanya membeku dalam pelukan terakhir.
 
 🏁 **Ending — Es yang Tak Pernah Mencair**
 
-*Ice memilih tetap bersama Noa sampai akhir.*`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Reverse 🏁",    setting: "Tengah reruntuhan — gempa bumi, langit hitam",    karakter: "Ice, Noa (meninggal), Gempa Reverse",    text: `**
-
-Ice berdiri.
+*Ice memilih tetap bersama Noa sampai akhir.*`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Reverse 🏁",    setting: "Tengah reruntuhan — gempa bumi, langit hitam",    karakter: "Ice, Noa (meninggal), Gempa Reverse",    text: `Ice berdiri.
 
 Noa tetap di pangkuannya — sudah tidak bergerak. Tapi Ice berdiri, menatap Gempa dengan mata kosong.
 

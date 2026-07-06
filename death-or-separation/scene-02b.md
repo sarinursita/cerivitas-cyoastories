@@ -2,7 +2,7 @@
 
 **Setting:** Balik reruntuhan — tempat berlindung sementara
 **Karakter:** Ice, Noa
-*<!-- Status: belum-selesai -->*
+<!-- Status: belum-selesai -->
 
 Noa menarik lengan Ice ke balik dinding beton yang roboh. Napasnya pendek-pendek.
 
