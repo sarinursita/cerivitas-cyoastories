@@ -5,6 +5,8 @@
 
 ---
 
+![Scene 3B: Jalan Pulang Tertutup Kabut](scene3b-image.png)
+
 Junior muter badan mau lari — tapi ga bisa.
 
 Kabut udah nutup jalan pulang. Ga cuma di depan, tapi di semua arah. Kampungnya sekarang DIKEPUNG kabut tebal. Kayak benteng putih raksasa yang nutup seluruh desa.

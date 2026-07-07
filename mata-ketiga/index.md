@@ -2,7 +2,7 @@
 
 - **Penulis:** Alvnn
 - **Genre:** Horor, Psikologis, Komedi Ringan, Misteri
-- **Tags:** tulpa, perang, psikologis, misteri, sahabat-khayalan
+- **Tags:** tulpa, perang, psikologis, misteri, sahabat-khayalan, mimic, häd3œñ
 - **Rating:** PG
 - **Theme:** dark
 - **Date:** 2026-06-29

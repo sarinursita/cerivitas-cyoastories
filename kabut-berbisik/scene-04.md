@@ -6,6 +6,8 @@
 
 ---
 
+![Scene 4: Rahasia Terungkap](scene4-image.png)
+
 Bayangan di depan Junior makin jelas. Bukan lagi bayangan — sekarang wujudnya kayak orang beneran. Cowok, 17 tahunan, pake jaket gunung. Mukanya... mirip Junior.
 
 "Kakak..." bisik Junior, matanya melebar.

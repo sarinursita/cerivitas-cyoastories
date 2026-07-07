@@ -21,5 +21,5 @@ Xavier mengepalkan tangan. Rahasia profesor terbongkar. Tapi sekarang dia ada di
 ---
 
 **Pilihan:**
-- [Ending 02]: Cari jalan keluar — kabur dari dunia ini, balik ke dunia nyata
-- [Ending 03]: Cari tahu rahasia lebih dalam dari bayangan itu — mungkin ada yang lebih besar lagi
+- [Scene 07B]: Cari jalan keluar
+- [Scene 07C]: Cari tahu rahasia lebih dalam

@@ -5,27 +5,27 @@
 
 ---
 
-Junior lari. Lari. Lari. Kaki rasanya mau copot. Tapi kabut di depan, belakang, kiri, kanan — SAMA AJA.
+![Scene 6B: Terjebak Bersama](scene6b-image.png)
 
-Akhirnya dia berhenti. Napasnya tersengal. Jantungnya mau meledak.
+Junior berlari, kakinya terasa mau copot. Tapi kabut di depan, belakang, kiri, kanan sama saja.
 
-"Sudah..." bisik Senior, muncul dari balik kabut. Wajahnya sedih. "Jun, kalo kamu terus lari... kamu ga akan nemu jalan keluar."
+Akhirnya dia berhenti, napasnya tersengal, jantungnya mau meledak.
 
-Junior duduk lemas. Air mata netes. "Aku takut, Kak..."
+"Sudah..." bisik Senior, muncul dari balik kabut wajahnya sedih. "Jun, kalo kamu terus lari kamu ga akan menemukan jalan keluar."
 
-Senior duduk di sampingnya. Kabut di sekitar mereka mulai tenang. "Kakak tau. Maaf... kakak ga maksa kamu. Cuma... ini satu-satunya cara kakak ketemu kamu lagi."
+Junior duduk lemas, air mata menetes. "Aku takut Kak..."
+ 
+Senior duduk di sampingnya, kabut di sekitar mereka mulai tenang. "Kakak tau maaf kakak ga maksa kamu cuma ini satu-satunya cara kakak ketemu kamu lagi."
 
-Junior nengok ke kakaknya. "Terus sekarang gimana?"
+Junior menengok ke kakaknya, "terus sekarang gimana?"
 
-Senior ngeliat ke langit — yang di dalem kabut cuma putih semua. "Kita tunggu."
+Senior melihat ke langit yang di dalam kabut cuma putih semua, "kita tunggu."
 
 "Tunggu apa?"
 
 "Sampe kamu siap."
 
-Kampung ga pernah liat Junior lagi. Kabut bertahan 3 hari, lalu ilang. Tapi beberapa orang bilang, kalo malem-malem di pinggir gunung... kadang kedengeran suara dua anak kecil. Ketawa. Ngobrol.
-
-Di antara kabut tipis yang turun.
+Kampung tidak pernah melihat Junior lagi. Kabut bertahan 3 hari, lalu hilang. Tapi beberapa orang bilang, kalo malem-malem di pinggir gunung kadang kedengeran suara dua anak kecil ketawa, ngobrol, di antara kabut tipis yang turun.
 
 🥲 **END — TERJEBAK BERSAMA** 🌫️
 

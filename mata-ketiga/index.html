@@ -3,458 +3,589 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👁️</text></svg>">
-<title>Mata Ketiga — CYOA</title>
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: #0a0a1a;
-  color: #e0e0e0;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-#app { max-width: 720px; width: 100%; }
-.scene {
-  background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
-  border: 1px solid #2a2a5a;
-  border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  animation: fadeIn 0.6s ease;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-.scene-number {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #666;
-  margin-bottom: 8px;
-}
-.scene-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, #a855f7, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.scene-meta {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #2a2a3a;
-  padding-bottom: 12px;
-}
-.scene-meta span { margin-right: 16px; }
-.narrative {
-  font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  color: #d0d0e0;
-}
-.narrative p { margin-bottom: 14px; }
-.narrative strong { color: #f472b6; }
-.narrative em { color: #a0a0ff; font-style: italic; }
-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #3a3a6a, transparent);
-  margin: 20px 0;
-}
-.choices-label {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #666;
-  margin-bottom: 12px;
-}
-.choices {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.choice-btn {
-  background: linear-gradient(135deg, #1a1a3a, #252550);
-  color: #e0e0f0;
-  border: 1px solid #3a3a6a;
-  padding: 14px 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  text-align: left;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.choice-btn:hover {
-  background: linear-gradient(135deg, #2a2a5a, #3a3a7a);
-  border-color: #6a6aaa;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(100,100,200,0.15);
-}
-.choice-btn:active {
-  transform: translateY(0);
-}
-.choice-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #2a2a5a;
-  color: #aaa;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.ending-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.ending-good { background: linear-gradient(135deg, #8b5cf6, #6366f1); color: #fff; }
-.ending-mystery { background: linear-gradient(135deg, #3b82f6, #06b6d4); color: #fff; }
-.ending-text {
-  font-size: 16px;
-  font-style: italic;
-  color: #a0a0cc;
-  padding: 16px;
-  background: rgba(100,100,200,0.08);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  border-left: 3px solid #6366f1;
-}
-.restart-btn {
-  background: linear-gradient(135deg, #1a1a3a, #252550);
-  border: 1px solid #6366f1;
-  color: #a0a0ff;
-  padding: 12px 28px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s;
-  display: inline-block;
-}
-.restart-btn:hover {
-  background: linear-gradient(135deg, #252550, #3a3a6a);
-  border-color: #8b5cf6;
-  box-shadow: 0 0 20px rgba(99,102,241,0.3);
-}
-.title-screen {
-  text-align: center;
-  padding: 60px 20px;
-}
-.title-screen h1 {
-  font-size: 42px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #a855f7, #6366f1, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
-}
-.title-screen .subtitle {
-  color: #888;
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-.title-screen .genre {
-  color: #666;
-  font-size: 13px;
-  margin-bottom: 30px;
-}
-.title-screen .start-btn {
-  background: linear-gradient(135deg, #7c3aed, #6366f1);
-  border: none;
-  color: #fff;
-  padding: 16px 48px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 700;
-  transition: all 0.3s;
-  box-shadow: 0 4px 20px rgba(99,102,241,0.4);
-}
-.title-screen .start-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(99,102,241,0.6);
-}
-.poem {
-  font-style: italic;
-  color: #888;
-  margin-top: 30px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-@media (max-width: 600px) {
-  .scene { padding: 24px 16px; }
-  .scene-title { font-size: 22px; }
-  .narrative { font-size: 15px; }
-  .title-screen h1 { font-size: 30px; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
 </style>
 </head>
 <body>
-<div id="app">
-<div id="content"></div>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
 </div>
-
 <script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene4c","scene4d","scene5f","scene5j","scene6a","scene6e","scene7b","scene8d","scene9a","scene10","scene11","scene12","scene13","scene14"];
 const story = {
-  'start': {
-    title: '',
-    setting: '',
-    narrative: '',
-    is_ending: false,
-    choices: [],
-  },
-  '01': {
-    title: 'Kota Sepi',
-    setting: 'Bekas SD Gema — bangunan miring, jendela pecah. Sore menjelang maghrib.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema berdiri di depan gerbang besi yang udah karatan. Angin sore nyusup lewat celah seragamnya — dingin.\n\n*Dingin kayak ada yang napas di belakang leher.*\n\n"Kita mau masuk?" bisik Nora. Suaranya lembut, kayak kapas.\n\n"Tentu aja dia mau masuk," Ezra nyengir di sebelah. "Dia Gema. Si pemberani yang suka gemetaran."\n\n"Diem ah," gumam Gema.\n\nTapi Ezra ga salah. Dia emang takut. Di balik jendela lantai dua, sesuatu bergerak. Bayangan.\n\nNora dan Ezra bilang mereka hantu. Gema percaya aja — soalnya dia bisa ngeliat mereka, denger mereka. Hantu ya seperti itu kan?\n\nMasuk akal.\n\nGema menarik napas. "Oke. Aku masuk."`,
-    is_ending: false,
-    choices: [
-      { target: '02A', desc: 'Ajak Nora lewat pintu samping 💜' },
-      { target: '02B', desc: 'Ajak Ezra lewat tangga darurat 💙' },
-    ],
-  },
-  '02A': {
-    title: 'Pintu Samping — Bersama Nora',
-    setting: 'Lorong samping sekolah. Gelap, tembok lembab, bau debu.',
-    chars: 'Gema, Nora',
-    narrative: `Gema masuk lewat pintu samping. Pintunya udah ga ada — tinggal lubang gelap kayak mulut raksasa.\n\nNora berjalan di sampingnya, tangannya megang tangan Gema.\n\n"Di sini..." bisiknya. "Ada sesuatu. Aku bisa rasain."\n\n"Apa?" tanya Gema.\n\nNora berhenti. Matanya kosong sebentar. "Dia sedih. Kayak... kehilangan seseorang."\n\nTiba-tiba — langkah kaki di lantai atas. *Buk... buk... buk...*\n\n"Awas," Nora tarik tangannya. "Jangan ke sana dulu."`,
-    is_ending: false,
-    choices: [
-      { target: '03A', desc: 'Tanya ke Nora — kenapa dia tau?' },
-      { target: '03C', desc: 'Ikuti suara langkah itu sendiri' },
-    ],
-  },
-  '02B': {
-    title: 'Tangga Darurat — Bersama Ezra',
-    setting: 'Tangga darurat besi di samping sekolah. Berkarat, berderit.',
-    chars: 'Gema, Ezra',
-    narrative: `"Lewat sini," Ezra udah naik duluan. Dia ga nunggu, ga takut.\n\nGema mengikutinya. Tangganya berderit — *kreeeek* — bunyinya nyaring di sore yang sepi.\n\n"Denger ga tadi?" tanya Ezra tiba-tiba. "Langkah kaki. Lantai dua."\n\n"I-iya."\n\n"Bukan kita yang jalan," Ezra nyengir. "Berarti hantu. Yang beneran."\n\nGema merinding. Ezra bilang "yang beneran" — maksudnya apa? Nora dan Ezra juga hantu, kan?`,
-    is_ending: false,
-    choices: [
-      { target: '03B', desc: 'Naik — penasaran sama yang di atas 🔝' },
-      { target: '03C', desc: 'Tanya Ezra — maksudnya "hantu beneran" apa?' },
-    ],
-  },
-  '03A': {
-    title: 'Kenapa Nora Tahu?',
-    setting: 'Lorong samping yang gelap. Suara langkah di atas udah berhenti.',
-    chars: 'Gema, Nora',
-    narrative: `"Nora," bisik Gema. "Kamu kok bisa tau kalo dia sedih?"\n\nNora diam sebentar. Senyumnya lembut, tapi matanya kosong.\n\n"Aku tahu karena aku juga ngerasain hal yang sama."\n\n"Kehilangan seseorang?"\n\nNora mengangguk. Tapi dia ga jelasin siapa.\n\n"Gema... janji sama aku. Kalo suatu saat aku minta tolong... jangan takut, ya."\n\nGema bingung. Tapi sebelum dia jawab — langkah kaki di atas mulai lagi. *Buk... buk... buk...* — lebih cepet. Kayak ada yang lari.\n\nNora pegang tangannya makin erat. "Dia udah tau kita di sini."`,
-    is_ending: false,
-    choices: [
-      { target: '04C', desc: 'Nora... kamu boleh pinjam tubuhku' },
-    ],
-  },
-  '03B': {
-    title: 'Naik Bersama Ezra',
-    setting: 'Lantai dua. Lorong panjang dengan deretan pintu kelas miring.',
-    chars: 'Gema, Ezra',
-    narrative: `"Diem dikit," bisik Gema panik.\n\n"Tenang," Ezra nyengir. "Kalo ada hantu beneran, dia udah keluar dari lama."\n\n"Kamu juga hantu," desis Gema. "Kenapa kamu bilang 'hantu beneran'?"\n\nEzra berhenti. Diam.\n\n"...Ezra?"\n\n"Gema," baliknya, suaranya lain. "Kamu percaya sama aku?"\n\n"Iya."\n\n"Iya yang mana? Iya kamu percaya? Atau iya kamu mau ngelakuin apa kata aku?"\n\nDari ujung lorong — suara pintu dibanting. **BAM!**\n\nEzra tersenyum. "Nah. Mulai seru."`,
-    is_ending: false,
-    choices: [
-      { target: '04D', desc: 'Dekatin pintu yang terbanting 🚪' },
-      { target: '05J', desc: 'Ezra... kamu bisa lindungin aku? 😰' },
-    ],
-  },
-  '03C': {
-    title: 'Ikuti Suara Langkah',
-    setting: 'Lorong lantai dasar, menuju tangga. Sepi.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema mutusin buat ngikutin suara langkah itu sendirian. Nora dan Ezra diem aja di belakang.\n\nLangkah kaki itu berhenti di depan pintu kelas paling ujung. Pintunya tertutup rapat.\n\n"Buka aja," bisik Ezra dari belakang. "Kecuali kamu takut."\n\n"Awas aja," bisik Nora pelan. "Aku dengar... dia nangis."\n\nDari dalam kelas — suara isak tangis. Pelan. Kayak anak kecil.`,
-    is_ending: false,
-    choices: [
-      { target: '04C', desc: 'Nora... aku takut. Pegang tanganku 🥺' },
-      { target: '05J', desc: 'Ezra! LINDUNGIN aku! 😤' },
-    ],
-  },
-  '04C': {
-    title: 'Nora Masuk',
-    setting: 'Lorong lantai dua. Bayangan misterius di ujung lorong.',
-    chars: 'Gema, Nora (dalam tubuh Gema)',
-    narrative: `"Nora." Gema tarik napas. "Kamu boleh kok pinjam tubuhku. Kalo itu bisa bantu."\n\nNora menatap Gema. Senyumnya lembut, tapi aneh.\n\n"Kamu yakin?"\n\nGema mengangguk. Nora temennya. "Oke."\n\nNora meraih kedua tangan Gema. Tiba-tiba — ada rasa hangat mengalir dari ujung jari. Masuk ke dada. Kayak air hangat pas mandi.\n\nPas Gema buka mata... Nora udah ga ada di depannya.\n\n*"Udah,"* suara Nora di dalam kepalanya. *"Sekarang... istirahat aja dulu, Gema. Biar aku yang urus."*\n\n"Hei," suara Gema — tapi bukan Gema yang ngomong. "Yang di ujung sana. Lo liat aku?"\n\nSuara Nora pake **mulut Gema.**\n\nDan bayangan di ujung lorong itu mulai bergerak.`,
-    is_ending: false,
-    choices: [
-      { target: '05F', desc: 'NORA, KEMBALIKAN TUBUHKU! 😰' },
-    ],
-  },
-  '04D': {
-    title: 'Dekatin Pintu yang Terbanting',
-    setting: 'Lorong lantai dua, di depan kelas 2-A.',
-    chars: 'Gema, Ezra',
-    narrative: `Gema jalan ke arah pintu yang terbanting. Ezra di sampingnya, kali ini diem aja — matanya serius.\n\nPintu kelas 2-A. Setengah terbuka. Dari celahnya kelihatan kursi terbalik, meja berdebu.\n\n"Ezra, itu... hantu beneran?"\n\nEzra diem bentar. "Iya. Tapi jangan takut. Nora dan aku kenal kamu. Yang di dalam sana... dia cuma sisa."\n\n"Sisa apa?"\n\n"Sisa orang yang ga selamat pas kerusuhan."\n\nGema nahan napas.\n\n"Itu sebabnya kamu balik ke sini, Gema. Tanpa sadar."\n\nDari dalam kelas — suara kursi diseret. *Kreeeeeek...*`,
-    is_ending: false,
-    choices: [
-      { target: '05J', desc: 'Ezra... kamu bisa masuk ke tubuh aku. Lindungin aku.' },
-    ],
-  },
-  '05F': {
-    title: 'Nora, Kembalikan!',
-    setting: 'Lorong lantai dua. Tubuh Gema dikendalikan Nora.',
-    chars: 'Gema (dalam pikirannya), Nora',
-    narrative: `"NORA! KEMBALIKAN!"\n\nTapi Nora ga berhenti. Tubuh Gema melangkah maju — padahal dia gamau.\n\n"Aku ga suka! Kembalikan!"\n\nTiba-tiba tubuhnya berhenti. Diam.\n\n*"Kenapa, Gema?"* suara Nora pelan. *"Aku cuma mau bantu."*\n\n"Aku ga minta bantuan kayak gini!"\n\n*"...Tapi ini satu-satunya cara biar kamu ngerti."*\n\n"Ngerti apa?!"\n\n*"Ngerti kalo aku... bukan hantu, Gema."*\n\nGema nahan napas.\n\n*"Aku ada di sini... karena kamu."*`,
-    is_ending: false,
-    choices: [
-      { target: '06A', desc: 'Maksudnya... karena aku?' },
-    ],
-  },
-  '05J': {
-    title: 'Ezra Masuk',
-    setting: 'Lorong lantai dua. Suara dari dalam kelas makin keras.',
-    chars: 'Gema, Ezra (dalam tubuh Gema)',
-    narrative: `"Ezra." Gema tarik napas. "Kamu bisa masuk ke tubuh aku. Lindungin aku."\n\nEzra nengok. Matanya kosong. "Kamu yakin?"\n\n"Iya."\n\n"Kalo aku masuk, aku bisa ngelakuin hal yang Nora ga berani. Tapi caranya... mungkin kamu ga suka."\n\nGema ragu. Tapi suara dari dalam kelas makin keras. "Aku ihklasin."\n\nEzra memejam. Lalu meraih tangan Gema. Rasa hangat — tapi beda. Kayak kena listrik kecil.\n\nPas Gema buka mata... tangannya udah megang gagang pintu.\n\n*"Jangan liat,"* bisik Ezra di kepalanya. *"Pekem mata."*\n\nGema denger pintu dibuka. Langkah kaki. Bisik cepat. Terus — hening.\n\n*"Udah."*\n\nGema buka mata. Pintu kelas terbuka lebar. Di dalam kosong. Rapi.\n\n"Apa yang kamu lakuin?"\n\n*"Ngirim dia pergi. Ke tempat yang seharusnya."*`,
-    is_ending: false,
-    choices: [
-      { target: '06E', desc: 'Makasih, Ezra. Aku ga akan kuat tanpa kamu.' },
-    ],
-  },
-  '06A': {
-    title: 'Maksudnya... Karena Aku?',
-    setting: 'Lorong. Nora udah keluar dari tubuh Gema — duduk lemas di pojok.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema masih duduk. Jantungnya masih kenceng. Tapi... penasaran.\n\n"Mak... maksudnya karena aku?"\n\nNora — yang udah keluar dari tubuh Gema — duduk di pojok. Matanya sembab.\n\n*"Kamu ingat, Gema... pas kamu di pengungsian? Pas semuanya berisik? Kamu nutup telinga?"*\n\nGema ingat. Waktu kerusuhan. Orang teriak. Pecah kaca.\n\n*"Waktu itu... kamu mulai ngomong sendiri. Biar ga denger suara di luar. Aku yang kamu ajak ngomong. Dan Ezra juga."*\n\n"Betul..."\n\n*"Kamu yang bikin aku, Gema. Aku ada karena kamu."*\n\nGema buka mulut. Tapi ga ada suara.\n\nTiba-tiba — "NORA." Suara Ezra. Tajam.\n\n*"APA YANG KAU LAKUKAN?!"*`,
-    is_ending: false,
-    choices: [
-      { target: '07B', desc: '(Lanjut — Ezra intervensi)' },
-    ],
-  },
-  '06E': {
-    title: 'Makasih, Ezra 💙',
-    setting: 'Kelas 2-A yang tiba-tiba rapi. Sunyi.',
-    chars: 'Gema, Ezra (dalam hati Gema), Nora',
-    narrative: `Gema duduk di kursi paling depan. Kelasnya rapi. Bersih. Aneh.\n\n"Ezra... makasih."\n\n*"Untuk apa?"*\n\n"Udah jagain aku. Dari dulu."\n\nEzra ga jawab. Tapi Gema ngerasain rasa hangat di dadanya.\n\n*"Gema. Keluar yuk. Udah selesai."*\n\n"Tapi... hantunya?"\n\n*"Udah. Ga bakal ganggu lagi."*\n\nGema jalan keluar. Maghrib udah lewat, langit biru tua.\n\nNora udah nunggu di luar. Senyum. "Udah?"\n\n"Udah."\n\nMereka bertiga jalan pulang — Nora di kiri, Ezra di kanan. Kayak biasa.\n\nDan sepanjang jalan, Gema mikir...\n\n*Mereka hantu beneran? Atau cuma di kepalaku?*\n\nTapi mungkin...\n\n***...ga perlu tau juga, ya.***`,
-    is_ending: true,
-    ending_type: 'mystery',
-    ending_label: '🔮 ENDING MISTERI',
-    choices: [],
-  },
-  '07B': {
-    title: 'Tapi Kamu Nyata! — Ezra Intervensi',
-    setting: 'Lorong lantai dua. Nora nangis.',
-    chars: 'Gema, Nora, Ezra (dalam kepala Gema)',
-    narrative: `"TAPI KAMU NYATA!" teriak Gema di dalam pikirannya.\n\n*"Kamu tau, kan, pikiran bisa kuat banget?"*\n\nTiba-tiba suara lain muncul. Keras.\n\n*"NORA. APA YANG KAU LAKUKAN?!"* — suara Ezra.\n\n*"Ez—Ezra?"*\n\n*"DIA MASIH UMUR 9! KAU NGANGGEP DIA BISA TERIMA SEMUA INI?!"*\n\n*"Aku cuma jujur—"*\n\n*"KAU GAMAU DIHILANGKAN, KAN?! KALO DIA TAU— LEPASIN!"*\n\nTubuh Gema kejang sebentar. Pas dia buka mata...\n\nEzra berdiri di depannya. Nyengir kayak biasa. "Lama banget di sini. Ketiduran?"\n\nGema ngerut. "Nora mana?"\n\nEzra nunjuk. Nora duduk di pojok, pucat, natap kosong.\n\n"Ga tau. Capek mungkin."\n\nAda yang aneh. Tapi Gema... ga ingat apa-apa.`,
-    is_ending: false,
-    choices: [
-      { target: '08D', desc: 'Oke... ayo lanjut. Itu bayangan tadi ke mana?' },
-    ],
-  },
-  '08D': {
-    title: 'Lanjut...',
-    setting: 'Lorong lantai dua. Sepi.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema gelengin kepala. Ada yang aneh, tapi dia gatau apa.\n\n"Oke... ayo lanjut. Itu bayangan tadi ke mana?"\n\nEzra menunjuk ke ujung lorong. "Udah ilang."\n\n"Terus? Kita ngapain di sini?"\n\nEzra diem bentar. Lalu nyengir — tapi senyumnya beda. Lebih sedih.\n\n"Gema. Kamu inget kenapa kita ke sini?"\n\n"Karena... ada hantu?"\n\n"Bukan." Ezra napas panjang. "Kamu ke sini karena ini sekolahmu. Tempat kamu dulu belajar."\n\n"Di kelas 2-A... ada sesuatu yang kamu tinggalin."\n\n"Apa?"\n\n"Kenangan."`,
-    is_ending: false,
-    choices: [
-      { target: '09A', desc: 'Ke kelas 2-A — ambil kenangan itu 🚪' },
-    ],
-  },
-  '09A': {
-    title: 'Kelas 2-A',
-    setting: 'Kelas 2-A. Debu tebal. Tapi satu meja rapi.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema jalan ke kelas 2-A. Pintunya rusak. Meja-kursi pada miring. Tapi di pojok... ada satu meja yang **rapi.** Ga ada debu.\n\nItu mejanya.\n\nGema duduk. Dan tiba-tiba — ingatan itu kembali.\n\n*Suara ibu. "Kamu harus kuat, Gema."*\n\n*Suara ledakan. Jauh.*\n\n*Suara kecil — dirinya sendiri, umur 7: "Kamu ada, kan? Kamu temenin aku, kan?"*\n\n*Suara Nora: "Iya. Aku di sini."*\n\n*Suara Ezra: "Diem aja. Kita jagain."*\n\nGema nangis.\n\n"Jadi... aku yang bikin kalian," bisiknya.\n\nDari belakang, suara Ezra — pelan. "Iya."\n\n"Dan Nora... Nora udah bilang? Terus kamu... ilangin ingatan aku?"\n\nEzra diem.\n\n"EZRA!"\n\n"Harusnya kamu tau belakangan," jawab Ezra lirih. "Ga sekarang."\n\n"Harusnya AKU yang milih! Bukan KAMU!"\n\n"Iya." Ezra nyengir — tapi getar. "Maaf."`,
-    is_ending: false,
-    choices: [
-      { target: '10', desc: 'Pulang 🏠' },
-    ],
-  },
-  '10': {
-    title: 'Pulang 💜💙',
-    setting: 'Gerbang sekolah. Maghrib lewat. Langit biru tua.',
-    chars: 'Gema, Nora, Ezra',
-    narrative: `Gema ngelap air mata. Berdiri.\n\n"Aku mau pulang."\n\nNora — yang dari tadi diem — angkat muka. Matanya sembab. Tapi dia nyengir tipis.\n\nEzra ikut berdiri. "Oke."\n\nMereka bertiga jalan keluar. Gerbang besi udah kebuka lagi.\n\nGema berhenti. Nengok ke sekolah itu sekali lagi.\n\n"Nora. Ezra."\n\n"Iya?"\n\n"Iya?"\n\nGema napas. "Makasih... udah nemenin aku."\n\nEzra dan Nora saling liat. Ga ada yang ngomong.\n\nTapi Gema tau.\n\nMereka ada. Entah di pikirannya atau di dunia nyata. Dan selama Gema butuh mereka... mereka ga akan pergi.\n\n***Kadang, teman yang paling nyata adalah yang lahir dari pikiran sendiri.***`,
-    is_ending: true,
-    ending_type: 'good',
-    ending_label: '✨ SELESAI — Nora & Ezra 💜💙',
-    choices: [],
-  },
-};
+  "scene1": {    title: "Kota Sepi",    setting: "Bekas SD Gema — bangunan miring, jendela pecah, tembok coretan. Sore hari menjelang maghrib.",    karakter: "Gema Rembulan, Nora, Ezra",    text: `Gema berdiri di depan gerbang besi yang udah karatan. Angin sore nyusup lewat celah seragamnya — dingin.
 
-const letters = ['A', 'B', 'C', 'D', 'E'];
+*Dingin kayak ada yang napas di belakang leher.*
 
-function showTitleScreen() {
-  const html = `
-    <div class="scene title-screen fade-in">
-      <h1>Mata Ketiga</h1>
-      <div class="subtitle">Sebuah Cerita Interaktif</div>
-      <div class="genre">👻 Horor · 🧠 Psikologis · 😂 Komedi · 🕵️ Misteri</div>
-      <button class="start-btn" onclick="goTo('01')">▶ Mulai Cerita</button>
-      <div class="poem">
-        "Kadang, teman yang paling nyata<br>
-        adalah yang lahir dari pikiran sendiri."
-      </div>
-    </div>
-  `;
-  document.getElementById('content').innerHTML = html;
-}
+"Kita mau masuk?" bisik Nora. Suaranya lembut, kayak kapas.
+
+"Tentu aja dia mau masuk," Ezra nyengir di sebelah. "Dia Gema. Si pemberani yang suka gemetaran."
+
+"Diem ah," gumam Gema.
+
+Tapi Ezra ga salah. Dia emang takut. Di balik jendela lantai dua, sesuatu bergerak. Bayangan.
+
+Nora dan Ezra bilang mereka hantu. Gema percaya aja — soalnya dia bisa ngeliat mereka, denger mereka. Hantu ya seperti itu kan?
+
+Masuk akal.
+
+Gema menarik napas. "Oke. Aku masuk."`,    isEnd: false,    choices: [      {target: "scene2a", text: "Ajak Nora lewat pintu samping"},      {target: "scene2b", text: "Ajak Ezra lewat tangga darurat"}    ]  },  "scene2a": {    title: "Pintu Samping — Bersama Nora",    setting: "Lorong samping sekolah. Gelap, tembok lembab, bau debu dan hujan.",    karakter: "Gema, Nora",    text: `Gema masuk lewat pintu samping. Pintunya udah ga ada — tinggal lubang gelap kayak mulut raksasa.
+
+Nora berjalan di sampingnya, tangannya megang tangan Gema.
+
+"Di sini..." bisiknya. "Ada sesuatu. Aku bisa rasain."
+
+"Apa?" tanya Gema.
+
+Nora berhenti. Matanya kosong sebentar. "Dia sedih. Kayak... kehilangan seseorang."
+
+Tiba-tiba — langkah kaki di lantai atas. *Buk... buk... buk...*
+
+Gema nahan napas. Itu hantu lain? Atau cuma kucing?
+
+"Awas," Nora tarik tangannya. "Jangan ke sana dulu."`,    isEnd: false,    choices: [      {target: "scene3a", text: "Tanya ke Nora — kenapa dia tau?"},      {target: "scene3c", text: "Ikuti suara langkah itu sendiri"}    ]  },  "scene2b": {    title: "Tangga Darurat — Bersama Ezra",    setting: "Tangga darurat besi di samping sekolah. Berkarat, berderit.",    karakter: "Gema, Ezra",    text: `"Lewat sini," Ezra udah naik duluan. Dia ga nunggu, ga takut.
+
+Gema mengikutinya. Tangganya berderit — *kreeeek* — bunyinya nyaring di sore yang sepi.
+
+"Denger ga tadi?" tanya Ezra tiba-tiba. "Langkah kaki. Lantai dua."
+
+"I-iya."
+
+"Bukan kita yang jalan," Ezra nyengir. "Berarti hantu. Yang beneran."
+
+Gema merinding. Ezra bilang "yang beneran" — maksudnya apa? Nora dan Ezra juga hantu, kan? Tapi kadang cara Ezra ngomong... aneh.
+
+"Naik?" tanya Ezra, udah di ujung tangga.`,    isEnd: false,    choices: [      {target: "scene3b", text: "Naik — penasaran sama yang di atas"},      {target: "scene3c", text: "Tanya Ezra — maksudnya \"hantu beneran\" apa?"}    ]  },  "scene3a": {    title: "Kenapa Nora Tahu?",    setting: "Lorong samping yang gelap. Suara langkah di atas udah berhenti.",    karakter: "Gema, Nora",    text: `"Nora," bisik Gema. "Kamu kok bisa tau kalo dia sedih?"
+
+Nora diam sebentar. Senyumnya lembut, tapi matanya kosong.
+
+"Aku tahu karena aku juga ngerasain hal yang sama."
+
+"Kehilangan seseorang?"
+
+Nora mengangguk. Tapi dia ga jelasin siapa.
+
+"Gema... janji sama aku. Kalo suatu saat aku minta tolong... jangan takut, ya."
+
+Gema bingung. Kenapa Nora tiba-tiba ngomong gitu?
+
+Tapi sebelum dia jawab — langkah kaki di atas mulai lagi. *Buk... buk... buk...* lebih cepet. Kayak ada yang lari.
+
+Nora pegang tangannya makin erat. "Dia udah tau kita di sini."`,    isEnd: false,    choices: [      {target: "scene4c", text: "Nora... kamu boleh pinjam tubuhku"}    ]  },  "scene3b": {    title: "Naik Bersama Ezra",    setting: "Lantai dua sekolah. Lorong panjang dengan deretan pintu kelas miring.",    karakter: "Gema, Ezra",    text: `Gema naik ke lantai dua. Ezra udah jalan duluan, bolos-bolos ke setiap pintu kayak lagi cari sesuatu.
+
+"Diem dikit," bisik Gema panik.
+
+"Tenang," Ezra nyengir. "Kalo ada hantu beneran, dia udah keluar dari lama."
+
+"Kamu juga hantu," desis Gema. "Kenapa kamu bilang 'hantu beneran'?"
+
+Ezra berhenti. Diem.
+
+"...Ezra?"
+
+"Gema," baliknya, suaranya lain. Lebih pelan. "Kamu percaya sama aku?"
+
+"Iya."
+
+"Iya yang mana? Iya kamu percaya? Atau iya kamu mau ngelakuin apa kata aku?"
+
+Pertanyaan itu aneh. Tapi sebelum Gema mikir — dari ujung lorong, suara pintu dibanting. **BAM!**
+
+Ezra tersenyum. "Nah. Mulai seru."`,    isEnd: false,    choices: [      {target: "scene4d", text: "Dekatin pintu yang terbanting"},      {target: "scene5j", text: "Ezra... kamu bisa lindungin aku?"}    ]  },  "scene3c": {    title: "Ikuti Suara Langkah",    setting: "Lorong lantai dasar, menuju ke arah tangga. Sepi. Terlalu sepi.",    karakter: "Gema, Nora, Ezra",    text: `Gema mutusin buat ngikutin suara langkah itu sendirian. Nora dan Ezra diem aja di belakang.
+
+Langkah kaki itu berhenti di depan pintu kelas paling ujung. Pintunya tertutup rapat — aneh, karena pintu lain pada rusak semua.
+
+Gema ragu. Tangannya udah di depan pintu.
+
+"Buka aja," bisik Ezra dari belakang. "Kecuali kamu takut."
+
+"Awas aja," bisik Nora pelan. "Aku dengar... dia nangis."
+
+Dari dalam kelas — suara isak tangis. Pelan. Kayak anak kecil.`,    isEnd: false,    choices: [      {target: "scene4c", text: "Nora... aku takut. Pegang tanganku."},      {target: "scene5j", text: "Ezra! LINDUNGIN aku!"},      {target: "scene11", text: "Aku buka pintu ini sendiri."}    ]  },  "scene4c": {    title: "Nora Masuk",    setting: "Lorong lantai dua. Gelap. Di ujung lorong, bayangan misterius masih duduk.",    karakter: "Gema, Nora (dalam tubuh Gema)",    text: `"Nora." Gema tarik napas. "Kamu boleh kok pinjam tubuhku. Kalo itu bisa bantu."
+
+Nora menatap Gema. Senyumnya lembut, tapi aneh. "Kamu yakin?"
+
+Gema mengangguk. Nora temennya.
+
+"Oke."
+
+Nora meraih kedua tangan Gema. Tiba-tiba — ada rasa hangat mengalir dari ujung jari. Masuk ke dada. Kayak air hangat pas mandi.
+
+Pas Gema buka mata... Nora udah ga ada di depannya.
+
+*"Udah,"* suara Nora di dalam kepalanya. *"Sekarang... istirahat aja dulu, Gema. Biar aku yang urus."*
+
+Gema mau jawab. Tapi bibirnya bergerak sendiri.
+
+"Hei," suara Gema — tapi bukan Gema yang ngomong. "Yang di ujung sana. Lo liat aku?"
+
+Suara Nora pake mulut Gema.
+
+Dan bayangan di ujung lorong itu mulai bergerak.`,    isEnd: false,    choices: [      {target: "scene5f", text: "NORA, KEMBALIKAN TUBUHKU!"}    ]  },  "scene4d": {    title: "Dekatin Pintu yang Terbanting",    setting: "Lorong lantai dua, di depan kelas 2-A. Pintunya setengah terbuka.",    karakter: "Gema, Ezra",    text: `Gema jalan ke arah pintu yang terbanting. Ezra di sampingnya, kali ini diem aja — matanya serius.
+
+Pintu kelas 2-A. Setengah terbuka. Dari celahnya kelihatan kursi-kursi terbalik, meja berdebu.
+
+"Ezra, itu... hantu beneran?"
+
+Ezra diem bentar. "Iya. Tapi jangan takut."
+
+"Kok kamu tau?"
+
+"Karena... dia beda. Dia ga kenal kamu."
+
+Gema bingung. "Maksudnya?"
+
+"Nora dan aku kenal kamu. Kita tau suara kamu, cara kamu jalan, cara kamu takut. Tapi yang di dalam sana... dia cuma sisa."
+
+"Sisa apa?"
+
+"Sisa orang yang ga selamat pas kerusuhan."
+
+Gema nahan napas. "Di sini? Di sekolah?"
+
+Ezra mengangguk. "Itu sebabnya kamu balik ke sini, Gema. Tanpa sadar."
+
+Dari dalam kelas — suara kursi diseret. *Kreeeeeek...*`,    isEnd: false,    choices: [      {target: "scene5j", text: "Ezra... kamu bisa masuk ke tubuh aku. Lindungin aku."}    ]  },  "scene5f": {    title: "Nora, Kembalikan!",    setting: "Lorong lantai dua. Tubuh Gema dikendalikan Nora.",    karakter: "Gema (dalam pikirannya sendiri), Nora",    text: `"NORA! KEMBALIKAN!"
+
+Tapi Nora ga berhenti. Tubuh Gema melangkah maju — padahal dia gamau.
+
+"Aku ga suka! Kembalikan!"
+
+Tiba-tiba — tubuhnya berhenti. Diam.
+
+*"Kenapa, Gema?"* suara Nora pelan. *"Aku cuma mau bantu."*
+
+"Aku ga minta bantuan kayak gini!"
+
+*"...Tapi ini satu-satunya cara biar kamu ngerti."*
+
+"Ngerti apa?!"
+
+Hening. Terus...
+
+*"Ngerti kalo aku... bukan hantu, Gema."*
+
+Gema nahan napas.
+
+*"Aku ga tau aku apa. Tapi aku tau satu hal."*
+
+*"Aku ada di sini... karena kamu."*`,    isEnd: false,    choices: [      {target: "scene6a", text: "Maksudnya... karena aku?"}    ]  },  "scene5j": {    title: "Lindungin Aku, Ezra",    setting: "Lorong lantai dua. Suara dari dalam kelas makin keras.",    karakter: "Gema, Ezra (masuk ke tubuh Gema)",    text: `"Ezra." Gema tarik napas. "Kamu bisa masuk ke tubuh aku. Lindungin aku."
+
+Ezra nengok. Matanya kosong sebentar. "Kamu yakin?"
+
+"Iya."
+
+"Gema... kalo aku masuk, aku bisa ngelakuin hal yang Nora ga berani."
+
+"Apa maksudnya?"
+
+"Aku bisa ngilangin hantu itu. Tapi caranya... mungkin kamu ga suka."
+
+Gema ragu. Tapi dari dalam kelas, suara kursi makin keras. "Aku ihklasin."
+
+Ezra memejam. Lalu meraih tangan Gema. Sama kayak Nora — ada rasa hangat. Tapi ini beda. Kayak kena listrik kecil. Getar.
+
+Pas Gema buka mata... dia masih di lorong. Tapi tangannya udah megang gagang pintu.
+
+*"Jangan liat,"* bisik Ezra di kepalanya. Tajam. *"Pekem mata."*
+
+Gema denger pintu dibuka. Langkah kaki. Bisik cepat — kayak orang ngomong pake bahasa asing. Terus hening.
+
+*"Udah."*
+
+Gema buka mata. Pintu kelas terbuka lebar. Di dalam kosong. Rapi. Kayak sekolah normal.
+
+"Apa yang kamu lakuin?"
+
+*"Ngirim dia pergi."*
+
+"Ke mana?"
+
+*"Ke tempat yang seharusnya."*`,    isEnd: false,    choices: [      {target: "scene6e", text: "Makasih, Ezra. Aku ga akan kuat tanpa kamu."}    ]  },  "scene6a": {    title: "Maksudnya... Karena Aku?",    setting: "Masih di lorong. Nora udah keluar dari tubuh Gema — duduk lemas di pojok.",    karakter: "Gema, Nora, Ezra",    text: `Gema masih duduk. Jantungnya masih kenceng. Tapi... penasaran.
+
+"Mak... maksudnya karena aku?"
+
+Nora — yang udah keluar dari tubuh Gema — duduk di pojok. Matanya sembab. Tapi dia nyengir tipis.
+
+*"Kamu ingat, Gema... pas kamu di pengungsian? Pas semuanya berisik? Kamu nutup telinga?"*
+
+Gema ingat. Itu waktu kerusuhan. Orang-orang teriak. Pecah kaca.
+
+*"Waktu itu... kamu mulai ngomong sendiri. Biar ga denger suara di luar."*
+
+"Betul."
+
+*"Aku yang kamu ajak ngomong. Dan Ezra juga."*
+
+Gema buka mulut. Tapi ga ada suara.
+
+*"Kamu yang bikin aku, Gema. Aku ga tau caranya. Tapi aku ada karena kamu."*
+
+Nora berhenti.
+
+*"Maaf... kalo aku ga ngasih tau dari dulu."*
+
+Tiba-tiba dari samping — "NORA."
+
+Suara Ezra. Tajam.
+
+*"APA YANG KAU LAKUKAN?!"*`,    isEnd: false,    choices: [      {target: "scene7b", text: "(Lanjut — Ezra intervensi)"}    ]  },  "scene6e": {    title: "Makasih, Ezra — END Misteri 💙",    setting: "Kelas 2-A yang tiba-tiba rapi. Sunyi.",    karakter: "Gema, Ezra, Nora",    text: `Gema duduk di kursi paling depan. Kelasnya rapi. Bersih. Aneh.
+
+"Ezra... makasih."
+
+*"Untuk apa?"*
+
+"Udah jagain aku. Dari dulu."
+
+Ezra ga jawab. Tapi Gema ngerasain — di dadanya — rasa hangat.
+
+*"Gema. Keluar yuk. Udah selesai."*
+
+"Tapi... hantunya?"
+
+*"Udah. Ga bakal ganggu lagi."*
+
+Gema bangkit. Nengok ke kelas itu sekali lagi. Kosong. Rapi. Tenang. Kayak ga pernah terjadi apa-apa.
+
+"Misterius banget kamu, Ez."
+
+*"Misterius? Aku logis."*
+
+Gema jalan keluar. Maghrib udah lewat, langit biru tua. Gerbang besi masih kebuka.
+
+Nora udah nunggu di luar. Senyum. "Udah?"
+
+"Udah."
+
+Mereka bertiga jalan pulang — Nora di kiri, Ezra di kanan. Kayak biasa.
+
+Dan sepanjang jalan, Gema mikir...
+
+*Mereka hantu beneran? Atau cuma di kepalaku?*
+
+Tapi mungkin...
+
+*...ga perlu tau juga, ya.*`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Tapi Kamu Nyata! — Ezra Intervensi",    setting: "Lorong lantai dua. Nora nangis. Ezra muncul.",    karakter: "Gema, Nora, Ezra",    text: `"TAPI KAMU NYATA!" teriak Gema di dalam pikirannya. "Aku bisa pegang tangan kamu!"
+
+*"Kamu tau, kan, pikiran bisa kuat banget?"*
+
+"Aku maksudnya..."
+
+*"Kamu percaya aku ada. Makanya aku ada."*
+
+Gema diem. Tiba-tiba — suara lain. Keras.
+
+*"NORA. APA YANG KAU LAKUKAN?!"* — Ezra.
+
+*"Ez—Ezra? Tunggu—"*
+
+*"KAU BILANG SEMUANYA?! DIA MASIH UMUR 9!"*
+
+*"Aku cuma jujur—"*
+
+*"KAU GAMAU DIHILANGKAN, KAN?! KALO DIA TAU—"*
+
+*"Ezra, stop—"*
+
+*"LEPASIN!"*
+
+Tubuh Gema kejang. Pas dia buka mata...
+
+Ezra berdiri di depannya. Nyengir kayak biasa. "Lama banget di sini. Ketiduran?"
+
+Gema ngerut. "Nora mana?"
+
+Ezra nunjuk. Nora duduk di pojok, pucat, natap kosong.
+
+"Dia kenapa?"
+
+Ezra angkat bahu. "Ga tau. Capek mungkin."
+
+Ada yang aneh. Tapi Gema... ga ingat apa-apa dari beberapa menit terakhir.`,    isEnd: false,    choices: [      {target: "scene8d", text: "Oke... ayo lanjut. Itu bayangan tadi ke mana?"}    ]  },  "scene8d": {    title: "Lanjut...",    setting: "Lorong lantai dua. Sepi.",    karakter: "Gema, Nora, Ezra",    text: `Gema gelengin kepala. Ada yang aneh, tapi dia gatau apa.
+
+"Oke... ayo lanjut. Itu bayangan tadi ke mana?"
+
+Ezra menunjuk ke ujung lorong. "Udah ilang."
+
+"Terus? Kita ngapain di sini?"
+
+Ezra diem bentar. Lalu nyengir — tapi senyumnya beda. Lebih sedih.
+
+"Gema. Kamu inget kenapa kita ke sini?"
+
+"Karena... ada hantu?"
+
+"Bukan." Ezra napas panjang. "Kamu ke sini karena ini sekolahmu. Tempat kamu dulu belajar."
+
+Gema nahan napas. Gedung ini... bekas sekolahnya. Ya.
+
+"Di kelas 2-A," lanjut Ezra pelan. "Ada sesuatu yang kamu tinggalin."
+
+"Apa?"
+
+"Kenangan."`,    isEnd: false,    choices: [      {target: "scene9a", text: "Ke kelas 2-A — ambil kenangan itu"}    ]  },  "scene9a": {    title: "Kelas 2-A",    setting: "Kelas 2-A. Debu tebal. Tapi satu meja rapi.",    karakter: "Gema, Nora, Ezra",    text: `Gema jalan ke kelas 2-A. Pintunya rusak. Meja-kursi pada miring. Tapi di pojok... ada satu meja yang rapi. Ga ada debu. Kayak baru dipake kemarin.
+
+Itu mejanya.
+
+Gema duduk. Dan tiba-tiba — ingatan itu kembali.
+
+*Suara ibu. "Kamu harus kuat, Gema."*
+
+*Suara ledakan. Jauh.*
+
+*Suara kecil — dirinya sendiri, umur 7: "Kamu ada, kan? Kamu temenin aku, kan?"*
+
+*Suara Nora: "Iya. Aku di sini."*
+
+*Suara Ezra: "Diem aja. Kita jagain."*
+
+Gema nangis.
+
+"Jadi... aku yang bikin kalian," bisiknya.
+
+Dari belakang, suara Ezra — pelan. "Iya."
+
+"Dan Nora... Nora udah bilang? Tadi? Terus kamu... ilangin ingatan aku?"
+
+Ezra diem.
+
+"EZRA!"
+
+"Harusnya kamu tau belakangan," jawab Ezra lirih. "Ga sekarang."
+
+"Harusnya AKU yang milih! Bukan KAMU!"
+
+"Iya." Ezra nyengir — tapi getar. "Maaf."`,    isEnd: false,    choices: [      {target: "scene10", text: "Pulang"}    ]  },  "scene10": {    title: "Pulang — END 💜💙",    setting: "Gerbang sekolah. Maghrib lewat. Langit biru tua.",    karakter: "Gema, Nora, Ezra",    text: `Gema ngelap air mata. Berdiri. "Aku mau pulang."
+
+Nora — yang dari tadi diem — angkat muka. Matanya sembab. Tapi dia nyengir tipis.
+
+Ezra ikut berdiri. "Oke."
+
+Mereka bertiga jalan keluar. Gerbang besi udah kebuka lagi — kayak ga pernah ketutup tadi.
+
+Gema berhenti di depan gerbang. Nengok ke sekolah itu sekali lagi.
+
+"Nora. Ezra."
+
+"Iya?"
+
+"Iya?"
+
+Gema napas. "Makasih... udah nemenin aku."
+
+Ezra dan Nora saling liat. Ga ada yang ngomong.
+
+Tapi Gema tau.
+
+Mereka ada. Entah di pikirannya atau di dunia nyata. Tapi mereka ada. Dan selama Gema butuh mereka... mereka ga akan pergi.
+
+*Kadang, teman yang paling nyata adalah yang lahir dari pikiran sendiri.*`,    isEnd: true,    choices: [    ]  },  "scene11": {    title: "Masuk Sendiri",    setting: "Ruang kelas gelap di ujung lorong lantai dasar.",    karakter: "Gema, Nora, Ezra",    text: `Gema tarik napas. Nora sama Ezra di belakang — tapi suara tangis dari dalam kelas itu makin jelas, makin... *persis* kayak suara Nora.
+
+Ezra mencoba untuk mengintip, melangkah ke dalam ruangan, namun entah mengapa seperti ada selaput tak terlihat yang tidak mengizinkannya masuk. "..aneh, kayaknya energi disana lebih kuat, aku dan Nora tidak bisa masuk" ucap Ezra.
+
+"Gema... Aku khawatir," bisik Nora beneran dari belakang.
+
+"Jangan melakukan tindakan bodoh, Gem. Kamu yakin mau masuk? Yakin bener? Kamu sendirian loh," ucap Ezra.
+
+"Yakin," jawab Gema.
+
+"Yakiin? Yakin banget nih? Hayoo, kalau kamu ga keluar dari ruangan itu, jangan salahin kami loh ya," kata Ezra.
+
+Tangan Nora megang lengan Gema. Tapi suara dari dalam itu juga kedengeran: *"Gema... tolong..."*
+
+Gema lepas tangan Nora pelan.
+
+"Aku harus liat sendiri."
+
+"Yaah, dadah Gema," ucap Ezra mengangkat bahu.
+
+"Kami menunggu disini, Gema, hati-hati," ucap Nora khawatir.
+
+Pintu dibuka. Ruang kelas gelap — tirai semua tertutup rapat. Dan yang pertama Gema liat... ada **sosok kecil** di pojok, duduk, muka nutup.
+
+Di belakang Gema, pintu **tertutup sendiri**.
+
+*Klik.*
+
+Terkunci.`,    isEnd: false,    choices: [      {target: "scene12", text: "Apa mau kamu?!"}    ]  },  "scene12": {    title: "Häd3œñ",    setting: "Ruang kelas gelap di ujung lorong lantai dasar.",    karakter: "Gema, Häd3œñ",    text: `Gema meloncat terkaget atas pintu yang terbanting, "h-HEY!" ia berlari menuju pintu, memaksa membukanya.
+
+"NORA! EZRA! HALO?!" teriak Gema, namun tiada yang menjawab. Aduh, bagaimana ini?!
+
+Gema menarik napas, "tenang, Gem, tenang" ucapnya di dalam hati, tangan dan kakinya dingin, jantungnya berdetak kencang.
+
+Ruangan kelas hening, udara terasa lebih berat, sesak. Entitas itu meringkuk di ujung ruangan, kini meniru suara tangisan.
+
+"Baiklah, kamu mengunci aku di dalam ruangan ini, apa mau kamu?!" Gema berbicara dahulu kepada entitas itu.
+
+Kabut gelap menyelimuti entitas itu, tubuh entitas itu membesar, kini terkekeh. Ia perlahan mengangkat kepalanya, tubuhnya tidak berbentuk pasti, seperti menyatu dengan kabut gelap. Mata kosongnya menatap Gema, senyumannya melebar, dari telinga hingga telinga.
+
+Mendadak lampu ruangan kelas berkelap-kelip, tawa entitas itu semakin besar, suaranya memantul, terdengar dari berbagai arah.`,    isEnd: false,    choices: [      {target: "scene13", text: "Cari jalan keluar!"}    ]  },  "scene13": {    title: "Cari Jalan Keluar",    setting: "Ruang kelas gelap — dimensi jebakan Häd3œñ.",    karakter: "Gema, Häd3œñ",    text: `Gema ga mau diem aja. Sementara Häd3œñ masih terkekeh dan lampu berkelap-kelip, Gema melirik ke **jendela** — tirai tertutup rapat, tapi mungkin masih bisa dibuka.
+
+Gema berlari ke jendela, menarik tirainya —
+
+— **BUKA!**
+
+Jendela itu berhasil dibuka, namun yang keliatan... ruangan yang sama persis. Ruangan hening yang redup, bedanya seperti ada cermin di hadapan Gema.
+
+Gema melihat bayangannya sendiri. Tapi bayangan itu **nggak ikut gerak**. Bayangan itu **tersenyum**. 😨
+
+"Sini... main sama aku..."
+
+"OGAH GUA MAH! ORANG LAGI TAKUT GINI DIAJAK MAEN!!" teriak Gema panik, ia menghancurkan cermin itu, lari memasuki ruangan, kakinya menginjak beling kaca, beruntung ia memakai sepatu. Entitas itu mengejarnya.
+
+Gema membuka lagi jendela, ruangan kelas itu kembali terlihat. "Apa-apaan ini?! Kenapa tiada akhir?!" Keluh Gema, entitas itu semakin mendekat, memojokkan Gema. Mata Gema terbelalak, panik, takut, cemas, campur aduk perasaannya.
+
+"Ayo main! A-aHahaHAhAHAa!! AAAAAAAAAAAAA!!!" Suara entitas itu seperti radio rusak, tidak jelas dan suara lain menumpuk satu sama lain.
+
+"Gila kau ya?!" Celetuk Gema, ia panik, entitas itu berteriak nyaring, bagai garpu yang digesek pada besi. Gema menutup telinganya, memejamkan mata.`,    isEnd: false,    choices: [      {target: "scene14", text: "Hadapin!"}    ]  },  "scene14": {    title: "Hadapin — END 🏁",    setting: "Ruang kelas gelap — dimensi Häd3œñ.",    karakter: "Gema, Häd3œñ",    text: `Gema memejamkan mata, menutup kuping, terpojok. "Häd3œñ, Häd3œñ, HÄD3ŒÑ, HÄD3ŒÑ, HÄD3ŒÑ, HÄD3ŒÑ, HÄD3ŒÑ, HÄD3ŒÑ!" Teriakan Häd3œñ memenuhi seluruh ruangan, sampai ke tulang. Jantung Gema mau meledak...
+
+Tapi... di balik semua suara itu, ada satu suara lain, pelan.
+
+*Suara Nora.*
+
+*"Gema... kamu kuat."*
+
+Gema membuka mata perlahan.
+
+Häd3œñ masih di depan, bentuknya membesar, menjerit nyaring, siap menerkam. Tapi Gema... Gema berdiri.
+
+"Berisik!" teriak Gema.
+
+Häd3œñ terhenti. Matanya yang kosong menyipit — bingung.
+
+"Apa-apaan sih kamu? Ngunci aku, njerit-jerit, bikin pusing. NGEFANS YA?!" suara Gema bergetar, tapi dia ga mundur. "Kalo mau main — YAELAH mainnya kayak gini? Cermin doang? Ruangan doang? Ga kreatif amat!"
+
+Häd3œñ melengking marah — kabut hitam menyebar, menelan ruangan. Tapi Gema ga nutup mata lagi.
+
+"Aku... ga takut sama kamu lagi." Cahaya terang muncul dari diri Gema tanpa ia sadari.
+
+Dan anehnya... kabut mulai surut. Häd3œñ menjerit — kali ini bukan teror, tapi **kesakitan**. Sosoknya mengecil, kabutnya menguap.
+
+Lampu kelas kembali menyala — normal. Pintu terbuka. Di ambang pintu, Nora dan Ezra berdiri dengan muka panik.
+
+"GEMA!" Nora berlari memeluknya.
+
+Ezra menghela napas, "nice, nggak jadi metong."
+
+Nora menatap Ezra sinis.
+
+Gema tersenyum lelah.
+
+Häd3œñ? Sudah menghilang. Mungkin ia mencari mangsa lain di dimensi lain, atau lelah lalu pergi mencari mie ayam.
+
+Di saat itu, Gema Rembulan sadar, jika ada masalah, tak akan selesai jika kau menghindarinya. Kau harus berdiri kokoh menghadapi masalah itu.`,    isEnd: true,    choices: [    ]  }};
+
+let currentScene = "scene1";
 
 function goTo(sceneId) {
-  if (sceneId === 'restart') {
-    showTitleScreen();
-    return;
-  }
-
   const scene = story[sceneId];
-  if (!scene) {
-    document.getElementById('content').innerHTML = '<div class="scene"><p>Scene belum tersedia.</p><button class="restart-btn" onclick="goTo(\'restart\')">🔄 Kembali</button></div>';
-    return;
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
   }
 
-  let html = '<div class="scene fade-in">';
-  html += '<div class="scene-number">✦ Scene ' + sceneId + '</div>';
-  html += '<div class="scene-title">' + scene.title + '</div>';
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
 
-  let meta = '';
-  if (scene.setting) meta += '<span>📍 ' + scene.setting + '</span>';
-  if (scene.chars) meta += '<span>👤 ' + scene.chars + '</span>';
-  if (meta) html += '<div class="scene-meta">' + meta + '</div>';
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
 
-  let narr = scene.narrative;
-  narr = narr.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  narr = narr.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  html += '<div class="narrative">' + narr.split('\n\n').join('</p><p>').replace(/\n/g, '<br>') + '</div>';
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
 
-  if (scene.is_ending) {
-    let badgeClass = scene.ending_type === 'good' ? 'ending-good' : 'ending-mystery';
-    html += '<div class="ending-badge ' + badgeClass + '">' + (scene.ending_label || '🏁 THE END') + '</div>';
-    html += '<div style="text-align:center"><button class="restart-btn" onclick="goTo(\'restart\')">🔄 Main Lagi dari Awal</button></div>';
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
   } else if (scene.choices.length > 0) {
-    html += '<hr><div class="choices-label">— Pilihan —</div><div class="choices">';
-    scene.choices.forEach((choice, i) => {
-      let label = letters[i] || (i + 1);
-      html += '<button class="choice-btn" onclick="goTo(\'' + choice.target + '\')"><span class="choice-num">' + label + '</span>' + choice.desc + '</button>';
-    });
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
     html += '</div>';
   }
 
-  html += '</div>';
-  document.getElementById('content').innerHTML = html;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-// Start
-showTitleScreen();
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
 </script>
 </body>
 </html>

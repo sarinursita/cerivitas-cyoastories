@@ -20,3 +20,4 @@ Dari dalam kelas — suara isak tangis. Pelan. Kayak anak kecil.
 **Pilihan:**
 - [Scene 04C]: Nora... aku takut. Pegang tanganku.
 - [Scene 05J]: Ezra! LINDUNGIN aku!
+- [Scene 11]: Aku buka pintu ini sendiri.

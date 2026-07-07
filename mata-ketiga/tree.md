@@ -3,21 +3,16 @@
 ```
 Scene 1 — "Kota Sepi" (Pembukaan)
 ├── Scene 2A — Ikut Nora (jalur emosional) 💜
-│   └── Scene 3A — "Kenapa Nora Tahu?"
-│       └── Scene 4C — "Nora Masuk"
-│           └── Scene 5F — "Nora, Kembalikan!"
-│               └── Scene 6A — "Maksudnya... Karena Aku?"
-│                   └── Scene 7B — "Tapi Kamu Nyata!"
-│                       └── Scene 8D — "Lanjut..."
-│                           └── Scene 9A — "Kelas 2-A"
-│                               └── 💜 END — Nora & Ezra
+│   └── Scene 3A → 4C → 5F → 6A → 7B → 8D → 9A → END
 │
-└── Scene 2B — Ikut Ezra (jalur logis) 💙
-    └── Scene 3B — "Naik Bersama Ezra"
-        └── Scene 4D — "Dekatin Pintu yang Terbanting"
-            └── Scene 5J — "Lindungin Aku, Ezra"
-                └── 💙 Scene 6E — END Misteri
-
-    Scene 3C — "Ikuti Suara Langkah" (jalur sendiri)
-        └── (skip — cabang minor)
+├── Scene 2B — Ikut Ezra (jalur logis) 💙
+│   └── Scene 3B → 4D → 5J → 6E → END Misteri
+│
+└── Scene 3C — "Ikuti Suara Langkah" 🆕
+    ├── [04C] → Nora (balik ke jalur utama)
+    ├── [05J] → Ezra (balik ke jalur utama)
+    └── [Scene 11] → Masuk Sendiri 🐍 **BRANCH BARU!**
+        └── Scene 12 — Häd3œñ
+            └── Scene 13 — Cari Jalan Keluar
+                └── Scene 14 — Hadapin 🏁 END Courage
 ```

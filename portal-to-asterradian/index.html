@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
+</div>
+<script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4a","scene4b","scene5a","scene5b","scene6a","scene6b"];
+const story = {
+  "scene1": {    title: "Sore hari, komplek perumahan baru Dann, di pinggir hutan kecil*",    setting: "",    karakter: "",    text: `*Setting: Sore hari, komplek perumahan baru Dann, di pinggir hutan kecil*
+*Suasana: Penasaran, petualangan*`,    isEnd: true,    choices: [      {target: "scene2a", text: "\"Iya dong, ajak aku!\" (Ikut Amber)"},      {target: "scene2b", text: "\"Nanti aja, masih mau lihat-lihat dulu.\" (Tolak ajakan dulu)"}    ]  },  "scene2a": {    title: "Hutan mulai gelap, Amber jalan duluan*",    setting: "",    karakter: "",    text: `*Setting: Hutan mulai gelap, Amber jalan duluan*
+*Suasana: Seru, penasaran, sedikit misteri*`,    isEnd: false,    choices: [      {target: "scene3a", text: "\"Masuk yuk bareng!\" (Masuk portal bareng Amber)"},      {target: "scene3b", text: "\"Aku duluan ya.\" (Masuk portal sendirian, penasaran)"}    ]  },  "scene2b": {    title: "Hutan mulai gelap, Amber jalan duluan*",    setting: "",    karakter: "",    text: `*Setting: Hutan mulai gelap, Amber jalan duluan*
+*Suasana: Penasaran, agak tegang*`,    isEnd: false,    choices: [      {target: "scene3a", text: "\"Aku ikut.\" (Masuk portal bareng Amber)"},      {target: "scene3b", text: "\"Aku duluan!\" (Berani masuk portal sendirian)"}    ]  },  "scene3a": {    title: "Padang rumput biru keperakan, dua matahari di langit ungu*",    setting: "",    karakter: "",    text: `*Setting: Padang rumput biru keperakan, dua matahari di langit ungu*
+*Suasana: Kagum, misterius, petualangan*`,    isEnd: true,    choices: [      {target: "scene4a", text: "Tanya Amber soal \"Asteralis\" lebih dalam"},      {target: "scene4b", text: "Liat-liat dulu, cari petunjuk sendiri di sekitar patung"}    ]  },  "scene3b": {    title: "Padang rumput biru keperakan, Dann masuk sendirian*",    setting: "",    karakter: "",    text: `*Setting: Padang rumput biru keperakan, Dann masuk sendirian*
+*Suasana: Sendiri, penasaran, sedikit cemas*`,    isEnd: false,    choices: [      {target: "scene4a", text: "Kejar Amber dan tanya soal \"rumahku\" maksudnya apa"},      {target: "scene4b", text: "Diam-diam perhatiin tingkah Amber, cari petunjuk"}    ]  },  "scene4a": {    title: "Pinggir padang rumput biru, di samping patung Asteralis*",    setting: "",    karakter: "",    text: `*Setting: Pinggir padang rumput biru, di samping patung Asteralis*
+*Suasana: Penasaran, tegang pelan-pelan*`,    isEnd: false,    choices: [      {target: "scene5a", text: "Kejar Amber dan tuntut jawaban yang jujur"},      {target: "scene5b", text: "Diam-diam aja, kumpulin bukti dulu"}    ]  },  "scene4b": {    title: "Di sekitar patung Asteralis, mulai gelap*",    setting: "",    karakter: "",    text: `*Setting: Di sekitar patung Asteralis, mulai gelap*
+*Suasana: Misterius, ada bisikan aneh*`,    isEnd: false,    choices: [      {target: "scene5a", text: "\"Ber, jujur sama aku. Lo sembunyiin apa?\" (konfrontasi)"},      {target: "scene5b", text: "Pura-pura percaya, tapi dalam hati makin curiga"}    ]  },  "scene5a": {    title: "Pinggir padang rumput biru, di bawah dua matahari Asterradian*",    setting: "",    karakter: "",    text: `*Setting: Pinggir padang rumput biru, di bawah dua matahari Asterradian*
+*Suasana: Tegang, emosional, jujur*`,    isEnd: false,    choices: [      {target: "scene6a", text: "Peluk Amber. \"Ga papa. Aku terima lo apa adanya.\""},      {target: "scene6b", text: "Mundur. \"Lo bohong sama aku selama ini...\""}    ]  },  "scene5b": {    title: "Gua tersembunyi di Asterradian, dinding penuh ukiran bercahaya*",    setting: "",    karakter: "",    text: `*Setting: Gua tersembunyi di Asterradian, dinding penuh ukiran bercahaya*
+*Suasana: Penuh teka-teki, penemuan besar*`,    isEnd: false,    choices: [      {target: "scene6a", text: "\"Aku ga peduli. Lo tetap Amber temen aku.\""},      {target: "scene6b", text: "\"Kenapa ga ngomong dari awal? Lo sembunyiin semua ini.\""}    ]  },  "scene6a": {    title: "Tepi padang rumput biru Asterradian*",    setting: "",    karakter: "",    text: `*Setting: Tepi padang rumput biru Asterradian*
+*Suasana: Hangat, lega*`,    isEnd: true,    choices: [    ]  },  "scene6b": {    title: "Tepi padang rumput biru, portal di kejauhan*",    setting: "",    karakter: "",    text: `*Setting: Tepi padang rumput biru, portal di kejauhan*
+*Suasana: Sedih, kecewa*`,    isEnd: true,    choices: [    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
+</script>
+</body>
+</html>
