@@ -7,22 +7,18 @@
 
 ![Scene 3A: Kabut Berbisik](scene3a-image.png)
 
-Junior melangkah masuk. Kabut di sekelilingnya tebal banget — sampe ga keliatan tangan sendiri. Tapi yang bikin dia jalan terus...
-
-Bisikan itu makin jelas.
+Junior melangkah masuk. Kabut di sekelilingnya tebal sekali sampai tangan sendiri tidak terlihat. Tetapi bisikan itu semakin jelas yang membuat dia ingin jalan terus.
 
 "Juniooor... Akhirnya kamuuu..."
 "Udah lama aku nunggu... Laaama..."
 
 Junior mundur setapak. "S-siapa kamu?!"
 
-Kabut di depannya berputar, kayak pusaran kecil. Terus dari dalam pusaran itu, muncul BAYANGAN. Samar-samar bentuknya kayak orang.
+Kabut di depannya berputar, seperti pusaran kecil, dari dalam pusaran itu muncul BAYANGAN, bentuknya samar-samar seperti orang.
 
-"Kamu ga inget aku, Junior?" suaranya berubah. Dari bisik, jadi suara yang... familiar.
+"Kamu ga inget aku, Junior?" suaranya berubah dari suara yang berbisik menjadi suara yang familiar.
 
-Banget.
-
-Junior nelen ludah. "Itu... suara..."
+Junior menelan ludah. "Itu... suara..."
 
 ---
 
