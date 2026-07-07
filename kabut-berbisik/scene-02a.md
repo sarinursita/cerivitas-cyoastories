@@ -7,15 +7,15 @@
 
 ![Scene 2A: Sendirian di Kabut](scene2a-image.png)
 
-Junior ngatur napas. Kakinya maju pelan-pelan ke arah kabut. Dingin. Udara di dekat kabut berasa beda — kayak masuk kulkas raksasa.
+Junior mengatur napas, kakinya maju perlahan ke arah kabut yang dingin. Udara di dekat kabut terasa berbeda seperti masuk ke dalam kulkas raksasa.
 
 "Hello?" bisik Junior.
 
-Kabutnya bergerak. Pelan, tapi kayak ngasih jalan. Ada lorong kecil di antara kabut tebal. Lorong yang cuma muat satu orang.
+Kabutnya bergerak pelan tetapi seperti memberi jalan. Ada lorong kecil diantara kabut tebal, lorong yang cuma muat satu orang.
 
-Bisikan itu kedengeran lagi. Lebih jelas sekarang: "Masuk... Jangan takut..."
+Bisikan itu terdengar lagi lebih jelas : "Masuk... Jangan takut..."
 
-Junior nengok ke belakang. Rumah-rumah udah jauh. Kampung kelihatan sunyi, kayak semua orang pada diem di rumah masing-masing.
+Junior menengok ke belakang. Rumah-rumah sudah jauh, kampung terlihat sunyi, sepertinya semua orang diam di rumah masing-masing.
 
 ---
 
