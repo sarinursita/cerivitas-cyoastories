@@ -2,7 +2,7 @@
 
 **Setting:** Tengah reruntuhan — Gempa Reverse melempar Noa ke tanah
 **Karakter:** Ice, Noa, Gempa Reverse
-<!-- Status: END -->
+
 
 Gempa melempar Noa ke kaki Ice. Tubuh Noa jatuh dengan suara yang membuat Ice ingin muntah.
 

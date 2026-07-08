@@ -2,7 +2,7 @@
 
 **Setting:** Tengah reruntuhan — gempa bumi, langit hitam
 **Karakter:** Ice, Noa (meninggal), Gempa Reverse
-<!-- Status: END -->
+
 
 Ice berdiri.
 
