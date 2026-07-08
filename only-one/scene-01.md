@@ -18,5 +18,5 @@ Jantung Aysel berdetak sedikit lebih cepat.
 ---
 
 **Pilihan:**
-- [Scene 2]: Nyapa Hali duluan — "Hal! Pagi!"
-- [Scene 3]: Nyapa Kaizo duluan — "Kai, ada rapat hari ini?"
+- [scene-02a]: Nyapa Hali duluan — "Hal! Pagi!"
+- [scene-02b]: Nyapa Kaizo duluan — "Kai, ada rapat hari ini?"
