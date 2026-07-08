@@ -2,7 +2,7 @@
 
 **Setting:** Lahan terbuka — angin kencang, serpihan beton beterbangan
 **Karakter:** Ice, Taufan Reverse, Noa
-<!-- Status: belum-selesai -->
+
 
 Ice mengunci Taufan Reverse dalam pertarungan jarak dekat. Tinju es bertabrakan dengan angin hitam — setiap pukulan terasa seperti memukul badai.
 

@@ -2,7 +2,7 @@
 
 **Setting:** Medan pertempuran — zona tengah, puing-puing beterbangan
 **Karakter:** Ice, Taufan Reverse, Noa
-<!-- Status: belum-selesai -->
+
 
 "Tunggu, Ice—!"
 

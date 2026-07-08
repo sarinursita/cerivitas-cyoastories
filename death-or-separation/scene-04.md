@@ -2,7 +2,7 @@
 
 **Setting:** Pusat medan perang — tanah terbelah, api menjilat langit
 **Karakter:** Ice, Noa, Gempa Reverse
-<!-- Status: belum-selesai -->
+
 
 Belum sempat Ice memproses luka Noa, tanah berguncang. Gempa Reverse muncul dari balik reruntuhan — yang tertua, yang paling kuat. Rambut putihnya berkibar, satu helai coklat jatuh di wajahnya.
 

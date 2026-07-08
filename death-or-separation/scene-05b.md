@@ -2,7 +2,7 @@
 
 **Setting:** Medan pertempuran — Gempa berdiri di atas puing
 **Karakter:** Ice, Noa, Gempa Reverse
-<!-- Status: belum-selesai -->
+
 
 "Lepaskan dia!" suara Ice bergetar. "Apa pun yang kamu mau, ambil! Tapi lepaskan dia!"
 
