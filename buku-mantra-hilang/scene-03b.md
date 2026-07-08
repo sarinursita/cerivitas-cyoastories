@@ -18,5 +18,4 @@ Semuanya terjadi begitu cepat, entah apa yang ketua OSIS lakukan, tapi keempat o
 ---
 
 **Pilihan:**
-- [Scene 4]: 🅰️ Ikuti aroma aneh — penasaran, ini pasti petunjuk!
-- [Scene 4]: 🅱️ Teriak minta tolong — "HELP! Ada yang bisa dengar kami?!"
+- [Scene 4]: eror
