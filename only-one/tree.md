@@ -46,13 +46,15 @@ Scene 5B: Konflik (Kaizo)
   └── Tetap sama Kaizo → Scene 6B
 
 Scene 6A: Penjelasan (Hali)
-  ├── Peluk Hali → Scene 7A (Ending Hali) ❤️
-  └── Bilang jujur → Scene 7A (Ending Hali) ❤️
+  ├── Peluk Hali → Scene 7A (Ending Hali — Terima) ❤️
+  └── Bilang jujur → Scene 7D (Ending Hali — Tunggu) ❤️
 
 Scene 6B: Setelah Pengakuan (Kaizo)
-  ├── Terima → Scene 7B (Ending Kaizo) 🧡
-  └── Minta waktu → Scene 7B (Ending Kaizo) 🧡
+  ├── Terima → Scene 7B (Ending Kaizo — Langsung) 🧡
+  └── Minta waktu → Scene 7C (Ending Kaizo — Sabar) 🧡
 
-Scene 7A: Hanya Satu — Ending Hali 🏁
-Scene 7B: Hanya Satu — Ending Kaizo 🏁
+Scene 7A: Hanya Satu — Hali Terima 🏁
+Scene 7B: Hanya Satu — Kaizo Langsung 🏁
+Scene 7C: Hanya Satu — Kaizo Sabar 🏁
+Scene 7D: Hanya Satu — Hali Tunggu 🏁
 ```

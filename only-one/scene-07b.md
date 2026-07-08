@@ -1,4 +1,4 @@
-# Scene 7B: Hanya Satu — Ending Kaizo
+# Scene 7B: Hanya Satu — Kaizo Langsung
 
 **Setting:** Perpustakaan sekolah — senja
 **Karakter:** Aysel, Kaizo

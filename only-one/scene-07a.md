@@ -1,4 +1,4 @@
-# Scene 7A: Hanya Satu — Ending Hali
+# Scene 7A: Hanya Satu — Hali Terima
 
 **Setting:** Lapangan sekolah — senja
 **Karakter:** Aysel, Hali

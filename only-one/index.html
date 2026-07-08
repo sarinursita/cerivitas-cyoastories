@@ -40,7 +40,7 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
   <div id="sceneContainer"></div>
 </div>
 <script>
-const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene3d","scene4a","scene4b","scene5a","scene5b","scene6a","scene6b","scene7a","scene7b"];
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene3d","scene4a","scene4b","scene5a","scene5b","scene6a","scene6b","scene7a","scene7b","scene7c","scene7d"];
 const story = {
   "scene1": {    title: "Hari Biasa yang Nggak Biasa",    setting: "SMA Pelita — pagi hari, koridor sekolah",    karakter: "Aysel, teman-teman sekolah",    text: `Pagi itu dimulai seperti biasa di SMA Pelita. Aysel berjalan menyusuri koridor dengan langkah santai, rambutnya terurai rapi, dan senyum tipis yang bikin banyak orang nge-tag dia sebagai "si keren yang asik".
 
@@ -236,7 +236,7 @@ Hali ngedeketin Aysel. Pelan. Dan untuk pertama kalinya, cowok cool dan pendiam 
 
 "Kalau gue sayang banget sama lo, Zel."
 
-Aysel nahan napas. Momen ini... kayak adegan film.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Peluk Hali — \"Gue juga sayang lo, Hal. Cuma... bingung.\""},      {target: "scene7a", text: "Bilang jujur — \"Gue perlu waktu. Tapi makasih udah jujur.\""}    ]  },  "scene6b": {    title: "Setelah Pengakuan",    setting: "Taman belakang sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Hali udah pergi. Tinggal Aysel dan Kaizo di taman yang mulai temaram.
+Aysel nahan napas. Momen ini... kayak adegan film.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Peluk Hali — \"Gue juga sayang lo, Hal. Cuma... bingung.\""},      {target: "scene7d", text: "Bilang jujur — \"Gue perlu waktu. Tapi makasih udah jujur.\""}    ]  },  "scene6b": {    title: "Setelah Pengakuan",    setting: "Taman belakang sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Hali udah pergi. Tinggal Aysel dan Kaizo di taman yang mulai temaram.
 
 "Zel," Kaizo mulai. "Gue nggak maksa. Tapi..."
 
@@ -256,7 +256,7 @@ Aysel nengok. Kaizo lagi ngeliat langit. Wajahnya tenang. Tapi kata-katanya... d
 
 Aysel angguk.
 
-Kaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu. "Gue juga takut. Tapi kita jalanin bareng?"`,    isEnd: false,    choices: [      {target: "scene7b", text: "Terima — \"Iya. Bareng.\""},      {target: "scene7b", text: "Minta waktu — \"Kai... gue butuh waktu buat mikirin semuanya.\""}    ]  },  "scene7a": {    title: "Hanya Satu — Ending Hali",    setting: "Lapangan sekolah — senja",    karakter: "Aysel, Hali",    text: `Aysel berdiri di pinggir lapangan, ngeliatin Hali yang baru selesai latihan. Cowok itu jalan ke arahnya, napas masih sedikit ngos-ngosan, tapi senyum tipisnya udah terpasang.
+Kaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu. "Gue juga takut. Tapi kita jalanin bareng?"`,    isEnd: false,    choices: [      {target: "scene7b", text: "Terima — \"Iya. Bareng.\""},      {target: "scene7c", text: "Minta waktu — \"Kai... gue butuh waktu buat mikirin semuanya.\""}    ]  },  "scene7a": {    title: "Hanya Satu — Hali Terima",    setting: "Lapangan sekolah — senja",    karakter: "Aysel, Hali",    text: `Aysel berdiri di pinggir lapangan, ngeliatin Hali yang baru selesai latihan. Cowok itu jalan ke arahnya, napas masih sedikit ngos-ngosan, tapi senyum tipisnya udah terpasang.
 
 "Lo masih di sini?" tanya Hali.
 
@@ -274,7 +274,7 @@ Aysel mesam-mesem. "Gue nggak milih lo. Gue... milih kita."
 
 Mereka jalan bareng meninggalkan lapangan. Dua insan yang awalnya cuma debat soal jadwal ekskul, sekarang... cuma punya satu buat satu sama lain.
 
-❤️ _Hanya satu. Dan itu lo._`,    isEnd: true,    choices: [    ]  },  "scene7b": {    title: "Hanya Satu — Ending Kaizo",    setting: "Perpustakaan sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Perpustakaan udah hampir tutup. Aysel duduk di meja pojok—meja favorit Kaizo—sambil baca buku. Tapi matanya lebih sering ngeliat pintu daripada halaman.
+❤️ _Hanya satu. Dan itu lo._`,    isEnd: true,    choices: [    ]  },  "scene7b": {    title: "Hanya Satu — Kaizo Langsung",    setting: "Perpustakaan sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Perpustakaan udah hampir tutup. Aysel duduk di meja pojok—meja favorit Kaizo—sambil baca buku. Tapi matanya lebih sering ngeliat pintu daripada halaman.
 
 Dan akhirnya Kaizo dateng. Dengan segelas kopi—dan satu cokelat.
 
@@ -299,6 +299,44 @@ Kaizo diem. Lalu senyum—lebar banget, sampe keliatan lesung pipit yang jarang 
 "Makasih, Zel."
 
 Mereka duduk di perpustakaan yang sepi, kopi dan cokelat di atas meja, dan hati yang akhirnya nyaman.
+
+❤️ _Hanya satu. Dan itu lo._`,    isEnd: true,    choices: [    ]  },  "scene7c": {    title: "Hanya Satu — Kaizo (Minta Waktu)",    setting: "Taman belakang sekolah — senja",    karakter: "Aysel, Kaizo",    text: `**Status:** END
+
+Aysel masih diem, megang ujung bajunya sendiri. Kaizo sabar nunggu.
+
+"Kai... gue butuh waktu."
+
+Kaizo tersenyum tipis. Nggak ada kekecewaan di matanya — justru kehangatan.
+
+"Gue tunggu."
+
+Cuma dua kata. Tapi beratnya luar biasa.
+
+Mereka duduk di bangku taman, ngeliat langit yang mulai berubah jingga. Nggak ada yang ngomong. Tapi tangan mereka... saling mendekat. Perlahan. Jari-jari mereka bertaut.
+
+Kaizo nengok. "Gue bakal tunggu, Zel. Mau sehari, seminggu, setahun."
+
+Aysel nyengir, matanya sedikit berkaca-kaca. "Makasih, Kai."
+
+Mereka diem lagi. Tapi kali ini, diammu terasa berbeda. Bukan canggung — tapi janji.
+
+❤️ _Hanya satu. Dan itu lo._`,    isEnd: true,    choices: [    ]  },  "scene7d": {    title: "Hanya Satu — Hali (Bilang Jujur)",    setting: "Atap sekolah — senja",    karakter: "Aysel, Hali",    text: `**Status:** END
+
+Aysel narik napas dalem. Hali masih nunggu, matanya merah.
+
+"Hal... gue hargai banget. Tapi gue..."
+
+Hali ngangguk, udah tau. "Gue paham."
+
+"Bukan berarti gue nolak lo. Gue cuma... perlu waktu buat ngerti perasaan gue sendiri."
+
+Hali diem bentar. Lalu senyum — senyum yang dipaksakan, tapi tulus.
+
+"Oke. Gue tunggu."
+
+Aysel megang tangannya. "Makasih."
+
+Mereka duduk di pinggir atap, ngeliat langit senja. Hening. Tapi kali ini, heninya nyaman. Mereka tau — apapun yang terjadi, hubungan mereka nggak akan sama lagi. Tapi mungkin... itu bukan hal yang buruk.
 
 ❤️ _Hanya satu. Dan itu lo._`,    isEnd: true,    choices: [    ]  }};
 
