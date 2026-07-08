@@ -19,6 +19,8 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 .scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
 .narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
 .narrative p{margin-bottom:15px}
+.story-image-container{margin:20px 0;text-align:center}
+.story-image{max-width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.3);border:1px solid #333}
 .ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
 .choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
 .choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
@@ -198,7 +200,10 @@ function goTo(sceneId) {
   narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
   html += '<div class="narrative">' +
-    narr.split("\n\n").map(p => '<p>' + p.replace(/\n/g, "<br>") + '</p>').join("") +
+    narr.split("
+
+").map(p => '<p>' + p.replace(/
+/g, "<br>") + '</p>').join("") +
     '</div>';
 
   if (scene.isEnd) {
@@ -208,7 +213,6 @@ function goTo(sceneId) {
   // Auto-advance for merge scenes
   if (scene.autoChoice && scene.choices.length > 0) {
     setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
-    // Still show a brief indicator
     html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
   } else if (scene.choices.length > 0) {
     html += '<div class="choices">';
