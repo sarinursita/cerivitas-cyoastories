@@ -29,7 +29,7 @@ Kaizo diem. Lalu senyum—lebar banget, sampe keliatan lesung pipit yang jarang 
 
 Mereka duduk di perpustakaan yang sepi, kopi dan cokelat di atas meja, dan hati yang akhirnya nyaman.
 
-❤️ _Hanya satu. Dan itu lo._ 🏁
+❤️ _Hanya satu. Dan itu lo._
 
 ---
 

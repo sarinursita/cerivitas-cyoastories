@@ -180,7 +180,7 @@ async function loadScene(sceneFile) {
     }
   }
 
-  const isEnding = md.includes('**Status:** END') || md.includes('🏁');
+  const isEnding = md.includes('**Status:** END');
   const sceneNum = sceneFile.replace('scene-','').toUpperCase();
 
   document.getElementById('story-start').innerHTML = '';

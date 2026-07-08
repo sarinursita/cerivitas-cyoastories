@@ -21,7 +21,7 @@ Aysel mesam-mesem. "Gue nggak milih lo. Gue... milih kita."
 
 Mereka jalan bareng meninggalkan lapangan. Dua insan yang awalnya cuma debat soal jadwal ekskul, sekarang... cuma punya satu buat satu sama lain.
 
-❤️ _Hanya satu. Dan itu lo._ 🏁
+❤️ _Hanya satu. Dan itu lo._
 
 ---
 
