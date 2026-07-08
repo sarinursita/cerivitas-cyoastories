@@ -1,6 +1,6 @@
 # Scene 1: Hari Biasa yang Nggak Biasa
 
-**Setting:** SMA Pelita — pagi hari, koridor sekolah ramai
+**Setting:** SMA Pelita — pagi hari, koridor sekolah
 **Karakter:** Aysel, teman-teman sekolah
 
 Pagi itu dimulai seperti biasa di SMA Pelita. Aysel berjalan menyusuri koridor dengan langkah santai, rambutnya terurai rapi, dan senyum tipis yang bikin banyak orang nge-tag dia sebagai "si keren yang asik".
@@ -18,5 +18,5 @@ Jantung Aysel berdetak sedikit lebih cepat.
 ---
 
 **Pilihan:**
-- [scene-02a]: Nyapa Hali duluan — "Hal! Pagi!"
-- [scene-02b]: Nyapa Kaizo duluan — "Kai, ada rapat hari ini?"
+- [Scene 2A]: Nyapa Hali duluan — "Hal! Pagi!"
+- [Scene 2B]: Nyapa Kaizo duluan — "Kai, ada rapat hari ini?"

@@ -1,4 +1,4 @@
-# Scene 03A: Ngopi di Kantin
+# Scene 3A: Ngopi di Kantin
 
 **Setting:** Kantin sekolah — jam istirahat
 **Karakter:** Aysel, Hali
@@ -22,3 +22,7 @@ Hening.
 Aysel nggak nyangka Hali bisa ngomong kayak gitu. Si cool and quiet yang biasanya cuma jawab "iya" dan "nggak"... tiba-tiba jujur?
 
 ---
+
+**Pilihan:**
+- [Scene 4A]: Tanya balik serius — "Hal... lo serius?"
+- [Scene 4A]: Bercanda biar cair — "Wah, jadi lo sengaja debat sama gue? Ngeselin banget sih!"

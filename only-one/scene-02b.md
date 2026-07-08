@@ -1,4 +1,4 @@
-# Scene 02B: Ketemu Kaizo di Koridor
+# Scene 2B: Ketemu Kaizo di Koridor
 
 **Setting:** Koridor sekolah — pagi hari
 **Karakter:** Aysel, Kaizo
@@ -16,3 +16,7 @@ Aysel mendekat, berusaha kelihatan santai. "Lo bawa binder tebel gitu... rapat O
 Suasana hening sejenak. Tapi bukan hening yang canggung. Agak... hangat.
 
 ---
+
+**Pilihan:**
+- [Scene 3C]: Ajak Kaizo bahas rapat OSIS — "Gue ada ide buat acara. Mau denger?"
+- [Scene 3D]: Diam aja, salting

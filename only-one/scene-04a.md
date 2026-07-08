@@ -1,4 +1,4 @@
-# Scene 04A: Semakin Dekat dengan Hali
+# Scene 4A: Semakin Dekat dengan Hali
 
 **Setting:** Lapangan sekolah — sore, latihan atletik
 **Karakter:** Aysel, Hali
@@ -22,3 +22,7 @@ Hali terkekeh pelan—hal yang jarang banget terjadi. Aysel ngerasa menang lotre
 "Gue selesai latihan 15 menit lagi," kata Hali. "Mau numpang nginep di sini?"
 
 ---
+
+**Pilihan:**
+- [Scene 5A]: Nunggu sampe selesai — "Gas. Gue tunggu."
+- [Scene 5A]: Pulang duluan — "Maaf, gue ada urusan. Lain kali ya!"

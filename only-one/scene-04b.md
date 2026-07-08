@@ -1,4 +1,4 @@
-# Scene 04B: Semakin Dekat dengan Kaizo
+# Scene 4B: Semakin Dekat dengan Kaizo
 
 **Setting:** Perpustakaan sekolah — sore, sepi
 **Karakter:** Aysel, Kaizo
@@ -20,3 +20,7 @@ Aysel duduk di seberangnya. Mereka nggak ngomong banyak—Aysel baca buku, Kaizo
 Aysel hampir menjatuhkan bukunya.
 
 ---
+
+**Pilihan:**
+- [Scene 5B]: Nanya balik — "Kai... serius lo gak ngganggu gue ngerjain?"
+- [Scene 5B]: Godain balik — "Hati-hati, Kai. Gue bisa tiap hari mampir."

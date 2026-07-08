@@ -1,7 +1,7 @@
-# Scene 06B: Setelah Pengakuan
+# Scene 6B: Setelah Pengakuan
 
 **Setting:** Taman belakang sekolah — senja
-**Karakter:** Aysel, Hali
+**Karakter:** Aysel, Kaizo
 
 Hali udah pergi. Tinggal Aysel dan Kaizo di taman yang mulai temaram.
 
@@ -26,3 +26,7 @@ Aysel angguk.
 Kaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu. "Gue juga takut. Tapi kita jalanin bareng?"
 
 ---
+
+**Pilihan:**
+- [Scene 7B]: Terima — "Iya. Bareng."
+- [Scene 7B]: Minta waktu — "Kai... gue butuh waktu buat mikirin semuanya."

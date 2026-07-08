@@ -1,7 +1,7 @@
-# Scene 05A: Konflik
+# Scene 5A: Konflik
 
 **Setting:** Ruang OSIS — siang, tegang
-**Karakter:** Aysel, Hali
+**Karakter:** Aysel, Hali, Kaizo
 
 Rapat koordinasi antara OSIS dan ekskul berubah panas. Masalahnya? Jadwal.
 
@@ -24,3 +24,7 @@ Mereka saling pandang. Suasana hening. Sampai Hali akhirnya ngomong pelan: "Gue.
 Aysel tersentak. Hali ngelakuin itu buat dia?
 
 ---
+
+**Pilihan:**
+- [Scene 6A]: Memaafkan Hali — "Hal... makasih. Tapi next time bilang aja."
+- [Scene 6A]: Masih kesel — "Gue hargai niat lo. Tapi tolong jangan atur-atur."

@@ -1,7 +1,7 @@
-# Scene 05B: Konflik
+# Scene 5B: Konflik
 
 **Setting:** Taman belakang sekolah — sore
-**Karakter:** Aysel, Hali
+**Karakter:** Aysel, Kaizo, Hali
 
 Aysel lagi duduk di taman belakang, ngerjain tugas. Tiba-tiba Kaizo muncul, duduk di sampingnya tanpa suara.
 
@@ -24,3 +24,7 @@ Aysel mau jawab, tapi tiba-tiba suara langkah kaki. Hali muncul dari balik pohon
 Dia denger semuanya.
 
 ---
+
+**Pilihan:**
+- [Scene 6B]: Ngejar Hali duluan — "Hal, tunggu! Bukan gitu—!"
+- [Scene 6B]: Tetap sama Kaizo — "Kai... gue juga suka lo."

@@ -1,4 +1,4 @@
-# Scene 03d: Momen Hening
+# Scene 3D: Momen Hening
 
 **Setting:** Koridor sepi — dekat taman belakang sekolah
 **Karakter:** Aysel, Kaizo
@@ -28,3 +28,7 @@ Dia balik badan, siap pergi. Tapi sebelum jalan, dia bilang pelan:
 Aysel berdiri di sana, megang cokelat itu, dan ngerasa dunianya kayak jeda sebentar.
 
 ---
+
+**Pilihan:**
+- [Scene 4B]: Panggil balik Kaizo — "Kai, tunggu! Maksud lo apa?"
+- [Scene 4B]: Senyum dan simpan cokelatnya

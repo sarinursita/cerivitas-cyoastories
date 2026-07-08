@@ -1,4 +1,4 @@
-# Scene 06A: Penjelasan
+# Scene 6A: Penjelasan
 
 **Setting:** Atap sekolah — senja
 **Karakter:** Aysel, Hali
@@ -28,3 +28,7 @@ Hali ngedeketin Aysel. Pelan. Dan untuk pertama kalinya, cowok cool dan pendiam 
 Aysel nahan napas. Momen ini... kayak adegan film.
 
 ---
+
+**Pilihan:**
+- [Scene 7A]: Peluk Hali — "Gue juga sayang lo, Hal. Cuma... bingung."
+- [Scene 7A]: Bilang jujur — "Gue perlu waktu. Tapi makasih udah jujur."

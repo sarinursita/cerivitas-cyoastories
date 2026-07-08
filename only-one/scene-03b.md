@@ -1,4 +1,4 @@
-# Scene 03B: Balik ke Kelas Bareng
+# Scene 3B: Balik ke Kelas Bareng
 
 **Setting:** Lorong sekolah — menuju kelas
 **Karakter:** Aysel, Hali
@@ -20,3 +20,7 @@ Hali ngelepasin pelan. Tapi sebelum dia narik tangan sepenuhnya, dia berkata pel
 Kemudian dia jalan duluan, kaya nggak terjadi apa-apa. Tapi telinganya... merah.
 
 ---
+
+**Pilihan:**
+- [Scene 4A]: Kejar dan tanya — "Hal, tunggu! Maksud lo apa tadi?"
+- [Scene 4A]: Diem aja sambil senyum sendiri

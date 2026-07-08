@@ -1,4 +1,4 @@
-# Scene 02A: Ngobrol Bentar Sama Hali
+# Scene 2A: Ngobrol Bentar Sama Hali
 
 **Setting:** Depan kelas — pagi hari
 **Karakter:** Aysel, Hali
@@ -20,3 +20,7 @@ Aysel tau itu artinya iya. Dia jadi inget waktu mereka debat soal jadwal ekskul 
 Aysel tersenyum geli. Hali kalo peduli orang selalu kaku.
 
 ---
+
+**Pilihan:**
+- [Scene 3A]: Ajak Hali ngopi di kantin — "Belum. Lo temenin gue ke kantin?"
+- [Scene 3B]: Balik ke kelas bareng — "Udah. Mau ke kelas? Bareng?"

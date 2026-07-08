@@ -1,4 +1,4 @@
-# Scene 03c: Rapat OSIS
+# Scene 3C: Rapat OSIS
 
 **Setting:** Ruang OSIS — siang hari
 **Karakter:** Aysel, Kaizo
@@ -26,3 +26,7 @@ Setelah rapat selesai dan yang lain keluar, Kaizo manggil pelan. "Zel."
 Dua kata. Tapi cukup bikin Aysel meleleh dalem.
 
 ---
+
+**Pilihan:**
+- [Scene 4B]: Nanya langsung — "Kai... lo sengaja nyenggol kaki gue tadi?"
+- [Scene 4B]: Balas santai — "Makasih. Tapi lo bantuin gue presentasi ya nanti?"

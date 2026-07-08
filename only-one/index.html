@@ -1,367 +1,397 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Only One — Choose Your Own Adventure</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #1a0a1e 0%, #2d1b3a 50%, #1a0a1e 100%);
-      color: #f0e0f0;
-      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      max-width: 700px;
-      width: 100%;
-      margin: 20px;
-      padding: 40px 30px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 24px;
-      border: 1px solid rgba(255,200,255,0.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      position: relative;
-    }
-    .progress {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 13px;
-      color: rgba(255,200,255,0.4);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .scene {
-      animation: fadeIn 0.6s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .scene-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #f0a0f0, #ff80b0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .scene-meta {
-      font-size: 14px;
-      color: rgba(255,200,255,0.5);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .scene-text {
-      font-size: 17px;
-      line-height: 1.8;
-      margin-bottom: 30px;
-      color: #e0cce0;
-    }
-    .scene-text p { margin-bottom: 12px; }
-    .choices {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .choice-btn {
-      background: rgba(255,255,255,0.05);
-      color: #f0e0f0;
-      border: 1px solid rgba(255,200,255,0.15);
-      padding: 16px 24px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 16px;
-      text-align: left;
-      font-family: inherit;
-    }
-    .choice-btn:hover {
-      background: rgba(200,100,255,0.15);
-      border-color: rgba(200,100,255,0.4);
-      transform: translateX(6px);
-    }
-    .choice-btn:active { transform: translateX(2px); }
-    .restart-btn {
-      background: rgba(255,80,130,0.15);
-      color: #ff80b0;
-      border: 1px solid rgba(255,80,130,0.3);
-      padding: 14px 28px;
-      border-radius: 14px;
-      cursor: pointer;
-      font-size: 15px;
-      font-family: inherit;
-      transition: all 0.3s;
-      margin-top: 16px;
-    }
-    .restart-btn:hover {
-      background: rgba(255,80,130,0.25);
-      transform: scale(1.02);
-    }
-    .ending-badge {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .ending-hali { background: rgba(100,180,255,0.2); color: #80c0ff; border: 1px solid rgba(100,180,255,0.3); }
-    .ending-kaizo { background: rgba(255,150,100,0.2); color: #ffb080; border: 1px solid rgba(255,150,100,0.3); }
-    .heart { color: #ff4080; }
-    @media (max-width: 500px) {
-      .container { padding: 24px 16px; margin: 12px; }
-      .scene-title { font-size: 18px; }
-      .scene-text { font-size: 15px; }
-      .choice-btn { padding: 14px 18px; font-size: 15px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.story-image-container{margin:20px 0;text-align:center}
+.story-image{max-width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.3);border:1px solid #333}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
 </head>
 <body>
 <div class="container" id="app">
-  <div class="progress" id="progress">Only One</div>
-  <div class="scene" id="scene"></div>
+  <div class="header">
+    <h1>Cerita Interaktif</h1>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
 </div>
 <script>
-  const story = {
-    "scene-01": {
-      title: "Hari Biasa yang Nggak Biasa",
-      meta: "SMA Pelita — pagi hari, koridor sekolah",
-      text: "Pagi itu dimulai seperti biasa di SMA Pelita. Aysel berjalan menyusuri koridor dengan langkah santai, rambutnya terurai rapi, dan senyum tipis yang bikin banyak orang nge-tag dia sebagai \"si keren yang asik\".\n\nTapi hari ini beda.\n\nDi ujung koridor, Aysel lihat dua sosok yang udah dikenal banget. Hali, cowok cool dengan jaket ekskul atletiknya, lagi minum di depan kelas. Dan di sebelahnya... Kaizo. Si ketua OSIS yang misterius itu lagi megang binder, matanya fokus ke suatu arah.\n\nDeg.\n\nJantung Aysel berdetak sedikit lebih cepat.\n\n\"Duh, pagi-pagi udah begini,\" gumam Aysel sambil ngerapihin rambutnya.",
-      choices: [
-        { text: "Nyapa Hali duluan — \"Hal! Pagi!\"", next: "scene-02a", path: "hali" },
-        { text: "Nyapa Kaizo duluan — \"Kai, ada rapat hari ini?\"", next: "scene-02b", path: "kaizo" }
-      ]
-    },
-    "scene-02a": {
-      title: "Ngobrol Bentar Sama Hali",
-      meta: "Depan kelas — pagi hari",
-      text: "Hali nengok pas denger suara Aysel. Wajah cool-nya datar kayak biasa, tapi matanya ada sedikit perubahan. Dia ngangguk pelan.\n\n\"Pagi,\" balasnya singkat.\n\nAysel udah biasa. Hali emang bukan tipe yang banyak bicara. Tapi di antara mereka berdua, diam itu nggak canggung.\n\n\"Lari pagi tadi?\" tanya Aysel iseng.\n\nHali mengangkat bahu. \"Biasa.\"\n\nAysel tau itu artinya iya. Dia jadi inget waktu mereka debat soal jadwal ekskul minggu lalu—Hali ngotot jam latihan atletik nggak boleh diganggu, Aysel bilang kegiatan OSIS juga penting.\n\n\"Lo...\" Hali mulai, tapi ragu. \"...udah sarapan?\"\n\nAysel tersenyum geli. Hali kalo peduli orang selalu kaku.",
-      choices: [
-        { text: "Ajak Hali ngopi di kantin — \"Belum. Lo temenin gue ke kantin?\"", next: "scene-03a", path: "hali" },
-        { text: "Balik ke kelas bareng — \"Udah. Mau ke kelas? Bareng?\"", next: "scene-03b", path: "hali" }
-      ]
-    },
-    "scene-02b": {
-      title: "Ketemu Kaizo di Koridor",
-      meta: "Koridor sekolah — pagi hari",
-      text: "Kaizo menoleh pelan pas denger namanya dipanggil. Ekspresinya tenang, hampir nggak terbaca. Tapi satu hal yang Aysel selalu notice: Kaizo nggak pernah ngehindarin tatapannya.\n\n\"Pagi, Zel,\" balas Kaizo, suaranya lembut.\n\nAysel mendekat, berusaha kelihatan santai. \"Lo bawa binder tebel gitu... rapat OSIS siang ini?\"\n\n\"Iya,\" Kaizo ngangguk. \"Lo lupa? Lo kan wakilnya.\"\n\n\"Oh. Iya, iya, inget,\" Aysel nyengir kikuk. Mana mungkin dia lupa. Apalagi kalau rapat berarti satu ruangan sama Kaizo.\n\nSuasana hening sejenak. Tapi bukan hening yang canggung. Agak... hangat.",
-      choices: [
-        { text: "Ajak Kaizo bahas rapat OSIS — \"Gue ada ide buat acara. Mau denger?\"", next: "scene-03c", path: "kaizo" },
-        { text: "Diam aja, salting", next: "scene-03d", path: "kaizo" }
-      ]
-    },
-    "scene-03a": {
-      title: "Ngopi di Kantin",
-      meta: "Kantin sekolah — jam istirahat",
-      text: "Kantin penuh kayak biasanya, tapi Aysel berhasil dapetin meja pojokan. Hali duduk di depannya, gelas es kopi di tangan, masih dengan ekspresi cool-nya.\n\n\"Jadi lo mau ngomong sesuatu dari tadi?\" tanya Aysel sambil nyeruput minumannya.\n\nHali diem bentar. \"Lo inget pas kita debat soal jadwal ekskul?\"\n\n\"Ya jelas. Lo ngotot banget sampe mukanya merah.\"\n\n\"Habis...\" Hali menghela napas. \"Gue sebenernya suka debat sama lo.\"\n\nAysel hampir tersedak. \"Hah?\"\n\n\"Bukan karena gue benci. Tapi...\" Hali nunduk, megang gelasnya erat. \"Karena itu satu-satunya cara gue bisa ngobrol lama sama lo.\"\n\nHening.\n\nAysel nggak nyangka Hali bisa ngomong kayak gitu. Si cool and quiet yang biasanya cuma jawab \"iya\" dan \"nggak\"... tiba-tiba jujur?",
-      choices: [
-        { text: "Tanya balik serius — \"Hal... lo serius?\"", next: "scene-04a", path: "hali" },
-        { text: "Bercanda biar cair — \"Wah, jadi lo sengaja debat sama gue? Ngeselin banget sih!\"", next: "scene-04a", path: "hali" }
-      ]
-    },
-    "scene-03b": {
-      title: "Balik ke Kelas Bareng",
-      meta: "Lorong sekolah — menuju kelas",
-      text: "Mereka jalan berdampingan. Hali di kiri, Aysel di kanan. Nggak ada yang ngomong, tapi langkah mereka seirama.\n\nTiba-tiba suara ribut dari belakang. Seorang anak kelas X lari nggak lihat arah—mau nabrak Aysel!\n\nTapi sebelum Aysel sempet bereaksi, Hali udah tarik tangannya. Cepet.\n\n\"Aw—\" Aysel tersadar dia sekarang berdiri dekat banget sama Hali. Tangannya masih dipegang.\n\n\"Lo gapapa?\" tanya Hali, suaranya rendah.\n\n\"I-iyalah,\" Aysel berusaha cool, padahal jantungnya kaya mau lompat. \"Makasih.\"\n\nHali ngelepasin pelan. Tapi sebelum dia narik tangan sepenuhnya, dia berkata pelan: \"Gue nggak suka lo kenapa-kenapa.\"\n\nKemudian dia jalan duluan, kaya nggak terjadi apa-apa. Tapi telinganya... merah.",
-      choices: [
-        { text: "Kejar dan tanya — \"Hal, tunggu! Maksud lo apa tadi?\"", next: "scene-04a", path: "hali" },
-        { text: "Diem aja sambil senyum sendiri", next: "scene-04a", path: "hali" }
-      ]
-    },
-    "scene-03c": {
-      title: "Rapat OSIS",
-      meta: "Ruang OSIS — siang hari",
-      text: "Rapat OSIS berjalan seperti biasa—sampai tiba di sesi ide acara.\n\n\"Ada usul buat acara tahunan?\" tanya Kaizo, matanya menyapu ruangan. Sampai ke Aysel.\n\nAysel angkat tangan. \"Gue usul ada bakti sosial sekaligus lomba. Biar sekolah kita lebih... hidup.\"\n\nAnggota lain mulai diskusi. Tapi Aysel nggak fokus. Karena di bawah meja, tanpa sengaja, kaki Kaizo nyenggol kakinya.\n\nAtau... sengaja?\n\nAysel nengok ke Kaizo. Cowok itu masih ngomong serius sama sekretaris OSIS. Wajahnya datar. Tapi ujung bibirnya—naik sedikit. Senyum tipis yang hampir nggak kelihatan.\n\nAysel nahan napas.\n\nSetelah rapat selesai dan yang lain keluar, Kaizo manggil pelan. \"Zel.\"\n\n\"Iya?\"\n\n\"Makasih usulannya. Bagus.\"\n\nDua kata. Tapi cukup bikin Aysel meleleh dalem.",
-      choices: [
-        { text: "Nanya langsung — \"Kai... lo sengaja nyenggol kaki gue tadi?\"", next: "scene-04b", path: "kaizo" },
-        { text: "Balas santai — \"Makasih. Tapi lo bantuin gue presentasi ya nanti?\"", next: "scene-04b", path: "kaizo" }
-      ]
-    },
-    "scene-03d": {
-      title: "Momen Hening",
-      meta: "Koridor sepi — dekat taman belakang sekolah",
-      text: "Aysel nggak ngomong apa-apa. Dan Kaizo juga nggak maksa.\n\nMereka cuma berdiri di samping taman belakang, angin siang berhembus pelan. Kaizo megang bindernya, tapi matanya... liat ke Aysel.\n\n\"Zel.\"\n\n\"Iya?\"\n\nKaizo turunin bindernya. Dari saku jasnya, dia ngeluarin sesuatu—sebatang cokelat. Yang masih terbungkus rapi.\n\n\"Ini,\" katanya pendek. \"Lo kelihatan capek dari tadi.\"\n\nAysel bengong. Kaizo—si ketua OSIS paling misterius seantero sekolah—ngasih dia cokelat. Karena \"kelihatan capek.\"\n\n\"Kai... lo nyimpen cokelat di jas?\"\n\nKaizo nggak jawab. Tapi senyum tipisnya muncul lagi. \"Simpen aja. Nanti dimakan.\"\n\nDia balik badan, siap pergi. Tapi sebelum jalan, dia bilang pelan:\n\n\"Gue liat lo. Tiap hari.\"\n\nAysel berdiri di sana, megang cokelat itu, dan ngerasa dunianya kayak jeda sebentar.",
-      choices: [
-        { text: "Panggil balik Kaizo — \"Kai, tunggu! Maksud lo apa?\"", next: "scene-04b", path: "kaizo" },
-        { text: "Senyum dan simpan cokelatnya", next: "scene-04b", path: "kaizo" }
-      ]
-    },
-    "scene-04a": {
-      title: "Semakin Dekat dengan Hali",
-      meta: "Lapangan sekolah — sore, latihan atletik",
-      text: "Aysel nggak tau kenapa dia ada di sini. Lapangan atletik. Nontonin Hali latihan lari. Mungkin karena setelah kejadian tadi, dia penasaran.\n\nHali lagi lari sprint. Bedanya, kali ini dia tau Aysel liat. Dan dia lari... lebih kencang.\n\nSetelah selesai, Hali jalan ke arah Aysel sambil minum. Rambutnya basah keringat, napasnya sedikit ngos-ngosan, tapi cool-nya masih tetep.\n\n\"Lo nonton?\" tanyanya, alis naik.\n\n\"Boleh dong,\" sahut Aysel santai. \"Gue kan wakil OSIS, bagian kesejahteraan siswa. Lo termasuk siswa.\"\n\n\"Bohong.\"\n\n\"Berhasil ngejawab.\"\n\nHali terkekeh pelan—hal yang jarang banget terjadi. Aysel ngerasa menang lotre.\n\n\"Gue selesai latihan 15 menit lagi,\" kata Hali. \"Mau numpang nginep di sini?\"",
-      choices: [
-        { text: "Nunggu sampe selesai — \"Gas. Gue tunggu.\"", next: "scene-05a", path: "hali" },
-        { text: "Pulang duluan — \"Maaf, gue ada urusan. Lain kali ya!\"", next: "scene-05a", path: "hali" }
-      ]
-    },
-    "scene-04b": {
-      title: "Semakin Dekat dengan Kaizo",
-      meta: "Perpustakaan sekolah — sore, sepi",
-      text: "Aysel niatnya cuma mau pinjam buku. Tapi begitu masuk, dia lihat Kaizo duduk sendirian di meja pojok, laptop terbuka, dan segelas kopi di sampingnya.\n\nTanpa mikir panjang, Aysel jalan ke arahnya. \"Boleh nimbrung?\"\n\nKaizo angkat kepala. Senyum tipis itu lagi. \"Iya. Silakan.\"\n\nAysel duduk di seberangnya. Mereka nggak ngomong banyak—Aysel baca buku, Kaizo ngetik sesuatu. Tapi ada rasa nyaman yang susah dijelasin.\n\n\"Zel.\"\n\n\"Iya?\"\n\n\"Lo tau... gue suka ngumpet di sini,\" kata Kaizo pelan. \"Karena sepi. Tapi sekarang... kayaknya bakal lebih seru kalau lo sering mampir.\"\n\nAysel hampir menjatuhkan bukunya.",
-      choices: [
-        { text: "Nanya balik — \"Kai... serius lo gak ngganggu gue ngerjain?\"", next: "scene-05b", path: "kaizo" },
-        { text: "Godain balik — \"Hati-hati, Kai. Gue bisa tiap hari mampir.\"", next: "scene-05b", path: "kaizo" }
-      ]
-    },
-    "scene-05a": {
-      title: "Konflik",
-      meta: "Ruang OSIS — siang, tegang",
-      text: "Rapat koordinasi antara OSIS dan ekskul berubah panas. Masalahnya? Jadwal.\n\n\"Lomba atletik nggak bisa digeser,\" kata Hali tegas. \"Kita udah latihan berbulan-bulan.\"\n\n\"Baksos juga nggak bisa,\" balas Aysel. \"Gue yang ngusulin, ini udah disetujui pihak sekolah.\"\n\nMereka berdebat—tapi kali ini beda. Karena sekarang ada perasaan yang terlibat.\n\nDi samping, Kaizo ngamati. Diam. Tapi matanya... kayak tau sesuatu.\n\nSetelah rapat, Hali tarik Aysel ke samping. \"Lo marah?\"\n\n\"Gue nggak marah. Tapi lo keras kepala.\"\n\n\"Lo juga.\"\n\nMereka saling pandang. Suasana hening. Sampai Hali akhirnya ngomong pelan: \"Gue... gameliat lo stress. Makanya gue maksa jadwal diganti.\"\n\nAysel tersentak. Hali ngelakuin itu buat dia?",
-      choices: [
-        { text: "Memaafkan Hali — \"Hal... makasih. Tapi next time bilang aja.\"", next: "scene-06a", path: "hali" },
-        { text: "Masih kesel — \"Gue hargai niat lo. Tapi tolong jangan atur-atur.\"", next: "scene-06a", path: "hali" }
-      ]
-    },
-    "scene-05b": {
-      title: "Konflik",
-      meta: "Taman belakang sekolah — sore",
-      text: "Aysel lagi duduk di taman belakang, ngerjain tugas. Tiba-tiba Kaizo muncul, duduk di sampingnya tanpa suara.\n\n\"Kai, lo hantunya perpustakaan apa taman?\" goda Aysel.\n\n\"Dua-duanya,\" jawab Kaizo datar, tapi matanya berbinar.\n\nMereka ngobrol ringan—sampai topiknya berubah.\n\n\"Zel,\" Kaizo mulai serius. \"Lo suka sama orang?\"\n\nAysel kaget. \"H-Hah?\"\n\n\"Gue tanya.\" Kaizo nengok ke arah Aysel. \"Karena gue... suka sama lo.\"\n\nDEG.\n\nAysel mau jawab, tapi tiba-tiba suara langkah kaki. Hali muncul dari balik pohon. Ekspresinya... nggak bisa dideskripsiin.\n\nDia denger semuanya.",
-      choices: [
-        { text: "Ngejar Hali duluan — \"Hal, tunggu! Bukan gitu—!\"", next: "scene-06b", path: "kaizo" },
-        { text: "Tetap sama Kaizo — \"Kai... gue juga suka lo.\"", next: "scene-06b", path: "kaizo" }
-      ]
-    },
-    "scene-06a": {
-      title: "Penjelasan",
-      meta: "Atap sekolah — senja",
-      text: "Aysel nyari Hali ke semua tempat. Sampai akhirnya—di atap sekolah. Hali duduk di pinggir, ngeliatin langit sore.\n\n\"Hal.\"\n\n\"...\"\n\n\"Lo denger ya tadi? Waktu Kaizo...\"\n\n\"Iya.\" Suara Hali pecah sedikit. \"Gue tau. Lo suka dia.\"\n\nAysel duduk di sampingnya. \"Tapi... itu nggak berarti lo nggak berarti buat gue.\"\n\nHali nengok. Matanya sedikit merah.\n\n\"Gue tau gue pendiam. Susah ngomong. Tapi...\" Hali narik napas. \"Gue nggak tau cara lain buat nunjukin kalau—\"\n\n\"Kalau apa?\"\n\nHali ngedeketin Aysel. Pelan. Dan untuk pertama kalinya, cowok cool dan pendiam itu ngomong dari hati:\n\n\"Kalau gue sayang banget sama lo, Zel.\"\n\nAysel nahan napas. Momen ini... kayak adegan film.",
-      choices: [
-        { text: "Peluk Hali — \"Gue juga sayang lo, Hal. Cuma... bingung.\"", next: "scene-07", path: "hali" },
-        { text: "Bilang jujur — \"Gue perlu waktu. Tapi makasih udah jujur.\"", next: "scene-07", path: "hali" }
-      ]
-    },
-    "scene-06b": {
-      title: "Setelah Pengakuan",
-      meta: "Taman belakang sekolah — senja",
-      text: "Hali udah pergi. Tinggal Aysel dan Kaizo di taman yang mulai temaram.\n\n\"Zel,\" Kaizo mulai. \"Gue nggak maksa. Tapi...\"\n\n\"Iya?\"\n\nKaizo duduk di samping Aysel. \"Gue tau lo bingung. Lo juga ngerasa sesuatu sama Hali. Gue nggak buta.\"\n\nAysel diem. Dia nggak bisa bohong.\n\n\"Tapi gue cuma mau lo tau,\" lanjut Kaizo, suaranya lembut tapi pasti. \"Kalau lo pilih gue... gue nggak bakal nyeselin pilihan lo.\"\n\nAysel nengok. Kaizo lagi ngeliat langit. Wajahnya tenang. Tapi kata-katanya... dalem banget.\n\n\"Kai... gue suka lo,\" bisik Aysel akhirnya. \"Udah lama. Cuma...\"\n\n\"Takut?\"\n\nAysel angguk.\n\nKaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu. \"Gue juga takut. Tapi kita jalanin bareng?\"",
-      choices: [
-        { text: "Terima — \"Iya. Bareng.\"", next: "scene-07", path: "kaizo" },
-        { text: "Minta waktu — \"Kai... gue butuh waktu buat mikirin semuanya.\"", next: "scene-07", path: "kaizo" }
-      ]
-    },
-    "scene-07": {}
-  };
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene3d","scene4a","scene4b","scene5a","scene5b","scene6a","scene6b","scene7a","scene7b"];
+const story = {
+  "scene1": {    title: "Hari Biasa yang Nggak Biasa",    setting: "SMA Pelita — pagi hari, koridor sekolah",    karakter: "Aysel, teman-teman sekolah",    text: `Pagi itu dimulai seperti biasa di SMA Pelita. Aysel berjalan menyusuri koridor dengan langkah santai, rambutnya terurai rapi, dan senyum tipis yang bikin banyak orang nge-tag dia sebagai "si keren yang asik".
 
-  let pathCount = { hali: 0, kaizo: 0 };
-  let currentScene = "scene-01";
+Tapi hari ini beda.
 
-  function countChoicesInPath(sceneId) {
-    let visited = new Set();
-    let id = sceneId;
-    while (id && id !== "scene-07" && story[id] && story[id].choices) {
-      if (visited.has(id)) break;
-      visited.add(id);
-      let firstChoice = story[id].choices[0];
-      if (firstChoice && firstChoice.path) {
-        pathCount[firstChoice.path]++;
+Di ujung koridor, Aysel lihat dua sosok yang udah dikenal banget. Hali, cowok cool dengan jaket ekskul atletiknya, lagi minum di depan kelas. Dan di sebelahnya... Kaizo. Si ketua OSIS yang misterius itu lagi megang binder, matanya fokus ke suatu arah.
+
+Deg.
+
+Jantung Aysel berdetak sedikit lebih cepat.
+
+"Duh, pagi-pagi udah begini," gumam Aysel sambil ngerapihin rambutnya.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Nyapa Hali duluan — \"Hal! Pagi!\""},      {target: "scene2b", text: "Nyapa Kaizo duluan — \"Kai, ada rapat hari ini?\""}    ]  },  "scene2a": {    title: "Ngobrol Bentar Sama Hali",    setting: "Depan kelas — pagi hari",    karakter: "Aysel, Hali",    text: `Hali nengok pas denger suara Aysel. Wajah cool-nya datar kayak biasa, tapi matanya ada sedikit perubahan. Dia ngangguk pelan.
+
+"Pagi," balasnya singkat.
+
+Aysel udah biasa. Hali emang bukan tipe yang banyak bicara. Tapi di antara mereka berdua, diam itu nggak canggung.
+
+"Lari pagi tadi?" tanya Aysel iseng.
+
+Hali mengangkat bahu. "Biasa."
+
+Aysel tau itu artinya iya. Dia jadi inget waktu mereka debat soal jadwal ekskul minggu lalu—Hali ngotot jam latihan atletik nggak boleh diganggu, Aysel bilang kegiatan OSIS juga penting.
+
+"Lo..." Hali mulai, tapi ragu. "...udah sarapan?"
+
+Aysel tersenyum geli. Hali kalo peduli orang selalu kaku.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Ajak Hali ngopi di kantin — \"Belum. Lo temenin gue ke kantin?\""},      {target: "scene3b", text: "Balik ke kelas bareng — \"Udah. Mau ke kelas? Bareng?\""}    ]  },  "scene2b": {    title: "Ketemu Kaizo di Koridor",    setting: "Koridor sekolah — pagi hari",    karakter: "Aysel, Kaizo",    text: `Kaizo menoleh pelan pas denger namanya dipanggil. Ekspresinya tenang, hampir nggak terbaca. Tapi satu hal yang Aysel selalu notice: Kaizo nggak pernah ngehindarin tatapannya.
+
+"Pagi, Zel," balas Kaizo, suaranya lembut.
+
+Aysel mendekat, berusaha kelihatan santai. "Lo bawa binder tebel gitu... rapat OSIS siang ini?"
+
+"Iya," Kaizo ngangguk. "Lo lupa? Lo kan wakilnya."
+
+"Oh. Iya, iya, inget," Aysel nyengir kikuk. Mana mungkin dia lupa. Apalagi kalau rapat berarti satu ruangan sama Kaizo.
+
+Suasana hening sejenak. Tapi bukan hening yang canggung. Agak... hangat.`,    isEnd: false,    choices: [      {target: "scene3c", text: "Ajak Kaizo bahas rapat OSIS — \"Gue ada ide buat acara. Mau denger?\""},      {target: "scene3d", text: "Diam aja, salting"}    ]  },  "scene3a": {    title: "Ngopi di Kantin",    setting: "Kantin sekolah — jam istirahat",    karakter: "Aysel, Hali",    text: `Kantin penuh kayak biasanya, tapi Aysel berhasil dapetin meja pojokan. Hali duduk di depannya, gelas es kopi di tangan, masih dengan ekspresi cool-nya.
+
+"Jadi lo mau ngomong sesuatu dari tadi?" tanya Aysel sambil nyeruput minumannya.
+
+Hali diem bentar. "Lo inget pas kita debat soal jadwal ekskul?"
+
+"Ya jelas. Lo ngotot banget sampe mukanya merah."
+
+"Habis..." Hali menghela napas. "Gue sebenernya suka debat sama lo."
+
+Aysel hampir tersedak. "Hah?"
+
+"Bukan karena gue benci. Tapi..." Hali nunduk, megang gelasnya erat. "Karena itu satu-satunya cara gue bisa ngobrol lama sama lo."
+
+Hening.
+
+Aysel nggak nyangka Hali bisa ngomong kayak gitu. Si cool and quiet yang biasanya cuma jawab "iya" dan "nggak"... tiba-tiba jujur?`,    isEnd: false,    choices: [      {target: "scene4a", text: "Tanya balik serius — \"Hal... lo serius?\""},      {target: "scene4a", text: "Bercanda biar cair — \"Wah, jadi lo sengaja debat sama gue? Ngeselin banget sih!\""}    ]  },  "scene3b": {    title: "Balik ke Kelas Bareng",    setting: "Lorong sekolah — menuju kelas",    karakter: "Aysel, Hali",    text: `Mereka jalan berdampingan. Hali di kiri, Aysel di kanan. Nggak ada yang ngomong, tapi langkah mereka seirama.
+
+Tiba-tiba suara ribut dari belakang. Seorang anak kelas X lari nggak lihat arah—mau nabrak Aysel!
+
+Tapi sebelum Aysel sempet bereaksi, Hali udah tarik tangannya. Cepet.
+
+"Aw—" Aysel tersadar dia sekarang berdiri dekat banget sama Hali. Tangannya masih dipegang.
+
+"Lo gapapa?" tanya Hali, suaranya rendah.
+
+"I-iyalah," Aysel berusaha cool, padahal jantungnya kaya mau lompat. "Makasih."
+
+Hali ngelepasin pelan. Tapi sebelum dia narik tangan sepenuhnya, dia berkata pelan: "Gue nggak suka lo kenapa-kenapa."
+
+Kemudian dia jalan duluan, kaya nggak terjadi apa-apa. Tapi telinganya... merah.`,    isEnd: false,    choices: [      {target: "scene4a", text: "Kejar dan tanya — \"Hal, tunggu! Maksud lo apa tadi?\""},      {target: "scene4a", text: "Diem aja sambil senyum sendiri"}    ]  },  "scene3c": {    title: "Rapat OSIS",    setting: "Ruang OSIS — siang hari",    karakter: "Aysel, Kaizo",    text: `Rapat OSIS berjalan seperti biasa—sampai tiba di sesi ide acara.
+
+"Ada usul buat acara tahunan?" tanya Kaizo, matanya menyapu ruangan. Sampai ke Aysel.
+
+Aysel angkat tangan. "Gue usul ada bakti sosial sekaligus lomba. Biar sekolah kita lebih... hidup."
+
+Anggota lain mulai diskusi. Tapi Aysel nggak fokus. Karena di bawah meja, tanpa sengaja, kaki Kaizo nyenggol kakinya.
+
+Atau... sengaja?
+
+Aysel nengok ke Kaizo. Cowok itu masih ngomong serius sama sekretaris OSIS. Wajahnya datar. Tapi ujung bibirnya—naik sedikit. Senyum tipis yang hampir nggak kelihatan.
+
+Aysel nahan napas.
+
+Setelah rapat selesai dan yang lain keluar, Kaizo manggil pelan. "Zel."
+
+"Iya?"
+
+"Makasih usulannya. Bagus."
+
+Dua kata. Tapi cukup bikin Aysel meleleh dalem.`,    isEnd: false,    choices: [      {target: "scene4b", text: "Nanya langsung — \"Kai... lo sengaja nyenggol kaki gue tadi?\""},      {target: "scene4b", text: "Balas santai — \"Makasih. Tapi lo bantuin gue presentasi ya nanti?\""}    ]  },  "scene3d": {    title: "Momen Hening",    setting: "Koridor sepi — dekat taman belakang sekolah",    karakter: "Aysel, Kaizo",    text: `Aysel nggak ngomong apa-apa. Dan Kaizo juga nggak maksa.
+
+Mereka cuma berdiri di samping taman belakang, angin siang berhembus pelan. Kaizo megang bindernya, tapi matanya... liat ke Aysel.
+
+"Zel."
+
+"Iya?"
+
+Kaizo turunin bindernya. Dari saku jasnya, dia ngeluarin sesuatu—sebatang cokelat. Yang masih terbungkus rapi.
+
+"Ini," katanya pendek. "Lo kelihatan capek dari tadi."
+
+Aysel bengong. Kaizo—si ketua OSIS paling misterius seantero sekolah—ngasih dia cokelat. Karena "kelihatan capek."
+
+"Kai... lo nyimpen cokelat di jas?"
+
+Kaizo nggak jawab. Tapi senyum tipisnya muncul lagi. "Simpen aja. Nanti dimakan."
+
+Dia balik badan, siap pergi. Tapi sebelum jalan, dia bilang pelan:
+
+"Gue liat lo. Tiap hari."
+
+Aysel berdiri di sana, megang cokelat itu, dan ngerasa dunianya kayak jeda sebentar.`,    isEnd: false,    choices: [      {target: "scene4b", text: "Panggil balik Kaizo — \"Kai, tunggu! Maksud lo apa?\""},      {target: "scene4b", text: "Senyum dan simpan cokelatnya"}    ]  },  "scene4a": {    title: "Semakin Dekat dengan Hali",    setting: "Lapangan sekolah — sore, latihan atletik",    karakter: "Aysel, Hali",    text: `Aysel nggak tau kenapa dia ada di sini. Lapangan atletik. Nontonin Hali latihan lari. Mungkin karena setelah kejadian tadi, dia penasaran.
+
+Hali lagi lari sprint. Bedanya, kali ini dia tau Aysel liat. Dan dia lari... lebih kencang.
+
+Setelah selesai, Hali jalan ke arah Aysel sambil minum. Rambutnya basah keringat, napasnya sedikit ngos-ngosan, tapi cool-nya masih tetep.
+
+"Lo nonton?" tanyanya, alis naik.
+
+"Boleh dong," sahut Aysel santai. "Gue kan wakil OSIS, bagian kesejahteraan siswa. Lo termasuk siswa."
+
+"Bohong."
+
+"Berhasil ngejawab."
+
+Hali terkekeh pelan—hal yang jarang banget terjadi. Aysel ngerasa menang lotre.
+
+"Gue selesai latihan 15 menit lagi," kata Hali. "Mau numpang nginep di sini?"`,    isEnd: false,    choices: [      {target: "scene5a", text: "Nunggu sampe selesai — \"Gas. Gue tunggu.\""},      {target: "scene5a", text: "Pulang duluan — \"Maaf, gue ada urusan. Lain kali ya!\""}    ]  },  "scene4b": {    title: "Semakin Dekat dengan Kaizo",    setting: "Perpustakaan sekolah — sore, sepi",    karakter: "Aysel, Kaizo",    text: `Aysel niatnya cuma mau pinjam buku. Tapi begitu masuk, dia lihat Kaizo duduk sendirian di meja pojok, laptop terbuka, dan segelas kopi di sampingnya.
+
+Tanpa mikir panjang, Aysel jalan ke arahnya. "Boleh nimbrung?"
+
+Kaizo angkat kepala. Senyum tipis itu lagi. "Iya. Silakan."
+
+Aysel duduk di seberangnya. Mereka nggak ngomong banyak—Aysel baca buku, Kaizo ngetik sesuatu. Tapi ada rasa nyaman yang susah dijelasin.
+
+"Zel."
+
+"Iya?"
+
+"Lo tau... gue suka ngumpet di sini," kata Kaizo pelan. "Karena sepi. Tapi sekarang... kayaknya bakal lebih seru kalau lo sering mampir."
+
+Aysel hampir menjatuhkan bukunya.`,    isEnd: false,    choices: [      {target: "scene5b", text: "Nanya balik — \"Kai... serius lo gak ngganggu gue ngerjain?\""},      {target: "scene5b", text: "Godain balik — \"Hati-hati, Kai. Gue bisa tiap hari mampir.\""}    ]  },  "scene5a": {    title: "Konflik",    setting: "Ruang OSIS — siang, tegang",    karakter: "Aysel, Hali, Kaizo",    text: `Rapat koordinasi antara OSIS dan ekskul berubah panas. Masalahnya? Jadwal.
+
+"Lomba atletik nggak bisa digeser," kata Hali tegas. "Kita udah latihan berbulan-bulan."
+
+"Baksos juga nggak bisa," balas Aysel. "Gue yang ngusulin, ini udah disetujui pihak sekolah."
+
+Mereka berdebat—tapi kali ini beda. Karena sekarang ada perasaan yang terlibat.
+
+Di samping, Kaizo ngamati. Diam. Tapi matanya... kayak tau sesuatu.
+
+Setelah rapat, Hali tarik Aysel ke samping. "Lo marah?"
+
+"Gue nggak marah. Tapi lo keras kepala."
+
+"Lo juga."
+
+Mereka saling pandang. Suasana hening. Sampai Hali akhirnya ngomong pelan: "Gue... gameliat lo stress. Makanya gue maksa jadwal diganti."
+
+Aysel tersentak. Hali ngelakuin itu buat dia?`,    isEnd: false,    choices: [      {target: "scene6a", text: "Memaafkan Hali — \"Hal... makasih. Tapi next time bilang aja.\""},      {target: "scene6a", text: "Masih kesel — \"Gue hargai niat lo. Tapi tolong jangan atur-atur.\""}    ]  },  "scene5b": {    title: "Konflik",    setting: "Taman belakang sekolah — sore",    karakter: "Aysel, Kaizo, Hali",    text: `Aysel lagi duduk di taman belakang, ngerjain tugas. Tiba-tiba Kaizo muncul, duduk di sampingnya tanpa suara.
+
+"Kai, lo hantunya perpustakaan apa taman?" goda Aysel.
+
+"Dua-duanya," jawab Kaizo datar, tapi matanya berbinar.
+
+Mereka ngobrol ringan—sampai topiknya berubah.
+
+"Zel," Kaizo mulai serius. "Lo suka sama orang?"
+
+Aysel kaget. "H-Hah?"
+
+"Gue tanya." Kaizo nengok ke arah Aysel. "Karena gue... suka sama lo."
+
+DEG.
+
+Aysel mau jawab, tapi tiba-tiba suara langkah kaki. Hali muncul dari balik pohon. Ekspresinya... nggak bisa dideskripsiin.
+
+Dia denger semuanya.`,    isEnd: false,    choices: [      {target: "scene6b", text: "Ngejar Hali duluan — \"Hal, tunggu! Bukan gitu—!\""},      {target: "scene6b", text: "Tetap sama Kaizo — \"Kai... gue juga suka lo.\""}    ]  },  "scene6a": {    title: "Penjelasan",    setting: "Atap sekolah — senja",    karakter: "Aysel, Hali",    text: `Aysel nyari Hali ke semua tempat. Sampai akhirnya—di atap sekolah. Hali duduk di pinggir, ngeliatin langit sore.
+
+"Hal."
+
+"..."
+
+"Lo denger ya tadi? Waktu Kaizo..."
+
+"Iya." Suara Hali pecah sedikit. "Gue tau. Lo suka dia."
+
+Aysel duduk di sampingnya. "Tapi... itu nggak berarti lo nggak berarti buat gue."
+
+Hali nengok. Matanya sedikit merah.
+
+"Gue tau gue pendiam. Susah ngomong. Tapi..." Hali narik napas. "Gue nggak tau cara lain buat nunjukin kalau—"
+
+"Kalau apa?"
+
+Hali ngedeketin Aysel. Pelan. Dan untuk pertama kalinya, cowok cool dan pendiam itu ngomong dari hati:
+
+"Kalau gue sayang banget sama lo, Zel."
+
+Aysel nahan napas. Momen ini... kayak adegan film.`,    isEnd: false,    choices: [      {target: "scene7a", text: "Peluk Hali — \"Gue juga sayang lo, Hal. Cuma... bingung.\""},      {target: "scene7a", text: "Bilang jujur — \"Gue perlu waktu. Tapi makasih udah jujur.\""}    ]  },  "scene6b": {    title: "Setelah Pengakuan",    setting: "Taman belakang sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Hali udah pergi. Tinggal Aysel dan Kaizo di taman yang mulai temaram.
+
+"Zel," Kaizo mulai. "Gue nggak maksa. Tapi..."
+
+"Iya?"
+
+Kaizo duduk di samping Aysel. "Gue tau lo bingung. Lo juga ngerasa sesuatu sama Hali. Gue nggak buta."
+
+Aysel diem. Dia nggak bisa bohong.
+
+"Tapi gue cuma mau lo tau," lanjut Kaizo, suaranya lembut tapi pasti. "Kalau lo pilih gue... gue nggak bakal nyeselin pilihan lo."
+
+Aysel nengok. Kaizo lagi ngeliat langit. Wajahnya tenang. Tapi kata-katanya... dalem banget.
+
+"Kai... gue suka lo," bisik Aysel akhirnya. "Udah lama. Cuma..."
+
+"Takut?"
+
+Aysel angguk.
+
+Kaizo nyengir tipis—senyum paling lebar yang pernah Aysel liat dari cowok itu. "Gue juga takut. Tapi kita jalanin bareng?"`,    isEnd: false,    choices: [      {target: "scene7b", text: "Terima — \"Iya. Bareng.\""},      {target: "scene7b", text: "Minta waktu — \"Kai... gue butuh waktu buat mikirin semuanya.\""}    ]  },  "scene7a": {    title: "Hanya Satu — Ending Hali",    setting: "Lapangan sekolah — senja",    karakter: "Aysel, Hali",    text: `Aysel berdiri di pinggir lapangan, ngeliatin Hali yang baru selesai latihan. Cowok itu jalan ke arahnya, napas masih sedikit ngos-ngosan, tapi senyum tipisnya udah terpasang.
+
+"Lo masih di sini?" tanya Hali.
+
+"Iya. Janji kan mau traktir gue setelah lo juara lomba?"
+
+Hali terkekeh. "Gue belum juara."
+
+"Tapi gue yakin lo bakal juara."
+
+Hali diem bentar. Lalu—untuk pertama kalinya di depan umum—dia megang tangan Aysel. Pelan. Hangat.
+
+"Makasih udah milih gue, Zel."
+
+Aysel mesam-mesem. "Gue nggak milih lo. Gue... milih kita."
+
+Mereka jalan bareng meninggalkan lapangan. Dua insan yang awalnya cuma debat soal jadwal ekskul, sekarang... cuma punya satu buat satu sama lain.
+
+❤️ _Hanya satu. Dan itu lo._`,    isEnd: false,    choices: [    ]  },  "scene7b": {    title: "Hanya Satu — Ending Kaizo",    setting: "Perpustakaan sekolah — senja",    karakter: "Aysel, Kaizo",    text: `Perpustakaan udah hampir tutup. Aysel duduk di meja pojok—meja favorit Kaizo—sambil baca buku. Tapi matanya lebih sering ngeliat pintu daripada halaman.
+
+Dan akhirnya Kaizo dateng. Dengan segelas kopi—dan satu cokelat.
+
+"Lo udah dateng dari tadi?" tanyanya.
+
+"Nungguin lo yang lembur OSIS."
+
+Kaizo duduk di seberangnya. "Maaf lama."
+
+"Gapapa." Aysel megang cokelat yang dikasih Kaizo—sama kayak hari pertama dulu. "Kai... lo inget hari lo kasih gue cokelat pertama kali?"
+
+"Inget."
+
+"Semenjak itu, gue tau."
+
+"Tau apa?"
+
+Aysel nyengir. "Bahwa gue... milih lo. Dari awal."
+
+Kaizo diem. Lalu senyum—lebar banget, sampe keliatan lesung pipit yang jarang banget muncul. Dia megang tangan Aysel di atas meja.
+
+"Makasih, Zel."
+
+Mereka duduk di perpustakaan yang sepi, kopi dan cokelat di atas meja, dan hati yang akhirnya nyaman.
+
+❤️ _Hanya satu. Dan itu lo._`,    isEnd: false,    choices: [    ]  }};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  // Format narrative: bold, italic, paragraphs
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => {
+      let imgMatch = p.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+      if (imgMatch) {
+        return '<div class="story-image-container"><img src="' + imgMatch[2] + '" alt="' + imgMatch[1] + '" class="story-image"></div>';
       }
-      id = firstChoice ? firstChoice.next : null;
+      return '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>';
+    }).join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  // Auto-advance for merge scenes
+  if (scene.autoChoice && scene.choices.length > 0) {
+    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
+    // Still show a brief indicator
+    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
+  } else if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
     }
+    html += '</div>';
   }
 
-  function goTo(sceneId) {
-    currentScene = sceneId;
-    const scene = story[sceneId];
-    const el = document.getElementById("scene");
-
-    if (sceneId === "scene-07") {
-      const ending = pathCount.hali > pathCount.kaizo ? "hali" : "kaizo";
-      const name = ending === "hali" ? "Hali" : "Kaizo";
-      document.getElementById("progress").textContent = "✦ ENDING ✦";
-
-      if (ending === "hali") {
-        el.innerHTML = `
-          <div class="fade-in">
-            <div class="ending-badge ending-hali">❤️ Ending: Hali</div>
-            <div class="scene-title">Hanya Satu</div>
-            <div class="scene-meta">Lapangan sekolah — senja</div>
-            <div class="scene-text">
-              <p>Aysel berdiri di pinggir lapangan, ngeliatin Hali yang baru selesai latihan. Cowok itu jalan ke arahnya, napas masih sedikit ngos-ngosan, tapi senyum tipisnya udah terpasang.</p>
-              <p>"Lo masih di sini?" tanya Hali.</p>
-              <p>"Iya. Janji kan mau traktir gue setelah lo juara lomba?"</p>
-              <p>Hali terkekeh. "Gue belum juara."</p>
-              <p>"Tapi gue yakin lo bakal juara."</p>
-              <p>Hali diem bentar. Lalu—untuk pertama kalinya di depan umum—dia megang tangan Aysel. Pelan. Hangat.</p>
-              <p>"Makasih udah milih gue, Zel."</p>
-              <p>Aysel mesam-mesem. "Gue nggak milih lo. Gue... milih kita."</p>
-              <p>Mereka jalan bareng meninggalkan lapangan. Dua insan yang awalnya cuma debat soal jadwal ekskul, sekarang... cuma punya satu buat satu sama lain.</p>
-              <p style="text-align:center;font-size:24px;margin-top:20px;">❤️ <em>Hanya satu. Dan itu lo.</em></p>
-            </div>
-            <button class="restart-btn" onclick="restart()">🔄 Main Lagi</button>
-          </div>
-        `;
-      } else {
-        el.innerHTML = `
-          <div class="fade-in">
-            <div class="ending-badge ending-kaizo">🧡 Ending: Kaizo</div>
-            <div class="scene-title">Hanya Satu</div>
-            <div class="scene-meta">Perpustakaan sekolah — senja</div>
-            <div class="scene-text">
-              <p>Perpustakaan udah hampir tutup. Aysel duduk di meja pojok—meja favorit Kaizo—sambil baca buku. Tapi matanya lebih sering ngeliat pintu daripada halaman.</p>
-              <p>Dan akhirnya Kaizo dateng. Dengan segelas kopi—dan satu cokelat.</p>
-              <p>"Lo udah dateng dari tadi?" tanyanya.</p>
-              <p>"Nungguin lo yang lembur OSIS."</p>
-              <p>Kaizo duduk di seberangnya. "Maaf lama."</p>
-              <p>"Gapapa." Aysel megang cokelat yang dikasih Kaizo—sama kayak hari pertama dulu. "Kai... lo inget hari lo kasih gue cokelat pertama kali?"</p>
-              <p>"Inget."</p>
-              <p>"Semenjak itu, gue tau."</p>
-              <p>"Tau apa?"</p>
-              <p>Aysel nyengir. "Bahwa gue... milih lo. Dari awal."</p>
-              <p>Kaizo diem. Lalu senyum—lebar banget, sampe keliatan lesung pipit yang jarang banget muncul. Dia megang tangan Aysel di atas meja.</p>
-              <p>"Makasih, Zel."</p>
-              <p>Mereka duduk di perpustakaan yang sepi, kopi dan cokelat di atas meja, dan hati yang akhirnya nyaman.</p>
-              <p style="text-align:center;font-size:24px;margin-top:20px;">❤️ <em>Hanya satu. Dan itu lo.</em></p>
-            </div>
-            <button class="restart-btn" onclick="restart()">🔄 Main Lagi</button>
-          </div>
-        `;
-      }
-      return;
-    }
-
-    document.getElementById("progress").textContent = "Only One";
-    const pct = Math.round((Object.keys(story).indexOf(sceneId) / (Object.keys(story).length - 1)) * 100);
-    document.getElementById("progress").textContent = "Scene " + sceneId.replace("scene-", "").replace(/[a-z]/g, "") + " of 7";
-
-    let choicesHtml = "";
-    if (scene.choices) {
-      choicesHtml = '<div class="choices">';
-      for (let c of scene.choices) {
-        choicesHtml += `<button class="choice-btn" onclick="choose('${c.next}', '${c.path}')">${c.text}</button>`;
-      }
-      choicesHtml += "</div>";
-    }
-
-    const textHtml = scene.text.split("\n\n").map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
-
-    el.innerHTML = `
-      <div class="fade-in">
-        <div class="scene-title">${scene.title}</div>
-        <div class="scene-meta">${scene.meta}</div>
-        <div class="scene-text">${textHtml}</div>
-        ${choicesHtml}
-      </div>
-    `;
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
   }
 
-  function choose(nextScene, path) {
-    if (path) pathCount[path]++;
-    goTo(nextScene);
-  }
+  div.innerHTML = html;
 
-  function restart() {
-    pathCount = { hali: 0, kaizo: 0 };
-    goTo("scene-01");
-  }
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
 
-  goTo("scene-01");
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
 </script>
 </body>
 </html>
