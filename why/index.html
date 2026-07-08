@@ -77,7 +77,7 @@ body{
       <div style="color:#666;margin-bottom:20px;font-size:.85em">
         🖋️ oleh Shinoa Hoshiyume &nbsp;|&nbsp; 🎭 Fantasy + Misteri
       </div>
-      <button class="start-btn" onclick="handleClick(event)" data-goto="scene1">Mulai Berkeliling 🚶‍♀️</button>
+      <button class="start-btn" onclick="clickGo(this)" data-goto="scene1">Mulai Berkeliling 🚶‍♀️</button>
     </div>
   </div>
 
@@ -152,7 +152,7 @@ function renderScene(sceneId) {
   if (scene.choices && scene.choices.length > 0) {
     html += '<div class="choices" data-scene="' + sceneId + '">';
     for (let choice of scene.choices) {
-      html += '<button class="choice-btn" onclick="handleClick(event)" data-goto="' + choice.next + '">';
+      html += '<button class="choice-btn" onclick="clickGo(this)" data-goto="' + choice.next + '">';
       html += '<span class="arrow">➤</span> ' + esc(choice.text);
       html += '</button>';
     }
@@ -160,7 +160,7 @@ function renderScene(sceneId) {
   }
 
   if (scene.isEnd) {
-    html += '<div style="text-align:center"><button class="restart-btn" onclick="handleClick(event)" data-goto="restart">⟳ Main Lagi</button></div>';
+    html += '<div style="text-align:center"><button class="restart-btn" onclick="clickGo(this)" data-goto="restart">⟳ Main Lagi</button></div>';
   }
 
   div.innerHTML = html;
@@ -184,9 +184,8 @@ function esc(s) {
   return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-// Handle button clicks — inline onclick is most reliable for dynamic content
-function handleClick(e) {
-  var btn = e.currentTarget;
+// Handle button clicks — use onclick with this for maximum reliability
+function clickGo(btn) {
   var goto = btn.getAttribute('data-goto');
   if (goto === 'restart') {
     talkCount = 0;
