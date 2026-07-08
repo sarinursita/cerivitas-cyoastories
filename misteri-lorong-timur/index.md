@@ -1,6 +1,6 @@
 # Misteri Lorong Timur
 
-- **Penulis:** Alaric
+- **Penulis:** Vincha Kevin
 - **Genre:** Misteri
 - **Tags:** misteri, sekolah, horor
 - **Rating:** 13+
