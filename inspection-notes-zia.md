@@ -146,8 +146,16 @@ esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
 ```
 
-#### ✅ Talk counter branching dihapus dari HTML
-Dynamic branching `if (sceneId === "scene7")` udah dihapus. Talk counter sekarang cuma jadi info display di scene-6 ("Karakter yang diajak bicara: X dari 4").
+#### ✅ Talk counter branching — tetap aktif di HTML
+HTML custom pake talk counter buat tentuin ending (seperti desain aslinya). Scene-6 cuma punya 1 pilihan `"Lanjutkan..."` yang mengarah ke `scene7`, lalu:
+
+```javascript
+if (sceneId === "scene7") {
+    sceneId = talkCount >= 4 ? "scene7a" : talkCount >= 3 ? "scene7b" : "scene7c";
+}
+```
+
+Sementara .md files punya 3 pilihan eksplisit buat kompatibilitas player.html & cetak buku.
 
 ### Tree cerita
 ```
