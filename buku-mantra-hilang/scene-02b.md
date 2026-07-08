@@ -1,11 +1,11 @@
 # Scene 2B: Investigasi Orang Mencurigakan
 
 **Setting:** Halaman akademi — di antara bayangan pohon tua
-**Karakter:** Luna Celeste, Clara, Kite
+**Karakter:** Luna Celeste, Anna, Kite
 
 Luna berpikir sejenak, "Sepertinya perpustakaan terlalu beresiko.."
 
-"Lu-chi, bagaimana kalau kita mencari pelakunya saja?" Clara mengangkat tangan kanannya.
+"Lu-chi, bagaimana kalau kita mencari pelakunya saja?" Anna mengangkat tangan kanannya.
 
 "Ide bagus! Pencurinya pasti meninggalkan jejak!"
 
@@ -15,12 +15,11 @@ Tepat setelah itu, seorang siswa bertudung berjalan tergesa-gesa melewati korido
 
 "Itu..." Luna menyipitkan mata.
 
-"Orang mencurigakan" Clara mengacungkan jarinya, menunjuk siswa bertudung.
+"Orang mencurigakan" Anna mengacungkan jarinya, menunjuk siswa bertudung.
 
-"Heii, jangan ditunjuk begitu, Clara!" Kite memukul tangan Clara pelan.
+"Heii, jangan ditunjuk begitu, Anna!" Kite memukul tangan Anna pelan.
 
-"Jadi.. Apa yang harus kita lakukan"  
-
+"Jadi.. Apa yang harus kita lakukan"
 
 (80-150 kata)
 
