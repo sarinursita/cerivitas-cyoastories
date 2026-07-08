@@ -20,4 +20,3 @@ Ketiga anak itu terhempas ke suatu tempat, yang belum pernah mereka lihat sebelu
 
 **Pilihan:**
 - [Scene 4]: 🅰️ Maju terus — "Aku harus berani! Mungkin ini ujian..."
-
