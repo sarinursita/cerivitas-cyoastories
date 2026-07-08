@@ -2,7 +2,7 @@
 
 **Setting:** Kamar tidur putri — malam, dramatis
 **Karakter:** Koki, Ksatria, Penasihat, Pelayan, Putri, Ratu
-*<!-- Status: END -->*
+<!-- Status: END -->
 
 Saat Ratu mendekat dengan racun di tangan, pintu kamar terbuka lebar!
 

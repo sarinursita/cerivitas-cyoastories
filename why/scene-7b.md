@@ -2,7 +2,7 @@
 
 **Setting:** Kamar tidur putri — malam, chaos
 **Karakter:** Ratu, Putri, + 3 karakter yang dipilih
-*<!-- Status: END -->*
+<!-- Status: END -->
 
 Saat Ratu mendekatkan racun ke bibirmu, pintu terbuka!
 

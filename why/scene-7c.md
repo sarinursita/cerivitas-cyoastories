@@ -2,7 +2,7 @@
 
 **Setting:** Kamar tidur putri — malam, sunyi
 **Karakter:** Ratu, Putri
-*<!-- Status: END -->*
+<!-- Status: END -->
 
 Kesepian.
 
