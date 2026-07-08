@@ -1,13 +1,27 @@
 # Scene 5B: Selamatkan Kyra
 
-**Setting:** [TEMPAT — isi sesuai]
+**Setting:** Perpustakaan Antar-Dimensi — jurang bercahaya yang memisahkan dua dunia
 **Karakter:** Luna Celeste, Kyra
 
-[NARASI — tulis ceritanya di sini]
+Luna melesat ke arah Kyra yang tergantung di atas jurang bercahaya. Wajah Kyra basah oleh air mata.
 
-(80-150 kata)
+"Luna! Aku takut—" suaranya bergetar.
 
-Kyra berhasil diselamatkan... tapi musuh ternyata masih mengincar mereka.
+"Pegang tanganku!" Luna menjulurkan tangan. Simbol di lengannya menyala ungu terang.
+
+Tepat saat jari mereka nyaris bersentuhan, tanah di bawah Kyra retak.
+
+"LUNA!" teriak Kyra.
+
+Tanpa berpikir, Luna melompat. Simbol di tangannya meledak — menciptakan jembatan cahaya. Ia menangkap Kyra tepat waktu.
+
+"A-apa tadi..." Kyra terpaku melihat lengan Luna.
+
+"Aku juga tidak tahu," Luna berkata pelan. "Tapi sepertinya... buku mantra itu benar-benar ada di dalam diriku."
+
+Dari celah dimensi, Ketua OSIS muncul dengan tawa menggema.
+
+"Kau baru menyadarinya, Luna? Sekarang kekuatan itu... akan menjadi milikku!"
 
 ---
 

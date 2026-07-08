@@ -1,18 +1,31 @@
 # Scene 6B: ⚔️ Lawan dengan Kekuatan Baru — Ending
 
 **Setting:** Perpustakaan Antar-Dimensi 🌌
-**Karakter:** Luna Celeste, Kyle, Kyra, [musuh]
+**Karakter:** Luna Celeste, Kyle, Kyra, Ketua OSIS
 **Status:** END
 
-[NARASI — tulis ceritanya di sini]
+"Cukup!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
 
-**ENDING LAWAN** ⚔️ — Luna bangkitkan mantra terlarang yang ada di dalam dirinya!
+"Apa?!" Ketua OSIS mundur.
 
-Cahaya memancar dari tubuh Luna! Kekuatan yang selama ini tersembunyi... sekarang saatnya melindungi teman-temannya!
+"Aku bukan buku mantra-mu!" suara Luna bergema. "Aku pemiliknya!"
 
+Kekuatan dahsyat mengalir dari dalam dirinya. Mantra-mantra kuno menari di udara, membentuk lingkaran api di sekeliling Ketua OSIS.
 
----
+"Mustahil... kau menguasainya?!"
 
-🏁 THE END
+Luna tersenyum. "Buku itu memilihku karena aku kuat. Bukan karena aku lemah."
 
-**[TAMAT — terima kasih sudah bermain!]**
+Dengan satu gerakan, Luna mengunci kekuatan Ketua OSIS dalam kristal. Perpustakaan Antar-Dimensi berguncang — lalu hening.
+
+Kyle dan Kyra berlari memeluknya.
+
+"Kau hebat, Luna!"
+
+Luna tertawa lelah. "Aku hanya melakukan apa yang benar."
+
+Kekuatan buku mantra kini aman — di tangan yang tepat.
+
+🏁 **THE END — Kekuatan Baru** ⚔️
+
+**[Tamat — terima kasih sudah bermain!]**
