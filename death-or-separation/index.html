@@ -194,11 +194,11 @@ function goTo(sceneId) {
   if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
 
   // Format narrative: bold, italic, paragraphs
-  let narr = scene.text;
+  let narr = esc(scene.text);
   narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
   html += '<div class="narrative">' +
-    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    narr.split("\n\n").map(p => '<p>' + p.replace(/\n/g, "<br>") + '</p>').join("") +
     '</div>';
 
   if (scene.isEnd) {
