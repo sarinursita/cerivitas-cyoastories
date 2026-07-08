@@ -135,7 +135,7 @@ function renderScene(sceneId) {
   let paragraphs = scene.narrative.split("\n\n").filter(p => p.trim());
   html += '<div class="narrative">';
   for (let p of paragraphs) {
-    html += "<p>" + esc(p).replace(/\n/g, "<br>") + "</p>";
+    html += "<p>" + esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/\n/g, "<br>") + "</p>";
   }
   html += "</div>";
 
