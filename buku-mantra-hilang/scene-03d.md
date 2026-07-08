@@ -32,4 +32,4 @@ Mereka terlempar ke ruang gelap yang tidak dikenal.
 ---
 
 **Pilihan:**
-- [Scene 4]: eror
+- [Scene 4]: 🅱️ Jelajahi tempat ini — pasti ada petunjuk!

@@ -18,4 +18,4 @@ Semuanya terjadi begitu cepat, entah apa yang ketua OSIS lakukan, tapi keempat o
 ---
 
 **Pilihan:**
-- [Scene 4]: eror
+- [Scene 4]: 🅱️ Cari tahu ruangan ini — ada yang tidak beres!

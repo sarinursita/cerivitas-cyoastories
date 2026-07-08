@@ -36,4 +36,4 @@ Mereka terlempar, ke sebuah tempat antah berantah.
 ---
 
 **Pilihan:**
-- [Scene 4]: eror
+- [Scene 4]: 🅰️ Hadapi kegelapan — tidak ada pilihan lain!
