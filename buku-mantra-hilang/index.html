@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misteri Buku Mantra Yang Hilang</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.container{max-width:700px;width:100%;margin:0 auto}
+.header{text-align:center;margin-bottom:30px;opacity:.8}
+.header h1{font-size:2em;background:linear-gradient(135deg,#c084fc,#6b5bff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .subtitle{color:#888;font-size:.85em;margin-top:5px}
+.scene-counter{color:#666;font-size:.9em;margin-top:5px}
+.scene{display:none;animation:fadeIn .6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scene-title{font-size:1.5em;margin-bottom:5px;color:#c084fc}
+.scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
+.narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
+.narrative p{margin-bottom:15px}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
+.choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
+.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
+.restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+@media(max-width:500px){.narrative{font-size:1em}}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="header">
+    <h1>Misteri Buku Mantra Yang Hilang</h1>
+    <div class="subtitle">oleh Melody 🧙</div>
+    <div class="scene-counter" id="sceneCounter"></div>
+  </div>
+  <div id="sceneContainer"></div>
+</div>
+<script>
+const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene3d","scene4","scene5a","scene5b","scene6a","scene6b","scene6c"];
+const story = {
+  "scene1": {
+    title: "Rahasia di Lorong",
+    setting: "Lorong belakang Akademi Sihir Aetheria — malam hari, jam 8 lebih 10 menit",
+    karakter: "Luna Celeste, Anna, Kite",
+    text: `Malam di akademi Central begitu tenang, anak-anak dilarang keluar diatas jam tujuh malam.
+
+"Psst, Lu-chi," Anna menggoyangkan tubuh Luna.
+"Mhm?" Luna menguap pelan, lalu mengusap kedua matanya.
+"Temani aku ke kamar mandii, aku takut," Anna menggelengkan kepalanya cepat.
+
+Jam menunjukkan delapan lebih sepuluh, siswa tidak boleh keluar dari kamar, apapun alasannya.
+
+"Kenapa ga dari tadi.."
+"Kerasanya baru sekarang," Anna tersenyum tanpa rasa penyesalan, lalu mengacungkan dua jari.
+
+"Yasudah ayo," Luna terlihat tak punya pilihan lain selain menemani perempuan bertubuh pendek di depannya.
+
+Kedua anak itu menyusuri lorong diam-diam, Luna mengacungkan jari telunjuk di mulut, lalu merapalkan sebuah mantra.
+
+"Invisiblecake!" Ucapnya sambil berbisik.
+Wushh! Butiran kerlap kerlip memenuhi langit. Dalam sekejap Luna dan Anna menjadi tak terlihat.
+
+"Whoaa, Lu-chi hebat!!" Anna melompat lompat tangannya berusaha menggapai kerlap kerlip, magi Luna.
+
+"Baiklah, sekarang mari kita pergi, mantra ini hanya bertahan sepuluh menit,"
+"Ya! Ya!" Anna menyusuri lorong, sedikit berlari.
+
+Kamar mandi putri bersebelahan dengan ruang guru, yang membuat mereka harus lebih berhati-hati.
+
+"Mantraku tidak bisa meredam suara, jadi usahakan jangan berisik.." Luna mengelus kepala Anna pelan, seraya berbisik.
+
+"Ay Ay, Kap-" Luna menutup mulut Anna pelan, sementara Anna hanya menyengir.
+
+Ruang guru tanpak terang, mereka memang suka mengadakan rapat malam-malam.
+
+"Gawat! Buku sihir terlarang hilang!"
+"Bagaimana mungkin? Buku itu berada di perpustakaan terlarang, mana mungkin ada yang mencurinya?"
+"Tapi memang itu kenyataannya!"
+
+Telinga Luna membesar, "Buku sihir terlarang…"
+"Sepertinya ini begitu penting, apakah aku harus mencarinya untuk memba- maksudku untuk dikembalikan?" Luna tersenyum kecil.
+
+Tak lama kemudian Anna kembali dari kamar mandi, Luna ingin memberitahu apa yang barusan ia dengar. Tapi ia memutuskan untuk membangun strategi terlebih dahulu.
+
+---
+
+Hingga pagi harinya...
+
+Cari petunjuk di perpustakaan terlarang! Itulah yang terbesit di kepala Luna. Ia memikirkan semua itu hingga tidak bisa tidur, paginya ia bangun dengan mata yang terlihat lelah.
+
+"Lu-chi! Kau tidak apa apa?" Anna melompat-lompat, berusaha melihat mata Luna yang persis seperti panda.
+
+"Yeah, aku tidak apa-apa, ada hal yang lebih penting dari itu Anna," Luna tersenyum kecil.
+
+"PFTH-, kamu tahu? Mukamu persis seperti panda," Kite menahan tawa melihat muka teman sekelasnya yang tidak karuan.
+
+"Hah, reaksimu jahat sekali.." Luna menggelengkan kepalanya pelan.
+
+"Yah, lalu apa yang mau kau bahas, Luna?" Kite tersenyum, masih menahan tawa.
+
+"Semalam.. Aku tidak sengaja mendengarkan percakapan para guru, buku sihir terlarang hilang, sepertinya dicuri…"
+
+"Lalu?"
+
+"Tentu saja, kita cari buku itu!" Mata Luna yang tadinya letih kini memancarkan cahaya.
+
+"Kau gila ya? Dasar maniak buku.." Kite menggaruk kepalanya pelan.
+
+"Setidaknya aku lebih waras dari kamu," Luna balik mencibir.
+
+Kite dan Anna tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sama nekat.
+
+"Jadi apa rencananya?"`,
+    isEnd: false,
+    choices: [
+      {target: "scene2a", text: "🕵️ Cari petunjuk di Perpustakaan Terlarang — diam-diam, tanpa ketahuan siapapun"},
+      {target: "scene2b", text: "🔍 Cari pelakunya saja! Lebih aman"}
+    ]
+  },
+  "scene2a": {
+    title: "Perpustakaan Terlarang",
+    setting: "Perpustakaan Terlarang Akademi Aetheria — gelap, berdebu, penuh mantra pelindung",
+    karakter: "Luna Celeste, Kite, Anna",
+    text: `"Jadi apa rencananya?" Tanya Kite
+Luna tersenyum kecil, "Kita mulai dari tempat terakhir buku itu disimpan"
+
+"Perpustakaan Terlarang?" Anna memiringkan kepala, sementara Luna mengangguk.
+
+"Kalau buku itu benar-benar dicuri, pasti ada petunjuk yang tertinggal."
+
+Kite menghela napas, "Yah, aku tahu pada akhirnya kita akan dihukum.."
+
+"Jadi kau tidak ikut?" Luna tersenyum jahil.
+
+"Tentu saja aku ikut"
+Anna mengangkat tangannya tinggi.
+"Tim Detektif Buku Hilang, siap beraksi!"
+
+Setelah jam pelajaran berakhir, ketiganya berjalan menuju bagian paling sepi Akademi Central.
+
+Lorong batu yang mereka lewati kini semakin gelap, rak buku biasa kini berganti menjadi pintu besi besar dengan ukiran mantra kuno. Di atasnya tertulis Perpustakaan terlarang
+
+Kite menelan ludah.
+
+"Kau tahu? Aku mulai merasa ini ide yang buruk.."
+
+"Pintu itu dikunci Luna, apakah kau mau aku menghancurkannya?" Anna mengangkat tangannya ke atas.
+
+"Tunggu dulu" Luna tersenyum pelan, lalu memegang pintu tersebut.
+
+"Bekas sihir,"
+
+"Artinya?"
+
+"Artinya seseorang baru saja masuk ke sini, belum lama ini,"
+Angin berhembus pelan dari celah pintu, membawa hawa dingin.
+Ketiganya saling pandang. Apa yang harus mereka lakukan?`,
+    isEnd: false,
+    choices: [
+      {target: "scene3a", text: "🚧 Ambil jalan penuh trap — berani hadapi jebakan demi petunjuk!"},
+      {target: "scene3b", text: "📋 Minta izin ke OSIS — lebih aman, tapi ada syaratnya..."}
+    ]
+  },
+  "scene2b": {
+    title: "Investigasi Orang Mencurigakan",
+    setting: "Halaman akademi — di antara bayangan pohon tua",
+    karakter: "Luna Celeste, Anna, Kite",
+    text: `Luna berpikir sejenak, "Sepertinya perpustakaan terlalu beresiko.."
+
+"Lu-chi, bagaimana kalau kita mencari pelakunya saja?" Anna mengangkat tangan kanannya.
+
+"Ide bagus! Pencurinya pasti meninggalkan jejak!"
+
+Kite menyilang kedua tangannya, "Nah tapi.. bagaimana cara kita menemukan pelakunya? Kita tidak punya petunjuk apapun"
+
+Tepat setelah itu, seorang siswa bertudung berjalan tergesa-gesa melewati koridor sambil memeluk sebuah map tebal. Ia tampak gelisah dan terus menoleh ke belakang.
+
+"Itu..." Luna menyipitkan mata.
+
+"Orang mencurigakan" Anna mengacungkan jarinya, menunjuk siswa bertudung.
+
+"Heii, jangan ditunjuk begitu, Anna!" Kite memukul tangan Anna pelan.
+
+"Jadi.. Apa yang harus kita lakukan"`,
+    isEnd: false,
+    choices: [
+      {target: "scene3c", text: "🚔 Tangkap paksa dan interogasi orang sus — cepat tapi beresiko!"},
+      {target: "scene3d", text: "📂 Minta data siswa ke OSIS — cara halus, tapi butuh alasan yang kuat"}
+    ]
+  },
+  "scene3a": {
+    title: "Jalan Penuh Jebakan",
+    setting: "Lorong rahasia di bawah perpustakaan — gelap, penuh simbol sihir kuno",
+    karakter: "Luna Celeste",
+    text: `Setelah berkeliling cukup lama, ketiga anak itu menemukan sebuah lorong alternatif yang tersembunyi di balik rak buku tua.
+
+Semakin jauh mereka berjalan, semakin aneh suasananya. Dinding batu dipenuhi simbol-simbol yang belum pernah mereka lihat sebelumnya.
+
+Tiba-tiba, lantai di depan mereka bergetar.
+
+BRUUK!
+
+Ketiga anak itu terhempas ke suatu tempat, yang belum pernah mereka lihat sebelumnya.
+"Tempat apa ini?"`,
+    isEnd: false,
+    choices: [
+      {target: "scene4", text: "🅰️ Cari jalan keluar — ini pasti ujian dari perpustakaan!"}
+    ]
+  },
+  "scene3b": {
+    title: "Negosiasi dengan OSIS",
+    setting: "Ruang OSIS — rapi, penuh piala, tumpukan dokumen, dan artefak kuno",
+    karakter: "Luna Celeste, Anna, Kite, Ketua OSIS",
+    text: `Ketiganya akhirnya memutuskan meminta bantuan OSIS.
+
+Mereka menemui ketua OSIS di ruangannya yang dipenuhi tumpukan dokumen dan artefak kuno.
+
+"Hm... akses ke perpustakaan terlarang... Aku bisa memberinya" ujar ketua OSIS sambil menatap Luna.
+
+Ketua OSIS tersenyum, mengucapkan suatu mantra, lalu...
+
+BOOM!
+
+Semuanya terjadi begitu cepat, entah apa yang ketua OSIS lakukan, tapi keempat orang itu kini berada di ruangan yang berbeda... tidak, ruangan yang berbeda.`,
+    isEnd: false,
+    choices: [
+      {target: "scene4", text: "🅱️ Cari tahu ruangan ini — ada yang tidak beres!"}
+    ]
+  },
+  "scene3c": {
+    title: "Interogasi Paksa",
+    setting: "Halaman belakang akademi — sunyi, bayangan pohon tua",
+    karakter: "Luna Celeste, Anna, Kite, Ketua OSIS",
+    text: `Luna, Anna, dan Kite segera mengejar siswa bertudung itu hingga ke halaman belakang akademi.
+
+"Berhenti!" seru Luna.
+
+Siswa itu tersentak dan memeluk mapnya erat-erat.
+
+"Aku tidak tahu apa-apa!" jawabnya panik.
+
+Luna memperhatikan wajahnya. Ia tampak lebih ketakutan daripada bersalah.
+
+"Kalau begitu, kenapa kau berlari?" tanya Kite.
+
+Siswa itu menunduk.
+
+"Aku hanya disuruh mengantarkan pesan..."
+
+"Pesan?" Luna menyipitkan mata.
+
+Siswa itu terdiam, lalu tersenyum.
+
+"Pesan, untuk Luna Celeste," Ia membuka tudungnya pelan.
+
+"Ketua OSIS!" Anna menutup mulutnya.
+
+Perempuan bertudung itu adalah ketua OSIS, ia menjentikkan jarinya pelan.
+
+"BOOM!"
+
+Mereka terlempar, ke sebuah tempat antah berantah.`,
+    isEnd: false,
+    choices: [
+      {target: "scene4", text: "🅰️ Hadapi kegelapan — tidak ada pilihan lain!"}
+    ]
+  },
+  "scene3d": {
+    title: "Data Rahasia OSIS",
+    setting: "Kantor OSIS — malam hari, hanya lampu meja yang menyala",
+    karakter: "Luna Celeste, Anna, Kite, Wakil Ketua OSIS",
+    text: `Luna memutuskan cara halus. Mereka bertiga mendatangi kantor OSIS saat malam.
+
+"Kami butuh data siswa," kata Luna langsung.
+
+Wakil Ketua OSIS — seorang cowok berkacamata dengan senyum ramah — menatap mereka.
+
+"Data siswa itu rahasia. Tapi... kalau urusannya soal buku mantra yang hilang..."
+
+Anna membelalak, "Kamu tahu soal itu?!"
+
+"Tentu saja," ia tersenyum tipis. "Di akademi ini, tidak ada yang benar-benar rahasia dariku."
+
+Kite mencondongkan badan, "Terus, mau bantu kami?"
+
+Wakil Ketua OSIS diam sejenak, lalu menjentikkan jarinya.
+
+"Mungkin... tapi kalian harus ke tempat di mana semua rahasia disimpan."
+
+Percikan api muncul di sekitar mereka. Luna tersentak.
+
+"Tunggu—"
+
+BOOM!
+
+Mereka terlempar ke ruang gelap yang tidak dikenal.`,
+    isEnd: false,
+    choices: [
+      {target: "scene4", text: "🅱️ Jelajahi tempat ini — pasti ada petunjuk!"}
+    ]
+  },
+  "scene4": {
+    title: "⚡ Ruang Antar-Dimensi ⚡",
+    setting: "Ruang gelap tak berujung — dinding berkilau seperti cermin pecah, langit-langit dipenuhi bintang asing",
+    karakter: "Luna Celeste, Anna, Kite, Ketua OSIS",
+    text: `Luna membuka mata perlahan. Kepalanya pusing. Ia terbaring di lantai dingin yang bercahaya redup.
+
+"Anna! Kite!" teriaknya panik.
+
+Temannya terbaring tak jauh dari sana. Anna menggeliat pelan, Kite masih pingsan.
+
+"Di mana kita?" gumam Anna.
+
+Sebuah suara menggema dari kegelapan.
+
+"Selamat datang di Perpustakaan Antar-Dimensi."
+
+Luar biasa. Di hadapan mereka, berdiri **Ketua OSIS** — dengan jubah hitam dan mata bercahaya merah.
+
+"K-kau?!" Luna terpaku.
+
+"Aku sudah lama menunggu saat ini, Luna." Ketua OSIS tersenyum dingin. "Buku mantra kuno yang kalian cari... sudah ada di tempat yang tepat."
+
+Ketua OSIS menunjuk ke arah Luna.
+
+"Di dalam dirimu."
+
+Luna tersentak. Tubuhnya mendadak hangat. Simbol-simbol aneh muncul di lengannya.
+
+"Selama ini kau adalah buku mantra berjalan. Dan sekarang... kekuatan itu akan menjadi milikku."
+
+Di samping Ketua OSIS, dua sosok melayang terikat — **Kyle** dan **Kyra**, teman sekelas Luna.
+
+"Pilih, Luna." suara Ketua OSIS makin dalam. "Siapa yang akan kau selamatkan?"`,
+    isEnd: false,
+    choices: [
+      {target: "scene5a", text: "🆘 Selamatkan Kyle — dia terikat lebih dekat! Ada waktu!"},
+      {target: "scene5b", text: "🆘 Selamatkan Kyra — dia terlihat paling lemah, cepat!"}
+    ]
+  },
+  "scene5a": {
+    title: "Selamatkan Kyle",
+    setting: "Perpustakaan Antar-Dimensi — lorong cermin yang memantulkan masa lalu dan masa depan",
+    karakter: "Luna Celeste, Kyle",
+    text: `Luna berlari sekencang mungkin. Kyle terikat di pilar kristal, wajahnya pucat pasi.
+
+"L-Luna?" Kyle terbata.
+
+"Tenang, aku di sini!" Luna meraih tangannya. Simbol di lengannya bersinar terang.
+
+Saat dia menyentuh Kyle, sesuatu terjadi. Penglihatan aneh membanjiri kepalanya — Kilas balik: Kyle kecil bermain di perpustakaan, ditemani seseorang berjubah hitam... Ketua OSIS.
+
+"Kyle... kau sudah lama dikenal Ketua OSIS?"
+
+Kyle menunduk, "Dia... guruku. Aku yang memberitahunya soal buku mantra itu. Tapi aku tidak tahu dia akan begini!"
+
+Luna menarik napas dalam. "Tidak apa. Kau tidak bersalah. Tapi sekarang..."
+
+Dari kegelapan, suara Ketua OSIS bergema, "Bagus, kau memilih Kyle. Tapi apakah kau siap menghadapiku?"
+
+Tanah bergetar. Cahaya merah menyala di kejauhan.`,
+    isEnd: false,
+    choices: [
+      {target: "scene6a", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
+      {target: "scene6b", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
+      {target: "scene6c", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
+    ]
+  },
+  "scene5b": {
+    title: "Selamatkan Kyra",
+    setting: "Perpustakaan Antar-Dimensi — jurang bercahaya yang memisahkan dua dunia",
+    karakter: "Luna Celeste, Kyra",
+    text: `Luna melesat ke arah Kyra yang tergantung di atas jurang bercahaya. Wajah Kyra basah oleh air mata.
+
+"Luna! Aku takut—" suaranya bergetar.
+
+"Pegang tanganku!" Luna menjulurkan tangan. Simbol di lengannya menyala ungu terang.
+
+Tepat saat jari mereka nyaris bersentuhan, tanah di bawah Kyra retak.
+
+"LUNA!" teriak Kyra.
+
+Tanpa berpikir, Luna melompat. Simbol di tangannya meledak — menciptakan jembatan cahaya. Ia menangkap Kyra tepat waktu.
+
+"A-apa tadi..." Kyra terpaku melihat lengan Luna.
+
+"Aku juga tidak tahu," Luna berkata pelan. "Tapi sepertinya... buku mantra itu benar-benar ada di dalam diriku."
+
+Dari celah dimensi, Ketua OSIS muncul dengan tawa menggema.
+
+"Kau baru menyadarinya, Luna? Sekarang kekuatan itu... akan menjadi milikku!"`,
+    isEnd: false,
+    choices: [
+      {target: "scene6a", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
+      {target: "scene6b", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
+      {target: "scene6c", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
+    ]
+  },
+  "scene6a": {
+    title: "🤝 Jalan Damai — Ending",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Kyle, Kyra, Ketua OSIS",
+    text: `Luna berdiri tegak di hadapan Ketua OSIS. Tangannya gemetar, tapi matanya mantap.
+
+"Aku tidak mau lawan kau," kata Luna pelan. "Aku tahu kau menyimpan buku mantra itu di dalam diriku... tapi kenapa? Kenapa kau melakukan semua ini?"
+
+Ketua OSIS terdiam. Untuk pertama kalinya, cahaya merah di matanya meredup.
+
+"Karena... aku takut," bisiknya. "Buku mantra itu terlalu kuat. Aku tidak bisa menghancurkannya. Satu-satunya cara... adalah menyembunyikannya di dalam jiwa yang murni."
+
+"Maka aku memilihmu, Luna."
+
+Luna tertegun. Ketua OSIS bukan jahat — ia hanya putus asa.
+
+"Aku bisa membantumu," Luna meraih tangannya. "Kita jaga buku ini bersama-sama."
+
+Ketua OSIS tersenyum — untuk pertama kalinya dengan tulus.
+
+"Terima kasih, Luna."
+
+Simbol di lengan Luna memudar menjadi emas hangat. Perpustakaan Antar-Dimensi mulai bersinar damai.
+
+🏁 **THE END — Jalan Damai** 🕊️`,
+    isEnd: true,
+    choices: []
+  },
+  "scene6b": {
+    title: "⚔️ Lawan dengan Kekuatan Baru — Ending",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Kyle, Kyra, Ketua OSIS",
+    text: `"Cukup!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
+
+"Apa?!" Ketua OSIS mundur.
+
+"Aku bukan buku mantra-mu!" suara Luna bergema. "Aku pemiliknya!"
+
+Kekuatan dahsyat mengalir dari dalam dirinya. Mantra-mantra kuno menari di udara, membentuk lingkaran api di sekeliling Ketua OSIS.
+
+"Mustahil... kau menguasainya?!"
+
+Luna tersenyum. "Buku itu memilihku karena aku kuat. Bukan karena aku lemah."
+
+Dengan satu gerakan, Luna mengunci kekuatan Ketua OSIS dalam kristal. Perpustakaan Antar-Dimensi berguncang — lalu hening.
+
+Kyle dan Kyra berlari memeluknya.
+
+"Kau hebat, Luna!"
+
+Luna tertawa lelah. "Aku hanya melakukan apa yang benar."
+
+Kekuatan buku mantra kini aman — di tangan yang tepat.
+
+🏁 **THE END — Kekuatan Baru** ⚔️`,
+    isEnd: true,
+    choices: []
+  },
+  "scene6c": {
+    title: "🏃 Kabuuuur! — Ending",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Kyle, Kyra",
+    text: `"KITA BELUM SIAP! LARI!" teriak Luna.
+
+Tanpa berpikir dua kali, mereka berlari. Kyle menggandeng Kyra, Luna membuka portal darurat dengan simbol di lengannya.
+
+Ketua OSIS tertawa di belakang mereka, "Lari! Tapi aku akan menemukanmu lagi, Luna!"
+
+Mereka melompat ke portal — dan jatuh di halaman akademi. Pagi hari. Aman.
+
+"A-apa dia akan mengejar?" Kyra terbata.
+
+Luna menatap lengannya. Simbolnya masih bersinar redup.
+
+"Untuk sekarang... kita aman. Tapi suatu hari nanti, aku harus kembali ke sana. Dan saat itu, aku harus lebih kuat."
+
+Kyle menepuk pundaknya, "Kita akan bersamamu."
+
+Luna tersenyum. Mungkin kali ini mereka lari. Tapi lain kali... mereka akan siap.
+
+🏁 **THE END — Kabur** 🏃`,
+    isEnd: true,
+    choices: []
+  }
+};
+
+let currentScene = "scene1";
+
+function goTo(sceneId) {
+  const scene = story[sceneId];
+  if (!scene) return;
+  currentScene = sceneId;
+
+  const container = document.getElementById("sceneContainer");
+  let div = document.getElementById("scene-" + sceneId);
+  if (!div) {
+    div = document.createElement("div");
+    div.className = "scene";
+    div.id = "scene-" + sceneId;
+    container.appendChild(div);
+  }
+
+  let meta = [];
+  if (scene.setting) meta.push("📍 " + esc(scene.setting));
+  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+
+  let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
+  if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
+
+  let narr = scene.text;
+  narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html += '<div class="narrative">' +
+    narr.split("\n\n").map(p => '<p>' + esc(p).replace(/\n/g, "<br>") + '</p>').join("") +
+    '</div>';
+
+  if (scene.isEnd) {
+    html += '<div class="ending-badge">🏁 THE END</div>';
+  }
+
+  if (scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">➤</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
+  }
+
+  if (scene.isEnd) {
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+  }
+
+  div.innerHTML = html;
+
+  document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
+  div.classList.add("active");
+  div.style.animation = "none";
+  void div.offsetHeight;
+  div.style.animation = "fadeIn 0.6s ease";
+
+  const idx = SCENES.indexOf(sceneId) + 1;
+  document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// Event delegation
+document.addEventListener("click", function(e) {
+  let el = e.target;
+  while (el && el !== document) {
+    const g = el.getAttribute && el.getAttribute("data-goto");
+    if (g === "restart") { goTo("scene1"); return; }
+    if (g) { goTo(g); return; }
+    el = el.parentNode;
+  }
+});
+
+goTo("scene1");
+</script>
+</body>
+</html>
