@@ -7,19 +7,19 @@
 
 ![Scene 3B: Jalan Pulang Tertutup Kabut](scene3b-image.png)
 
-Junior muter badan mau lari — tapi ga bisa.
+Junior memutarkan badan hendak berlari namun tidak bisa.
 
-Kabut udah nutup jalan pulang. Ga cuma di depan, tapi di semua arah. Kampungnya sekarang DIKEPUNG kabut tebal. Kayak benteng putih raksasa yang nutup seluruh desa.
+Kabut sudah menutupi jalan pulang. Tidak hanya di depan, tetapi di semua arah. Kampungnya sekarang DIKEPUNG kabut tebal seperti benteng putih raksasa yang menutupi seluruh desa.
 
-Suara bisik-bisik mulai dateng dari segala penjuru. Pelan, tapi makin lama makin keras:
+Suara bisik-bisik mulai datang dari segala penjuru. Pelan, tetapi semakin lama semakin keras:
 
 "Kembaliiii..."
 "Juniorrr... kembaliiii..."
 "Ini rumahmuuuu..."
 
-Junior megang kepala. Suara itu terasa familiar. Kayak pernah denger. Tapi dari mana?
+Junior memegang kepala. Suara itu terasa familiar seperti pernah mendengarnya. Tapi dimana?
 
-Bisikan itu ngenalin namanya dengan cara yang cuma orang TERDEKAT yang tau.
+Bisikan itu mengenali namanya tapi cuma orang TERDEKAT yang tahu.
 
 ---
 

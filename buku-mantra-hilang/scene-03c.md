@@ -1,14 +1,39 @@
 # Scene 3C: Interogasi Paksa
 
-**Setting:** Gudang belakang akademi — sunyi, sedikit lembab
-**Karakter:** Luna Celeste, Orang Misterius berjubah
+**Setting:** Halaman belakang akademi — sunyi, bayangan pohon tua
+**Karakter:** Luna Celeste, Anna, Kite, Ketua OSIS
 
-[NARASI — tulis ceritanya di sini]
+Luna, Anna, dan Kite segera mengejar siswa bertudung itu hingga ke halaman belakang akademi.
 
-Orang misterius ketakutan. Matanya berkaca-kaca... sepertinya **dia dijebak!**
+"Berhenti!" seru Luna.
+
+Siswa itu tersentak dan memeluk mapnya erat-erat.
+
+"Aku tidak tahu apa-apa!" jawabnya panik.
+
+Luna memperhatikan wajahnya. Ia tampak lebih ketakutan daripada bersalah.
+
+"Kalau begitu, kenapa kau berlari?" tanya Kite.
+
+Siswa itu menunduk.
+
+"Aku hanya disuruh mengantarkan pesan..."
+
+"Pesan?" Luna menyipitkan mata.
+
+Siswa itu terdiam, lalu tersenyum.
+
+"Pesan, untuk Luna Celeste," Ia membuka tudungnya pelan.
+
+"Ketua OSIS!" Anna menutup mulutnya.
+
+Perempuan bertudung itu adalah ketua OSIS, ia menjentikkan jarinya pelan.
+
+"BOOM!"
+
+Mereka terlempar, ke sebuah tempat antah berantah.
 
 ---
 
 **Pilihan:**
-- [Scene 4]: 🅰️ Paksa ngomong pakai mantra — "Cepat ngaku! Atau..."
-- [Scene 4]: 🅱️ Lepas & minta maaf — dia lari, tapi ada **kertas jatuh dari sakunya** 🧾
+- [Scene 4]: eror

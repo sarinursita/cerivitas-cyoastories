@@ -7,17 +7,17 @@
 
 ![Scene 2B: Berdua Ngintip dari Jauh](scene2b-image.png)
 
-Junior narik tangan David, anak sebangkunya yang lagi main di pos ronda.
+Junior menarik tangan David, teman sebangkunya yang sedang bermain di pos ronda.
 
 "Dav, liat tuh!" tunjuk Junior ke kabut.
 
 David melotot. "Itu apaan? Kok tebel amat?"
 
-"Aneh," kata Junior. "Itu... bisikin aku tadi."
+"Aneh," kata Junior. "Itu... yang bisikin aku tadi."
 
-David nengok ke Junior, mukanya pucet. "Bisik? Yang bisik?"
+David menengok ke Junior, mukanya pucat. "Bisik? Yang bisik?"
 
-Tiba-tiba, kabut bergerak. Dikit. Kaya ada yang jalan di dalemnya. David refleks tarik tangan Junior buat cabut. Tapi Junior nahan.
+Tiba-tiba, kabut bergerak seperti ada yang jalan di dalamnya. David refleks menarik tangan Junior buat segera pergi, tetapi Junior menahannya.
 
 "Bentar, Dav. Kita liat dulu dari sini."
 

@@ -1,36 +1,36 @@
 # Scene 1: Rahasia di Lorong
 
 **Setting:** Lorong belakang Akademi Sihir Aetheria — malam hari, jam 8 lebih 10 menit
-**Karakter:** Luna Celeste, Clara, Kite
+**Karakter:** Luna Celeste, Anna, Kite
 
 Malam di akademi Central begitu tenang, anak-anak dilarang keluar diatas jam tujuh malam.
 
-"Psst, Lu-chi," Clara menggoyangkan tubuh Luna.
+"Psst, Lu-chi," Anna menggoyangkan tubuh Luna.
 "Mhm?" Luna menguap pelan, lalu mengusap kedua matanya.
-"Temani aku ke kamar mandii, aku takut," Clara menggelengkan kepalanya cepat.
+"Temani aku ke kamar mandii, aku takut," Anna menggelengkan kepalanya cepat.
 
 Jam menunjukkan delapan lebih sepuluh, siswa tidak boleh keluar dari kamar, apapun alasannya.
 
 "Kenapa ga dari tadi.."
-"Kerasanya baru sekarang," Clara tersenyum tanpa rasa penyesalan, lalu mengacungkan dua jari.
+"Kerasanya baru sekarang," Anna tersenyum tanpa rasa penyesalan, lalu mengacungkan dua jari.
 
 "Yasudah ayo," Luna terlihat tak punya pilihan lain selain menemani perempuan bertubuh pendek di depannya.
 
 Kedua anak itu menyusuri lorong diam-diam, Luna mengacungkan jari telunjuk di mulut, lalu merapalkan sebuah mantra.
 
 "Invisiblecake!" Ucapnya sambil berbisik.
-Wushh! Butiran kerlap kerlip memenuhi langit. Dalam sekejap Luna dan Clara menjadi tak terlihat.
+Wushh! Butiran kerlap kerlip memenuhi langit. Dalam sekejap Luna dan Anna menjadi tak terlihat.
 
-"Whoaa, Lu-chi hebat!!" Clara melompat lompat tangannya berusaha menggapai kerlap kerlip, magi Luna.
+"Whoaa, Lu-chi hebat!!" Anna melompat lompat tangannya berusaha menggapai kerlap kerlip, magi Luna.
 
 "Baiklah, sekarang mari kita pergi, mantra ini hanya bertahan sepuluh menit,"
-"Ya! Ya!" Clara menyusuri lorong, sedikit berlari.
+"Ya! Ya!" Anna menyusuri lorong, sedikit berlari.
 
 Kamar mandi putri bersebelahan dengan ruang guru, yang membuat mereka harus lebih berhati-hati.
 
-"Mantraku tidak bisa meredam suara, jadi usahakan jangan berisik.." Luna mengelus kepala Clara pelan, seraya berbisik.
+"Mantraku tidak bisa meredam suara, jadi usahakan jangan berisik.." Luna mengelus kepala Anna pelan, seraya berbisik.
 
-"Ay Ay, Kap-" Luna menutup mulut Clara pelan, sementara Clara hanya menyengir.
+"Ay Ay, Kap-" Luna menutup mulut Anna pelan, sementara Anna hanya menyengir.
 
 Ruang guru tanpak terang, mereka memang suka mengadakan rapat malam-malam.
 
@@ -41,7 +41,7 @@ Ruang guru tanpak terang, mereka memang suka mengadakan rapat malam-malam.
 Telinga Luna membesar, "Buku sihir terlarang…"
 "Sepertinya ini begitu penting, apakah aku harus mencarinya untuk memba- maksudku untuk dikembalikan?" Luna tersenyum kecil.
 
-Tak lama kemudian Clara kembali dari kamar mandi, Luna ingin memberitahu apa yang barusan ia dengar. Tapi ia memutuskan untuk membangun strategi terlebih dahulu.
+Tak lama kemudian Anna kembali dari kamar mandi, Luna ingin memberitahu apa yang barusan ia dengar. Tapi ia memutuskan untuk membangun strategi terlebih dahulu.
 
 ---
 
@@ -49,9 +49,9 @@ Hingga pagi harinya...
 
 Cari petunjuk di perpustakaan terlarang! Itulah yang terbesit di kepala Luna. Ia memikirkan semua itu hingga tidak bisa tidur, paginya ia bangun dengan mata yang terlihat lelah.
 
-"Lu-chi! Kau tidak apa apa?" Clara melompat-lompat, berusaha melihat mata Luna yang persis seperti panda.
+"Lu-chi! Kau tidak apa apa?" Anna melompat-lompat, berusaha melihat mata Luna yang persis seperti panda.
 
-"Yeah, aku tidak apa-apa, ada hal yang lebih penting dari itu Clara," Luna tersenyum kecil.
+"Yeah, aku tidak apa-apa, ada hal yang lebih penting dari itu Anna," Luna tersenyum kecil.
 
 "PFTH-, kamu tahu? Mukamu persis seperti panda," Kite menahan tawa melihat muka teman sekelasnya yang tidak karuan.
 
@@ -69,7 +69,7 @@ Cari petunjuk di perpustakaan terlarang! Itulah yang terbesit di kepala Luna. Ia
 
 "Setidaknya aku lebih waras dari kamu," Luna balik mencibir.
 
-Kite dan Clara tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sama nekat.
+Kite dan Anna tersenyum pelan, mereka bertiga adalah sahabat karib yang sama sama nekat.
 
 "Jadi apa rencananya?"
 

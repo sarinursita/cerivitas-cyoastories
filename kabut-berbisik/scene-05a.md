@@ -7,17 +7,17 @@
 
 ![Scene 5A: Junior Percaya](scene5a-image.png)
 
-Junior napas dalam. "Oke, Kak. Aku percaya. Terus... yang harus aku lakuin apa?"
+Junior tarik napas dalam. "Oke, Kak Aku percaya, terus... yang harus aku lakukan apa?"
 
-Senior nghela napas. Kabut di sekelilingnya bergetar. "Aku butuh bantuan kamu, Jun. Jiwa aku ga bisa tenang di sini. Nyangkut di antara dua dunia. Karena... pas aku jatuh dulu, aku ga sendirian."
+Senior menghela napas. Kabut di sekelilingnya bergetar. "Aku butuh bantuan kamu, Jun, jiwa aku ga bisa tenang di sini, Nyangkut di antara dua dunia, karena pas aku jatuh dulu, aku ga sendirian."
 
 Junior merinding. "Maksud Kakak?"
 
-"Ada sesuatu di gunung ini. Kekuatan kuno. Yang ngunci jiwa orang-orang yang mati di sini. Kabut ini bukan kabut biasa — ini penjara buat arwah. Dan aku butuh kamu buat... ngelupasin aku."
+"Ada sesuatu di gunung ini. Kekuatan kuno yang mengunci jiwa orang-orang yang mati di sini. Kabut ini bukan kabut biasa, ini penjara buat arwah. Dan aku butuh kamu buat ngelupasin aku."
 
 "Caranya?"
 
-Senior ngulurkan tangan. "Ikut aku. Ke puncak. Di sana ada batu besar. Batu penjara. Kalo kamu pecahin... aku bebas."
+Senior mengulurkan tangan. "Ikut aku ke puncak. Di sana ada batu besar namanya batu penjara. Kalo kamu pecahin... aku bebas."
 
 Kabut mulai berputar-putar di sekeliling mereka. Angin dingin berhembus kencang.
 

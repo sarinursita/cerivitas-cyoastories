@@ -1,14 +1,21 @@
 # Scene 3B: Negosiasi dengan OSIS
 
-**Setting:** Ruang OSIS — rapi, penuh piala dan piagam
-**Karakter:** Luna Celeste, Ketua OSIS
+**Setting:** Ruang OSIS — rapi, penuh piala, tumpukan dokumen, dan artefak kuno
+**Karakter:** Luna Celeste, Anna, Kite, Ketua OSIS
 
-[NARASI — tulis ceritanya di sini]
+Ketiganya akhirnya memutuskan meminta bantuan OSIS.
 
-Ketua OSIS bisa bantu kasih akses... tapi ada syaratnya: **curi buku nilai rahasia guru!**
+Mereka menemui ketua OSIS di ruangannya yang dipenuhi tumpukan dokumen dan artefak kuno.
+
+"Hm... akses ke perpustakaan terlarang... Aku bisa memberinya" ujar ketua OSIS sambil menatap Luna.
+
+Ketua OSIS tersenyum, mengucapkan suatu mantra, lalu...
+
+BOOM!
+
+Semuanya terjadi begitu cepat, entah apa yang ketua OSIS lakukan, tapi keempat orang itu kini berada di ruangan yang berbeda... tidak, ruangan yang berbeda.
 
 ---
 
 **Pilihan:**
-- [Scene 4]: 🅰️ Terima syarat — "Baiklah, aku lakuin..." (risiko: ketahuan = dikeluarkan!)
-- [Scene 4]: 🅱️ Tolak — OSIS ngambek dan nyebar rumor soal Luna!
+- [Scene 4]: eror

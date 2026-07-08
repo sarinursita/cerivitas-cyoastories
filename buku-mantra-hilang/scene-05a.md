@@ -1,13 +1,25 @@
-# Scene 5A: Selamatkan Kyle
+# Scene 5A: Selamatkan Kite
 
-**Setting:** [TEMPAT — isi sesuai]
-**Karakter:** Luna Celeste, Kyle
+**Setting:** Perpustakaan Antar-Dimensi — lorong cermin yang memantulkan masa lalu dan masa depan
+**Karakter:** Luna Celeste, Kite
 
-[NARASI — tulis ceritanya di sini]
+Luna berlari sekencang mungkin. Kite terikat di pilar kristal, wajahnya pucat pasi.
 
-(80-150 kata)
+"L-Luna?" Kite terbata.
 
-Kyle berhasil diselamatkan... tapi musuh ternyata masih mengincar mereka.
+"Tenang, aku di sini!" Luna meraih tangannya. Simbol di lengannya bersinar terang.
+
+Saat dia menyentuh Kite, sesuatu terjadi. Penglihatan aneh membanjiri kepalanya — Kilas balik: Kite kecil bermain di perpustakaan, ditemani seseorang berjubah hitam... Ketua OSIS.
+
+"Kite... kau sudah lama dikenal Ketua OSIS?"
+
+Kite menunduk, "Dia... guruku. Aku yang memberitahunya soal buku mantra itu. Tapi aku tidak tahu dia akan begini!"
+
+Luna menarik napas dalam. "Tidak apa. Kau tidak bersalah. Tapi sekarang..."
+
+Dari kegelapan, suara Ketua OSIS bergema, "Bagus, kau memilih Kyle. Tapi apakah kau siap menghadapiku?"
+
+Tanah bergetar. Cahaya merah menyala di kejauhan.
 
 ---
 

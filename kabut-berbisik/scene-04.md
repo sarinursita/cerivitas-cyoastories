@@ -8,21 +8,21 @@
 
 ![Scene 4: Rahasia Terungkap](scene4-image.png)
 
-Bayangan di depan Junior makin jelas. Bukan lagi bayangan — sekarang wujudnya kayak orang beneran. Cowok, 17 tahunan, pake jaket gunung. Mukanya... mirip Junior.
+Bayangan di depan Junior semakin jelas. Bukan lagi bayangan melainkan sekarang wujudnya seperti orang beneran. Cowok, 17 tahunan, pakai jaket gunung. Mukanya... mirip Junior.
 
 "Kakak..." bisik Junior, matanya melebar.
 
 Cowok itu menyeringai. "Akhirnya kamu inget juga, Jun."
 
-"Nih, kamu kira aku bakal lupa?" Junior nahan tangis. "Kamu ilang 3 tahun lalu. Pas naik gunung. Mereka bilang kamu... kamu udah ga ada."
+"Ya Tuhan, kamu kira aku bakal lupa?" Junior menahan tangis. "Kamu hilang 3 tahun lalu pas naik gunung. Mereka bilang kamu... kamu udah ga ada."
 
-"Bener," kata kakaknya, Senior. "Aku emang udah ga ada. Tapi... menguap hilang. Jiwa aku nyangkut di puncak. Nunggu."
+"Bener," kata kakaknya Senior. "Aku emang udah ga ada, tapi... menguap hilang, Jiwa aku nyangkut di puncak sedang menunggu."
 
-"Nunggu apa?"
+"Menunggu apa?"
 
-"Nunggu kamu. Karena cuma kamu yang bisa denger suara aku. Karena kita... kembar. Bukan kembar identik biasa. Jiwa kita nyambung."
+"Menunggu kamu, karena cuma kamu yang bisa denger suara aku. Karena kita... kembar, bukan kembar identik biasa, jiwa kita tersambung."
 
-Junior terdiam. Kakaknya pernah cerita soal itu dulu — perasaan aneh kalo salah satu lagi susah. Tapi Junior ga pernah percaya.
+Junior terdiam. Kakaknya pernah cerita soal itu dulu, perasaan aneh kalo salah satu lagi susah, tapi Junior tidak pernah percaya.
 
 "Sekarang kamu percaya?" Senior menyeringai.
 

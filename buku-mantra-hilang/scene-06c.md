@@ -1,18 +1,27 @@
 # Scene 6C: 🏃 Kabuuuur! — Ending
 
 **Setting:** Perpustakaan Antar-Dimensi 🌌
-**Karakter:** Luna Celeste, Kyle, Kyra
+**Karakter:** Luna Celeste, Kite, Anna
 **Status:** END
 
-[NARASI — tulis ceritanya di sini]
+"KITA BELUM SIAP! LARI!" teriak Luna.
 
-**ENDING KABUR** 🏃 — "Kita belum siap! Lari dulu!"
+Tanpa berpikir dua kali, mereka berlari. Kite menggandeng Anna, Luna membuka portal darurat dengan simbol di lengannya.
 
-Luna dan teman-teman lari meninggalkan perpustakaan antar-dimensi. Mungkin lain kali... mereka akan kembali lebih kuat. Tapi untuk sekarang, yang penting selamat dulu!
+Ketua OSIS tertawa di belakang mereka, "Lari! Tapi aku akan menemukanmu lagi, Luna!"
 
+Mereka melompat ke portal — dan jatuh di halaman akademi. Pagi hari. Aman.
 
----
+"A-apa dia akan mengejar?" Kyra terbata.
 
-🏁 THE END
+Luna menatap lengannya. Simbolnya masih bersinar redup.
 
-**[TAMAT — terima kasih sudah bermain!]**
+"Untuk sekarang... kita aman. Tapi suatu hari nanti, aku harus kembali ke sana. Dan saat itu, aku harus lebih kuat."
+
+Kyle menepuk pundaknya, "Kita akan bersamamu."
+
+Luna tersenyum. Mungkin kali ini mereka lari. Tapi lain kali... mereka akan siap.
+
+🏁 **THE END — Kabur** 🏃
+
+**[Tamat — terima kasih sudah bermain!]**

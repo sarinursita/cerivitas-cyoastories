@@ -18,7 +18,7 @@ Scene 3a    Scene 3b        Scene 3c    Scene 3d
                         |
           ⬇️                          ⬇️
     Scene 5a                      Scene 5b
-  🆘 Selamatkan Kyle            🆘 Selamatkan Kyra
+  🆘 Selamatkan Kite            🆘 Selamatkan Anna
           ⬇️                          ⬇️
           └──────── Scene 6 ════════┘
           3 ENDINGS:
