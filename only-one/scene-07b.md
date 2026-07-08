@@ -2,7 +2,6 @@
 
 **Setting:** Perpustakaan sekolah — senja
 **Karakter:** Aysel, Kaizo
-*<!-- Status: END -->*
 
 Perpustakaan udah hampir tutup. Aysel duduk di meja pojok—meja favorit Kaizo—sambil baca buku. Tapi matanya lebih sering ngeliat pintu daripada halaman.
 
@@ -30,4 +29,8 @@ Kaizo diem. Lalu senyum—lebar banget, sampe keliatan lesung pipit yang jarang 
 
 Mereka duduk di perpustakaan yang sepi, kopi dan cokelat di atas meja, dan hati yang akhirnya nyaman.
 
-❤️ _Hanya satu. Dan itu lo._
+❤️ _Hanya satu. Dan itu lo._ 🏁
+
+---
+
+**Status:** END

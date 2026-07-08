@@ -2,7 +2,6 @@
 
 **Setting:** Lapangan sekolah — senja
 **Karakter:** Aysel, Hali
-*<!-- Status: END -->*
 
 Aysel berdiri di pinggir lapangan, ngeliatin Hali yang baru selesai latihan. Cowok itu jalan ke arahnya, napas masih sedikit ngos-ngosan, tapi senyum tipisnya udah terpasang.
 
@@ -22,4 +21,8 @@ Aysel mesam-mesem. "Gue nggak milih lo. Gue... milih kita."
 
 Mereka jalan bareng meninggalkan lapangan. Dua insan yang awalnya cuma debat soal jadwal ekskul, sekarang... cuma punya satu buat satu sama lain.
 
-❤️ _Hanya satu. Dan itu lo._
+❤️ _Hanya satu. Dan itu lo._ 🏁
+
+---
+
+**Status:** END
