@@ -1,7 +1,7 @@
 # Scene 6B: ⚔️ Lawan dengan Kekuatan Baru — Ending
 
 **Setting:** Perpustakaan Antar-Dimensi 🌌
-**Karakter:** Luna Celeste, Kyle, Kyra, Ketua OSIS
+**Karakter:** Luna Celeste, Kite, Anna, Ketua OSIS
 **Status:** END
 
 "Cukup!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
@@ -18,7 +18,7 @@ Luna tersenyum. "Buku itu memilihku karena aku kuat. Bukan karena aku lemah."
 
 Dengan satu gerakan, Luna mengunci kekuatan Ketua OSIS dalam kristal. Perpustakaan Antar-Dimensi berguncang — lalu hening.
 
-Kyle dan Kyra berlari memeluknya.
+Kite dan Anna berlari memeluknya.
 
 "Kau hebat, Luna!"
 

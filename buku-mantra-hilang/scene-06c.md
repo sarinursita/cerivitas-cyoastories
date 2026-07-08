@@ -1,12 +1,12 @@
 # Scene 6C: 🏃 Kabuuuur! — Ending
 
 **Setting:** Perpustakaan Antar-Dimensi 🌌
-**Karakter:** Luna Celeste, Kyle, Kyra
+**Karakter:** Luna Celeste, Kite, Anna
 **Status:** END
 
 "KITA BELUM SIAP! LARI!" teriak Luna.
 
-Tanpa berpikir dua kali, mereka berlari. Kyle menggandeng Kyra, Luna membuka portal darurat dengan simbol di lengannya.
+Tanpa berpikir dua kali, mereka berlari. Kite menggandeng Anna, Luna membuka portal darurat dengan simbol di lengannya.
 
 Ketua OSIS tertawa di belakang mereka, "Lari! Tapi aku akan menemukanmu lagi, Luna!"
 

@@ -1,7 +1,7 @@
 # Scene 6A: 🤝 Jalan Damai — Ending
 
 **Setting:** Perpustakaan Antar-Dimensi 🌌
-**Karakter:** Luna Celeste, Kyle, Kyra, Ketua OSIS
+**Karakter:** Luna Celeste, Kite, Anna, Ketua OSIS
 **Status:** END
 
 Luna berdiri tegak di hadapan Ketua OSIS. Tangannya gemetar, tapi matanya mantap.

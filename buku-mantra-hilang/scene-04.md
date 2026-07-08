@@ -29,12 +29,12 @@ Luna tersentak. Tubuhnya mendadak hangat. Simbol-simbol aneh muncul di lengannya
 
 "Selama ini kau adalah buku mantra berjalan. Dan sekarang... kekuatan itu akan menjadi milikku."
 
-Di samping Ketua OSIS, dua sosok melayang terikat — **Kyle** dan **Kyra**, teman sekelas Luna.
+Di samping Ketua OSIS, dua sosok melayang terikat — teman sekelas Luna.
 
 "Pilih, Luna." suara Ketua OSIS makin dalam. "Siapa yang akan kau selamatkan?"
 
 ---
 
 **Pilihan:**
-- [Scene 5A]: 🆘 Selamatkan Kyle — dia terikat lebih dekat! Ada waktu!
-- [Scene 5B]: 🆘 Selamatkan Kyra — dia terlihat paling lemah, cepat!
+- [Scene 5A]: 🆘 Selamatkan **Kite** — dia terikat lebih dekat! Ada waktu!
+- [Scene 5B]: 🆘 Selamatkan **Anna** — dia terlihat paling lemah, cepat!
