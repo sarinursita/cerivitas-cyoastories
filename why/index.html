@@ -152,7 +152,7 @@ function renderScene(sceneId) {
   if (scene.choices && scene.choices.length > 0) {
     html += '<div class="choices" data-scene="' + sceneId + '">';
     for (let choice of scene.choices) {
-      html += '<button class="choice-btn" data-goto="' + choice.next + '">';
+      html += '<button class="choice-btn" onclick="handleClick(event)" data-goto="' + choice.next + '">';
       html += '<span class="arrow">➤</span> ' + esc(choice.text);
       html += '</button>';
     }
@@ -160,7 +160,7 @@ function renderScene(sceneId) {
   }
 
   if (scene.isEnd) {
-    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+    html += '<div style="text-align:center"><button class="restart-btn" onclick="handleClick(event)" data-goto="restart">⟳ Main Lagi</button></div>';
   }
 
   div.innerHTML = html;
@@ -184,27 +184,20 @@ function esc(s) {
   return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-// Event delegation — single listener for ALL buttons
-document.addEventListener("click", function(e) {
-  let target = e.target;
-  // Walk up to find the button
-  while (target && target !== document) {
-    const goto = target.getAttribute && target.getAttribute("data-goto");
-    if (goto === "restart") {
-      talkCount = 0;
-      document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
-      document.getElementById("titleScreen").classList.add("active");
-      document.getElementById("sceneCounter").textContent = "";
-      window.scrollTo({top:0,behavior:"smooth"});
-      return;
-    }
-    if (goto) {
-      renderScene(goto);
-      return;
-    }
-    target = target.parentNode;
+// Handle button clicks — inline onclick is most reliable for dynamic content
+function handleClick(e) {
+  var btn = e.currentTarget;
+  var goto = btn.getAttribute('data-goto');
+  if (goto === 'restart') {
+    talkCount = 0;
+    document.querySelectorAll('.scene').forEach(function(el) { el.classList.remove('active'); });
+    document.getElementById('titleScreen').classList.add('active');
+    document.getElementById('sceneCounter').textContent = '';
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    renderScene(goto);
   }
-});
+}
 </script>
 </body>
 </html>
