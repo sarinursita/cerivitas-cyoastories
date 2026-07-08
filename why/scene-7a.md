@@ -2,7 +2,6 @@
 
 **Setting:** Kamar tidur putri — malam, dramatis
 **Karakter:** Koki, Ksatria, Penasihat, Pelayan, Putri, Ratu
-<!-- Status: END -->
 
 Saat Ratu mendekat dengan racun di tangan, pintu kamar terbuka lebar!
 
@@ -24,6 +23,8 @@ Dan di dadamu, kau merasa hangat. Bukan karena obat... tapi karena tahu ada oran
 
 🏁 **THE END — GOOD ENDING** 
 *Kau selamat berkat persatuan. Kepercayaan menyelamatkanmu.*
+
+**Status:** END
 
 ---
 

@@ -19,9 +19,13 @@ Ia mendekat, jemarinya menyentuh pipimu.
 
 Racun itu siap diminumkan. Ini saat penentuan.
 
-*Keputusanmu hari ini — siapa yang kamu ajak bicara — akan menentukan semuanya...*
+Kau memandang gelas itu. Sepanjang hari ini, kau bertemu banyak orang. Ada yang menyapamu hangat, ada yang diam seribu bahasa. Telinga dan hatimu telah menangkap bisik demi bisik.
+
+Sekarang, waktunya percaya pada apa yang kau kumpulkan.
 
 ---
 
 **Pilihan:**
-- [Scene 7]: *Lanjutkan...*
+- [Scene 7A]: "Aku tahu siapa yang bisa dipercaya..."
+- [Scene 7B]: "Semoga ini cukup..."
+- [Scene 7C]: "Aku tidak tahu harus percaya siapa."

@@ -2,7 +2,6 @@
 
 **Setting:** Kamar tidur putri — malam, chaos
 **Karakter:** Ratu, Putri, + 3 karakter yang dipilih
-<!-- Status: END -->
 
 Saat Ratu mendekatkan racun ke bibirmu, pintu terbuka!
 
@@ -18,6 +17,8 @@ Wajah di cermin itu familiar. Tapi rasanya... bukan milikmu.
 
 🏁 **THE END — BITTERSWEET ENDING**
 *Kau selamat... tapi sebagian dari dirimu telah hilang.*
+
+**Status:** END
 
 ---
 

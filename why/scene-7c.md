@@ -2,7 +2,6 @@
 
 **Setting:** Kamar tidur putri — malam, sunyi
 **Karakter:** Ratu, Putri
-<!-- Status: END -->
 
 Kesepian.
 
@@ -38,6 +37,8 @@ Dunia berputar. Gelap.
 
 🏁 **THE END — TRUE ENDING (Plot Twist!)**
 *Kamu lupa kalau kamu bukanlah sang putri. Dan mungkin... tidak akan pernah ingat lagi.*
+
+**Status:** END
 
 ---
 
