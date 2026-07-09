@@ -23,7 +23,7 @@ Senior melihat ke langit yang di dalam kabut cuma putih semua, "kita tunggu."
 
 "Tunggu apa?"
 
-"Sampe kamu siap."
+"Sampai kamu siap."
 
 Sejak saat itu, kampung tidak pernah melihat Junior lagi. Kabut bertahan 3 hari, lalu hilang, tapi beberapa orang bilang, kalau malam-malam di pinggir gunung kadang terdengar suara dua anak kecil tertawa dan mengobrol di antara kabut tipis yang turun.
 
