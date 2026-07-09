@@ -7,21 +7,21 @@
 
 ![Scene 5B: Junior Kabur](scene5b-image.png)
 
-Junior goyangin kepala. "Nggak. Nggak... ini ga mungkin. Kakak udah mati. Orang mati ga bisa balik!"
+Junior menggoyangkan kepala. "Nggak. Nggak... ini ga mungkin. Kakak udah mati. Orang mati ga bisa kembali!"
 
 Senior mukanya sedih. "Jun..."
 
-"AKU PULANG!" teriak Junior, lalu muter badan dan lari.
+"AKU PULANG!" teriak Junior, lalu memutarkan badan dan lari.
 
-Tapi kabut di sekelilingnya makin tebal. Mau lari ke mana aja, yang keluar cuma putih semua. Ga ada jalan. Ga ada kampung. Ga ada apa-apa, kecuali suara kakaknya yang berbisik dari segala arah:
+Tetapi kabut di sekelilingnya semakin tebal. Walaupun lari kemana saja, yang keluar hanya putih semua, tidak ada jalan, tidak ada kampung, tidak ada apa-apa, kecuali suara kakaknya yang berbisik dari segala arah:
 
 "Jun... jangan lari..."
 "Kakak ga akan nyakitin kamu..."
 "Kakak cuma butuh bantuan..."
 
-Junior nutup kuping rapet-rapet. Tapi suara itu nyusup. Kayak langsung ke dalem kepala.
+Junior menutup telinga rapat-rapat. Tetapi suara itu terus menyusup seperti langsung ke kepala.
 
-KABUT MULAI NGEJAR.
+KABUT MULAI MENGEJAR. 😱
 
 ---
 
