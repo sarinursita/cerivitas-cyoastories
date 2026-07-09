@@ -204,7 +204,6 @@ function goTo(sceneId) {
   const scene = story[sceneId];
   if (!scene) return;
   currentScene = sceneId;
-
   const container = document.getElementById("sceneContainer");
   let div = document.getElementById("scene-" + sceneId);
   if (!div) {
@@ -213,27 +212,23 @@ function goTo(sceneId) {
     div.id = "scene-" + sceneId;
     container.appendChild(div);
   }
-
   let meta = [];
   if (scene.setting) meta.push("📍 " + esc(scene.setting));
   if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
-
   let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
   if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
-
-  // Format narrative: bold, italic, paragraphs
+  // Render markdown -> HTML: esc first (safe), then bold/italic, then images
   let narr = esc(scene.text);
   narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  // Convert markdown images to HTML (after esc so tags survive)
+  narr = narr.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div class="story-image-container"><img class="story-image" src="$2" alt="$1" loading="lazy"></div>');
   html += '<div class="narrative">' +
-    narr.split("\n\n").map(p => '<p>' + p.replace(/\n/g, "<br>") + '</p>').join("") +
+    narr.split("\\n\\n").map(p => '<p>' + p.replace(/\\n/g, "<br>") + '</p>').join("") +
     '</div>';
-
   if (scene.isEnd) {
     html += '<div class="ending-badge">🏁 THE END</div>';
   }
-
-  // Auto-advance for merge scenes
   if (scene.autoChoice && scene.choices.length > 0) {
     setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
     html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
@@ -246,30 +241,23 @@ function goTo(sceneId) {
     }
     html += '</div>';
   }
-
   if (scene.isEnd) {
     html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
   }
-
   div.innerHTML = html;
-
   document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
   div.classList.add("active");
   div.style.animation = "none";
   void div.offsetHeight;
   div.style.animation = "fadeIn 0.6s ease";
-
   const idx = SCENES.indexOf(sceneId) + 1;
   document.getElementById("sceneCounter").textContent = "Scene " + idx + " of " + SCENES.length;
   window.scrollTo({top:0,behavior:"smooth"});
 }
-
 function esc(s) {
   if (!s) return "";
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
-
-// Event delegation
 document.addEventListener("click", function(e) {
   let el = e.target;
   while (el && el !== document) {
@@ -279,7 +267,6 @@ document.addEventListener("click", function(e) {
     el = el.parentNode;
   }
 });
-
 goTo("scene1");
 </script>
 </body>
