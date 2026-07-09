@@ -15,7 +15,7 @@ Akhirnya dia berhenti, napasnya tersengal, jantungnya mau meledak.
 
 Junior duduk lemas, air mata menetes. "Aku takut Kak..."
  
-Senior duduk di sampingnya, kabut di sekitar mereka mulai tenang. "Kakak tau maaf kakak ga maksa kamu cuma ini satu-satunya cara kakak ketemu kamu lagi."
+Senior duduk di sampingnya, kabut di sekitar mereka mulai tenang. "Kakak tau, maaf kakak ga maksa kamu, cuma ini satu-satunya cara kakak ketemu kamu lagi."
 
 Junior menengok ke kakaknya, "terus sekarang gimana?"
 
@@ -25,7 +25,7 @@ Senior melihat ke langit yang di dalam kabut cuma putih semua, "kita tunggu."
 
 "Sampe kamu siap."
 
-Kampung tidak pernah melihat Junior lagi. Kabut bertahan 3 hari, lalu hilang. Tapi beberapa orang bilang, kalo malem-malem di pinggir gunung kadang kedengeran suara dua anak kecil ketawa, ngobrol, di antara kabut tipis yang turun.
+Sejak saat itu, kampung tidak pernah melihat Junior lagi. Kabut bertahan 3 hari, lalu hilang, tapi beberapa orang bilang, kalau malam-malam di pinggir gunung kadang terdengar suara dua anak kecil tertawa dan mengobrol di antara kabut tipis yang turun.
 
 🥲 **END — TERJEBAK BERSAMA** 🌫️
 
