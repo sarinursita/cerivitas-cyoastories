@@ -13,13 +13,13 @@ Sore mulai turun, sinar matahari keemasan nyaring lewat celah-celah pohon. Udara
 
 Baru beberapa langkah masuk, Dann denger suara gemerisik. Bukan suara hewan... lebih kayak orang.
 
-Di balik pohon besar, seorang cewek sebaya Dann lagi duduk di atas batu, megang bunga aneh yang berkilauan keperakan.
+Di balik pohon besar, seorang cewek sebaya Dann muncul di belakangnya.
 
-Cewek itu noleh. "Oh, kamu pindahan ya?"
+Cewek itu bertanya. "Oh, kamu yang baru - baru ini pindahan ya?"
 
-Dann terkejut. "I-iya. Baru sampe tadi sih."
+Dann terkejut. "I-iya. Baru nyampe tadi pagi sih."
 
-Cewek itu senyum. "Aku Amber. Selamat datang di komplek sini... Kalo mau, aku bisa kenalin tempat-tempat seru."
+Cewek itu senyum. "Aku Amber. Selamat datang di komplek sini... Kalo mau, aku bakal ajak kamu buat kenalin tempat-tempat sekitar ini."
 
 Dari cara dia ngomong, rasanya Amber tau lebih dari yang dia omongin.
 
@@ -27,5 +27,5 @@ Dari cara dia ngomong, rasanya Amber tau lebih dari yang dia omongin.
 
 **Pilihan:**
 
-- [Scene 02A]: "Iya dong, ajak aku!" (Ikut Amber)
-- [Scene 02B]: "Nanti aja, masih mau lihat-lihat dulu." (Tolak ajakan dulu)
+- [Scene 02A]: "Boleh, aku mau kok!" (Ikut Amber)
+- [Scene 02B]: "Nanti aja deh, aku mau lihat - lihat dulu." (Tolak ajakan dulu)
