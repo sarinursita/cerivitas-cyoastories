@@ -7,7 +7,7 @@
 
 ![Scene 6A: Kakak Bebas](scene6a-image.png)
 
-Junior dan kakaknya naik ke puncak. Dingin banget. Tapi ada batu hitam besar di tengah-tengah — dari batu itu kabut putih terus keluar kayak asap.
+Junior dan kakaknya naik ke puncak, dingin sekali. Disana ada batu hitam besar di tengah-tengah, dari batu itu kabut putih terus keluar sepertiasap.
 
 "Ini dia," kata Senior. "Batu penjara."
 
@@ -15,9 +15,9 @@ Junior melihat batu itu. Ada ukiran aneh di permukaannya, seperti tulisan kuno. 
 
 BRAK!
 
-Batu hitam itu retak, cahaya terang menyembur dari celah-celahnya. Kabut di sekeliling mereka mulai menghilang kehisap ke dalam retakan.
+Batu hitam itu retak, cahaya terang menyembur dari celah-celahnya. Kabut di sekeliling mereka mulai menghilang terhisap ke dalam retakan.
 
-Senior mulai bersinar, kakinya perlahan berubah jadi titik-titik cahaya.
+Senior mulai bersinar, kakinya perlahan berubah menjadi titik-titik cahaya.
 
 "Kak!" teriak Junior.
 
@@ -25,7 +25,7 @@ Senior menyeringai, matanya berkaca-kaca, "Makasih, Jun. Kamu berhasil."
 
 "Kakak mau ke mana?!"
 
-"Tenang aja, Kakak sekarang beneran bebas." ... "Jaga diri kamu adek ku dan ingat kalo suatu saat kamu butuh kakak kamu tau di mana mencari kakak."
+"Tenang aja, Kakak sekarang beneran bebas." ... "Jaga diri kamu adik ku dan ingat kalau suatu saat kamu butuh kakak, kamu tau dimana mencari kakak."
 
 Senior menghilang, kabut menghilang total dari kampung, orang-orang melihat puncak gunung bersinar terang seperti bintang jatuh.
 
