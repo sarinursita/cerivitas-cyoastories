@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang
 
+![Scene 3B: Pesan dari Masa Depan](scene03b-image.png)
+
 Pesan dari Mars itu panjang. Dan isinya... bikin Bintang merinding.
 
 Bukan soal Mars. Bukan soal alien. Tapi soal **Bintang sendiri**.

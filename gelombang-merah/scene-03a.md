@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Lab Komputer — Pagi buta
 **Karakter:** Bintang
 
+![Scene 3A: DNA 99.9% Cocok](scene03a-image.png)
+
 Bintang udah begadang semalaman, tapi nggak peduli. Data udah terkumpul. Dan hasilnya... nggak masuk akal.
 
 Dia ngecek sidik jari genetik—prosedur standar buat verifikasi asal sinyal biologis. Dan hasilnya bikin Bintang tercengang:

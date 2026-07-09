@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang 🏁
 
+![Scene 5A: Happy Ending — Lingkaran Waktu](scene05a-image.png)
+
 **Status: END — SELAMAT!**
 
 Bintang ambil napas dalam-dalam, lalu mulai ngetik.

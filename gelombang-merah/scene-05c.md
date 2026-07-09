@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Berbulan-bulan kemudian
 **Karakter:** Bintang 🏁
 
+![Scene 5C: Mystery Ending — Gelang di Mars](scene05c-image.png)
+
 **Status: END — ???**
 
 Bintang memutuskan buat diem aja.

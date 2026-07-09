@@ -1,6 +1,8 @@
 **Setting:** Luar Angkasa — Pesawat Darurat
 **Karakter:** Bintang 🏁
 
+![Scene 5B: Sad Ending — Pesawat Hancur](scene05b-image.png)
+
 **Status: END — GAME OVER**
 
 "Aku akan ke Mars."

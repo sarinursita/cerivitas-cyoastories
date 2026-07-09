@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Lab Komputer
 **Karakter:** Bintang
 
+![Scene 2A: Pola Detak Jantung](scene02a-image.png)
+
 Bintang duduk di depan layar lab, ngolah data sinyal satu per satu. Matanya udah merah karena begadang. Tapi rasa penasaran lebih kuat dari ngantuk.
 
 "Ini aneh..." gumam Bintang.

@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Ruang Kontrol Utama — Malam hari
 **Karakter:** Bintang (pelajar magang, 17 tahun)
 
+![Scene 1: Stasiun Galaksi — Sinyal dari Mars](scene01-image.png)
+
 Malam ini jadwal jaga Bintang sendirian di ruang kontrol Stasiun Galaksi. Sepi. Cuma suara mesin dan lampu indikator yang berkedip-kedip pelan.
 
 Tiba-tiba... **BIP... BIP... BIP.**

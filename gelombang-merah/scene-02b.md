@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang
 
+![Scene 2B: Balasan dari Mars](scene02b-image.png)
+
 "Gas," bisik Bintang, sebelum menekan tombol TRANSMIT.
 
 "Siapa kamu?"

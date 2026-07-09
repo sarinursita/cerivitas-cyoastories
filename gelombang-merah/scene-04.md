@@ -1,6 +1,8 @@
 **Setting:** Stasiun Galaksi — Kamar Pribadi Bintang
 **Karakter:** Bintang
 
+![Scene 4: Pilihan Terakhir](scene04-image.png)
+
 Bintang duduk di tepi tempat tidur, layar tablet di tangan. Semua data udah terkumpul. Semua potongan puzzle nyambung. Dan jawabannya...
 
 *Sinyal dari Mars itu bukan dari alien. Bukan dari koloni yang mati. Tapi dari...*
