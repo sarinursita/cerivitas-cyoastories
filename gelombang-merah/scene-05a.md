@@ -5,19 +5,19 @@
 
 **Status: END — SELAMAT!**
 
-Bintang ambil napas dalam-dalam, lalu mulai ngetik.
+Bintang mengambil napas dalam-dalam, lalu mulai mengetik.
 
-"Aku denger kamu. Ceritain semuanya."
+"Aku dengar kamu. Ceritakan semuanya."
 
-Komunikasi intensif selama seminggu. Bintang masa depan cerita semua—gimana dia ke Mars, apa yang salah, dan apa yang harus dihindari.
+Komunikasi intensif selama seminggu. Bintang masa depan menceritakan semua — bagaimana dia ke Mars, apa yang salah, dan apa yang harus dihindari.
 
-Dengan informasi itu, Bintang mengubah hidupnya. Fokus ke penelitian, jauhi risiko yang bikin Bintang masa depan terjebak.
+Dengan informasi itu, Bintang mengubah hidupnya. Fokus ke penelitian, menjauhi risiko yang membuat Bintang masa depan terjebak.
 
 **20 tahun kemudian...**
 
-Bintang jadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perjalanan waktu diakui dunia.
+Bintang menjadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perjalanan waktu diakui dunia.
 
-Tapi malam ini, di puncak karirnya...
+Tapi malam ini, di puncak kariernya...
 
 *BIP... BIP... BIP.*
 

@@ -44,35 +44,35 @@ const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene4","scene
 const story = {
   "scene1": {    title: "",    setting: "Stasiun Galaksi — Ruang Kontrol Utama — Malam hari",    karakter: "Bintang (pelajar magang, 17 tahun)",    text: `![Scene 1: Stasiun Galaksi — Sinyal dari Mars](scene01-image.png)
 
-Malam ini jadwal jaga Bintang sendirian di ruang kontrol Stasiun Galaksi. Sepi. Cuma suara mesin dan lampu indikator yang berkedip-kedip pelan.
+Malam ini jadwal jaga Bintang sendirian di ruang kontrol Stasiun Galaksi. Sepi. Hanya suara mesin dan lampu indikator yang berkedip-kedip pelan.
 
 Tiba-tiba... **BIP... BIP... BIP.**
 
-Alarm sinyal masuk. Bintang cek layar — ada transmisi dari arah Mars. Tapi itu mustahil. Koloni Mars udah mati 50 tahun lalu. Semua orang tahu itu.
+Alarm sinyal masuk. Bintang cek layar — ada transmisi dari arah Mars. Tapi itu mustahil. Koloni Mars sudah mati 50 tahun lalu. Semua orang tahu itu.
 
-Bintang makin penasaran waktu liat data awal—ini bukan sinyal random. Ini sinyal terstruktur. Kaya pesan. Sengaja dikirim. **Dari Mars.**
+Bintang makin penasaran saat melihat data awal — ini bukan sinyal random. Ini sinyal terstruktur. Seperti pesan. Sengaja dikirim. **Dari Mars.**
 
-Jantung Bintang deg-degan. Ini penemuan besar. Tapi juga... agak serem.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Riset sinyal ini dari lab komputer, cari tahu asalnya"},      {target: "scene2b", text: "Kirim balik sinyal, jawab siapa kamu"}    ]  },  "scene2a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer",    karakter: "Bintang",    text: `![Scene 2A: Pola Detak Jantung](scene02a-image.png)
+Jantung Bintang berdebar-debar. Ini penemuan besar. Tapi juga... agak menyeramkan.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Riset sinyal ini dari lab komputer, cari tahu asalnya"},      {target: "scene2b", text: "Kirim balik sinyal, jawab siapa kamu"}    ]  },  "scene2a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer",    karakter: "Bintang",    text: `![Scene 2A: Pola Detak Jantung](scene02a-image.png)
 
-Bintang duduk di depan layar lab, ngolah data sinyal satu per satu. Matanya udah merah karena begadang. Tapi rasa penasaran lebih kuat dari ngantuk.
+Bintang duduk di depan layar lab, mengolah data sinyal satu per satu. Matanya sudah merah karena begadang. Tapi rasa penasaran lebih kuat dari rasa kantuk.
 
 "Ini aneh..." gumam Bintang.
 
-Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingin sama database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
+Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingkan dengan database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
 
-Bintang bandingin sama data medis stasiun — data detak jantung kru.
+Bintang bandingkan dengan data medis stasiun — data detak jantung kru.
 
-Dan waktu liat layar, Bintang membeku.
+Dan saat melihat layar, Bintang membeku.
 
-Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak waktu deg-degan.
+Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak saat deg-degan.
 
-*Kok bisa sinyal dari Mars cocok sama jantung gue?*`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3a", text: "Lanjutkan penelitian"}    ]  },  "scene2b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `![Scene 2B: Balasan dari Mars](scene02b-image.png)
+*Bagaimana bisa sinyal dari Mars cocok dengan jantungku?*`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3a", text: "Lanjutkan penelitian"}    ]  },  "scene2b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `![Scene 2B: Balasan dari Mars](scene02b-image.png)
 
-"Gas," bisik Bintang, sebelum menekan tombol TRANSMIT.
+"Nekat," bisik Bintang, sebelum menekan tombol TRANSMIT.
 
 "Siapa kamu?"
 
-Satu kalimat pendek dari Bintang meluncur ke Mars. 5 menit. 10 menit. Bintang mulai ragu—mungkin cuma noise.
+Satu kalimat pendek dari Bintang meluncur ke Mars. 5 menit. 10 menit. Bintang mulai ragu — mungkin hanya noise.
 
 **BIP.**
 
@@ -82,77 +82,77 @@ Satu kata.
 
 **"Aku."**
 
-Bintang hampir jatuh dari kursi. *Ada yang jawab. Dari Mars. 50 tahun setelah koloni mati!*
+Bintang hampir jatuh dari kursi. *Ada yang menjawab. Dari Mars. 50 tahun setelah koloni mati!*
 
-Dengan tangan gemetar, Bintang lanjut komunikasi.
+Dengan tangan gemetar, Bintang lanjut berkomunikasi.
 
 "Siapa 'aku'?"
 
-Balasannya datang lebih cepat kali ini. Bukan satu kata, tapi pesan panjang. Bintang kaget waktu baca isinya—isi pesan ini nggak mungkin diketahui orang lain.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3b", text: "Baca pesan selengkapnya"}    ]  },  "scene3a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer — Pagi buta",    karakter: "Bintang",    text: `![Scene 3A: DNA 99.9% Cocok](scene03a-image.png)
+Balasannya datang lebih cepat kali ini. Bukan satu kata, tapi pesan panjang. Bintang kaget saat membaca isinya — isi pesan ini tidak mungkin diketahui orang lain.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene3b", text: "Baca pesan selengkapnya"}    ]  },  "scene3a": {    title: "",    setting: "Stasiun Galaksi — Lab Komputer — Pagi buta",    karakter: "Bintang",    text: `![Scene 3A: DNA 99.9% Cocok](scene03a-image.png)
 
-Bintang udah begadang semalaman, tapi nggak peduli. Data udah terkumpul. Dan hasilnya... nggak masuk akal.
+Bintang sudah begadang semalaman, tapi tidak peduli. Data sudah terkumpul. Dan hasilnya... tidak masuk akal.
 
-Dia ngecek sidik jari genetik—prosedur standar buat verifikasi asal sinyal biologis. Dan hasilnya bikin Bintang tercengang:
+Dia mengecek sidik jari genetik — prosedur standar untuk verifikasi asal sinyal biologis. Dan hasilnya membuat Bintang tercengang:
 
 **Kecocokan DNA: 99.9% — SAMPLE: BINTANG — SUMBER: MARS**
 
-"Gila..." bisik Bintang. *DNA gue ada di Mars?!*
+"Gila..." bisik Bintang. *DNA-ku ada di Mars?!*
 
 Bintang cek ulang. Tiga kali. Hasilnya sama.
 
 Sinyal itu bukan dari alien. Bukan dari koloni Mars. Sinyal itu... dari seseorang yang secara genetik identik dengan Bintang.
 
-Tapi gimana caranya?!
+Tapi bagaimana caranya?!
 
-Bintang harus cari tahu lebih lanjut. Ada yang janggal di data komunikasi—kayak ada informasi tambahan yang disembunyiin.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Cari tahu kebenarannya"}    ]  },  "scene3b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `![Scene 3B: Pesan dari Masa Depan](scene03b-image.png)
+Bintang harus mencari tahu lebih lanjut. Ada yang janggal di data komunikasi — sepertinya ada informasi tambahan yang disembunyikan.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Cari tahu kebenarannya"}    ]  },  "scene3b": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang",    text: `![Scene 3B: Pesan dari Masa Depan](scene03b-image.png)
 
-Pesan dari Mars itu panjang. Dan isinya... bikin Bintang merinding.
+Pesan dari Mars itu panjang. Dan isinya... membuat Bintang merinding.
 
 Bukan soal Mars. Bukan soal alien. Tapi soal **Bintang sendiri**.
 
-Orang di ujung sana tahu nama lengkap Bintang. Tanggal lahir. Makanan favorit. Nama panggilan yang cuma ibu yang tahu. Bahkan kenangan kecil pas umur 5 tahun—kejadian yang nggak mungkin diketahui orang lain.
+Orang di ujung sana tahu nama lengkap Bintang. Tanggal lahir. Makanan favorit. Nama panggilan yang hanya ibu yang tahu. Bahkan kenangan kecil saat umur 5 tahun — kejadian yang tidak mungkin diketahui orang lain.
 
 *KECUALI...*
 
-"Kok dia tahu semua ini?" Bintang menggenggam kursi erat-erat.
+"Bagaimana dia tahu semua ini?" Bintang menggenggam kursi erat-erat.
 
-Pesan terakhirnya makin serem:
+Pesan terakhirnya makin menyeramkan:
 
-*"Kamu pasti bingung. Tapi percaya—aku tahu semua ini karena aku dulu persis kayak kamu. Aku Bintang. Bintang yang 20 tahun lebih tua."*
+*"Kamu pasti bingung. Tapi percaya — aku tahu semua ini karena aku dulu persis seperti kamu. Aku Bintang. Bintang yang 20 tahun lebih tua."*
 
 Darah Bintang serasa berhenti mengalir.`,    isEnd: false,    autoChoice: true,    choices: [      {target: "scene4", text: "Terima apa adanya, hadapi kenyataan"}    ]  },  "scene4": {    title: "",    setting: "Stasiun Galaksi — Kamar Pribadi Bintang",    karakter: "Bintang",    text: `![Scene 4: Pilihan Terakhir](scene04-image.png)
 
-Bintang duduk di tepi tempat tidur, layar tablet di tangan. Semua data udah terkumpul. Semua potongan puzzle nyambung. Dan jawabannya...
+Bintang duduk di tepi tempat tidur, layar tablet di tangan. Semua data sudah terkumpul. Semua potongan puzzle tersambung. Dan jawabannya...
 
 *Sinyal dari Mars itu bukan dari alien. Bukan dari koloni yang mati. Tapi dari...*
 
 **Diri Bintang sendiri.**
 
-Bintang versi masa depan. Yang entah gimana caranya terdampar di Mars. Mungkin misi rahasia. Mungkin kecelakaan. Yang jelas—Bintang masa depan udah 10 tahun terdampar di sana. Sendirian. Pake peralatan darurat koloni buat kirim sinyal ke masa lalu. Ke Bintang yang sekarang.
+Bintang versi masa depan. Yang entah bagaimana caranya terdampar di Mars. Mungkin misi rahasia. Mungkin kecelakaan. Yang jelas — Bintang masa depan sudah 10 tahun terdampar di sana. Sendirian. Menggunakan peralatan darurat koloni untuk mengirim sinyal ke masa lalu. Ke Bintang yang sekarang.
 
-Pesan audio terakhir dari Mars mulai diputar. Suaranya... suara Bintang sendiri. Tapi lebih tua. Lebih capek. Lebih patah.
+Pesan audio terakhir dari Mars mulai diputar. Suaranya... suara Bintang sendiri. Tapi lebih tua. Lebih lelah. Lebih patah.
 
-*"Halo, diriku yang dulu. Aku tahu ini gila. Tapi aku cuma mau bilang—aku di sini karena pilihan yang salah. Satu keputusan bodoh yang bikin nyangkut di sini. Aku kirim sinyal ini ke masa lalu... ke kamu. Tolong. Jangan ulangi kesalahanku. Aku percaya kamu bisa—"*
+*"Halo, diriku yang dulu. Aku tahu ini gila. Tapi aku hanya ingin bilang — aku di sini karena pilihan yang salah. Satu keputusan bodoh yang membuatku terdampar di sini. Aku kirim sinyal ini ke masa lalu... ke kamu. Tolong. Jangan ulangi kesalahanku. Aku percaya kamu bisa—"*
 
 Pesan terputus. Statis.
 
-Bintang dihadapkan sama pilihan.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Coba komunikasi balik, tanya apa yang sebenarnya terjadi"},      {target: "scene5b", text: "Cari cara ke Mars selametin Bintang masa depan"},      {target: "scene5c", text: "Diam aja, pantau terus dari jauh"}    ]  },  "scene5a": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang 🏁",    text: `![Scene 5A: Happy Ending — Lingkaran Waktu](scene05a-image.png)
+Bintang dihadapkan pada pilihan.`,    isEnd: false,    choices: [      {target: "scene5a", text: "Coba komunikasi balik, tanya apa yang sebenarnya terjadi"},      {target: "scene5b", text: "Cari cara ke Mars selametin Bintang masa depan"},      {target: "scene5c", text: "Diam saja, pantau terus dari jauh"}    ]  },  "scene5a": {    title: "",    setting: "Stasiun Galaksi — Ruang Komunikasi",    karakter: "Bintang 🏁",    text: `![Scene 5A: Happy Ending — Lingkaran Waktu](scene05a-image.png)
 
 **Status: END — SELAMAT!**
 
-Bintang ambil napas dalam-dalam, lalu mulai ngetik.
+Bintang mengambil napas dalam-dalam, lalu mulai mengetik.
 
-"Aku denger kamu. Ceritain semuanya."
+"Aku dengar kamu. Ceritakan semuanya."
 
-Komunikasi intensif selama seminggu. Bintang masa depan cerita semua—gimana dia ke Mars, apa yang salah, dan apa yang harus dihindari.
+Komunikasi intensif selama seminggu. Bintang masa depan menceritakan semua — bagaimana dia ke Mars, apa yang salah, dan apa yang harus dihindari.
 
-Dengan informasi itu, Bintang mengubah hidupnya. Fokus ke penelitian, jauhi risiko yang bikin Bintang masa depan terjebak.
+Dengan informasi itu, Bintang mengubah hidupnya. Fokus ke penelitian, menjauhi risiko yang membuat Bintang masa depan terjebak.
 
 **20 tahun kemudian...**
 
-Bintang jadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perjalanan waktu diakui dunia.
+Bintang menjadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perjalanan waktu diakui dunia.
 
-Tapi malam ini, di puncak karirnya...
+Tapi malam ini, di puncak kariernya...
 
 *BIP... BIP... BIP.*
 
@@ -168,17 +168,17 @@ Bintang tersenyum. *Lingkaran waktu terus berputar...*
 
 "Aku akan ke Mars."
 
-Bintang nekat. Ngebajak pesawat darurat stasiun dan meluncur ke Mars sendirian. Perjalanan 3 bulan penuh risiko.
+Bintang nekat. Membajak pesawat darurat stasiun dan meluncur ke Mars sendirian. Perjalanan 3 bulan penuh risiko.
 
 Hari ke-45... **BOOM.**
 
 Panel oksigen meledak. Alarm meraung. Oksigen bocor perlahan.
 
-"Tidak... tidak!" Bintang panik, coba perbaiki. Tapi terlalu lambat.
+"Tidak... tidak!" Bintang panik, mencoba memperbaiki. Tapi terlalu lambat.
 
 Pesawat mulai hancur. Pendingin mati. Suhu turun drastis.
 
-Di Mars, seseorang menunggu. Bintang masa depan tahu—karena dia juga pernah bikin pilihan yang sama.
+Di Mars, seseorang menunggu. Bintang masa depan tahu — karena dia juga pernah membuat pilihan yang sama.
 
 Satu sinyal terakhir dikirim dari pesawat yang sekarat:
 
@@ -192,9 +192,9 @@ Mereka akhirnya bersatu lagi. Di Mars. Selamanya.
 
 **Status: END — ???**
 
-Bintang memutuskan buat diem aja.
+Bintang memutuskan untuk diam saja.
 
-Nggak jawab. Nggak cari cara ke Mars. Cuma pantau sinyal itu dari jauh.
+Tidak menjawab. Tidak mencari cara ke Mars. Hanya memantau sinyal itu dari jauh.
 
 3 hari kemudian... sinyalnya berhenti.`,    isEnd: true,    choices: [    ]  }};
 

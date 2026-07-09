@@ -3,19 +3,19 @@
 
 ![Scene 2A: Pola Detak Jantung](scene02a-image.png)
 
-Bintang duduk di depan layar lab, ngolah data sinyal satu per satu. Matanya udah merah karena begadang. Tapi rasa penasaran lebih kuat dari ngantuk.
+Bintang duduk di depan layar lab, mengolah data sinyal satu per satu. Matanya sudah merah karena begadang. Tapi rasa penasaran lebih kuat dari rasa kantuk.
 
 "Ini aneh..." gumam Bintang.
 
-Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingin sama database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
+Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingkan dengan database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
 
-Bintang bandingin sama data medis stasiun — data detak jantung kru.
+Bintang bandingkan dengan data medis stasiun — data detak jantung kru.
 
-Dan waktu liat layar, Bintang membeku.
+Dan saat melihat layar, Bintang membeku.
 
-Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak waktu deg-degan.
+Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak saat deg-degan.
 
-*Kok bisa sinyal dari Mars cocok sama jantung gue?*
+*Bagaimana bisa sinyal dari Mars cocok dengan jantungku?*
 
 ---
 
