@@ -17,9 +17,9 @@ Amber jalan sendirian ke dalam hutan. Dann sebenernya mau balik ke rumah, tapi..
 
 Amber jalan cekatan di antara pohon, Dann nyempil di balik semak. Tiba-tiba Amber berhenti di sebuah lapangan kecil. Dann ngintip dari balik pohon — dan matanya melebar.
 
-**Ada lingkaran cahaya biru keunguan** di tengah lapangan. Portal. Dann ga pernah liat yang kayak gitu.
+**Ada lingkaran cahaya ungu kekuningan** di tengah lapangan. Portal. Dann ga pernah liat yang kayak gitu.
 
-Amber berdiri di depan portal, tangannya menyentuh cahayanya. Dann reflek berseru, "Amber!"
+Amber berdiri di depan portal, tangannya menyentuh cahayanya. Dann reflek memanggil "Amber!"
 
 Amber kaget, noleh. Melihat Dann. Senyumnya... beda. Bukan senyum misterius lagi, tapi senyum lega.
 
@@ -29,5 +29,5 @@ Amber kaget, noleh. Melihat Dann. Senyumnya... beda. Bukan senyum misterius lagi
 
 **Pilihan:**
 
-- [Scene 03A]: "Aku ikut." (Masuk portal bareng Amber)
-- [Scene 03B]: "Aku duluan!" (Berani masuk portal sendirian)
+- [Scene 03A]: "Aku bakal ikut!" (Masuk portal bareng Amber)
+- [Scene 03B]: "Aku duluan" (Berani masuk portal sendirian)
