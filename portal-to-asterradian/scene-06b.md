@@ -5,17 +5,17 @@
 
 ---
 
-Dann mundur selangkah. Wajahnya campur aduk — bingung, kecewa, marah.
+Dann mundur. Wajahnya campur aduk — bingung, kecewa, marah.
 
-"Selama ini... lo bohong. Setiap hari, lo pura-pura jadi orang biasa. Sementara lo punya dunia sendiri, rahasia sendiri, kehidupan sendiri yang ga pernah lo bagi ke aku."
+"Selama ini... kamu bohong. Setiap hari, kamu pura-pura jadi orang biasa. Sementara kamu punya dunia sendiri, rahasia sendiri, kehidupan sendiri yang ga pernah kamu ceritakan ke aku."
 
 Amber nyoba pegang tangan Dann. "Dann, aku cuma—"
 
-"Ga, Ber. Gw ngerti lo punya alasan. Tapi lo ga percaya sama gw. Lo pikir gw bakal lari kalo tau? Apa gw selama ini temen yang kayak gitu?"
+"Ga. Aku ngerti kamu punya alasan. Tapi kamu ga percaya sama aku. Kamu pikir aku bakal lari kalo tau? Apa aku selama ini temen yang kayak gitu?"
 
 Amber diem. Air matanya mulai jatuh. "Maaf. Aku cuma... takut."
 
-Dann napas dalam. "Gw perlu waktu. Buat mikir."
+Dann napas dalam. "aku perlu waktu."
 
 Dia jalan menjauh dari Amber. Menuju portal yang bersinar di kejauhan.
 
@@ -23,13 +23,13 @@ Dia jalan menjauh dari Amber. Menuju portal yang bersinar di kejauhan.
 
 *Dann balik ke Bumi duluan. Di kamarnya, dia duduk diem — ngeliatin jendela yang menghadap ke hutan. Hutan yang sama tempat dia pertama kali nemu portal.*
 
-*Amber ga muncul selama seminggu.*
+*Dann ga keluar selama seminggu.*
 
-Tapi suatu sore, Dann nemu **bunga keperakan** di depan pintu rumahnya — bunga dari Asterradian. Dengan secarik kertas:
+suatu sore, Dann nemu **bunga keperakan** di depan pintu rumahnya — bunga dari Asterradian. Dengan secarik kertas:
 
-*"Aku masih di sini. Kapanpun kamu siap ngomong. — Amber"*
+*"Aku masih di sini. Kapanpun sampai kamu siap ngomong. — Amber"*
 
-Dann megang bunga itu. Masih anget. Mungkin suatu hari dia bakal ngomong lagi sama Amber. Tapi sekarang... belum.
+Dann megang bunga itu. Rasanya hangat. Mungkin suatu hari dia bakal ngomong lagi sama Amber. Tapi sekarang... belum.
 
 ---
 
