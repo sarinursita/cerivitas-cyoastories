@@ -7,9 +7,9 @@
 
 Dann melangkah masuk portal duluan. Tubuhnya terasa ringan — Dann nutup mata, lalu...
 
-Dia buka mata, dan **sendirian**.
+Dia buka mata, takjub dengan apa yang dilihat nya
 
-Padang rumput biru keperakan terbentang luas. Langit ungu kemerahan dengan dua matahari. Dann menengok ke belakang — portalnya masih ada, berdenyut pelan. Tapi Amber belum keluar.
+Padang rumput biru keperakan terbentang luas. Langit biru keunguan dengan awan yang kelap - kelip seperti ada bintang didalam nya.Dann menengok ke belakang — portalnya masih ada, bersinar. Tapi Amber belum keluar.
 
 *"Amber?"* Dann panggil. Ga ada jawaban.
 
@@ -19,13 +19,13 @@ Dann mulai jalan. Rumput biru berkilau di bawah kakinya. Dari kejauhan, ada patu
 
 Suara dari belakang. Dann kaget, nyaris jatuh — Amber berdiri di sana, nyengir lebar.
 
-"Kaget lo!" Dann ngomel. "Lo kapan keluar?"
+"Eh kaget!" Dann ngomel. "Kamu kapan masuk?"
 
-"Baru aja." Amber nyengir. "Lo duluan, makanya lo ga liat aku. Tapi tenang... kita udah sampai."
+"Baru aja." Amber nyengir. "Kamu duluan, makanya ga liat aku. Tapi tenang, kita udah sampai."
 
-"Maksud lo?"
+"Maksudnya?"
 
-Amber menatap padang rumput luas dengan sorot mata yang aneh — campuran rindu dan sedih. "Ini rumahku, Dann. Atau... mantan rumahku."
+Amber menatap padang rumput luas dengan sorot mata yang aneh — kangen "Ini tempat yang sangat nostalgia bagiku, Dann"
 
 Dann bingung. Tapi sebelum sempat nanya, Amber udah jalan duluan.
 
@@ -35,5 +35,5 @@ Dann bingung. Tapi sebelum sempat nanya, Amber udah jalan duluan.
 
 **Pilihan:**
 
-- [Scene 04A]: Kejar Amber dan tanya soal "rumahku" maksudnya apa
+- [Scene 04A]: Kejar Amber dan tanya maksudnya apa
 - [Scene 04B]: Diam-diam perhatiin tingkah Amber, cari petunjuk
