@@ -21,25 +21,25 @@ Di dalam gua, dindingnya penuh ukiran kuno yang bercahaya redup. Tapi yang bikin
 
 Dann mendekat. Di bawah simbol itu, ada tulisan dalam bahasa aneh. Dann ga ngerti bacanya — huruf-hurufnya meliuk-liuk kayak hidup.
 
-Tapi tiba-tiba... Dann liat tato bintangnya **berkilat**. Cahaya dari tato Dann *memantul* ke dinding — dan tulisan itu berubah! Berubah jadi bahasa yang bisa dibaca!
+Tapi tiba-tiba... Dann liat tato bintangnya **berkilat**. Cahaya itu *memantul* ke dinding — dan tulisan itu berubah! Berubah jadi bahasa yang bisa dibaca!
 
 Dann melongo. Tato bintang Amber... bisa nerjemahin bahasa kuno Asteralis?
 
 Tulisan itu berbunyi:
 
-*"Carreis — Bintang Penuntun Asteralis. Lahir di dua dunia. Membawa cahaya antara Bumi dan Asterradian. Hanya mata Asteralis yang bisa membaca ini."*
+*"Carreis — Bintang Penuntun Asteralis. menjadi ras terkuat setelah Asterric. Membawa cahaya antara Bumi dan Asterradian. Hanya mata Asteralis yang bisa membaca ini."*
 
 Dann mundur. *Carreis? Amber?*
 
-"Nggak..." bisik Dann. "Amber... bukan cuma Asteralis biasa."
+"Nggak..." bisik Dann. "Amber..."
 
 Dann buru-buru keluar gua, jantungnya deg-degan. Amber udah nunggu di luar, tangannya nyilang.
 
-"Lo masuk juga..." Amber geleng-geleng. "Sekarang lo tau."
+" Ternyata kamu masuk juga..." Amber geleng-geleng. "Sekarang kamu sudah tau."
 
 ---
 
 **Pilihan:**
 
-- [Scene 06A]: "Aku ga peduli. Lo tetap Amber temen aku."
-- [Scene 06B]: "Kenapa ga ngomong dari awal? Lo sembunyiin semua ini."
+- [Scene 06A]: "Aku ga peduli. Kamu tetap Amber, temen aku."
+- [Scene 06B]: "Kenapa ga ngomong dari awal? Kamu sembunyiin semua ini."
