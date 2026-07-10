@@ -23,7 +23,7 @@ Dari kejauhan, ada patung batu besar — bentuknya siluet manusia bersayap, deng
 
 Amber berhenti. Dann liat ekspresinya berubah — kayak sedih.
 
-"Itu... **asterric** Penjaga Asterradian."
+"Itu... **asterric** jenis asteralis Penjaga Asterradian."
 
 "penjaga? wah, kayak dewa gitu?"
 
