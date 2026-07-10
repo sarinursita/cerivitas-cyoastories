@@ -9,7 +9,7 @@ Dann melangkah masuk portal duluan. Tubuhnya terasa ringan — Dann nutup mata, 
 
 Dia buka mata, takjub dengan apa yang dilihat nya
 
-Padang rumput biru keperakan terbentang luas. Langit biru keunguan dengan awan yang kelap - kelip seperti ada bintang didalam nya.Dann menengok ke belakang — portalnya masih ada, bersinar. Tapi Amber belum keluar.
+Padang rumput biru keperakan terbentang luas. Langit biru keunguan dengan awan yang kelap - kelip seperti ada bintang didalam nya. Dann menengok ke belakang — portalnya masih ada, bersinar. Tapi Amber belum masuk.
 
 *"Amber?"* Dann panggil. Ga ada jawaban.
 
