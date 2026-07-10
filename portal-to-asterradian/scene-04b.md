@@ -7,13 +7,13 @@
 
 Dann biarin Amber diem, tapi matanya jelalatan ke sekeliling. *Kalo ada petunjuk, pasti di sini.*
 
-Dann mendekati patung Asteralis. Dari dekat, ukirannya detail banget — sayapnya halus, lingkaran di dadanya penuh ukiran kecil yang mirip bahasa kuno. Dann raba lingkarannya... dan *terasa hangat*.
+Dann mendekati patung itu. Dari dekat, ukirannya detail banget — sayapnya halus, lingkaran di dadanya penuh ukiran kecil yang mirip bahasa kuno. Dann raba lingkarannya... dan *terasa ajaib*.
 
 Tiba-tiba — ada suara bisik-bisik dari dalam patung. *"Kau bawa salah satu dari kami..."*
 
 Dann refleks mundur. "Hah? Siapa?!"
 
-"Ngomong sama patung?" suara Amber dari belakang. Dann kaget, hampir jatoh.
+"Kamu ngomong sama patung?" suara Amber dari belakang. Dann kaget, hampir jatoh.
 
 "Itu — patungnya — ada suara!"
 
@@ -25,11 +25,11 @@ Amber diem sebentar. Dann nunggu jawaban. Tapi Amber cuma senyum — senyum yang
 
 "Ga usah dipikirin. Mungkin udara sini membuatmu agak... *pusing*."
 
-Tapi Dann tau itu bukan pusing. Dan dia liat — **kerlip emas di mata Amber** pas ngomong gitu. Cuma sedetik, tapi Dann yakin ga salah liat.
+Tapi Dann tau itu bukan pusing. Dan dia liat — **kerlip di mata Amber** pas ngomong gitu. Cuma sedetik, tapi Dann yakin ga salah liat.
 
 ---
 
 **Pilihan:**
 
-- [Scene 05A]: "Ber, jujur sama aku. Lo sembunyiin apa?" (konfrontasi)
+- [Scene 05A]: "Amber, jujur sama aku. Kamu sembunyiin apa?" (konfrontasi)
 - [Scene 05B]: Pura-pura percaya, tapi dalam hati makin curiga
