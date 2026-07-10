@@ -1,4 +1,4 @@
-# Portal to Asterradian 🚪✨
+# Portal to Asterradian
 
 - **Penulis:** Carlin A.
 - **Genre:** Misteri, Petualangan, Fantasy
