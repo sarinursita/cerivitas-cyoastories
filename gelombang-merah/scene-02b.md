@@ -5,27 +5,27 @@
 
 ![Scene 2B: Balasan dari Mars](scene02b-image.png)
 
-"Nekat," bisik Bintang, sebelum menekan tombol TRANSMIT.
+"Nekat," bisik Bintang, sebelum menekan tombol transmit.
 
 "Siapa kamu?"
 
-Satu kalimat pendek dari Bintang meluncur ke Mars. 5 menit. 10 menit. Bintang mulai ragu — mungkin hanya noise.
+Satu kalimat pendek dari Bintang meluncur ke Mars, 5 menit, 10 menit. Bintang mulai ragu mungkin hanya noise.
 
-**BIP.**
+BIP.
 
-Layar berkedip. Ada balasan.
+Layar berkedip, ada balasan.
 
 Satu kata.
 
-**"Aku."**
+"Aku."
 
-Bintang hampir jatuh dari kursi. *Ada yang menjawab. Dari Mars. 50 tahun setelah koloni mati!*
+Bintang hampir jatuh dari kursi, ada yang menjawab dari Mars. 50 tahun setelah koloni mati!
 
 Dengan tangan gemetar, Bintang lanjut berkomunikasi.
 
 "Siapa 'aku'?"
 
-Balasannya datang lebih cepat kali ini. Bukan satu kata, tapi pesan panjang. Bintang kaget saat membaca isinya — isi pesan ini tidak mungkin diketahui orang lain.
+Balasannya datang lebih cepat kali ini. Bukan satu kata, tapi pesan panjang. Bintang kaget saat membaca isinya isi pesan ini tidak mungkin diketahui orang lain.
 
 ---
 
