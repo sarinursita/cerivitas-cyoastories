@@ -1,6 +1,6 @@
 # Hilangnya Uang 271 Juta
 
-- **Penulis:** Aqil
+- **Penulis:** Aqil Shidiq Hammami
 - **Genre:** Misteri
 - **Tags:** misteri, desa, detektif, korupsi, plot-twist
 - **Rating:** PG
