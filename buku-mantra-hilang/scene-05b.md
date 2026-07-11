@@ -26,6 +26,6 @@ Dari celah dimensi, Ketua OSIS muncul dengan tawa menggema.
 ---
 
 **Pilihan:**
-- [Scene 6A]: 🤝 Cari jalan damai — "Nggak harus perang, kita bisa bicara!"
-- [Scene 6B]: ⚔️ Lawan dengan kekuatan baru — "Mantra di dalamku... saatnya bangkit!"
-- [Scene 6C]: 🏃 Kabuuuuur! — "Kita belum siap! Lari dulu!"
+- [Scene 6AB]: 🤝 Cari jalan damai — "Nggak harus perang, kita bisa bicara!"
+- [Scene 6BB]: ⚔️ Lawan dengan kekuatan baru — "Mantra di dalamku... saatnya bangkit!"
+- [Scene 6CB]: 🏃 Kabuuuuur! — "Kita belum siap! Lari dulu!"

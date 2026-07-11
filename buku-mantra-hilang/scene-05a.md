@@ -24,6 +24,6 @@ Tanah bergetar. Cahaya merah menyala di kejauhan.
 ---
 
 **Pilihan:**
-- [Scene 6A]: 🤝 Cari jalan damai — "Nggak harus perang, kita bisa bicara!"
-- [Scene 6B]: ⚔️ Lawan dengan kekuatan baru — "Mantra di dalamku... saatnya bangkit!"
-- [Scene 6C]: 🏃 Kabuuuuur! — "Kita belum siap! Lari dulu!"
+- [Scene 6AA]: 🤝 Cari jalan damai — "Nggak harus perang, kita bisa bicara!"
+- [Scene 6BA]: ⚔️ Lawan dengan kekuatan baru — "Mantra di dalamku... saatnya bangkit!"
+- [Scene 6CA]: 🏃 Kabuuuuur! — "Kita belum siap! Lari dulu!"
