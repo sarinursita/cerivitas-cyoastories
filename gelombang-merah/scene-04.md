@@ -1,3 +1,5 @@
+# Scene 4: Pilihan Terakhir
+
 **Setting:** Stasiun Galaksi — Kamar Pribadi Bintang
 **Karakter:** Bintang
 

@@ -1,3 +1,5 @@
+# Scene 3B: Pesan dari Masa Depan
+
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang
 

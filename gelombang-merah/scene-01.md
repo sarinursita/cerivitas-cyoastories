@@ -1,3 +1,5 @@
+# Scene 1: Sinyal dari Mars
+
 **Setting:** Stasiun Galaksi — Ruang Kontrol Utama — Malam hari
 **Karakter:** Bintang (pelajar magang, 17 tahun)
 

@@ -1,3 +1,5 @@
+# Scene 2B: Balasan dari Mars
+
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang
 

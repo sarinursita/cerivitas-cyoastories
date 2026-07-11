@@ -1,3 +1,5 @@
+# Scene 2A: Pola Detak Jantung
+
 **Setting:** Stasiun Galaksi — Lab Komputer
 **Karakter:** Bintang
 

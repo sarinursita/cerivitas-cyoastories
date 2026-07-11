@@ -1,3 +1,5 @@
+# Scene 5A: Lingkaran Waktu
+
 **Setting:** Stasiun Galaksi — Ruang Komunikasi
 **Karakter:** Bintang 🏁
 

@@ -1,3 +1,5 @@
+# Scene 5C: Gelang di Mars
+
 **Setting:** Stasiun Galaksi — Berbulan-bulan kemudian
 **Karakter:** Bintang 🏁
 
