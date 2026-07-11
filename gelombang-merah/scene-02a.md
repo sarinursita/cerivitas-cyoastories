@@ -9,15 +9,15 @@ Bintang duduk di depan layar lab, mengolah data sinyal satu per satu. Matanya su
 
 "Ini aneh..." gumam Bintang.
 
-Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingkan dengan database. Gas. Listrik. Gelombang otak manusia. **Detak jantung**.
+Data sinyal menunjukkan pola frekuensi yang familiar. Bintang bandingkan dengan database gas, listrik, gelombang otak manusia, detak jantung.
 
-Bintang bandingkan dengan data medis stasiun — data detak jantung kru.
+Bintang bandingkan dengan data medis stasiun data detak jantung kru.
 
 Dan saat melihat layar, Bintang membeku.
 
-Pola sinyal dari Mars itu... **sama persis dengan detak jantung Bintang sendiri**. Tepat. Semua detaknya. Iramanya. Bahkan variasi detak saat deg-degan.
+Pola sinyal dari Mars itu sama persis dengan detak jantung Bintang sendiri. Tepat, semua detaknya, iramanya, bahkan variasi detak saat deg-degan.
 
-*Bagaimana bisa sinyal dari Mars cocok dengan jantungku?*
+Bagaimana bisa sinyal dari Mars cocok dengan jantungku?
 
 ---
 
