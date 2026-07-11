@@ -121,7 +121,7 @@ body {
 </div>
 
 <script>
-const story = {
+var story = {
   "scene-1": {
     "title": "Scene 1: Kabar Hilangnya Uang Desa",
     "narrative": "Pagi itu, desa yang biasanya tenang mendadak gempar. Ibu RT lari-lari sambil teriak, \"UANG DESA HILANG! 271 Juta raib!\"\n\nFeri yang baru bangun tidur, masih pakaian kusut, langsung melongo. \"Hah? 271 juta?\"\n\nSemua warga langsung curiga sama **Pak Kades**. Ada yang bilang Pak Kades udah beli mobil baru. Ada yang bilang liat Pak Kades keluar malam-malam bawa tas gede.\n\nTapi Feri, meskipun masih setengah ngantuk, merasa ada yang aneh. \"Pak Kades? Kayaknya nggak mungkin... tapi buktinya?\"\n\nFeri punya dua pilihan:\n\n---",
@@ -324,7 +324,6 @@ const story = {
     ],
     "ending": true
   },
-
   "scene-contact": {
     "title": "💬 Ada yang Mau Ditanyain?",
     "narrative": "Halo! 👋 Makasih udah baca cerita **Hilangnya Uang 271 Juta** sampe habis! Semoga seru ya mainnya.\n\nAda yang bingung sama jalan ceritanya? Atau mau ngasih saran? Atau mungkin mau minta dibikinin cerita serupa? Bebas aja!\n\n**Aqil** dengan senang hati nerima chat kamu kok 😄\n\n---\n\n📱 **WhatsApp:** 0857-4384-8400\n📸 **Instagram:** @[isi_instagram_aqil]\n\n---\n\nSantai aja, gapapa kalo cuma mau bilang \"seru banget ceritanya!\" atau \"aku dapet ending B!\" — Aqil seneng banget baca pesan kamu ✨\n\nSiapa tau next time kita bikin cerita bareng lagi! 🔥",
@@ -339,26 +338,26 @@ const story = {
 };
 
 function renderScene(sceneKey) {
-  const s = story[sceneKey];
+  var s = story[sceneKey];
   if (!s) return;
   
-  const content = document.getElementById('sceneContent');
+  var content = document.getElementById('sceneContent');
   
-  let html = '<div class="scene fade-in">';
+  var html = '<div class="scene fade-in">';
   html += '<div class="scene-title">' + s.title + '</div>';
   html += '<div class="scene-narrative">' + s.narrative + '</div>';
   
   if (s.ending) {
     html += '<div class="ending">';
-    html += '<div class="ending-badge">🏁 THE END</div>';
-    html += '<br><button class="restart-btn" onclick="renderScene(&#39;scene-1&#39;)">🔄 Main Lagi</button>';
+    html += '<div class="ending-badge">\u274C THE END</div>';
+    html += '<br><button class="restart-btn" onclick="renderScene(\'scene-1\')">\uD83D\uDD04 Main Lagi</button>';
     html += '</div>';
   }
   if (s.choices && s.choices.length > 0) {
     html += '<div class="choices">';
-    for (let i = 0; i < s.choices.length; i++) {
-      const c = s.choices[i];
-      html += '<button class="choice-btn" onclick="renderScene(\'' + c.next + '\')">' + c.text + ' <span class="arrow">→</span></button>';
+    for (var i = 0; i < s.choices.length; i++) {
+      var c = s.choices[i];
+      html += '<button class="choice-btn" onclick="renderScene(\'' + c.next + '\')">' + c.text + ' <span class="arrow">\u2192</span></button>';
     }
     html += '</div>';
   }
