@@ -9,7 +9,7 @@ Bintang duduk di tepi tempat tidur, layar tablet di tangan. Semua data sudah ter
 
 *Sinyal dari Mars itu bukan dari alien. Bukan dari koloni yang mati. Tapi dari...*
 
-**Diri Bintang sendiri.**
+**Diri Bintang sendiri**.
 
 Bintang versi masa depan. Yang entah bagaimana caranya terdampar di Mars. Mungkin misi rahasia. Mungkin kecelakaan. Yang jelas — Bintang masa depan sudah 10 tahun terdampar di sana. Sendirian. Menggunakan peralatan darurat koloni untuk mengirim sinyal ke masa lalu. Ke Bintang yang sekarang.
 

@@ -9,7 +9,7 @@ Bintang duduk di depan layar lab, mengolah data sinyal satu per satu. Matanya su
 
 "Ini aneh..." gumam Bintang.
 
-Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingkan dengan database. Gas. Listrik. Gelombang otak manusia. **Detak jantung.**
+Data sinyal menunjukkan pola frekuensi yang... familiar. Bintang bandingkan dengan database. Gas. Listrik. Gelombang otak manusia. **Detak jantung**.
 
 Bintang bandingkan dengan data medis stasiun — data detak jantung kru.
 

@@ -11,7 +11,7 @@
 
 Bintang nekat. Membajak pesawat darurat stasiun dan meluncur ke Mars sendirian. Perjalanan 3 bulan penuh risiko.
 
-Hari ke-45... **BOOM.**
+Hari ke-45... **BOOM**.
 
 Panel oksigen meledak. Alarm meraung. Oksigen bocor perlahan.
 
