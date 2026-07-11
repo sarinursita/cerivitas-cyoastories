@@ -21,12 +21,16 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 .narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
 .narrative p{margin-bottom:15px}
 .ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.twist-badge{display:inline-block;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em;animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 .choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
 .choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
 .choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
 .choice-btn .arrow{color:#c084fc;margin-right:10px}
 .restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
 .restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
+.post-credit-sep{border:none;border-top:1px solid #333;margin:30px 0}
+.post-credit-label{text-align:center;color:#666;font-size:.8em;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px}
 @media(max-width:500px){.narrative{font-size:1em}}
 </style>
 </head>
@@ -40,7 +44,6 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
   <div id="sceneContainer"></div>
 </div>
 <script>
-const SCENES = ["scene1","scene2a","scene2b","scene3a","scene3b","scene3c","scene3d","scene4","scene5a","scene5b","scene6a","scene6b","scene6c"];
 const story = {
   "scene1": {
     title: "Rahasia di Lorong",
@@ -362,12 +365,16 @@ Luna menarik napas dalam. "Tidak apa. Kau tidak bersalah. Tapi sekarang..."
 
 Dari kegelapan, suara Ketua OSIS bergema, "Bagus, kau memilih Kite. Tapi apakah kau siap menghadapiku?"
 
-Tanah bergetar. Cahaya merah menyala di kejauhan.`,
+Tanah bergetar. Cahaya merah menyala di kejauhan.
+
+---
+
+*(Anna tertinggal...)*`,
     isEnd: false,
     choices: [
-      {target: "scene6a", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
-      {target: "scene6b", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
-      {target: "scene6c", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
+      {target: "scene6aa", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
+      {target: "scene6ba", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
+      {target: "scene6ca", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
     ]
   },
   "scene5b": {
@@ -392,47 +399,56 @@ Tanpa berpikir, Luna melompat. Simbol di tangannya meledak — menciptakan jemba
 
 Dari celah dimensi, Ketua OSIS muncul dengan tawa menggema.
 
-"Kau baru menyadarinya, Luna? Sekarang kekuatan itu... akan menjadi milikku!"`,
+"Kau baru menyadarinya, Luna? Sekarang kekuatan itu... akan menjadi milikku!"
+
+---
+
+*(Kite tertinggal...)*`,
     isEnd: false,
     choices: [
-      {target: "scene6a", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
-      {target: "scene6b", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
-      {target: "scene6c", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
+      {target: "scene6ab", text: "🤝 Cari jalan damai — \"Nggak harus perang, kita bisa bicara!\""},
+      {target: "scene6bb", text: "⚔️ Lawan dengan kekuatan baru — \"Mantra di dalamku... saatnya bangkit!\""},
+      {target: "scene6cb", text: "🏃 Kabuuuuur! — \"Kita belum siap! Lari dulu!\""}
     ]
   },
-  "scene6a": {
-    title: "🤝 Jalan Damai — Ending",
+  "scene6aa": {
+    title: "🤝 Jalan Damai — Anna Pergi",
     setting: "Perpustakaan Antar-Dimensi 🌌",
-    karakter: "Luna Celeste, Kite, Anna, Ketua OSIS",
-    text: `Luna berdiri tegak di hadapan Ketua OSIS. Tangannya gemetar, tapi matanya mantap.
+    karakter: "Luna Celeste, Kite, Ketua OSIS",
+    text: `Luna berdiri tegak di hadapan Ketua OSIS. Tangannya gemetar — bukan karena takut, tapi karena kehilangan.
 
-"Aku tidak mau lawan kau," kata Luna pelan. "Aku tahu kau menyimpan buku mantra itu di dalam diriku... tapi kenapa? Kenapa kau melakukan semua ini?"
+*Anna...*
 
-Ketua OSIS terdiam. Untuk pertama kalinya, cahaya merah di matanya meredup.
+Tapi ia harus kuat.
+
+"Aku tidak mau lawan kau," kata Luna pelan. "Aku tahu kau menyimpan buku mantra itu di dalam diriku... tapi kenapa? Kenapa?!"
+
+Ketua OSIS terdiam. Cahaya merah di matanya meredup.
 
 "Karena... aku takut," bisiknya. "Buku mantra itu terlalu kuat. Aku tidak bisa menghancurkannya. Satu-satunya cara... adalah menyembunyikannya di dalam jiwa yang murni."
 
 "Maka aku memilihmu, Luna."
 
-Luna tertegun. Ketua OSIS bukan jahat — ia hanya putus asa.
+Luna tertegun. Di sampingnya, Kite menunduk dalam — tangannya mengepal menahan rasa bersalah.
 
-"Aku bisa membantumu," Luna meraih tangannya. "Kita jaga buku ini bersama-sama."
+"Aku bisa membantumu," Luna meraih tangan Ketua OSIS. "Tapi janji... Anna harus kembali padaku."
 
-Ketua OSIS tersenyum — untuk pertama kalinya dengan tulus.
+Ketua OSIS tersenyum tipis. "Aku tidak bisa menjanjikan itu."
 
-"Terima kasih, Luna."
+Namun untuk pertama kalinya, senyumnya tulus.
 
-Simbol di lengan Luna memudar menjadi emas hangat. Perpustakaan Antar-Dimensi mulai bersinar damai.
-
-🏁 **THE END — Jalan Damai** 🕊️`,
+Simbol di lengan Luna memudar menjadi emas hangat. Perpustakaan Antar-Dimensi bersinar damai — meski ada satu kursi yang kosong.`,
     isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7a",
+    twistText: "👂 Dengar suara itu — \"Tunggu... apa itu?\"",
     choices: []
   },
-  "scene6b": {
-    title: "⚔️ Lawan dengan Kekuatan Baru — Ending",
+  "scene6ba": {
+    title: "⚔️ Lawan dengan Kekuatan Baru — Anna Pergi",
     setting: "Perpustakaan Antar-Dimensi 🌌",
-    karakter: "Luna Celeste, Kite, Anna, Ketua OSIS",
-    text: `"Cukup!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
+    karakter: "Luna Celeste, Kite, Ketua OSIS",
+    text: `"CUKUP!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
 
 "Apa?!" Ketua OSIS mundur.
 
@@ -442,53 +458,209 @@ Kekuatan dahsyat mengalir dari dalam dirinya. Mantra-mantra kuno menari di udara
 
 "Mustahil... kau menguasainya?!"
 
-Luna tersenyum. "Buku itu memilihku karena aku kuat. Bukan karena aku lemah."
+Luna tersenyum — tapi matanya sedih. "Buku itu memilihku karena aku kuat. Karena aku harus melindungi teman-temanku. Tapi... satu sudah kuhilangkan."
 
 Dengan satu gerakan, Luna mengunci kekuatan Ketua OSIS dalam kristal. Perpustakaan Antar-Dimensi berguncang — lalu hening.
 
-Kite dan Anna berlari memeluknya.
+Kite berlari memeluknya. "Maafkan aku, Luna... karena Anna..."
 
-"Kau hebat, Luna!"
+Luna memeluknya balik, air mata jatuh diam-diam.
 
-Luna tertawa lelah. "Aku hanya melakukan apa yang benar."
+"Aku berhasil... tapi Anna tidak di sini."
 
-Kekuatan buku mantra kini aman — di tangan yang tepat.
-
-🏁 **THE END — Kekuatan Baru** ⚔️`,
+Kekuatan buku mantra kini aman. Tapi harga yang dibayar... sangat mahal.`,
     isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7a",
+    twistText: "👂 Dengar suara batuk dari celah kristal — \"Tunggu... apa itu?\"",
     choices: []
   },
-  "scene6c": {
-    title: "🏃 Kabuuuur! — Ending",
+  "scene6ca": {
+    title: "🏃 Kabuuuur! — Anna Pergi",
     setting: "Perpustakaan Antar-Dimensi 🌌",
-    karakter: "Luna Celeste, Kite, Anna",
+    karakter: "Luna Celeste, Kite",
     text: `"KITA BELUM SIAP! LARI!" teriak Luna.
 
-Tanpa berpikir dua kali, mereka berlari. Kite menggandeng Anna, Luna membuka portal darurat dengan simbol di lengannya.
+Tapi tangannya gemetar. *Anna... maafkan aku...*
 
-Ketua OSIS tertawa di belakang mereka, "Lari! Tapi aku akan menemukanmu lagi, Luna!"
+Kite menggandeng Luna, menariknya ke portal darurat yang terbuka dari simbol di lengannya.
 
-Mereka melompat ke portal — dan jatuh di halaman akademi. Pagi hari. Aman.
+Ketua OSIS tertawa di belakang mereka, "Lari! Tapi aku akan menemukanmu lagi, Luna! Dan Anna... mungkin akan kupastikan kau tidak akan pernah melihatnya lagi!"
 
-"A-apa dia akan mengejar?" Anna terbata.
+Mereka melompat ke portal — dan jatuh di halaman akademi. Pagi hari. Tapi rasanya dunia gelap.
 
-Luna menatap lengannya. Simbolnya masih bersinar redup.
+"Luna..." Kite terbata.
 
-"Untuk sekarang... kita aman. Tapi suatu hari nanti, aku harus kembali ke sana. Dan saat itu, aku harus lebih kuat."
+Luna menatap lengannya. Simbolnya masih bersinar redup. "Anna... aku akan kembali untukmu. Aku janji."
 
-Kite menepuk pundaknya, "Kita akan bersamamu."
+Kite menepuk pundaknya. "Kita cari cara. Bersama."
 
-Luna tersenyum. Mungkin kali ini mereka lari. Tapi lain kali... mereka akan siap.
-
-🏁 **THE END — Kabur** 🏃`,
+Luna mengangguk — matanya penuh tekad. Kali ini mereka lari. Tapi lain kali... mereka akan kembali. Dan Anna akan pulang.`,
     isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7a",
+    twistText: "👂 Kilatan ungu di celah portal — \"Apa itu?!\"",
+    choices: []
+  },
+  "scene6ab": {
+    title: "🤝 Jalan Damai — Kite Pergi",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Anna, Ketua OSIS",
+    text: `Luna berdiri tegak di hadapan Ketua OSIS. Tangannya gemetar — bukan karena takut, tapi karena kehilangan.
+
+*Kite... maafkan aku...*
+
+Tapi ia harus kuat demi Anna.
+
+"Aku tidak mau lawan kau," kata Luna pelan. "Aku tahu kau menyimpan buku mantra itu di dalam diriku... tapi kenapa? Kenapa kau tega memisahkan kami?"
+
+Ketua OSIS terdiam. Cahaya merah di matanya meredup.
+
+"Karena... aku takut," bisiknya. "Buku mantra itu terlalu kuat. Aku tidak bisa menghancurkannya. Satu-satunya cara... adalah menyembunyikannya di dalam jiwa yang murni."
+
+"Maka aku memilihmu, Luna."
+
+Di samping Luna, Anna terisak. "Kite... dia tidak bersalah..."
+
+"Aku bisa membantumu," Luna meraih tangan Ketua OSIS. "Tapi Kite... dia muridmu. Kau harus mengembalikannya."
+
+Ketua OSIS tersenyum tipis. "Murid yang baik... akan menemukan jalannya sendiri."
+
+Simbol di lengan Luna memudar menjadi emas hangat. Perpustakaan Antar-Dimensi bersinar damai — tapi di sudut hati Luna, ada ruang yang kosong.`,
+    isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7b",
+    twistText: "👂 Ada bayangan bergerak — \"Tunggu... itu Kite?\"",
+    choices: []
+  },
+  "scene6bb": {
+    title: "⚔️ Lawan dengan Kekuatan Baru — Kite Pergi",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Anna, Ketua OSIS",
+    text: `"CUKUP!" Luna mengangkat tangannya. Simbol di lengannya meledak — cahaya keemasan memenuhi ruangan.
+
+"Apa?!" Ketua OSIS mundur.
+
+"Aku bukan buku mantra-mu!" suara Luna bergema. "Aku pemiliknya! Dan kau sudah mengambil terlalu banyak!"
+
+Kekuatan dahsyat mengalir dari dalam dirinya. Mantra-mantra kuno menari di udara, membentuk lingkaran api di sekeliling Ketua OSIS.
+
+"Mustahil... kau menguasainya?!"
+
+Luna tersenyum pahit. "Buku itu memilihku. Tapi aku kehilangan Kite karena itu. Jadi kau harus bayar!"
+
+Dengan satu gerakan, Luna mengunci kekuatan Ketua OSIS dalam kristal. Perpustakaan Antar-Dimensi berguncang — lalu hening.
+
+Anna berlari memeluk Luna. "Kite... dia tidak di sini..."
+
+"Tidak," Luna memeluknya erat. "Tapi aku tidak akan menyerah. Aku akan temukan dia."
+
+Ketua OSIS terperangkap dalam kristal — tapi pertanyaan masih menggantung: di mana Kite?`,
+    isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7b",
+    twistText: "🎵 Suara peluit dari kristal pecah — \"Itu peluit Kite!\"",
+    choices: []
+  },
+  "scene6cb": {
+    title: "🏃 Kabuuuur! — Kite Pergi",
+    setting: "Perpustakaan Antar-Dimensi 🌌",
+    karakter: "Luna Celeste, Anna",
+    text: `"KITA BELUM SIAP! LARI!" teriak Luna.
+
+Tapi kakinya terasa berat. *Kite... maaf aku meninggalkanmu...*
+
+Anna menarik tangan Luna, air mata mengalir di pipinya. "Luna, cepat!"
+
+Mereka melompat ke portal darurat — dan jatuh di halaman akademi. Pagi hari. Tapi rasanya malam.
+
+"Luna... Kite..." Anna terisak.
+
+Luna menatap lengannya. Simbolnya masih bersinar redup. "Kite... dia tahu Ketua OSIS lebih baik dari siapa pun. Mungkin dia punya rencana."
+
+"A-apa maksudmu?"
+
+Luna menggigit bibir. "Kite bukan orang yang mudah dikalahkan. Aku yakin... dia masih hidup."
+
+Anna menatapnya dengan mata berkaca-kaca. "Kamu yakin?"
+
+Luna mengangguk — meski hatinya ragu. "Aku harus yakin. Demi dia."`,
+    isEnd: true,
+    isTwist: false,
+    twistTarget: "scene7b",
+    twistText: "🚪 Celah pintu dimensi — \"Jangan-jangan...\"",
+    choices: []
+  },
+  "scene7a": {
+    title: "🎬 TWIST — Anna Kembali!",
+    setting: "Perpustakaan Antar-Dimensi — lorong cermin yang mulai runtuh",
+    karakter: "Luna Celeste, Anna",
+    text: `"Ck ck ck... kau kira aku mati, Lu-chi?"
+
+Luna menoleh cepat. Jantungnya berhenti sejenak.
+
+Di ambang lorong cermin, berdiri **Anna** — baju robek, rambut berantakan, tapi senyum khasnya masih merekah.
+
+"A-Anna?!" suara Luna pecah.
+
+"Aku diajarin mantra invisible sama kamu, ingat?" Anna mendekat, pincang tapi bersemangat. "Pas Ketua OSIS melepaskanku ke jurang, aku langsung kasihtau... *Invisiblecake!*"
+
+Luna terpaku. "Jadi kau—"
+
+"Bersembunyi selama ini sambil nyari jalan pulang!" Anna merentangkan tangan. "Mantra sepuluh menit itu ternyata bisa bertahan lama kalau dipanjangin pakai mantra cadangan."
+
+Luna tertawa — tertawa sambil menangis. Ia memeluk Anna erat-erat.
+
+"BODOH! Kau membuatku khawatir setengah mati!"
+
+"Hehe, maaf maaf," Anna membalas pelukannya. "Tapi aku kan janji... aku ga akan pergi jauh-jauh dari Lu-chi."
+
+Di kejauhan, celah dimensi perlahan menutup. Lorong cermin mulai runtuh. Tapi Luna dan Anna sudah bersama lagi.`,
+    isEnd: true,
+    isTwist: true,
+    twistText: "Yang dikorbankan ternyata selamat — mantra Invisiblecake yang menyelamatkannya!",
+    choices: []
+  },
+  "scene7b": {
+    title: "🎬 TWIST — Kite Kembali!",
+    setting: "Lorong di luar Perpustakaan Antar-Dimensi — retakan dimensi mulai menutup",
+    karakter: "Luna Celeste, Kite",
+    text: `"Heh, kalian kira aku semudah itu mati?"
+
+Luna menahan napas. Suara itu... tidak mungkin.
+
+Dari balik puing dimensi yang runtuh, **Kite** melangkah keluar — jasnya robek, ada luka di pelipisnya, tapi matanya masih menyala dengan kecerdasan khasnya.
+
+"K-Kite?!" Luna hampir tidak percaya.
+
+"Ketua OSIS lupa satu hal," Kite menyeringai, meski wajahnya pucat. "Aku muridnya. Selama ini dia ngajarin aku cara bertahan dari mantra jebakan."
+
+"Tapi kau—" Anna memotong.
+
+"Pas ditinggal di dimensi itu, aku langsung sadar — dia ga akan bunuh aku. Aku terlalu berguna," Kite tertawa kecil, lalu meringis kesakitan. "Cuma butuh beberapa mantra anti-ikat dan... sedikit jalan memutar."
+
+Luna berlari dan memeluknya erat. "DASAR SINTING! Jangan pernah buat aku takut kayak gitu lagi!"
+
+"Aduh, sakit luka gua—" Kite meronta bercanda, tapi pelukannya balik erat. "Tapi tenang... gue janji. Gue ga bakal pergi dari lo, Luna."
+
+Di belakang mereka, dimensi terakhir tertutup rapat. Tapi semuanya baik-baik saja.`,
+    isEnd: true,
+    isTwist: true,
+    twistText: "Yang dikorbankan ternyata selamat — ilmunya sendiri yang menyelamatkannya!",
     choices: []
   }
 };
 
+const SCENES = Object.keys(story);
+
 let currentScene = "scene1";
 
 function goTo(sceneId) {
+  if (sceneId === "restart") {
+    document.getElementById("sceneContainer").innerHTML = "";
+    goTo("scene1");
+    return;
+  }
   const scene = story[sceneId];
   if (!scene) return;
   currentScene = sceneId;
@@ -517,7 +689,11 @@ function goTo(sceneId) {
     '</div>';
 
   if (scene.isEnd) {
-    html += '<div class="ending-badge">🏁 THE END</div>';
+    if (scene.isTwist) {
+      html += '<div class="twist-badge">🎬 PLOT TWIST! ' + esc(scene.twistText) + '</div>';
+    } else {
+      html += '<div class="ending-badge">🏁 THE END</div>';
+    }
   }
 
   if (scene.choices.length > 0) {
@@ -530,11 +706,28 @@ function goTo(sceneId) {
     html += '</div>';
   }
 
+  // Post-credit twist button for non-twist endings
+  if (scene.isEnd && !scene.isTwist && scene.twistTarget) {
+    html += '<hr class="post-credit-sep">';
+    html += '<div class="post-credit-label">🎬 Post-Credit</div>';
+    html += '<div class="choices">';
+    html += '<button class="choice-btn" data-goto="' + scene.twistTarget + '">';
+    html += '<span class="arrow">🎬</span> ' + esc(scene.twistText);
+    html += '</button></div>';
+  }
+
   if (scene.isEnd) {
     html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
   }
 
   div.innerHTML = html;
+
+  // Attach event listeners
+  div.querySelectorAll("[data-goto]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      goTo(this.getAttribute("data-goto"));
+    });
+  });
 
   document.querySelectorAll(".scene").forEach(el => el.classList.remove("active"));
   div.classList.add("active");
@@ -548,21 +741,12 @@ function goTo(sceneId) {
 }
 
 function esc(s) {
-  if (!s) return "";
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
 }
 
-// Event delegation
-document.addEventListener("click", function(e) {
-  let el = e.target;
-  while (el && el !== document) {
-    const g = el.getAttribute && el.getAttribute("data-goto");
-    if (g === "restart") { goTo("scene1"); return; }
-    if (g) { goTo(g); return; }
-    el = el.parentNode;
-  }
-});
-
+// Start the story
 goTo("scene1");
 </script>
 </body>
