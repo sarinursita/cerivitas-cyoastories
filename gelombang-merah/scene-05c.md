@@ -9,7 +9,7 @@
 
 Bintang memutuskan untuk diam saja.
 
-Tidak menjawab, tidak mencari cara ke Mars. Hanya memantau sinyal itu dari jauh.
+Tidak menjawab. Tidak mencari cara ke Mars. Hanya memantau sinyal itu dari jauh.
 
 3 hari kemudian... sinyalnya berhenti.
 
@@ -17,7 +17,7 @@ Tidak menjawab, tidak mencari cara ke Mars. Hanya memantau sinyal itu dari jauh.
 
 Bintang tidak pernah tahu apa yang terjadi. Apakah Bintang masa depan masih hidup? Apakah dia menunggu? Atau sudah...
 
-Yang Bintang tahu, setiap malam dia melihat ke arah titik merah Mars dan bertanya-tanya.
+Yang Bintang tahu — setiap malam, dia melihat ke arah titik merah Mars dan bertanya-tanya.
 
 *Apa yang akan terjadi jika aku menjawab?*
 
@@ -25,14 +25,15 @@ Yang Bintang tahu, setiap malam dia melihat ke arah titik merah Mars dan bertany
 
 **10 tahun kemudian.**
 
-Bintang lulus menjadi astronot, diterima di misi pertama ke Mars. Akhirnya.
+Bintang lulus menjadi astronot. Diterima di misi pertama — ke Mars. Akhirnya.
+
 Pesawat mendarat di permukaan Mars. Debu merah beterbangan. Bintang melangkah keluar, napas pertama di planet asing.
 
 Dan di sana, di antara debu dan bebatuan...
 
-Bintang menemukan sesuatu, barang kecil, terkubur separuh.
+Bintang menemukan sesuatu. Barang kecil. Terkubur separuh.
 
-Sebuah gelang. Identik persis dengan gelang yang Bintang pakai sekarang. Tapi usang, lapuk, sudah puluhan tahun di sini.
+Sebuah **gelang**. Identik persis dengan gelang yang Bintang pakai sekarang. Tapi usang. Lapuk. Sudah puluhan tahun di sini.
 
 Bintang terpaku. Waktu terasa berhenti.
 
@@ -42,9 +43,9 @@ Di kejauhan, radio komunikasi berbunyi pelan.
 
 Suara statis.
 
-BIP... BIP...
+*BIP... BIP...*
 
-**MYSTERY ENDING** — Lingkaran waktu masih terus berputar...
+🏁 **MYSTERY ENDING** — Lingkaran waktu masih terus berputar...
 
 ---
 
