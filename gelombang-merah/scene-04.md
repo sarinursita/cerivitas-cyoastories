@@ -25,5 +25,5 @@ Bintang dihadapkan pada pilihan.
 
 **Pilihan Akhir:**
 - [Scene 05A]: Coba komunikasi balik, tanya apa yang sebenarnya terjadi
-- [Scene 05B]: Cari cara ke Mars selametin Bintang masa depan
+-[Scene 05B]: Cari cara ke Mars, selamatkan Bintang masa depan
 - [Scene 05C]: Diam saja, pantau terus dari jauh
