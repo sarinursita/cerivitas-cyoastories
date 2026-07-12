@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cerita Interaktif</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<title>Satu Centang ✅ — Cerita Interaktif</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
 .container{max-width:700px;width:100%;margin:0 auto}
 .header{text-align:center;margin-bottom:30px;opacity:.8}
-.header h1{font-size:2em;background:linear-gradient(135deg,#ff6b6b,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header h1{font-size:2em;background:linear-gradient(135deg,#4fc3f7,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .header .scene-counter{color:#888;font-size:.9em;margin-top:5px}
+.header .story-title{color:#666;font-size:.85em;margin-top:2px}
 .scene{display:none;animation:fadeIn .6s ease}
 .scene.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -19,11 +20,14 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 .scene-meta{font-size:.85em;color:#888;margin-bottom:20px;font-style:italic}
 .narrative{font-size:1.1em;line-height:1.8;margin-bottom:30px;white-space:pre-wrap}
 .narrative p{margin-bottom:15px}
-.ending-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.narrative strong{color:#ff6b6b}
+.ending-badge{display:inline-block;background:linear-gradient(135deg,#4fc3f7,#c084fc);color:#fff;padding:8px 20px;border-radius:20px;font-weight:bold;margin-top:20px;font-size:.9em}
+.ending-title{font-size:1.3em;margin-top:15px;color:#4fc3f7;text-align:center}
+.ending-desc{text-align:center;color:#aaa;margin-top:8px;font-size:.95em}
 .choices{display:flex;flex-direction:column;gap:12px;margin-top:20px}
 .choice-btn{background:linear-gradient(135deg,#1a1a3a,#1a1a4a);color:#fff;border:1px solid #333;padding:16px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;text-align:left;width:100%;font-family:inherit}
 .choice-btn:hover{background:linear-gradient(135deg,#2a2a5a,#2a2a6a);border-color:#c084fc;transform:translateY(-2px);box-shadow:0 5px 20px rgba(192,132,252,.2)}
-.choice-btn .arrow{color:#c084fc;margin-right:10px}
+.choice-btn .arrow{color:#4fc3f7;margin-right:10px}
 .restart-btn{background:transparent;color:#c084fc;border:1px solid #c084fc;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1em;transition:all .3s ease;margin-top:20px;font-family:inherit}
 .restart-btn:hover{background:rgba(192,132,252,.1);transform:translateY(-2px)}
 @media(max-width:500px){.narrative{font-size:1em}}
@@ -32,65 +36,186 @@ body{background:#0a0a1a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-sy
 <body>
 <div class="container" id="app">
   <div class="header">
-    <h1>Cerita Interaktif</h1>
+    <h1>Satu Centang ✅</h1>
+    <div class="story-title">Veronica L. — Psikologis, Misteri</div>
     <div class="scene-counter" id="sceneCounter"></div>
   </div>
   <div id="sceneContainer"></div>
 </div>
 <script>
-const SCENES = ["scene1","scene2a","scene2b"];
 const story = {
-  "scene1": {    title: "Pesan dari kakak",    setting: "Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",    karakter: "Sena",    text: `# Scene 1: Pesan dari kakak
- 
+  "scene1": {
+    title: "Pesan dari kakak",
+    setting: "Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",
+    karakter: "Sena",
+    text: "Sudah tiga hari sejak kakakku menghilang. Polisi bilang mereka masih \"menyelidiki\", tapi aku tahu artinya: mereka tidak punya petunjuk. Aku hanya bisa berbaring di tempat tidur, memandangi langit-langit kamar yang mulai gelap.\n\nTiba-tiba, HP-ku bergetar. Sebuah notifikasi dari.. kakak?\n\nAku buka pesan itu. Satu kalimat pendek:\n\n\"Sena, kakak lupa. Kakak tuh kenapa bisa hilang?\"\n\nAku diam. Membaca ulang. Pertanyaan itu aneh — masa orang yang hilang nanya kenapa dia hilang? Tapi semakin lama aku mikir, semakin aku sadar sesuatu:\n\nAku sendiri juga gak tahu. Polisi bilang \"menghilang\", tapi mereka gak pernah bilang gimana caranya. Dan aku... aku gak pernah nanya. Dokter bilang aku kaget, trauma. Tapi sekarang, dipikir-pikir...\nKenapa aku gak nanya?\n\nKenapa tiga hari ini aku cuma di kamar, gak nyari kakak, gak ngehubungin temen-temennya, gak ngecek sosial medianya?\n\nAku buka galeri HP. Foto terakhir yang aku ambil... tiga hari yang lalu. Sebuah selfie. Aku tersenyum. Di latar belakang, kakak lagi duduk di meja makan, minum kopi, santai.\nItu adalah hari kakak dinyatakan hilang.\n\nDan di foto itu... kakak kelihatan baik-baik aja.",
+    isEnd: false,
+    choices: [
+      {target: "scene2a", text: "Membalas pesan kakak — coba cari tahu lebih banyak lewat HP"},
+      {target: "scene2b", text: "Keluar kamar dan mulai mencari sendiri — ada sesuatu yang gak beres"}
+    ]
+  },
+  "scene2a": {
+    title: "Membalas pesan kakak",
+    setting: "Masih di Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",
+    karakter: "Sena",
+    text: "Aku buka pesan itu. Mikir keras. Akhirnya cuma ngetik:\n\n\"Kak, lo di mana?\"\n\nTiga titik muncul di layar. Dia lagi ngetik. Jantungku berdegup kencang.\n\nTapi centang cuma satu. Pesanku gak terkirim. Sinyal penuh, tapi gak bisa kirim. Aneh.\n\nBalasan kakak masuk:\n\n\"Gak usah cari aku, Sen. Lo cari aja ingatan lo yang ilang.\"\n\nIngatan? Maksudnya apa? Aku bingung. Mau nanya lagi, tapi tiga titik itu muncul lalu hilang. Gak ada balasan lagi.\n\nAku cek nomor pengirim. Itu bener nomor kakak. Tapi foto profilnya bukan foto kakak — foto kamar kosong. Kamarku. Diambil dari sudut pintu.",
+    isEnd: false,
+    choices: [
+      {target: "scene3a", text: "Cek galeri HP — mungkin ada foto lain yang bisa jelasin"},
+      {target: "scene3b", text: "Cek Google Drive kakak — Pasti ada petunjuk"}
+    ]
+  },
+  "scene2b": {
+    title: "Keluar kamar dan mulai mencari sendiri",
+    setting: "Rumah Sena — lorong gelap menuju kamar kakak. Sore hari, hampir magrib. Rumah terasa kosong. Kamar kakak rapih.",
+    karakter: "Sena",
+    text: "Aku bangkit dari tempat tidur. Pertama kalinya dalam tiga hari aku berdiri. Kakiku lemas, tapi aku paksa jalan.\n\nPintu kamar kakak terbuka. Di dalam, tempat tidurnya rapi. Seprai halus, bantal diatur. Kakak gak pernah serapi ini.\n\nLemari kakak kosong. Semua baju masih ada. Gak ada yang dibawa. Kalo dia pergi, pasti bawa baju. Kecuali... dia gak pergi sendiri.\n\nDi dasar lemari, nyangkut amplop putih. Namaku di atasnya. Tulisan kakak — huruf S melingkar kayak ular.\n\nAku buka. Isinya cuma satu kalimat:\n\n\"Sena, cari buku harianku. Tapi jangan baca halaman terakhir.\"",
+    isEnd: false,
+    choices: [
+      {target: "scene4a", text: "Cari buku harian kakak — mulai dari kamarnya"},
+      {target: "scene4b", text: "Cek kamar sendiri dulu — mungkin ada petunjuk yang selama ini gak disadari"}
+    ]
+  },
+  "scene3a": {
+    title: "Cek Galeri HP",
+    setting: "Masih di kamar Sena — HP di tangan, layar galeri terbuka. Sore mulai berubah jadi senja, kamar makin gelap. Cahaya dari layar HP satu-satunya yang terang.",
+    karakter: "Sena",
+    text: "Aku buka galeri HP. Scroll ke bawah. Seminggu terakhir — foto biasa. Makanan, tugas, selfie.\n\nTapi pas aku scroll ke tiga hari lalu, tanggal kakak hilang... galerinya kosong. Ada celah. Beberapa foto kehapus?\n\nAku cek \"Recently Deleted\". Cuma ada satu foto. Diambil jam 23:47, malam sebelum kakak dinyatakan hilang.\n\nIsinya: kursi kosong di meja makan. Dua piring. Dua gelas. Tapi di atas salah satu piring, ada catatan kecil yang tertulis: \"Maaf, Sen.\"\n\nTulisan tangan kakak. Tapi foto itu diambil dari sudut langit-langit — seperti dari kamera tersembunyi. Bukan dari HP-ku.\n\nLalu siapa yang motret?",
+    isEnd: false,
+    choices: [
+      {target: "scene5a", text: "Periksa meja makan — cari petunjuk di dapur"},
+      {target: "scene5b", text: "Balas pesan kakak lagi — coba tanya soal foto itu"}
+    ]
+  },
+  "scene3b": {
+    title: "Cari di Google Drive",
+    setting: "Kamar Sena — laptop kakak terbuka di meja. Layar biru Google Drive. Malam hari, lampu kamar cuma dari layar laptop.",
+    karakter: "Sena",
+    text: "Aku buka laptop kakak. Biasanya dia gak pernah ninggalin laptop, apalagi dalam keadaan nyala. Tapi ini — terbuka, layar Google Drive, kayak sengaja dibiarin.\n\nFolder pertama: \"Buat Sen\"\n\nJantungku berdegup. Aku klik. Ratusan file teks berjejer rapi. Tanggalnya setahun ke belakang. Setiap hari — gak pernah bolong. Kayak kakak punya kewajiban buat nulis sesuatu setiap malam.\n\nAku buka yang paling awal, setahun lalu. Isinya cuma dua kalimat:\n\n\"Hari ini Sena cerita soal temen barunya. Rana. Cowok? Cewek? Gak penting. Yang penting Sena seneng.\"\n\nAku lanjut scroll. Polanya sama setiap hari. \"Sena makan apa\", \"Sena nonton apa\", \"Sena ketawa berapa kali\". Detil banget. Tapi makin ke sini, makin pendek tulisannya.\n\nYang bikin aku berhenti — ada satu file audio di bagian paling bawah. Format MP3. Nama filenya: \"Sen — jangan panik\"\n\nAku pencet play. Suara kakak muncul. Napasnya berat, kayak lagi di tempat gelap. Terus dia bisik:\n\n\"Sen. Kalo lo denger ini, artinya gue udah gak di rumah lagi. Bukan hilang — maksud gue, gue pergi. Lo inget taman? Taman di ujung kompleks? Kejadian di sana... gue yang mulai. Bukan lo. Ingat itu.\"\n\nFile selesai. Aku play ulang. Tiga kali. Tangan aku udah gemetaran.\n\nDi folder yang sama, ada satu folder lagi. Namanya cuma satu kata: \"TAMAN\" — dengan icon gembok.",
+    isEnd: false,
+    choices: [
+      {target: "scene6a", text: "Coba tebak password folder TAMAN"},
+      {target: "scene6b", text: "Cari petunjuk di kamar kakak dulu — jangan asal nebak"}
+    ]
+  },
+  "scene4a": {
+    title: "Buku Harian Kakak",
+    setting: "Kamar kakak Sena — rapih, sepi, dingin. Lemari terbuka, amplop putih masih di tangan Sena.",
+    karakter: "Sena",
+    text: "Aku duduk di lantai kamar kakak. Di pangkuanku, buku harian yang baru aku temukan di balik tumpukan kaus. Sampul coklat, tipis, sobek di sudut kanan bawah — sobekan baru, kayak baru dibaca orang lain.\n\nAku buka halaman pertama.\n\n\"Hari ini Sena cerita soal temen barunya. Aku seneng dia punya temen lagi.\"\n\nTanggal setahun lalu. Temen baru? Aku gak ingat punya temen baru.\n\nAku lanjut baca. Halaman demi halaman — semua tentang aku. Apa yang aku makan. Siapa yang aku ajak ngobrol. Berapa kali aku ketawa. Detil banget. Kayak kakak ngelogbook hidupku selama setahun.\n\nBulu kudukku berdiri.\n\nSemakin baru tanggalnya, semakin pendek tulisannya. Tiga bulan lalu: \"Sena lupa. Lagi. Tapi sekarang dia gak inget kalo dia lupa.\"\n\nDua bulan lalu: \"Sena nanya soal kejadian di taman. Aku bilang gak ada kejadian apa-apa.\"\n\nKejadian di taman? Aku gak inget.\n\nHalaman terakhir yang tertulis — seminggu sebelum kakak hilang:\n\n\"Besok aku harus bilang. Aku gak bisa diem terus. Tapi kalo Sena tahu, dia bakal...\"\n\nPutus. Di bawahnya ada satu kalimat lagi, ditulis lebih buru-buru:\n\n\"Sena sekarang ada di kamar sebelah. Dia gak tahu apa-apa. Mungkin lebih baik kalo gitu.\"\n\nSekarang halaman terakhir — yang dilarang — ada di depan mata. Lebih tebal, kayak ada yang nyempil di antara halaman.\n\nKakak bilang jangan dibaca. Tapi apa aku bisa tidur tenang kalo gak tahu?",
+    isEnd: false,
+    choices: [
+      {target: "scene7a", text: "Buka halaman terakhir — aku harus tahu"},
+      {target: "scene7b", text: "Turuti pesan kakak — tutup bukunya dulu, cari petunjuk lain di kamar"}
+    ]
+  },
+  "scene4b": {
+    title: "Cek Kamar Sendiri",
+    setting: "Kamar Sena — gelap, cuma lampu HP yang nyala. Berantakan, baju di mana-mana, tisu bekas berserakan.",
+    karakter: "Sena",
+    text: "Aku balik ke kamarku sendiri. Aku jarang bener-bener liat kamar ini dalam tiga hari terakhir — cuma tidur dan menangis. Tapi sekarang aku liat semuanya dengan mata yang beda.\n\nAda sesuatu di bawah karpet. Aku tahu karena ujung karpet dekat lemari agak melipat, kayak baru diangkat. Aku tarik karpetnya.\n\nSebuah foto.\n\nFoto setengah sobek. Aku sama seorang cewek — rambutnya sebahu, senyum lebar, jidatnya ditempelin stiker bintang. Kami berdua lagi di taman, motret pake kamera depan, latar ayunan. Wajah cewek itu disobek rapi, tinggal badan dan senyum yang masih keliatan.\n\nAku jungkir balik fotonya. Di belakang ada tulisan, pulpen biru, aku tahu itu tulisan tanganku:\n\n\"Aku janji gak bakal inget.\"\n\nTulisan itu baru. Maksudku — tintanya masih kelihatan baru. Gak pudar. Gak kayak ditulis setahun lalu.\n\nTanganku gemetaran. Siapa cewek ini? Kenapa aku disobek mukanya? Kenapa aku nulis janji kayak gitu?",
+    isEnd: false,
+    choices: [
+      {target: "scene8a", text: "Cari tahu siapa cewek di foto itu — mulai dari kamar kakak"},
+      {target: "scene8b", text: "Terima aja — mungkin emang ada yang sengaja dilupain"}
+    ]
+  },
+  "scene5a": {
+    title: "Periksa Meja Makan",
+    setting: "Rumah Sena — dapur sepi, lampu neon berkedap-kedip, meja makan masih sama kayak di foto. Dua piring kotor, dua gelas bekas minum. Tapi catatan \"Maaf, Sen\" udah gak ada.",
+    karakter: "Sena",
+    text: "Aku turun ke dapur. Sepi. Lampu dapur sengaja dimatiin — atau ada yang matiin? Aku nyalain. Meja makan masih sama persis kayak di foto. Dua piring kotor masih ada, dua gelas dengan sisa air di dasarnya. Tapi catatan kecil itu — \"Maaf, Sen\" — udah gak ada. Mungkin udah dibuang. Atau sengaja diambil.\n\nAku cek langit-langit. Di sudut ruangan, dekat lampu gantung — ada titik hitam. Aku naik ke kursi, berdiri jinjit. Itu lensa. Kamera kecil, sebesar kuku jari, nempel di plafon. Kabel tipis mengular ke celah dinding.\n\nJantungku berdegup. Ada kamera di rumahku. Dari kapan?\n\nAku ikuti kabelnya. Lewat celah dinding, turun ke lorong, masuk ke bawah pintu kamar... kamar kakak. Kabel itu nyambung ke USB laptop kakak yang masih nyala.\n\nAku duduk di depan laptop kakak. Layar masih nyala — aplikasi kamera terbuka. Rekaman. Langsung dari dapur.\n\nAku scroll rekamannya. Hari-hari biasa. Aku sendiri di rumah. Makan sambil HP. Gak ada yang aneh. Tapi pas aku scroll ke tiga malam lalu — tanggal kakak hilang — ada yang beda.\n\nDi rekaman itu, jam 11 malam. Kakak duduk di meja makan. Sendirian. Nulis sesuatu di secarik kertas. Terus dia lipat, taruh di piring. Lalu dia liat ke arah kamera — tepat ke lensa — dan bilang pelan:\n\n\"Sen, kalo lo liat ini... maaf.\"\n\nAku ulang berkali-kali. Kakak tahu tentang kamera itu. Kakak sengaja ninggalin pesan di depan kamera itu. Buat aku.\n\nAku raba di bawah laptop. Ada stiker kuning nempel di badan laptop — kayak stiker alarm yang baru nempel. Aku cabut. Di balik stiker, ada tulisan tangan kakak.\n\n\"Lo udah deket, Sen. Taman. Di bawah bangku. Cari.\"\n\nAku ke taman. Nemu kotak kayu di bawah bangku. Isinya kalung inisial \"RN\". Surat kakak. Rana pindah. Kakak pergi lindungin aku. Aku duduk di bangku taman — pegang kalung Rana, baca surat kakak berkali-kali.\n\nKayak centang satu di WhatsApp. Pesan ke kakak gak pernah sampe, tapi aku tahu dia ada di suatu tempat. Baik-baik aja. Mungkin suatu hari centangnya jadi dua.",
+    isEnd: true,
+    endingName: "END 4 — Lembar Baru",
+    endingDesc: "Sena menemukan kebenaran dengan caranya sendiri. Kakak pergi bukan untuk meninggalkan, tapi untuk melindungi. Satu centang — satu pesan yang mungkin tak terkirim, tapi cukup untuk membuat Sena tenang.",
+    endingVibe: "📖",
+    choices: []
+  },
+  "scene5b": {
+    title: "Balas Pesan Kakak Lagi",
+    setting: "Kamar Sena — HP di tangan, layar chat dengan kakak. Jari Sena melayang di atas keyboard. Lampu kamar mati, cuma layar HP yang terang.",
+    karakter: "Sena",
+    text: "Aku buka chat kakak. Pesan terakhir dari tiga hari lalu: \"Gak usah cari aku, Sen. Lo cari aja ingatan lo yang ilang.\"\n\nBelum dibales. Centang satu.\n\nAku ngetik pelan-pelan: \"Kak. Foto di galeriku — itu dari kamera di langit-langit dapur. Lo yang pasang? Atau ada orang lain?\"\n\nAkirim. Centang satu. Gak terkirim. Kayak biasa.\n\nAku tarik napas. Udah tiga hari centang satu terus. Tapi kali ini beda — satu menit kemudian, HPku bergetar. Layar chat berubah. Centang satu jadi centang dua. Terkirim.\n\nLalu tiga titik muncul. Dia lagi ngetik.\n\nHP bergetar lagi. Balasan masuk:\n\n\"Bukan aku yang pasang. Tapi aku tahu. Kamera itu dari mantan pacar Rana. Dia curiga Rana selingkuh. Tapi yang direkam malah kita.\"\n\nAku baca ulang. Mantan pacar Rana? Rana punya pacar? Apa hubungan Rana sama semua ini?\n\nAku ngetik: \"Rana? Kak — Rana siapa? Apa hubungannya sama taman?\"\n\nTiga titik muncul. Lalu ilang. Muncul lagi. Ilang lagi.\n\nAkhirnya balasan masuk:\n\n\"Lo beneran gak inget Rana? Temen lo sendiri? Sen... lo yang dorong dia di taman. Lo yang bikin dia jatuh. Lo yang lupa. Bukan aku.\"\n\nAku megang HP dengan tangan gemetar. Aku yang dorong?\n\nBalasan lagi masuk:\n\n\"Cari HP lo yang lama. Di bawah bangku taman, ada yang terkubur. Hidupin. Lo bakal inget semuanya. Tapi... kalo lo gak siap, jangan.\"\n\nAku ke taman. Gali di bawah bangku. Nemu HP rusak — HP lamaku, yang aku kira ilang setahun lalu. Layar masih nyala 10 detik. Chat terbuka: \"Tapi kak... dia jatuh karena aku.\" Tiba-tiba ingatan balik.\n\nRana marah. Dorong. Aku dorong balik. Rana jatuh. Kakak datang. Satu centang... baru sekarang aku paham kenapa kakak bilang cari ingatan yang ilang.\n\nPanik. Kakak datang entah dari mana — langsung angkat Rana, bawa pergi, bisik ke aku: \"Diem. Lo gak liat apa-apa.\"",
+    isEnd: true,
+    endingName: "END 3 — Kakak Sayang Sena",
+    endingDesc: "Sena tahu sekarang. Kakak mengambil alih — melindungi Sena dari rasa bersalah yang terlalu berat. Bukan lari, tapi menjaga.",
+    endingVibe: "💌",
+    choices: []
+  },
+  "scene6a": {
+    title: "Hack Folder TAMAN",
+    setting: "Kamar Sena — laptop kakak masih nyala, folder \"TAMAN\" dengan icon gembok di layar. Jam 11 malam, rumah sepi. Hanya suara kipas laptop yang terdengar.",
+    karakter: "Sena",
+    text: "Aku coba tebak password folder itu. Jariku melayang di atas keyboard.\n\nTanggal lahir kakak — salah.\nNama aku — salah.\nNama kakak — salah.\n\nAku berhenti. Mikir. Folder ini tentang Rana. Mungkin passwordnya nama dia. Aku ketik pelan: RANA\n\nFolder terbuka.\n\nDi dalamnya cuma satu file. Video. MP4. Durasi 3 menit 27 detik.\n\nAku pencet play. Rekaman dari HP seseorang — kelihatan dari sela-sela semak. Aku dan Rana di taman. Sore. Rana marah. Mukanya merah. Dia dorong aku — aku hampir jatuh. Aku dorong balik. Lebih keras dari yang aku kira.\n\nRana jatuh ke belakang. Kepalanya ke batu.\n\nAku berhenti napas sebentar di layar. Rana gak gerak. Terus kakak muncul — dari arah mana? Kayak dia udah di situ dari tadi. Kakak langsung angkat Rana, gendong, bawa pergi. Sebelum pergi, kakak liat ke arah kamera — atau ke arah aku — dan bilang pelan:\n\n\"Sekarang lo ngerti kenapa gak usah diinget?\"\n\nVideo selesai. Aku duduk di lantai. Napasku pendek-pendek.\n\nRana jatuh. Kakak bawa pergi. Dan kakak — kakak ada di sana. Kakak liat semuanya. Kakak nutupin biar aku aman.\n\nTapi kakak pergi. Dan aku baru sadar sekarang.",
+    isEnd: true,
+    endingName: "END 1 — Ketemu Kakak?",
+    endingDesc: "Sena akhirnya tahu kebenaran tentang malam di taman. Kakak ada di sana — melihat semuanya — dan memilih untuk melindungi Sena dengan harga apapun.",
+    endingVibe: "😰",
+    choices: []
+  },
+  "scene6b": {
+    title: "Cari Petunjuk di Kamar Kakak",
+    setting: "Kamar kakak — rapih, dingin, lampu menyala terang. Lukisan pemandangan di dinding, satu sudut debunya ilang — tanda baru diangkat. Jam dinding menunjukkan pukul 11 malam. Sepi.",
+    karakter: "Sena",
+    text: "Aku gak jadi nebak password folder itu. Mending nyari petunjuk fisik dulu di kamar kakak. Udah aku geledah — lemari, kolong, laci — tapi ada satu tempat yang terlewat.\n\nLukisan pemandangan gunung yang dari dulu nempel di dinding. Aku angkat. Debu di pinggirnya — tapi di sudut kiri atas, debunya ilang. Kayak baru diangkat, baru-baru ini.\n\nDi balik lukisan, ada lubang kecil di tembok. Kayak tempat sembunyi tradisional — kakak suka ngelakuin ini dari kecil. Aku masukin jari. Nyentuh kertas. Aku tarik pelan.\n\nSatu lembar koran sobek. Lipatannya rapi, hampir gak kusut. Kayak baru ditaruh. Atau sering dibaca terus dilipet balik.\n\nJudul: \"Pelajar SMA Selamat Setelah Terjatuh di Taman\"\n\nBadan aku kaku. Aku baca pelan-pelan. Tanggalnya setahun lalu. Berita pendek di pojok halaman — bukan berita besar, cuma rubrik kecamatan. Isinya: seorang siswi, Rana, ditemukan di taman kompleks dengan luka di kepala. Dibawa ke RS, sadar setelah tiga hari dirawat. Wawancara singkat: \"Aku gak inget kejadiannya. Yang pasti aku gak dendam sama siapa pun.\"\n\nAku baca itu berulang kali. Rana gak inget. Rana gak dendam.\n\nDi pinggir koran, coretan pulpen biru — tulisan kakak yang khas, huruf S melingkar:\n\n\"Dia gak salahin lo, Sen. Dia beneran gak inget. Dan dia udah pindah. Baik-baik aja. Lo juga bakal baik-baik aja. Kakak janji.\"\n\nTanganku lemas. Koran itu jatuh ke pangkuanku. Rana gak apa-apa. Dia sembuh. Dia pindah. Hidupnya jalan terus.\n\nKakak gak bohong. Kakak gak nutupin kematian. Kakak cuma... lindungin aku dari rasa bersalah yang gak perlu.\n\nAku pegang koran itu, lipat rapi, simpan di saku. Mungkin ini yang namanya centang satu — pesan gak terkirim, tapi isinya bikin tenang.",
+    isEnd: true,
+    endingName: "END 2 — Rana Baik-baik Aja",
+    endingDesc: "Rana selamat. Rana pindah. Rana gak dendam. Kakak bukan pelindung yang kejam — hanya kakak yang mencoba yang terbaik untuk adiknya. Lega.",
+    endingVibe: "😌",
+    choices: []
+  },
+  "scene7a": {
+    title: "Buka Halaman Terakhir",
+    setting: "Kamar kakak — lantai dingin, buku harian di pangkuan Sena. Halaman terakhir terbuka. Sepi. Hanya suara detak jantung sendiri.",
+    karakter: "Sena",
+    text: "Aku buka halaman terakhir. Kertasnya lebih tebal dari halaman lain. Tapi gak ada tulisan panjang — cuma satu baris. Ditulis besar, tekanan kuat sampe tembus ke halaman belakang:\n\n\"SENA, LO GAK SALAH. KECELAKAAN. GUE YANG MINTA LO DIEM.\"\n\nDi bawahnya, secarik kertas lain jatuh. Lipatan kecil. Aku buka. Tulisan kakak, lebih rapi:\n\n\"Sen, Kakak di rumah nenek di desa. Polisi mulai nanya soal kejadian di taman. Bukan tentang lo — tentang aku. Karena aku yang bawa Rana ke RS. Mereka curiga aku yang dorong. Aku diemin aja biar lo aman. Kakak di sini baik-baik aja. Nanti kalo udah tenang, Kakak pulang. Janji. \uD83D\uDC99\"\n\nAku baca surat itu berulang kali. Kakak pergi bukan lari dari aku — tapi lindungin aku. Aku pegang HP. Buka chat kakak. Pesan terakhirku: \"Kak, lo di mana?\"\n\nCentang satu.\n\nTapi sekarang aku tahu jawabannya.",
+    isEnd: true,
+    endingName: "END 3 — Kakak Sayang Sena",
+    endingDesc: "Kakak pergi, tapi bukan tanpa pesan. \"Nanti kalo udah tenang, Kakak pulang. Janji.\" Centang satu, tapi penuh arti.",
+    endingVibe: "💌",
+    choices: []
+  },
+  "scene7b": {
+    title: "Turuti Pesan Kakak",
+    setting: "Kamar kakak — Sena tutup buku harian, gak jadi baca halaman terakhir. Letakin buku di lantai. Lampu kamar redup. Sepi.",
+    karakter: "Sena",
+    text: "Aku tutup buku itu. Kakak bilang jangan buka halaman terakhir — untuk sekali ini, aku denger kakak.\n\nTapi ada yang mengganjal. Pasti ada petunjuk lain di kamar ini. Aku cari lagi. Buka laci. Ngobrak lemari. Sampai jari aku nyentuh sesuatu di sela-sela dasar lemari.\n\nDompet kakak. Dompet yang biasa dia bawa kemana-mana.\n\nAku buka. Isinya KTP kakak — foto dia senyum. Di samping KTP, ada foto aku kecil. Dan di balik foto itu — selembar tiket bus.\n\nKota Batu. Tanggal... besok.\n\nAku baca lagi. Besok. Berarti kakak belum pergi. Berarti kakak masih di kota ini. Mungkin masih di rumah ini — atau di suatu tempat di sekitar sini. Dan dia baru berencana pergi besok.\n\nAku pegang tiket itu erat. Kakak masih ada. Masih ada waktu.",
+    isEnd: true,
+    endingName: "END 1 — Ketemu Kakak?",
+    endingDesc: "Kakak belum pergi. Masih ada waktu. Sena memegang tiket bus itu erat — mungkin masih ada kesempatan untuk bertemu.",
+    endingVibe: "😰",
+    choices: []
+  },
+  "scene8a": {
+    title: "Cari Rana",
+    setting: "Kamar Sena — HP di tangan, layar Instagram terbuka. Tengah malam. Sepi. Cuma sinar HP yang terang di kamar gelap.",
+    karakter: "Sena",
+    text: "Foto sobek di tanganku. Rana. Rambut sebahu, senyum lebar, stiker bintang di jidat. Aku harus tahu siapa dia.\n\nAku buka Instagram. Search: ranaa. Satu akun muncul — foto profil cewek sama kayak di foto. Postingan terakhir setahun lalu: foto tangan di kamar RS, infus di kiri. Caption: \"Makasih buat yang udah jenguk. Aku baik-baik aja \uD83D\uDC95\"\n\nAku scroll komentar. \"Syukur!\", \"Cepet sembuh!\", \"Love you!\" Gak ada yang nyebut kakak. Gak ada yang nyebut aku.\n\nAku buka DM. Jariku berhenti di atas kolom chat. Aku ketik:\n\n\"Ran? Ini Sena. Aku... boleh minta maaf?\"\n\nKirim. HP aku letakin. Gak berharap dibales.\n\nTapi beberapa menit kemudian — centang dua. Biru. Rana baca.\n\nHP bergetar. \"Sen? Lama banget lo ilang. I miss you.\"\n\nAku kaku. Rana gak marah. Rana kangen.",
+    isEnd: true,
+    endingName: "END 2 — Rana Baik-baik Aja",
+    endingDesc: "Setelah setahun, Sena berani menghubungi Rana. Dan jawabannya? Bukan amarah — tapi sebuah kalimat sederhana: \"I miss you.\"",
+    endingVibe: "😌",
+    choices: []
+  },
+  "scene8b": {
+    title: "Terima & Lanjut",
+    setting: "Kamar Sena — foto sobek di tangan. Tulisan \"Aku janji gak bakal inget\" di baliknya. Tengah malam. Lampu kamar mati.",
+    karakter: "Sena",
+    text: "Aku simpen foto itu di dompet. Mungkin emang ada yang sengaja dilupain. Dan mungkin itu lebih baik.\n\nTapi aku gak mau lupain kakak.\n\nAku buka Find My Device pake akun kakak. Laptopnya masih nyala dan terhubung. Lokasi terakhir: Terminal Bus Kota. Jam 10 malam tadi.\n\nAku langsung ambil jaket. Ojek online. 15 menit ke terminal. Aku cari-cari — sepi. Tapi di loker penitipan nomor 27, ada kunci masih nancep. Aku buka.\n\nDi dalamnya: satu paket. Nama aku di atasnya. Tulisan kakak.\n\nAku buka. Buku harian asli — lebih tebal, lebih usang. Isinya penuh. Dan satu flashdisk. Sama secarik kertas:\n\n\"Sen — Kakak pergi dulu. Tapi Kakak tinggalin ini. Kapan aja lo butuh, dengerin suara Kakak. Kakak sayang lo. Janji, Kakak pulang. \uD83D\uDC99\"\n\nAku duduk di kursi terminal yang kosong. Buku harian di tangan. Halaman terakhir — aku buka.\n\nKosong. Bersih.\n\nKayak kakak sengaja ninggalin satu halaman kosong, buat aku nulis cerita sendiri.",
+    isEnd: true,
+    endingName: "END 4 — Lembar Baru",
+    endingDesc: "Halaman terakhir itu kosong. Bukan karena kakak lupa mengisinya — tapi karena kakak sengaja meninggalkannya untuk Sena. Lembar baru.",
+    endingVibe: "📖",
+    choices: []
+  }
+};
 
-
-Sudah tiga hari sejak kakakku menghilang. Polisi bilang mereka masih "menyelidiki", tapi aku tahu artinya: mereka tidak punya petunjuk. Aku hanya bisa berbaring di tempat tidur, memandangi langit-langit kamar yang mulai gelap.
-
-Tiba-tiba, HP-ku bergetar. Sebuah notifikasi dari.. kakak?
-
-Aku buka pesan itu. Satu kalimat pendek:
- 
-"Sena, kakak lupa. Kakak tuh kenapa bisa hilang?"
-
-Aku diam. Membaca ulang. Pertanyaan itu aneh — masa orang yang hilang nanya kenapa dia hilang? Tapi semakin lama aku mikir, semakin aku sadar sesuatu:
-
-Aku sendiri juga gak tahu. Polisi bilang "menghilang", tapi mereka gak pernah bilang gimana caranya. Dan aku... aku gak pernah nanya. Dokter bilang aku kaget, trauma. Tapi sekarang, dipikir-pikir...
-Kenapa aku gak nanya?
- 
-Kenapa tiga hari ini aku cuma di kamar, gak nyari kakak, gak ngehubungin temen-temennya, gak ngecek sosial medianya?
- 
-Aku buka galeri HP. Foto terakhir yang aku ambil... tiga hari yang lalu. Sebuah selfie. Aku tersenyum. Di latar belakang, kakak lagi duduk di meja makan, minum kopi, santai.
-Itu adalah hari kakak dinyatakan hilang.
- 
-Dan di foto itu... kakak kelihatan baik-baik aja.`,    isEnd: false,    choices: [      {target: "scene2a", text: "Membalas pesan kakak — coba cari tahu lebih banyak lewat HP"},      {target: "scene2b", text: "Keluar kamar dan mulai mencari sendiri — ada sesuatu yang gak beres"}    ]  },  "scene2a": {    title: "Membalas pesan kakak",    setting: "Masih di Kamar Sena — sore hari, sinar jingga masuk lewat jendela. Kotor, berantakan, tisu bekas di mana-mana.",    karakter: "Sena",    text: `Aku buka pesan itu. Mikir keras. Akhirnya cuma ngetik:
-
-"Kak, lo di mana?"
-
-Tiga titik muncul di layar. Dia lagi ngetik. Jantungku berdegup kencang.
-
-Tapi centang cuma satu. Pesanku gak terkirim. Sinyal penuh, tapi gak bisa kirim. Aneh.
-
-Balasan kakak masuk:
-
-"Gak usah cari aku, Sen. Lo cari aja ingatan lo yang ilang."
-
-Ingatan? Maksudnya apa? Aku bingung. Mau nanya lagi, tapi tiga titik itu muncul lalu hilang. Gak ada balasan lagi.
-
-Aku cek nomor pengirim. Itu bener nomor kakak. Tapi foto profilnya bukan foto kakak — foto kamar kosong. Kamarku. Diambil dari sudut pintu.`,    isEnd: false,    choices: [      {target: "scene3a", text: "Cek galeri HP — mungkin ada foto lain yang bisa jelasin"},      {target: "scene3b", text: "Coba telpon nomor kakak — dengar suaranya langsung"}    ]  },  "scene2b": {    title: "Keluar kamar dan mulai mencari sendiri",    setting: "Rumah Sena — lorong gelap menuju kamar kakak. Sore hari, hampir magrib. Rumah terasa kosong. Kamar kakak rapih.",    karakter: "Sena",    text: `Aku bangkit dari tempat tidur. Pertama kalinya dalam tiga hari aku berdiri. Kakiku lemas, tapi aku paksa jalan.
-
-Pintu kamar kakak terbuka. Di dalam, tempat tidurnya rapi. Seprai halus, bantal diatur. Kakak gak pernah serapi ini.
-
-Lemari kakak kosong. Semua baju masih ada. Gak ada yang dibawa. Kalo dia pergi, pasti bawa baju. Kecuali... dia gak pergi sendiri.
-
-Di dasar lemari, nyangkut amplop putih. Namaku di atasnya. Tulisan kakak — huruf S melingkar kayak ular.
-
-Aku buka. Isinya cuma satu kalimat:
-
-"Sena, cari buku harianku. Tapi jangan baca halaman terakhir."`,    isEnd: false,    choices: [      {target: "scene4a", text: "Cari buku harian kakak — mulai dari kamarnya"},      {target: "scene4b", text: "Cek kamar sendiri dulu — mungkin ada petunjuk yang selama ini gak disadari"}    ]  }};
-
+const SCENES = Object.keys(story);
 let currentScene = "scene1";
 
 function goTo(sceneId) {
+  if (sceneId === "restart") { goTo("scene1"); return; }
   const scene = story[sceneId];
   if (!scene) return;
   currentScene = sceneId;
@@ -105,13 +230,12 @@ function goTo(sceneId) {
   }
 
   let meta = [];
-  if (scene.setting) meta.push("📍 " + esc(scene.setting));
-  if (scene.karakter) meta.push("👤 " + esc(scene.karakter));
+  if (scene.setting) meta.push("\uD83D\uDCCD " + esc(scene.setting));
+  if (scene.karakter) meta.push("\uD83D\uDC64 " + esc(scene.karakter));
 
   let html = '<div class="scene-title">' + esc(scene.title) + '</div>';
   if (meta.length) html += '<div class="scene-meta">' + meta.join(" | ") + '</div>';
 
-  // Format narrative: bold, italic, paragraphs
   let narr = scene.text;
   narr = narr.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   narr = narr.replace(/\*(.+?)\*/g, "<em>$1</em>");
@@ -120,26 +244,20 @@ function goTo(sceneId) {
     '</div>';
 
   if (scene.isEnd) {
-    html += '<div class="ending-badge">🏁 THE END</div>';
-  }
-
-  // Auto-advance for merge scenes
-  if (scene.autoChoice && scene.choices.length > 0) {
-    setTimeout(function() { goTo(scene.choices[0].target); }, 2500);
-    // Still show a brief indicator
-    html += '<p style="color:#666;font-style:italic;text-align:center;margin-top:20px">⟳ Melanjutkan...</p>';
-  } else if (scene.choices.length > 0) {
-    html += '<div class="choices">';
-    for (let c of scene.choices) {
-      html += '<button class="choice-btn" data-goto="' + c.target + '">';
-      html += '<span class="arrow">➤</span> ' + esc(c.text);
-      html += '</button>';
-    }
-    html += '</div>';
+    html += '<div class="ending-badge">' + (scene.endingVibe || "\uD83C\uDFC1") + ' ' + esc(scene.endingName) + '</div>';
+    if (scene.endingDesc) html += '<div class="ending-desc">' + esc(scene.endingDesc) + '</div>';
   }
 
   if (scene.isEnd) {
-    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">⟳ Main Lagi</button></div>';
+    html += '<div style="text-align:center"><button class="restart-btn" data-goto="restart">\u27F3 Main Lagi</button></div>';
+  } else if (scene.choices && scene.choices.length > 0) {
+    html += '<div class="choices">';
+    for (let c of scene.choices) {
+      html += '<button class="choice-btn" data-goto="' + c.target + '">';
+      html += '<span class="arrow">\u27A4</span> ' + esc(c.text);
+      html += '</button>';
+    }
+    html += '</div>';
   }
 
   div.innerHTML = html;
@@ -160,7 +278,6 @@ function esc(s) {
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Event delegation
 document.addEventListener("click", function(e) {
   let el = e.target;
   while (el && el !== document) {
