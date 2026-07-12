@@ -5,11 +5,11 @@
 
 ![Scene 3B: Pesan dari Masa Depan](scene03b-image.png)
 
-Pesan dari Mars itu panjang. Dan isinya membuat Bintang merinding.
+Pesan dari Mars itu panjangan dan isinya membuat Bintang merinding.
 
-Bukan soal Mars, bukan soal alien. Tapi soal Bintang sendiri.
+Bukan soal Mars, bukan soal alien, tapi soal Bintang sendiri.
 
-Orang di ujung sana tahu nama lengkap Bintang. Tanggal lahir, makanan favorit, nama panggilan yang hanya ibu yang tahu. Bahkan kenangan kecil saat umur 5 tahun kejadian yang tidak mungkin diketahui orang lain.
+Orang di ujung sana tahu nama lengkap Bintang, tanggal lahir, makanan favorit, nama panggilan yang hanya ibu yang tahu, bahkan kenangan kecil saat umur 5 tahun, kejadian yang tidak mungkin diketahui orang lain.
 
 KECUALI...
 
@@ -17,7 +17,7 @@ KECUALI...
 
 Pesan terakhirnya makin menyeramkan:
 
-"Kamu pasti bingung. Tapi percaya aku tahu semua ini karena aku dulu persis seperti kamu. Aku Bintang, Bintang yang 20 tahun lebih tua."
+"Kamu pasti bingung, tapi percaya, aku tahu semua ini karena aku dulu persis seperti kamu. Aku Bintang, Bintang yang 20 tahun lebih tua."
 
 Darah Bintang serasa berhenti mengalir.
 
