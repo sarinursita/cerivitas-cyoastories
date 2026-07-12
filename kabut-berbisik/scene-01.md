@@ -25,4 +25,4 @@ Junior menengok kanan kiri tetapi tidak ada orang, suara itu masih terdengar sep
 
 **Pilihan:**
 - [Scene 2A]: Selidiki kabut sendirian
-- [Scene 2B]: Ajak temen buat nyelidikin bareng
+- Ajak teman untuk selidiki bareng → Scene 2B
