@@ -21,7 +21,7 @@ Bintang menjadi ilmuwan paling terkenal di generasinya. Penemuannya tentang perj
 
 Tapi malam ini, di puncak kariernya...
 
-*BIP... BIP... BIP.*
+BIP...BIP...BIP
 
 Layar komunikasi berkedip. Sinyal baru.
 
