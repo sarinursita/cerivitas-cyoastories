@@ -21,4 +21,4 @@ Junior menengok ke belakang. Rumah-rumah sudah jauh, kampung terlihat sunyi, sep
 
 **Pilihan:**
 - [Scene 3A]: Masuk lebih dalam ke lorong kabut
-- [Scene 3B]: Lari pulang... tapi kabut udah nutup jalan
+- Lari pulang... tetapi kabut sudah menutupi jalan → Scene 3B
