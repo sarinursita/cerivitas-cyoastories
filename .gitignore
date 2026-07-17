@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+convert_to_docx.py
+debug_template.py
+inspect_template.py
+test_convert.py
